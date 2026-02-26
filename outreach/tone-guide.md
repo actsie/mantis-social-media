@@ -12,10 +12,31 @@
 - No hyphens, no quotation marks, no filler words like "love your content"
 - Slightly rambly but still punchy — doesn't trail off
 
-## Comment styles — mix these up, don't always do the same format
+## Primary approach: write fresh every time
+
+For each post, look at:
+- What's in the image (shape, color, technique, setting, vibe)
+- What the caption says (process? client story? a feeling they described?)
+- The account's personality (casual, artsy, professional, warm?)
+
+Write something original that could only be about THAT post. Use the style list as an energy guide, not a script.
+
+**Good examples of fresh writing:**
+- `the way the pink fades into the white on these is actually insane`
+- `i don't even wear acrylics and I need these!` ← exclamation ok sometimes, not every time
+- `ok who told you to make them this perfect 😭` ← emoji ok sometimes, not every time
+- `the almond shape on a chocolate french was not on my bingo card but here we are`
+- `i've never wanted [subject] until this very moment and now I need to have it`
+
+**Exclamation marks:** natural and human sometimes, don't overuse — maybe 1 in 3 comments
+**Emojis:** same — use when it fits the energy, not as punctuation every time
+
+---
+
+## Style list (use 1-3x per day MAX — vibe reference, not a copy-paste bank)
 
 ### Style 1: Hype only (short, punchy, no explanation needed)
-Just drop the reaction and done. Works when the visual speaks for itself. Pick ONE.
+Pick ONE. Use sparingly — max 1-3 times per day total across all comments.
 - OK THAT SLAYYYED
 - my jaw is DROPPED
 - do you understand how gorgeous these are
@@ -55,14 +76,17 @@ Best of both — starts energetic, ends with real engagement.
 Example: "STOP THESE ARE SO GOOD. do clients book repeat appointments for this specific look?"
 
 ## Rules for future comments
+- **Primary mode: write fresh and original** — the style list is a vibe reference, not a rotation
+- Use phrases from the style list max 1-3x per day total — don't cycle through them
 - Mix up the styles — don't always ask a question, don't always just hype
-- When using hype phrases, still try to tie in something specific from the post at least sometimes
-- No capital at start for Style 3, but Style 1/2 hype can be all caps mid-sentence — that's the vibe
+- No capital at start for observation-style comments; hype can be all caps — that's the vibe
 - Keep it to 1-3 sentences max
 - Never use: weird, resonate, nightmare, love your content, amazing, stunning, quiet
 - No hyphens or quotation marks
 - Not too polished — real people don't proofread Instagram comments
 - Questions should be about THEIR experience or process, not about us
+- **Exclamation marks:** natural sometimes, not every time — roughly 1 in 3 comments
+- **Emojis:** use when it fits the energy, not as punctuation on every comment
 
 ## Bad examples (do not use)
 - "Love your nail art! So talented 💅" — generic, no engagement
