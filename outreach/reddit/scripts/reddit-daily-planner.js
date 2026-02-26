@@ -20,19 +20,36 @@ const CLUSTER_MAX  = 90;   // "close pair" threshold
 const LONG_GAP_MIN = 180;  // "long break" threshold
 
 // ── Target subreddits ─────────────────────────────────────────────────────────
-// Priority: higher = more likely to be picked
-// phase: 'warmup' = active now | 'later' = unlock after ~100 karma
+// phase 1 = warmup (karma building) | phase 2 = business subs (50+ karma) | phase 3 = later
+// Karma thresholds: phase2 unlocks at 50+, phase3 at 100+
+// Update CURRENT_KARMA below as account grows
+const CURRENT_KARMA = 1; // update this as karma grows
+
 const SUBREDDITS = [
-  { sub: 'Nails',               type: 'nail',      phase: 'warmup', weight: 5 },
-  { sub: 'beauty',              type: 'beauty',    phase: 'warmup', weight: 3 },
-  { sub: 'femalehairadvice',    type: 'hair',      phase: 'warmup', weight: 2 },
-  { sub: 'SkincareAddicts',     type: 'skincare',  phase: 'warmup', weight: 2 },
-  { sub: '30PlusSkinCare',      type: 'skincare',  phase: 'warmup', weight: 1 },
-  { sub: 'SkincareAddiction',   type: 'skincare',  phase: 'later',  weight: 2 },
-  { sub: 'RedditLaqueristas',   type: 'nail',      phase: 'later',  weight: 3 },
-  { sub: 'curlyhair',           type: 'hair',      phase: 'warmup', weight: 1 },
-  { sub: 'longhair',            type: 'hair',      phase: 'warmup', weight: 1 },
+  // Phase 1 — warmup consumer subs
+  { sub: 'Nails',               type: 'nail',       phase: 1, weight: 5 },
+  { sub: 'beauty',              type: 'beauty',     phase: 1, weight: 3 },
+  { sub: 'femalehairadvice',    type: 'hair',       phase: 1, weight: 2 },
+  { sub: 'SkincareAddicts',     type: 'skincare',   phase: 1, weight: 2 },
+  { sub: '30PlusSkinCare',      type: 'skincare',   phase: 1, weight: 1 },
+  { sub: 'curlyhair',           type: 'hair',       phase: 1, weight: 1 },
+  { sub: 'longhair',            type: 'hair',       phase: 1, weight: 1 },
+  // Phase 2 — business/professional subs (OUR TARGET CUSTOMERS)
+  // Unlock at 50+ karma. These are nail techs / stylists / salon owners.
+  // Comment only on booking, client flow, website, getting new clients topics.
+  { sub: 'Nailtechs',           type: 'pro-nail',   phase: 2, weight: 5 },
+  { sub: 'hairstylist',         type: 'pro-hair',   phase: 2, weight: 4 },
+  { sub: 'EstheticianLife',     type: 'pro-beauty', phase: 2, weight: 3 },
+  { sub: 'smallbusiness',       type: 'biz',        phase: 2, weight: 2 },
+  // Phase 3 — expand later
+  { sub: 'SkincareAddiction',   type: 'skincare',   phase: 3, weight: 2 },
+  { sub: 'RedditLaqueristas',   type: 'nail',       phase: 3, weight: 2 },
+  { sub: 'MassageTherapists',   type: 'pro-beauty', phase: 3, weight: 1 },
 ];
+
+// Determine active phase based on karma
+const activePhase = CURRENT_KARMA >= 100 ? 3 : CURRENT_KARMA >= 50 ? 2 : 1;
+const activeSubs = SUBREDDITS.filter(s => s.phase <= activePhase);
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
@@ -110,17 +127,22 @@ const todayStr = targetDate();
 const todayCount = (log.sessions || []).filter(s => s.timestamp?.startsWith(todayStr)).length;
 
 // ── Generate schedule ─────────────────────────────────────────────────────────
-// Warmup phase: 3-4 comments/day. Scale up after review.
-const SESSION_COUNT = rand(3, 4);
+// Session count: 3-4 during warmup, scale up in phase 2+
+const SESSION_COUNT = activePhase >= 2 ? rand(4, 5) : rand(3, 4);
 const today   = targetDate();
 const times   = generateTimes(SESSION_COUNT);
 const gaps    = times.slice(1).map((t, i) => t - times[i]);
 
-// Pick subreddits — use only warmup-phase ones for now
-const warmupSubs = SUBREDDITS.filter(s => s.phase === 'warmup');
+// Mix: in phase 2+, ~40% business subs, 60% consumer subs
+const phase1Subs = activeSubs.filter(s => s.phase === 1);
+const phase2Subs = activeSubs.filter(s => s.phase === 2);
 
 const sessions = times.map((t, i) => {
-  const sub = weightedPick(warmupSubs);
+  // In phase 2+, every 3rd session targets a business sub
+  const pool = (activePhase >= 2 && i % 3 === 1 && phase2Subs.length > 0)
+    ? phase2Subs
+    : phase1Subs.length > 0 ? phase1Subs : activeSubs;
+  const sub = weightedPick(pool);
   return {
     n:    i + 1,
     time: minsToHHMM(t),
@@ -143,10 +165,33 @@ console.log(`\n✓ Written: today-schedule.json`);
 
 // ── Create session crons ───────────────────────────────────────────────────────
 sessions.forEach(s => {
+  const isProSub = ['pro-nail','pro-hair','pro-beauty','biz'].includes(s.type);
+  const proNote = isProSub ? [
+    ``,
+    `⚠️ BUSINESS SUB — This is r/${s.sub}, a professional community. These are our TARGET CUSTOMERS (nail techs, stylists, salon owners).`,
+    ``,
+    `ONLY comment on posts about:`,
+    `  - Getting new clients / online visibility`,
+    `  - Booking issues (clients DM instead of booking, booking confusion)`,
+    `  - Website / social media presence questions`,
+    `  - Starting a private studio or going solo`,
+    `  - No-shows, last-minute cancellations (booking page transparency can help)`,
+    ``,
+    `SKIP posts about: technique questions, product questions, personal struggles, drama with clients (unless there's a booking angle).`,
+    ``,
+    `TONE: Peer-to-peer, direct, knowledgeable. Show you understand their world (Vagaro, Booksy, Acuity, StyleSeat, Square Appointments). No links, no promotion. Just drop value.`,
+    ``,
+    `EXAMPLE good comment on "clients always DM me pricing instead of booking online":`,
+    `  "usually means there's friction in the booking path — most common: booking button is below the fold on mobile, no prices visible on the service menu, or no calendar preview so they can't tell if you're even taking new clients. linking directly to your booking page instead of your homepage fixes most of it"`,
+    ``,
+    `Read strategy.md for more: /Users/mantisclaw/.openclaw/workspace/outreach/reddit/strategy.md`,
+  ].join('\n') : '';
+
   const msg = [
     `REDDIT SESSION ${s.n}/${SESSION_COUNT} for ${today} — post as u/Alive_Kick7098.`,
     ``,
     `Target subreddit: r/${s.sub} (${s.type})`,
+    proNote,
     ``,
     `CRITICAL: Read these files first:`,
     `  /Users/mantisclaw/.openclaw/workspace/outreach/reddit/tone-guide.md`,

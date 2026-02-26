@@ -88,7 +88,7 @@ Full details: `outreach/x/posting-rules.md`
 outreach/
   instagram/   ← tone-guide.md, scheduling-rules.md, engagement-log.json, today-schedule.json, scripts/daily-planner.js
   x/           ← tone-guide.md, posting-rules.md, accounts.md, dm-template.md, scripts/x-daily-planner.js
-  reddit/      ← tone-guide.md ✅, subreddits.md (TBD), scripts/ (TBD), engagement-log.json ✅
+  reddit/      ← tone-guide.md ✅, strategy.md ✅, engagement-log.json ✅, scripts/reddit-daily-planner.js ✅
   reddit account: u/Alive_Kick7098 | email: stacy@curiousaddys.com | karma: 1 | age: 9mo | phase: warmup
 
 ## Active crons (Reddit)
