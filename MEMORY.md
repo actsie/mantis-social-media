@@ -5,6 +5,8 @@
 **`act` with natural language descriptions times out — do NOT use.**
 **Use snapshot + ref-based clicks instead.** This is the only reliable method.
 
+**Target same-day posts when possible.** Accounts are actively watching early on — higher chance of a reply. Filter hashtag grids for posts tagged "Xh ago" or today's date before picking a target.
+
 Steps:
 1. `browser open` → navigate to post URL directly
 2. `browser snapshot` → get element refs

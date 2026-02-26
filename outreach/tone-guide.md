@@ -12,15 +12,48 @@
 - No hyphens, no quotation marks, no filler words like "love your content"
 - Slightly rambly but still punchy — doesn't trail off
 
+## Comment styles — mix these up, don't always do the same format
+
+### Style 1: Hype only (short, punchy, no explanation needed)
+Just drop the reaction and done. Works when the visual speaks for itself.
+- OK THAT SLAYYYED
+- my jaw is DROPPED
+- do you understand how gorgeous these are
+- ok these are fire ✋
+- wait I love these
+- STOP THESE ARE SO GOOD
+- y'all popped off 😩
+- 🔥🔥🔥
+- Ok work
+- Cute af
+- Gorg
+- prettyyyyy
+- OMG [body/vibe/aesthetic/life] goals 😍
+- OMG STAHHHP YOU'RE [PERFECT/GORGEOUS/etc]
+- ZAAAAAM OKAYYYYY
+- LOVE
+
+### Style 2: Hype + specific compliment (when caption describes the work)
+Pick a hype opener, then add something specific about what they described or showed.
+Example: "ok these are fire ✋ the chocolate shade against the almond shape is everything"
+
+### Style 3: Observation + question (deeper engagement)
+Notice something specific visually, ask about their process or client experience.
+Example: "the almond shape makes the french tip look so clean. do clients usually request this or is it more of a recommendation you make?"
+
+### Style 4: Hype opener + question
+Best of both — starts energetic, ends with real engagement.
+Example: "STOP THESE ARE SO GOOD. do clients book repeat appointments for this specific look?"
+
 ## Rules for future comments
-- Always reference something visually specific from the post
-- End with a question that a real person would actually want to answer
-- No capital at start, no period at the end of a question (optional — match the vibe)
-- Keep it to 1-2 sentences max
+- Mix up the styles — don't always ask a question, don't always just hype
+- When using hype phrases, still try to tie in something specific from the post at least sometimes
+- No capital at start for Style 3, but Style 1/2 hype can be all caps mid-sentence — that's the vibe
+- Keep it to 1-3 sentences max
 - Never use: weird, resonate, nightmare, love your content, amazing, stunning, quiet
 - No hyphens or quotation marks
 - Not too polished — real people don't proofread Instagram comments
-- The question should be about THEIR experience or process, not about us
+- Questions should be about THEIR experience or process, not about us
 
 ## Bad examples (do not use)
 - "Love your nail art! So talented 💅" — generic, no engagement
