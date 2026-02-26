@@ -1,0 +1,32 @@
+# Tone Guide — Comment & Outreach Style
+
+## Reference Comment (approved + sent 2026-02-24)
+
+> "okay the flames plus the smiley face on a coffin set is genuinely so good this is 100% a save for later set. do people book from your grid a lot?"
+
+## What makes it work
+- Starts mid-thought, no capital — feels like someone typing naturally
+- Calls out TWO specific things from the post (flames + smiley face) not just a vague compliment
+- "100% a save for later set" is specific and relatable without being over the top
+- Ends with a genuine question that invites a real reply
+- No hyphens, no quotation marks, no filler words like "love your content"
+- Slightly rambly but still punchy — doesn't trail off
+
+## Rules for future comments
+- Always reference something visually specific from the post
+- End with a question that a real person would actually want to answer
+- No capital at start, no period at the end of a question (optional — match the vibe)
+- Keep it to 1-2 sentences max
+- Never use: weird, resonate, nightmare, love your content, amazing, stunning, quiet
+- No hyphens or quotation marks
+- Not too polished — real people don't proofread Instagram comments
+- The question should be about THEIR experience or process, not about us
+
+## Bad examples (do not use)
+- "Love your nail art! So talented 💅" — generic, no engagement
+- "This is such an amazing set! You're so gifted!" — sycophantic
+- "Would love to connect about your website!" — too salesy too fast
+- "Wow this really resonates with me" — banned word + fake
+
+## Account-specific notes
+- @houseofhuenails — bold character nail art, Vacaville CA, broken website, warm and consistent poster
