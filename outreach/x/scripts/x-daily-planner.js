@@ -207,7 +207,7 @@ sessions.forEach(s => {
     `8. Append to /Users/mantisclaw/.openclaw/workspace/outreach/x/engagement-log.json:`,
     `   { timestamp, account, tweetUrl, reply (or null if like-only), liked: true, type, platform: "x" }`,
     ``,
-    `9. Send a brief Telegram message: account name + what was done (reply text or "liked only").`,
+    `9. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"): account name + what was done (reply text or "liked only"). ALWAYS include target="6241290513" — do NOT omit it.`,
   ].filter(Boolean).join('\n');
 
   const name = `x-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;

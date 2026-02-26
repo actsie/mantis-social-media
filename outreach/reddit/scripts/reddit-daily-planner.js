@@ -237,7 +237,7 @@ sessions.forEach(s => {
     `9. Append to /Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json:`,
     `   { timestamp, subreddit, postUrl, postTitle, comment, upvoted: true, platform: "reddit", account: "Alive_Kick7098" }`,
     ``,
-    `10. Send a brief Telegram message: subreddit + post title + comment text.`,
+    `10. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"): subreddit + post title + comment text. ALWAYS include target="6241290513" — do NOT omit it.`,
     ``,
     `If no suitable post is found under 1hr old, try posts under 3hrs. If still nothing good, skip this session and log it as skipped.`,
   ].join('\n');

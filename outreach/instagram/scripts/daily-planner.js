@@ -136,7 +136,7 @@ sessions.forEach(s => {
     `5. Post via browser automation: snapshot → click comment box (ref) → JS execCommand inject → click Post button (ref)`,
     `6. Like the post + 2 older posts from the same account (snapshot → find Like button ref → click)`,
     `7. Append to /Users/mantisclaw/.openclaw/workspace/outreach/instagram/engagement-log.json: { timestamp, account, postUrl, comment, likes[], type, hashtag }`,
-    `8. Send a brief Telegram message: account name, what was posted or "liked only"`,
+    `8. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"): account name, what was posted or "liked only". ALWAYS include target="6241290513" — do NOT omit it.`,
   ].join('\n');
 
   const name = `ig-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;

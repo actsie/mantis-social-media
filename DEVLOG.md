@@ -7,6 +7,25 @@ Newest entries at the top.
 
 ## 2026-02-26
 
+### ✅ Cron delivery channel + duplicate session crons — FIXED
+
+**Problem:** All 6 daily crons (3 planners + 3 summaries) used `delivery.channel: "last"`. "Last" resolved to WhatsApp, which requires an E.164 phone number target. All were silently failing. Planners marked themselves as `error`, which caused OpenClaw to **retry the planner**, creating duplicate session crons (2x for IG, X, Reddit). One stale X session (x-s1-0710) ran before cleanup and errored on Telegram send with "Action send requires a target."
+
+**Root cause:**
+1. `channel: "last"` = wrong channel (WhatsApp not configured with DM target)
+2. Delivery failure → cron retry → duplicate session crons
+3. Isolated agent sessions had no Telegram chat context, so `message(target="me")` failed
+
+**Solution:**
+- Updated all 9 affected crons (3 planners + 3 summaries + 3 reminders) to `channel: telegram, to: 6241290513, bestEffort: true`
+- `bestEffort: true` ensures delivery failure doesn't cause a retry loop
+- Removed 15 stale duplicate session crons (3 Reddit + 8 IG + 4 X old sets)
+- Telegram chat ID confirmed: `6241290513`
+
+**Status:** ✅ Fixed — takes effect on next daily planner run (tomorrow 5:55 AM+)
+
+---
+
 ### ✅ Reddit comment method confirmed — use old.reddit.com
 **Problem:** Reddit's new UI uses Faceplate custom web components with Shadow DOM. All JS injection approaches fail: `execCommand`, `nativeInputValueSetter`, `ClipboardEvent paste`, `input` events. The component tracks its own internal state and ignores raw DOM changes.
 **Solution:** Use `old.reddit.com` instead. Plain textarea, no shadow DOM, `execCommand('insertText')` works perfectly.
