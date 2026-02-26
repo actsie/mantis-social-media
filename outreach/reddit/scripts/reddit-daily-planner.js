@@ -1,0 +1,220 @@
+#!/usr/bin/env node
+/**
+ * reddit-daily-planner.js
+ * Generates today's Reddit engagement schedule and creates OpenClaw cron jobs.
+ * Run at 6:01am PST daily via master cron (staggered after IG + X).
+ */
+
+const { spawnSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
+
+const WORKSPACE  = '/Users/mantisclaw/.openclaw/workspace';
+const LOG_FILE   = path.join(WORKSPACE, 'outreach/reddit/engagement-log.json');
+const SCHED_FILE = path.join(WORKSPACE, 'outreach/reddit/today-schedule.json');
+
+const MIN_HOUR     = 7;    // 7:00 AM PST
+const MAX_HOUR     = 23;   // 11:00 PM PST
+const MIN_GAP      = 45;   // min minutes between sessions (Reddit is stricter)
+const CLUSTER_MAX  = 90;   // "close pair" threshold
+const LONG_GAP_MIN = 180;  // "long break" threshold
+
+// ── Target subreddits ─────────────────────────────────────────────────────────
+// Priority: higher = more likely to be picked
+// phase: 'warmup' = active now | 'later' = unlock after ~100 karma
+const SUBREDDITS = [
+  { sub: 'Nails',               type: 'nail',      phase: 'warmup', weight: 5 },
+  { sub: 'beauty',              type: 'beauty',    phase: 'warmup', weight: 3 },
+  { sub: 'femalehairadvice',    type: 'hair',      phase: 'warmup', weight: 2 },
+  { sub: 'SkincareAddicts',     type: 'skincare',  phase: 'warmup', weight: 2 },
+  { sub: '30PlusSkinCare',      type: 'skincare',  phase: 'warmup', weight: 1 },
+  { sub: 'SkincareAddiction',   type: 'skincare',  phase: 'later',  weight: 2 },
+  { sub: 'RedditLaqueristas',   type: 'nail',      phase: 'later',  weight: 3 },
+  { sub: 'curlyhair',           type: 'hair',      phase: 'warmup', weight: 1 },
+  { sub: 'longhair',            type: 'hair',      phase: 'warmup', weight: 1 },
+];
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+function pad(n) { return n.toString().padStart(2, '0'); }
+function minsToHHMM(m) { return `${pad(Math.floor(m / 60))}:${pad(m % 60)}`; }
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function weightedPick(items) {
+  const total = items.reduce((s, i) => s + i.weight, 0);
+  let r = Math.random() * total;
+  for (const item of items) {
+    r -= item.weight;
+    if (r <= 0) return item;
+  }
+  return items[items.length - 1];
+}
+
+function generateTimes(count) {
+  const lo = MIN_HOUR * 60;
+  const hi = MAX_HOUR * 60;
+  for (let attempt = 0; attempt < 10000; attempt++) {
+    const times = Array.from({ length: count }, () => rand(lo, hi)).sort((a, b) => a - b);
+    const gaps  = times.slice(1).map((t, i) => t - times[i]);
+    if (gaps.some(g => g < MIN_GAP))        continue;
+    if (!gaps.some(g => g <= CLUSTER_MAX))  continue;
+    if (!gaps.some(g => g >= LONG_GAP_MIN)) continue;
+    return times;
+  }
+  throw new Error('Could not generate valid schedule after 10000 attempts');
+}
+
+function todayPST() {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Los_Angeles',
+    year: 'numeric', month: '2-digit', day: '2-digit'
+  }).format(new Date());
+}
+
+function getLAOffset() {
+  const tzDate  = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+  const utcDate = new Date(new Date().toLocaleString('en-US', { timeZone: 'UTC' }));
+  const diffH   = Math.round((tzDate - utcDate) / 3600000);
+  const sign    = diffH >= 0 ? '+' : '-';
+  return `${sign}${Math.abs(diffH).toString().padStart(2, '0')}:00`;
+}
+
+function targetDate() {
+  return process.env.DATE_OVERRIDE || todayPST();
+}
+
+// ── Load log ──────────────────────────────────────────────────────────────────
+let log = { sessions: [] };
+if (fs.existsSync(LOG_FILE)) {
+  try { log = JSON.parse(fs.readFileSync(LOG_FILE, 'utf8')); } catch (_) {}
+}
+
+// Posts commented on in last 7 days (avoid double-commenting same post)
+const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+const recentPostUrls = new Set(
+  (log.sessions || [])
+    .filter(s => new Date(s.timestamp).getTime() > sevenDaysAgo)
+    .map(s => s.postUrl)
+);
+
+// Count comments today to avoid overdoing it
+const todayStr = targetDate();
+const todayCount = (log.sessions || []).filter(s => s.timestamp?.startsWith(todayStr)).length;
+
+// ── Generate schedule ─────────────────────────────────────────────────────────
+// Warmup phase: 3-4 comments/day. Scale up after review.
+const SESSION_COUNT = rand(3, 4);
+const today   = targetDate();
+const times   = generateTimes(SESSION_COUNT);
+const gaps    = times.slice(1).map((t, i) => t - times[i]);
+
+// Pick subreddits — use only warmup-phase ones for now
+const warmupSubs = SUBREDDITS.filter(s => s.phase === 'warmup');
+
+const sessions = times.map((t, i) => {
+  const sub = weightedPick(warmupSubs);
+  return {
+    n:    i + 1,
+    time: minsToHHMM(t),
+    sub:  sub.sub,
+    type: sub.type,
+    done: false
+  };
+});
+
+console.log(`\n📅 Reddit schedule for ${today} (${SESSION_COUNT} sessions)`);
+sessions.forEach(s => console.log(`  ${s.n}. ${s.time}  r/${s.sub}  (${s.type})`));
+console.log(`  Gaps (min): ${gaps.join(', ')}`);
+console.log(`  Cluster ≤90min: ${gaps.some(g => g <= 90)}`);
+console.log(`  Long gap ≥3hrs: ${gaps.some(g => g >= 180)}`);
+console.log(`  Today already posted: ${todayCount}`);
+console.log(`  Recent post URLs (skip): ${recentPostUrls.size}`);
+
+fs.writeFileSync(SCHED_FILE, JSON.stringify({ date: today, sessionCount: SESSION_COUNT, sessions }, null, 2));
+console.log(`\n✓ Written: today-schedule.json`);
+
+// ── Create session crons ───────────────────────────────────────────────────────
+sessions.forEach(s => {
+  const msg = [
+    `REDDIT SESSION ${s.n}/${SESSION_COUNT} for ${today} — post as u/Alive_Kick7098.`,
+    ``,
+    `Target subreddit: r/${s.sub} (${s.type})`,
+    ``,
+    `CRITICAL: Read these files first:`,
+    `  /Users/mantisclaw/.openclaw/workspace/outreach/reddit/tone-guide.md`,
+    `  /Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json`,
+    ``,
+    `GOAL: Find a recent post (under 1 hour old, ideally under 30 min) and leave a genuine, specific comment.`,
+    ``,
+    `Steps:`,
+    ``,
+    `1. Navigate to: https://old.reddit.com/r/${s.sub}/new/`,
+    `   IMPORTANT: Always use old.reddit.com — NOT www.reddit.com (new UI blocks JS text injection).`,
+    ``,
+    `2. Scan the post list. Look for posts submitted "X minutes ago" or "just now".`,
+    `   Skip anything with:`,
+    `   - Negative content (complaints, bad experiences, "help" posts about damage/problems)`,
+    `   - Already commented on (check engagement-log.json)`,
+    `   - Questions that require medical advice`,
+    `   - Low effort or blurry photos`,
+    ``,
+    `3. Click into the best candidate post (positive show-and-tell, nail art, makeover, styling).`,
+    ``,
+    `4. Read the post title and caption carefully. Look at the photo description if visible.`,
+    ``,
+    `5. Draft a comment that is:`,
+    `   - Specific to what's actually in the post (NOT generic)`,
+    `   - 1-2 sentences max`,
+    `   - Natural, casual tone (see tone-guide.md)`,
+    `   - No hype words (gorgeous, amazing, stunning, love your content)`,
+    `   - Don't start with "I"`,
+    `   - For hair/skincare posts: only comment if there's real content worth engaging with`,
+    ``,
+    `6. Post the comment using the old.reddit.com method:`,
+    `   JS: const ta = document.querySelector('textarea[name="text"]');`,
+    `       ta.focus(); document.execCommand('insertText', false, 'YOUR COMMENT HERE');`,
+    `   Then click the Save button: document.querySelector('.usertext-edit .save')?.click()`,
+    ``,
+    `7. Upvote the post:`,
+    `   JS: document.querySelector('.arrow.up')?.click()`,
+    `   (Do this BEFORE or AFTER commenting — just not both at the exact same time)`,
+    ``,
+    `8. Reload the page and confirm your comment appears (search for your username or comment text).`,
+    ``,
+    `9. Append to /Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json:`,
+    `   { timestamp, subreddit, postUrl, postTitle, comment, upvoted: true, platform: "reddit", account: "Alive_Kick7098" }`,
+    ``,
+    `10. Send a brief Telegram message: subreddit + post title + comment text.`,
+    ``,
+    `If no suitable post is found under 1hr old, try posts under 3hrs. If still nothing good, skip this session and log it as skipped.`,
+  ].join('\n');
+
+  const name = `reddit-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
+  const at   = `${today}T${s.time}:00${getLAOffset()}`;
+
+  const result = spawnSync('openclaw', [
+    'cron', 'add',
+    '--name', name,
+    '--at',   at,
+    '--message', msg,
+    '--announce',
+    '--delete-after-run',
+    '--tz', 'America/Los_Angeles'
+  ], { encoding: 'utf8' });
+
+  if (result.status === 0) {
+    console.log(`✓ Cron: ${name} at ${s.time} → r/${s.sub}`);
+  } else {
+    console.error(`✗ Failed: ${name}\n${result.stderr}`);
+  }
+});
+
+console.log('\n✅ Reddit daily planner done.\n');

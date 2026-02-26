@@ -1,0 +1,27 @@
+{
+  "date": "2026-02-26",
+  "sessionCount": 3,
+  "sessions": [
+    {
+      "n": 1,
+      "time": "07:00",
+      "sub": "30PlusSkinCare",
+      "type": "skincare",
+      "done": false
+    },
+    {
+      "n": 2,
+      "time": "08:01",
+      "sub": "Nails",
+      "type": "nail",
+      "done": false
+    },
+    {
+      "n": 3,
+      "time": "11:20",
+      "sub": "SkincareAddicts",
+      "type": "skincare",
+      "done": false
+    }
+  ]
+}

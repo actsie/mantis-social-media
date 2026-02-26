@@ -91,6 +91,15 @@ outreach/
   reddit/      ← tone-guide.md ✅, subreddits.md (TBD), scripts/ (TBD), engagement-log.json ✅
   reddit account: u/Alive_Kick7098 | email: stacy@curiousaddys.com | karma: 1 | age: 9mo | phase: warmup
 
+## Active crons (Reddit)
+- `reddit-daily-planner` (ID: 143b337d) — 6:01am PST daily (staggered after IG + X), generates 3-4 session crons
+- `reddit-s1` through `reddit-s3/s4` — created fresh each morning, delete after run
+- `reddit-daily-summary` (ID: 6ab056e9) — 11:21pm PST daily, sends Telegram recap
+- Script: `outreach/reddit/scripts/reddit-daily-planner.js`
+- Log: `outreach/reddit/engagement-log.json`
+- Schedule: `outreach/reddit/today-schedule.json`
+- Target subs: r/Nails (priority), r/beauty, r/femalehairadvice, r/SkincareAddicts, r/30PlusSkinCare, r/curlyhair, r/longhair
+
 ## Reddit Automation — ALWAYS use old.reddit.com
 New Reddit UI (faceplate custom elements + Shadow DOM) blocks ALL JS text injection. Nothing works.
 **Use old.reddit.com** — plain textarea, execCommand works fine.
