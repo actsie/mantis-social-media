@@ -24,7 +24,11 @@
 - `ig-s1` through `ig-s8` — created fresh each morning by planner, delete after run
 - `ig-daily-summary` — 11:15pm PST daily, sends Telegram recap of day's activity
 - `ig-comment-frequency-review` — March 2 2026 10am PST, one-shot review reminder
-- Scripts: `outreach/scripts/daily-planner.js` | Log: `outreach/engagement-log.json` | Schedule: `outreach/today-schedule.json`
+- Scripts: `outreach/instagram/scripts/daily-planner.js`
+- Log: `outreach/instagram/engagement-log.json`
+- Schedule: `outreach/instagram/today-schedule.json`
+- Tone guide: `outreach/instagram/tone-guide.md`
+- Scheduling rules: `outreach/instagram/scheduling-rules.md`
 
 **Likes are bundled with comment sessions:**
 - Each comment session = comment + like that post + 1-2 older posts from same account (~20 likes/day from comments)
@@ -40,6 +44,15 @@ Steps:
 Confirmed working: liked @11nailangeles11 post Feb 25, 2026. Count 3→4 ✅
 
 ---
+
+## Outreach folder structure
+```
+outreach/
+  instagram/   ← tone-guide.md, scheduling-rules.md, engagement-log.json, today-schedule.json, scripts/daily-planner.js
+  x/           ← tone-guide.md, scripts/ (planner TBD), communities.md (TBD)
+  reddit/      ← tone-guide.md (TBD), subreddits.md (TBD), scripts/ (TBD)
+  tracker.csv  ← shared outreach tracker
+```
 
 ## Project: fountainofprofit.com / fix-your-page
 

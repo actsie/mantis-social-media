@@ -10,8 +10,8 @@ const fs = require('fs');
 const path = require('path');
 
 const WORKSPACE = '/Users/mantisclaw/.openclaw/workspace';
-const LOG_FILE   = path.join(WORKSPACE, 'outreach/engagement-log.json');
-const SCHED_FILE = path.join(WORKSPACE, 'outreach/today-schedule.json');
+const LOG_FILE   = path.join(WORKSPACE, 'outreach/instagram/engagement-log.json');
+const SCHED_FILE = path.join(WORKSPACE, 'outreach/instagram/today-schedule.json');
 
 const COMMENT_COUNT  = 8;
 const MIN_HOUR       = 6;    // 6:00 AM
@@ -129,13 +129,13 @@ sessions.forEach(s => {
     `SKIP these accounts (commented in last 7 days): ${skipList}`,
     ``,
     `Steps:`,
-    `1. Read outreach/tone-guide.md + scheduling-rules.md from workspace`,
+    `1. Read /Users/mantisclaw/.openclaw/workspace/outreach/instagram/tone-guide.md + scheduling-rules.md`,
     `2. Open https://www.instagram.com/explore/tags/${s.tag}/`,
     `3. Find a post from TODAY (same day — look for "Xh ago" or today's date). Skip accounts in the skip list.`,
     `4. Draft a fresh, original comment for that SPECIFIC post (image + caption + vibe). Use the tone guide style list as energy reference only — max 1-3 list phrases per day total across all sessions.`,
     `5. Post via browser automation: snapshot → click comment box (ref) → JS execCommand inject → click Post button (ref)`,
     `6. Like the post + 2 older posts from the same account (snapshot → find Like button ref → click)`,
-    `7. Append to outreach/engagement-log.json: { timestamp, account, postUrl, comment, likes[], type, hashtag }`,
+    `7. Append to /Users/mantisclaw/.openclaw/workspace/outreach/instagram/engagement-log.json: { timestamp, account, postUrl, comment, likes[], type, hashtag }`,
     `8. Send a brief Telegram message: account name, what was posted or "liked only"`,
   ].join('\n');
 
