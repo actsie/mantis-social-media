@@ -14,6 +14,12 @@
 - Never evenly spaced — vary gaps between 44min and 4hrs
 - Likes: 5-6 per batch, every 2-3hrs, not consecutive within batch
 
+**Likes are bundled with comment sessions:**
+- Each comment session = comment + like that post + 1-2 older posts from same account (~20 likes/day from comments)
+- Separate standalone like batches 2-3x/day, different accounts, no comment (~15 likes/day)
+- Total: ~35 likes/day + 8 comments/day
+- Full rules: `outreach/scheduling-rules.md`
+
 Steps:
 1. `browser open` → navigate to post URL directly
 2. `browser snapshot` → get element refs
