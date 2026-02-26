@@ -7,6 +7,13 @@
 
 **Target same-day posts when possible.** Accounts are actively watching early on — higher chance of a reply. Filter hashtag grids for posts tagged "Xh ago" or today's date before picking a target.
 
+**Comment scheduling rules (anti-pattern):**
+- 8 comments/day, 6am–11pm PST
+- At least 2 comments per day must be within 90min of each other (natural cluster)
+- At least one gap must be 3hrs+ (long break looks human)
+- Never evenly spaced — vary gaps between 44min and 4hrs
+- Likes: 5-6 per batch, every 2-3hrs, not consecutive within batch
+
 Steps:
 1. `browser open` → navigate to post URL directly
 2. `browser snapshot` → get element refs
