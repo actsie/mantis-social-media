@@ -88,7 +88,13 @@ Full details: `outreach/x/posting-rules.md`
 outreach/
   instagram/   ← tone-guide.md, scheduling-rules.md, engagement-log.json, today-schedule.json, scripts/daily-planner.js
   x/           ← tone-guide.md, posting-rules.md, accounts.md, dm-template.md, scripts/x-daily-planner.js
-  reddit/      ← tone-guide.md (TBD), subreddits.md (TBD), scripts/ (TBD)
+  reddit/      ← tone-guide.md ✅, subreddits.md (TBD), scripts/ (TBD), engagement-log.json ✅
+  reddit account: u/Alive_Kick7098 | email: stacy@curiousaddys.com | karma: 1 | age: 9mo | phase: warmup
+
+## Reddit Automation — ALWAYS use old.reddit.com
+New Reddit UI (faceplate custom elements + Shadow DOM) blocks ALL JS text injection. Nothing works.
+**Use old.reddit.com** — plain textarea, execCommand works fine.
+Flow: navigate to old.reddit.com post → `textarea[name="text"]` → focus + execCommand → `.arrow.up` to upvote → `.save` button to submit → reload + confirm text in page.
   tracker.csv  ← shared outreach tracker
 ```
 

@@ -5,6 +5,21 @@ Newest entries at the top.
 
 ---
 
+## 2026-02-26
+
+### ✅ Reddit comment method confirmed — use old.reddit.com
+**Problem:** Reddit's new UI uses Faceplate custom web components with Shadow DOM. All JS injection approaches fail: `execCommand`, `nativeInputValueSetter`, `ClipboardEvent paste`, `input` events. The component tracks its own internal state and ignores raw DOM changes.
+**Solution:** Use `old.reddit.com` instead. Plain textarea, no shadow DOM, `execCommand('insertText')` works perfectly.
+**Flow:**
+1. Navigate to `old.reddit.com/r/SUBREDDIT/comments/POST_ID/...`
+2. JS: `document.querySelector('textarea[name="text"]')` → focus → `execCommand('insertText', false, text)`
+3. JS: `document.querySelector('.arrow.up')?.click()` to upvote post
+4. JS: `document.querySelector('.usertext-edit .save, input[value="save"]')?.click()` to submit
+5. Reload and confirm with: `document.body.innerText.includes('comment text')`
+**Status:** ✅ Working — first two Reddit comments posted
+
+---
+
 ## 2026-02-25
 
 ### ✅ X DM flow confirmed working
