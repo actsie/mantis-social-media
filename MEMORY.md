@@ -69,7 +69,7 @@ Full details: `outreach/x/posting-rules.md`
 ```
 outreach/
   instagram/   ← tone-guide.md, scheduling-rules.md, engagement-log.json, today-schedule.json, scripts/daily-planner.js
-  x/           ← tone-guide.md, posting-rules.md, scripts/ (planner TBD)
+  x/           ← tone-guide.md, posting-rules.md, accounts.md, scripts/ (planner TBD)
   reddit/      ← tone-guide.md (TBD), subreddits.md (TBD), scripts/ (TBD)
   tracker.csv  ← shared outreach tracker
 ```
