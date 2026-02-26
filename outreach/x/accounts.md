@@ -11,7 +11,7 @@ Full rules: `posting-rules.md` and `tone-guide.md`
 | Handle | Notes | Status |
 |--------|-------|--------|
 | @holotaco | Simply Nailogical's brand account — very active, huge following | ✅ confirmed |
-| @nailogical | Simply Nailogical (Cristine) — personal account, nail obsessed | ✅ confirmed |
+| @nailogical | Simply Nailogical (Cristine) — personal account, nail obsessed. **⚠️ Dormant on X since Jul 2024** — no new posts. Consider replacing. | ✅ confirmed |
 | @hannahroxit | nail content creator | ✅ confirmed |
 | @N_P_Society | Nail Polish Society — nail swatches and reviews | ✅ confirmed |
 | @jackiemonttnail | nail tech/creator | ✅ confirmed |
