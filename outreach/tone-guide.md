@@ -15,7 +15,7 @@
 ## Comment styles — mix these up, don't always do the same format
 
 ### Style 1: Hype only (short, punchy, no explanation needed)
-Just drop the reaction and done. Works when the visual speaks for itself.
+Just drop the reaction and done. Works when the visual speaks for itself. Pick ONE.
 - OK THAT SLAYYYED
 - my jaw is DROPPED
 - do you understand how gorgeous these are
@@ -32,6 +32,15 @@ Just drop the reaction and done. Works when the visual speaks for itself.
 - OMG STAHHHP YOU'RE [PERFECT/GORGEOUS/etc]
 - ZAAAAAM OKAYYYYY
 - LOVE
+- that is the most prettiest thing I've seen done with [subject]
+- I've never wanted [subject] until this very moment and now I need to have it
+- I'm obsessed with this
+- this is the prettiest thing ever
+- ❤️❤️❤️wow
+- 😍👏👏
+- So in love with this!
+- Gorgeous 😍
+- Really pretty xx
 
 ### Style 2: Hype + specific compliment (when caption describes the work)
 Pick a hype opener, then add something specific about what they described or showed.
