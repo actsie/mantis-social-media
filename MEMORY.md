@@ -45,11 +45,31 @@ Confirmed working: liked @11nailangeles11 post Feb 25, 2026. Count 3→4 ✅
 
 ---
 
+## X Browser Automation — Safety Rules
+
+**⚠️ ALWAYS verify tweet content before posting. "Replying to @handle" is NOT confirmation.**
+
+**Pre-post checklist (mandatory):**
+1. Navigate to tweet URL
+2. Snapshot → read article text in Conversation region
+3. Confirm 1-2 keywords from your planned reply appear in the tweet
+4. Only then: click textbox → type → click Reply button
+
+**What went wrong Feb 25:** Extracted tweet URLs via JS from profile page, tried first URL without verifying content. First URL was a different OPI post (Bubble Bunny). Posted the Clawberry Margarita comment on the wrong tweet. Had to delete + repost.
+
+**Delete flow if you post wrong:** JS `[data-testid="caret"]` on your article → menuitem "Delete" → confirm dialog Delete button.
+
+**Reply submission:** Always click the Reply button ref — do NOT use Ctrl+Enter (unreliable).
+
+Full details: `outreach/x/posting-rules.md`
+
+---
+
 ## Outreach folder structure
 ```
 outreach/
   instagram/   ← tone-guide.md, scheduling-rules.md, engagement-log.json, today-schedule.json, scripts/daily-planner.js
-  x/           ← tone-guide.md, scripts/ (planner TBD), communities.md (TBD)
+  x/           ← tone-guide.md, posting-rules.md, scripts/ (planner TBD)
   reddit/      ← tone-guide.md (TBD), subreddits.md (TBD), scripts/ (TBD)
   tracker.csv  ← shared outreach tracker
 ```
