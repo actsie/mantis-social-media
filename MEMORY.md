@@ -14,6 +14,11 @@
 - Never evenly spaced — vary gaps between 44min and 4hrs
 - Likes: 5-6 per batch, every 2-3hrs, not consecutive within batch
 
+**Target hashtags:**
+- Nail (full engagement): #nailslove #nailart #nailsofig #nailinspiration #naildesigner #nailsalon
+- Hair (#haircuts #haircut #balayageombre #balayagehair): like only unless caption describes the cut in detail → hype + brief compliment, no question
+- Makeup (#makeupgoals): like only by default
+
 **Likes are bundled with comment sessions:**
 - Each comment session = comment + like that post + 1-2 older posts from same account (~20 likes/day from comments)
 - Separate standalone like batches 2-3x/day, different accounts, no comment (~15 likes/day)

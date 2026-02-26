@@ -1,5 +1,29 @@
 # Scheduling Rules — Instagram Engagement
 
+## Target Hashtags
+
+### Nail (full engagement — comment + likes)
+- #nailslove
+- #nailart
+- #nailsofig
+- #nailinspiration
+- #naildesigner
+- #nailsalon
+
+### Hair — like only by default
+- **#haircuts** — like only UNLESS caption describes the cut in detail → hype + brief compliment (no question needed)
+- **#haircut** — like only UNLESS caption describes the cut in detail → hype + brief compliment (no question needed)
+- **#balayageombre** — like only by default (check caption)
+- **#balayagehair** — like only by default (check caption)
+
+### Makeup
+- **#makeupgoals** — like only by default (check caption)
+
+### Hair/Makeup comment rule:
+> Only comment if the caption gives something specific to react to (describes technique, result, process, etc.). Keep it short — hype + one compliment max, no question required.
+
+---
+
 ## Comment Sessions (8/day)
 Each comment session is a bundled action — not just a comment in isolation.
 
