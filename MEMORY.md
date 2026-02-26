@@ -19,6 +19,13 @@
 - Hair (#haircuts #haircut #balayageombre #balayagehair): like only unless caption describes the cut in detail → hype + brief compliment, no question
 - Makeup (#makeupgoals): like only by default
 
+**Active crons (Instagram):**
+- `ig-daily-planner` — 5:55am PST daily, generates 8 session crons for the day
+- `ig-s1` through `ig-s8` — created fresh each morning by planner, delete after run
+- `ig-daily-summary` — 11:15pm PST daily, sends Telegram recap of day's activity
+- `ig-comment-frequency-review` — March 2 2026 10am PST, one-shot review reminder
+- Scripts: `outreach/scripts/daily-planner.js` | Log: `outreach/engagement-log.json` | Schedule: `outreach/today-schedule.json`
+
 **Likes are bundled with comment sessions:**
 - Each comment session = comment + like that post + 1-2 older posts from same account (~20 likes/day from comments)
 - Separate standalone like batches 2-3x/day, different accounts, no comment (~15 likes/day)
