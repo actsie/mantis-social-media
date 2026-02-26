@@ -7,6 +7,17 @@ Newest entries at the top.
 
 ## 2026-02-25
 
+### ✅ X DM flow confirmed working
+**Flow:** Navigate to target profile → click "Message" button (ref) → textbox appears labeled "Unencrypted message" → `type` into ref → click send button (last button ref in snapshot)
+**Notes:**
+- "Message" button only appears if target has DMs open — if missing, they've disabled DMs
+- "Sync is in progress..." overlay after send = encryption sync, message is delivered, ignore it
+- Passcode (1024) required on first DM session load via `/messages/compose` — but going profile → Message button bypasses the compose dialog entirely and goes straight to chat
+- First DM sent to @stacydj0x ✅
+**Status:** ✅ Working
+
+---
+
 ### ❌ Browser service crashes on `fill` action with wrong params
 **Problem:** Used `{"kind": "fill", "ref": "eXX", "text": "..."}` — `fill` expects a `fields` array, not `ref` + `text`. Invalid params crash the browser control service entirely (not just a graceful error).
 **Solution:** Always use `type` for typing into a single element: `{"kind": "type", "ref": "eXX", "text": "..."}`. Reserve `fill` for multi-field form actions with `fields` array only.
