@@ -91,6 +91,20 @@ outreach/
   reddit/      ← tone-guide.md ✅, strategy.md ✅, engagement-log.json ✅, scripts/reddit-daily-planner.js ✅
   reddit account: u/Alive_Kick7098 | email: stacy@curiousaddys.com | karma: 1 | age: 9mo | phase: warmup
 
+## Phase Systems
+
+### Instagram Phases
+- **Phase 1** (Feb 26-28): 8 comments/day, hashtag engagement, build comment history
+- **Phase 2** (from ~March 1): DMs to US beauty/nail salons with fix-your-page offer — DO NOT start without user approval
+- Reminder cron `ig-phase2-reminder` fires Feb 28 10am PST — asks user for go-ahead
+- Strategy: `outreach/instagram/strategy.md`
+
+### Reddit Phases
+- **Phase 1** (now → 50 karma): Consumer subs (r/Nails, r/beauty, r/femalehairadvice etc.)
+- **Phase 2** (50+ karma): Add r/Nailtechs, r/hairstylist, r/EstheticianLife — DO NOT start without user approval
+- Weekly karma check cron `reddit-karma-check` fires every Sunday 10am — notifies when approaching 50
+- Strategy: `outreach/reddit/strategy.md`
+
 ## Active crons (Reddit)
 - `reddit-daily-planner` (ID: 143b337d) — 6:01am PST daily (staggered after IG + X), generates 3-4 session crons
 - `reddit-s1` through `reddit-s3/s4` — created fresh each morning, delete after run
