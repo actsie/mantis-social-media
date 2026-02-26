@@ -1,5 +1,14 @@
 # MEMORY.md — Long-Term Memory
 
+## DEVLOG.md — Always Update on Problems
+Whenever an error, crash, or unexpected behavior is encountered during automation work, log it to `DEVLOG.md` (workspace root). Format:
+- **Problem:** what happened
+- **Root cause:** why it happened
+- **Solution:** how to fix/avoid it
+- **Status:** ✅ Fixed / ⚠️ Workaround / 🚧 Deferred
+
+Do this every time — don't wait to be asked. Newest entries at top.
+
 ## Instagram Browser Automation
 
 **`act` with natural language descriptions times out — do NOT use.**
