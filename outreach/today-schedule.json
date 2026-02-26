@@ -1,0 +1,53 @@
+{
+  "date": "2026-02-26",
+  "sessions": [
+    {
+      "n": 1,
+      "time": "06:48",
+      "tag": "nailslove",
+      "done": false
+    },
+    {
+      "n": 2,
+      "time": "07:30",
+      "tag": "nailart",
+      "done": false
+    },
+    {
+      "n": 3,
+      "time": "09:01",
+      "tag": "nailsofig",
+      "done": false
+    },
+    {
+      "n": 4,
+      "time": "11:22",
+      "tag": "nailinspiration",
+      "done": false
+    },
+    {
+      "n": 5,
+      "time": "15:53",
+      "tag": "makeupgoals",
+      "done": false
+    },
+    {
+      "n": 6,
+      "time": "18:16",
+      "tag": "nailsalon",
+      "done": false
+    },
+    {
+      "n": 7,
+      "time": "20:12",
+      "tag": "nailslove",
+      "done": false
+    },
+    {
+      "n": 8,
+      "time": "21:33",
+      "tag": "balayagehair",
+      "done": false
+    }
+  ]
+}

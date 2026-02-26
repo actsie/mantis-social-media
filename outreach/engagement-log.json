@@ -1,0 +1,49 @@
+{
+  "sessions": [
+    {
+      "timestamp": "2026-02-24T00:00:00-08:00",
+      "account": "houseofhuenails",
+      "postUrl": "https://www.instagram.com/p/DUxN6xVFcJP/",
+      "comment": "okay the flames plus the smiley face on a coffin set is genuinely so good this is 100% a save for later set. do people book from your grid a lot?",
+      "likes": ["DUxN6xVFcJP"],
+      "type": "comment",
+      "hashtag": "manual"
+    },
+    {
+      "timestamp": "2026-02-24T00:30:00-08:00",
+      "account": "jjsthreadingsalon",
+      "postUrl": "https://www.instagram.com/p/DN6jtOWEpkQ/",
+      "comment": "this before and after is so satisfying! the layers changed the whole look. do people usually come in knowing they want this or do you figure it out together?",
+      "likes": ["DN6jtOWEpkQ"],
+      "type": "comment",
+      "hashtag": "manual"
+    },
+    {
+      "timestamp": "2026-02-25T18:48:00-08:00",
+      "account": "11nailangeles11",
+      "postUrl": "https://www.instagram.com/p/DVMlTkiE4yb/",
+      "comment": null,
+      "likes": ["DVMlTkiE4yb"],
+      "type": "like",
+      "hashtag": "nailsalon"
+    },
+    {
+      "timestamp": "2026-02-25T19:05:00-08:00",
+      "account": "medinanailsbellevue",
+      "postUrl": "https://www.instagram.com/p/DPECFdDjJSQ/",
+      "comment": "do you understand how gorgeous these are!! do clients come in asking for the chocolate french specifically or do you end up suggesting it",
+      "likes": ["DPECFdDjJSQ"],
+      "type": "comment",
+      "hashtag": "nailsalon"
+    },
+    {
+      "timestamp": "2026-02-25T19:48:00-08:00",
+      "account": "thenailhall",
+      "postUrl": "https://www.instagram.com/thenailhall/p/DUPpHrHjlBg/",
+      "comment": "7 years in SF is seriously impressive. coming out the other side and still talking about your team like this says a lot! congrats on 7!! 💖",
+      "likes": ["DUPpHrHjlBg", "DSF07YtD1Gk", "DUtx7vKEkUo"],
+      "type": "comment",
+      "hashtag": "manual"
+    }
+  ]
+}
