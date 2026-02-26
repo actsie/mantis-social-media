@@ -6,4 +6,4 @@
 
 ## Pending outreach reminders
 
-- [ ] **@thenailhall comment** — post on 2026-02-25 or later. Comment ready: "7 years in SF is seriously impressive. coming out the other side and still talking about your team like this says a lot! congrats on 7!! 💖" — post on 7yr anniversary post: https://www.instagram.com/thenailhall/p/DUPpHrHjlBg/ — email was sent + opened, so wait a full day before touching their IG
+- [x] **@thenailhall comment** — posted 2026-02-25 at ~7:48 PM PST ✅ — also liked anniversary post + 2 older posts
