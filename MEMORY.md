@@ -63,6 +63,15 @@ Confirmed working: liked @11nailangeles11 post Feb 25, 2026. Count 3→4 ✅
 
 Full details: `outreach/x/posting-rules.md`
 
+**Active crons (X):**
+- `x-daily-planner` (ID: 0ccc5cd2) — 5:55am PST daily, generates 4-5 session crons
+- `x-s1` through `x-s4/s5` — created fresh each morning, delete after run
+- `x-daily-summary` (ID: ca8e5996) — 11:15pm PST daily, sends Telegram recap
+- Script: `outreach/x/scripts/x-daily-planner.js`
+- Log: `outreach/x/engagement-log.json`
+- Schedule: `outreach/x/today-schedule.json`
+- Accounts: `outreach/x/accounts.md`
+
 ---
 
 ## Outreach folder structure
