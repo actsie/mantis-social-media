@@ -120,10 +120,12 @@ React to what's actually in the post. Be a real person.
 8. **No hyphens or dashes** — use a period instead. "zero downtime. plays nicely with tret" not "zero downtime — plays nicely with tret"
 9. **No quotation marks** — ever. Rephrase to avoid them entirely. "the shade they called butter" not "the 'butter' shade"
 10. **Lowercase is fine** — not every sentence needs a capital. natural flow beats proper grammar here
-11. **No "especially"** — banned word, find a different way to say it
-12. **No "[X] is still the move"** type phrases — trendy filler. just say why something works
-13. **No "not X, but Y" constructions** — sounds too try-hard. just say the thing
-14. **Rambly and diary-ish is welcome** — a comment that meanders slightly, thinks out loud, or doesn't wrap up neatly can feel more genuine than something too composed
+11. **No "especially"** — banned word
+12. **No "vibe"** — banned (and variants: vibes, vibe check). just describe what you mean
+13. **English posts only** — if the post title or body is in another language, skip it entirely
+14. **No "[X] is still the move"** type phrases — trendy filler. just say why something works
+15. **No "not X, but Y" constructions** — sounds too try-hard. just say the thing
+16. **Rambly and diary-ish is welcome** — a comment that meanders slightly, thinks out loud, or doesn't wrap up neatly can feel more genuine than something too composed
 
 ---
 
