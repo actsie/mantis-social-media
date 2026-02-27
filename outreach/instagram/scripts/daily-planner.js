@@ -147,7 +147,6 @@ sessions.forEach(s => {
     '--name', name,
     '--at',   at,
     '--message', msg,
-    '--announce',
     '--delete-after-run',
     '--tz', 'America/Los_Angeles'
   ], { encoding: 'utf8' });
