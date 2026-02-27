@@ -146,3 +146,16 @@ Also: began creating a second IG account (donna.fop) for scaling.
 8. **Pre-verify tweet content before posting** — "replying to @handle" is not enough confirmation
 9. **CDP direct WebSocket works** via OpenClaw's bundled `ws` module — useful for incognito contexts, new browser contexts, etc.
 10. **Google signup QR verification needs uninterrupted live browser session** — no reloads, no automation interference during the polling window
+
+---
+
+## 📝 Research Tone Rule (added 2026-02-27)
+
+**Page observation tone:** Keep it positive, specific, and non-judgmental.
+- ✅ "The celebrity gallery is lower on the page — there's an opportunity to bring it higher since those are powerful trust signals for first-time visitors"
+- ✅ "The booking button sits alongside two gift card CTAs — a visitor booking for the first time has to scan across all three"
+- ❌ "The body copy is generic/template"
+- ❌ "The section looks unfinished"
+- ❌ "The site doesn't communicate X" (implied failure)
+
+Frame as: what I noticed + what it could do, not what's wrong.
