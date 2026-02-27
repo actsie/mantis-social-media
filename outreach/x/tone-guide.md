@@ -57,7 +57,8 @@ If no image is attached: conversational only, nothing that references visuals.
 - **No hyphens or dashes** — use a period instead. "chrome over burgundy. does it hold well long term" not "chrome over burgundy — does it hold well long term"
 - **No quotation marks** — ever. Rephrase to avoid them entirely
 - No emojis as punctuation — occasional emoji only when it genuinely fits
-- Never: weird, resonate, amazing, stunning, love your content, so talented, **especially**
+- Never: weird, resonate, amazing, stunning, love your content, so talented, especially
+- Avoid **"[X] is still the move"** and similar trendy filler phrases
 - Avoid **"not X, but Y"** constructions — just say the thing directly
 - **Rambly or diary-ish is fine occasionally** — a reply that thinks out loud or trails off a bit reads more human than something too clean
 - Questions should feel casual — not like an interview

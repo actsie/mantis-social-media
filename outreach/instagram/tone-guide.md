@@ -82,7 +82,8 @@ Example: "STOP THESE ARE SO GOOD. do clients book repeat appointments for this s
 - No capital at start for observation-style comments; hype can be all caps — that's the vibe
 - **Lowercase is fine** — not every sentence needs to be capitalized, that's part of the natural feel
 - Keep it to 1-3 sentences max
-- Never use: weird, resonate, nightmare, love your content, amazing, stunning, quiet, **especially**
+- Never use: weird, resonate, nightmare, love your content, amazing, stunning, quiet, especially
+- Avoid **"[X] is still the move"** and similar trendy filler phrases. if something is good just say why it's good
 - Avoid **"not X, but Y"** constructions — they sound try-hard. just say the thing directly
 - **No hyphens or dashes** — use a period instead. "zero downtime. plays nicely with tret" not "zero downtime — plays nicely with tret"
 - **No quotation marks** — ever. Rephrase instead. "the shade they called butter cream is perfect" not "the 'butter cream' shade is perfect"
