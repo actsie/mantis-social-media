@@ -25,10 +25,8 @@ const LONG_GAP_MIN  = 180;  // "long break" threshold (minutes)
 const ACCOUNTS = [
   // Nail creators — full engagement
   { handle: 'holotaco',        type: 'creator',    engagement: 'full',      status: 'confirmed' },
-  { handle: 'nailogical',      type: 'creator',    engagement: 'full',      status: 'confirmed' },
-  { handle: 'hannahroxit',     type: 'creator',    engagement: 'full',      status: 'confirmed' },
   { handle: 'N_P_Society',     type: 'creator',    engagement: 'full',      status: 'confirmed' },
-  { handle: 'jackiemonttnail', type: 'creator',    engagement: 'full',      status: 'confirmed' },
+  // removed: nailogical (inactive Jul 2024), hannahroxit (inactive Sep 2022), jackiemonttnail (inactive Dec 2021)
   // Nail brands — full engagement
   { handle: 'OPI_PRODUCTS',    type: 'nail-brand', engagement: 'full',      status: 'confirmed' },
   { handle: 'essie',           type: 'nail-brand', engagement: 'full',      status: 'confirmed' },
