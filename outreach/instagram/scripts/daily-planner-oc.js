@@ -134,6 +134,7 @@ sessions.forEach(s => {
     `1. Read /Users/mantisclaw/.openclaw/workspace/outreach/instagram/tone-guide.md + scheduling-rules.md`,
     `2. Open https://www.instagram.com/explore/tags/${s.tag}/`,
     `3. Find a post from TODAY (same day — look for "Xh ago" or today's date). Skip accounts in the skip list.`,
+    `   IF no same-day posts are available in the hashtag feed: instead of skipping, visit a specific account from /Users/mantisclaw/.openclaw/workspace/outreach/instagram/accounts.md — pick one with status "verify" that is NOT in the skip list, go to their profile, and engage with their most recent post (even if not today). Update that account's status to ✅ in accounts.md after engaging.`,
     `4. Draft a fresh, original comment for that SPECIFIC post (image + caption + vibe). Use the tone guide style list as energy reference only — max 1-3 list phrases per day total across all sessions.`,
     `5. Post via browser automation: snapshot → click comment box (ref) → JS execCommand inject → click Post button (ref)`,
     `6. Like the post + 2 older posts from the same account (snapshot → find Like button ref → click)`,
