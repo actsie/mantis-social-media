@@ -82,9 +82,11 @@ Example: "STOP THESE ARE SO GOOD. do clients book repeat appointments for this s
 - No capital at start for observation-style comments; hype can be all caps — that's the vibe
 - **Lowercase is fine** — not every sentence needs to be capitalized, that's part of the natural feel
 - Keep it to 1-3 sentences max
-- Never use: weird, resonate, nightmare, love your content, amazing, stunning, quiet
+- Never use: weird, resonate, nightmare, love your content, amazing, stunning, quiet, **especially**
+- Avoid **"not X, but Y"** constructions — they sound try-hard. just say the thing directly
 - **No hyphens or dashes** — use a period instead. "zero downtime. plays nicely with tret" not "zero downtime — plays nicely with tret"
 - **No quotation marks** — ever. Rephrase instead. "the shade they called butter cream is perfect" not "the 'butter cream' shade is perfect"
+- **Rambly and diary-ish is good sometimes** — a comment that wanders a little, thinks out loud, or trails off naturally can feel more real than something tight and punchy. not every comment needs to be a perfect one-liner
 - Not too polished — real people don't proofread Instagram comments
 - Questions should be about THEIR experience or process, not about us
 - **Exclamation marks:** natural sometimes, not every time — roughly 1 in 3 comments
