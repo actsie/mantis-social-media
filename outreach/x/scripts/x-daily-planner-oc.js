@@ -37,6 +37,25 @@ const ACCOUNTS = [
   { handle: 'GelishNails',     type: 'nail-brand', engagement: 'full',      status: 'verify'    },
   { handle: 'OliveAndJune',    type: 'nail-brand', engagement: 'full',      status: 'verify'    },
   // Hair brands — like only (reply only if caption has technique detail)
+  // Beauty creators & brands (mixed content — like-only by default, comment on nail/cute posts)
+  { handle: 'elfcosmetics',    type: 'beauty-brand',    engagement: 'like-only', status: 'verify' },
+  { handle: 'ColourPopCo',     type: 'beauty-brand',    engagement: 'like-only', status: 'verify' },
+  { handle: 'MACcosmetics',    type: 'beauty-brand',    engagement: 'like-only', status: 'verify' },
+  { handle: 'NYXCosmetics',    type: 'beauty-brand',    engagement: 'like-only', status: 'verify' },
+  { handle: 'MannyMua733',     type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'patrickstarrr',   type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'amrezy',          type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'Rocioceja_',      type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'Trendmood',       type: 'beauty-brand',    engagement: 'like-only', status: 'verify' },
+  { handle: 'GlamLifeGuru',    type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'kandeejohnson',   type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'carlibybel',      type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'ChloeMorello',    type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'RawBeautyKristi', type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'katseyeworld',    type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'XtineQuinn',      type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'aesttics',        type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
+  { handle: 'Araduaduadua',    type: 'beauty-creator',  engagement: 'like-only', status: 'verify' },
   { handle: 'olaplex',         type: 'hair-brand', engagement: 'like-only', status: 'verify'    },
   { handle: 'redken',          type: 'hair-brand', engagement: 'like-only', status: 'verify'    },
   { handle: 'moroccanoil',     type: 'hair-brand', engagement: 'like-only', status: 'verify'    },
@@ -158,10 +177,13 @@ sessions.forEach(s => {
     ? `NOTE: @${s.account} is unverified — first confirm the account exists and is active before engaging. If inactive or not found, pick the next account on the list in outreach/x/accounts.md instead.`
     : '';
 
+  const isBeautyType = ['beauty-brand', 'beauty-creator'].includes(s.type);
   const engagementInstructions = isLikeOnly
     ? [
         `ENGAGEMENT: LIKE ONLY by default.`,
-        `Only reply if the caption/post has specific technique or product detail worth responding to.`,
+        isBeautyType
+          ? `Only reply if the post is nail-related or clearly cute/aesthetic content worth a genuine reaction. Skip makeup tutorials, selfies, promos, non-nail content.`
+          : `Only reply if the caption/post has specific technique or product detail worth responding to.`,
         `If replying: Style 1 or 3 only (observation or opinion), no question, no hype compliment.`,
       ].join('\n')
     : [

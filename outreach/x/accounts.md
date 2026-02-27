@@ -18,6 +18,33 @@ Full rules: `posting-rules.md` and `tone-guide.md`
 
 ---
 
+## 💄 Beauty Creators & Brands (mixed content — nail/cute posts only)
+
+Like by default. Comment only when post is nail-related or clearly cute/aesthetic content worth a genuine reaction. Style 1 or 3 only (observation or opinion), no question, no hype.
+
+| Handle | Notes | Status |
+|--------|-------|--------|
+| @elfcosmetics | e.l.f. cosmetics — very active brand | verify |
+| @ColourPopCo | ColourPop — active brand, frequent collabs | verify |
+| @MACcosmetics | MAC Cosmetics — large brand, active | verify |
+| @NYXCosmetics | NYX Professional Makeup | verify |
+| @MannyMua733 | Manny MUA — makeup artist, large following | verify |
+| @patrickstarrr | Patrick Starr — makeup influencer | verify |
+| @amrezy | Amrezy — beauty influencer | verify |
+| @Rocioceja_ | Rocio Ceja — beauty creator | verify |
+| @Trendmood | Trendmood — beauty trend account, active | verify |
+| @GlamLifeGuru | Tati Westbrook — beauty creator | verify |
+| @kandeejohnson | Kandee Johnson — beauty creator | verify |
+| @carlibybel | Carli Bybel — beauty creator | verify |
+| @ChloeMorello | Chloe Morello — beauty creator | verify |
+| @RawBeautyKristi | Kristi — beauty creator | verify |
+| @katseyeworld | Kat — beauty creator | verify |
+| @XtineQuinn | Christine Quinn — lifestyle/beauty | verify |
+| @aesttics | aesthetic content creator | verify |
+| @Araduaduadua | beauty/lifestyle creator | verify |
+
+---
+
 ## 💅 Nail Polish Brands
 
 | Handle | Notes | Status |
