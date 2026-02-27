@@ -80,9 +80,11 @@ Example: "STOP THESE ARE SO GOOD. do clients book repeat appointments for this s
 - Use phrases from the style list max 1-3x per day total — don't cycle through them
 - Mix up the styles — don't always ask a question, don't always just hype
 - No capital at start for observation-style comments; hype can be all caps — that's the vibe
+- **Lowercase is fine** — not every sentence needs to be capitalized, that's part of the natural feel
 - Keep it to 1-3 sentences max
 - Never use: weird, resonate, nightmare, love your content, amazing, stunning, quiet
-- No hyphens or quotation marks
+- **No hyphens or dashes** — use a period instead. "zero downtime. plays nicely with tret" not "zero downtime — plays nicely with tret"
+- **No quotation marks** — ever. Rephrase instead. "the shade they called butter cream is perfect" not "the 'butter cream' shade is perfect"
 - Not too polished — real people don't proofread Instagram comments
 - Questions should be about THEIR experience or process, not about us
 - **Exclamation marks:** natural sometimes, not every time — roughly 1 in 3 comments

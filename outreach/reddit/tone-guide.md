@@ -117,6 +117,9 @@ React to what's actually in the post. Be a real person.
 5. **Never mention websites, businesses, or services** — 0 exceptions during warmup
 6. **If the post is about a product, you can ask about it** — genuine curiosity is fine
 7. **Reply to top comments, not just the OP** — comment chains get more visibility
+8. **No hyphens or dashes** — use a period instead. "zero downtime. plays nicely with tret" not "zero downtime — plays nicely with tret"
+9. **No quotation marks** — ever. Rephrase to avoid them entirely. "the shade they called butter" not "the 'butter' shade"
+10. **Lowercase is fine** — not every sentence needs a capital. natural flow beats proper grammar here
 
 ---
 
