@@ -9,6 +9,19 @@ Whenever an error, crash, or unexpected behavior is encountered during automatio
 
 Do this every time — don't wait to be asked. Newest entries at top.
 
+## Browser Profile — Always Use openclaw
+- `browser.defaultProfile` is set to `"openclaw"` globally (Feb 26 fix)
+- All 3 planners use `_oc.js` versions with explicit `profile="openclaw"` instruction
+- Chrome extension relay (`profile="chrome"`) requires manual click — avoid for scheduled sessions
+- OpenClaw browser is logged into IG (stacyd0nna), X (@stacydonna0x), Reddit (u/Alive_Kick7098)
+- If openclaw browser gets logged out: re-login once via browser tool, done
+
+## Cron Delivery — Always Use Telegram Target
+- All daily crons use `channel: telegram, to: 6241290513, bestEffort: true`
+- `bestEffort: true` prevents delivery failure from triggering planner retries (which caused duplicate crons Feb 26)
+- Session cron Telegram sends must include `target="6241290513"` explicitly — isolated sessions have no chat context
+- Telegram chat ID: **6241290513**
+
 ## Instagram Browser Automation
 
 **`act` with natural language descriptions times out — do NOT use.**
@@ -120,6 +133,24 @@ New Reddit UI (faceplate custom elements + Shadow DOM) blocks ALL JS text inject
 Flow: navigate to old.reddit.com post → `textarea[name="text"]` → focus + execCommand → `.arrow.up` to upvote → `.save` button to submit → reload + confirm text in page.
   tracker.csv  ← shared outreach tracker
 ```
+
+## Tone Rules (all 3 platforms — IG, X, Reddit)
+- No hyphens `-` or em dashes `—` → use period instead
+- No quotation marks → rephrase
+- No: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, "is still the move", "not X but Y"
+- Lowercase fine. Rambly/diary-ish encouraged
+- English posts only
+- Core energy: warm, positive, uplifting, kind, human. dry humor ok, never snarky/judgmental
+
+## Active X Accounts (confirmed)
+- @holotaco, @OPI_PRODUCTS, @essie (full engagement)
+- 18 beauty creators/brands (like-only, comment on nail/cute posts): elfcosmetics, ColourPopCo, MACcosmetics, NYXCosmetics, MannyMua733, patrickstarrr, amrezy, Rocioceja_, Trendmood, GlamLifeGuru, kandeejohnson, carlibybel, ChloeMorello, RawBeautyKristi, katseyeworld, XtineQuinn, aesttics, Araduaduadua
+- Removed (inactive): @jackiemonttnail (Dec 2021), @hannahroxit (Sep 2022), @nailogical (Jul 2024), @N_P_Society (Jan 2021)
+
+## Instagram Accounts List
+- File: `outreach/instagram/accounts.md` (~45 salons, spas, brands — mostly Chicago)
+- Planner fallback: if no same-day hashtag post → visit account from accounts.md
+- These are also Phase 2 DM targets for fix-your-page outreach
 
 ## Project: fountainofprofit.com / fix-your-page
 
