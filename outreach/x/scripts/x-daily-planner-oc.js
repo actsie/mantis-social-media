@@ -226,9 +226,9 @@ sessions.forEach(s => {
     `   If full engagement: also like 1-2 older posts from the same account.`,
     ``,
     `8. Append to /Users/mantisclaw/.openclaw/workspace/outreach/x/engagement-log.json:`,
-    `   { timestamp, account, tweetUrl, reply (or null if like-only), liked: true, type, platform: "x" }`,
+    `   { timestamp, account, tweetUrl, replyUrl (URL of your reply tweet, if posted), reply (or null if like-only), liked: true, type, platform: "x" }`,
     ``,
-    `9. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"): account name + what was done (reply text or "liked only"). ALWAYS include target="6241290513" — do NOT omit it.`,
+    `9. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"). ALWAYS include target="6241290513" — do NOT omit it. Include: account name, action taken (reply/like), the reply text if applicable, AND direct links — URL of the tweet replied to or liked (e.g. https://x.com/handle/status/ID), and the URL of your reply tweet if posted.`,
   ].filter(Boolean).join('\n');
 
   const name = `x-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;

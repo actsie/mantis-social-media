@@ -237,9 +237,9 @@ sessions.forEach(s => {
     `8. Reload the page and confirm your comment appears (search for your username or comment text).`,
     ``,
     `9. Append to /Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json:`,
-    `   { timestamp, subreddit, postUrl, postTitle, comment, upvoted: true, platform: "reddit", account: "Alive_Kick7098" }`,
+    `   { timestamp, subreddit, postUrl, postTitle, commentUrl (direct permalink to your comment), comment, upvoted: true, platform: "reddit", account: "Alive_Kick7098" }`,
     ``,
-    `10. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"): subreddit + post title + comment text. ALWAYS include target="6241290513" — do NOT omit it.`,
+    `10. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"). ALWAYS include target="6241290513" — do NOT omit it. Include: subreddit, post title, comment text, AND direct links — URL of the post commented on (old.reddit.com/r/sub/comments/...) and your comment permalink (old.reddit.com/r/sub/comments/postid/title/commentid/).`,
     ``,
     `If no suitable post is found under 1hr old, try posts under 3hrs. If still nothing good, skip this session and log it as skipped.`,
   ].join('\n');

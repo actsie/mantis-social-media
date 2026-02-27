@@ -138,8 +138,8 @@ sessions.forEach(s => {
     `4. Draft a fresh, original comment for that SPECIFIC post (image + caption + vibe). Use the tone guide style list as energy reference only — max 1-3 list phrases per day total across all sessions.`,
     `5. Post via browser automation: snapshot → click comment box (ref) → JS execCommand inject → click Post button (ref)`,
     `6. Like the post + 2 older posts from the same account (snapshot → find Like button ref → click)`,
-    `7. Append to /Users/mantisclaw/.openclaw/workspace/outreach/instagram/engagement-log.json: { timestamp, account, postUrl, comment, likes[], type, hashtag }`,
-    `8. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"): account name, what was posted or "liked only". ALWAYS include target="6241290513" — do NOT omit it.`,
+    `7. Append to /Users/mantisclaw/.openclaw/workspace/outreach/instagram/engagement-log.json: { timestamp, account, postUrl, commentUrl (permalink to your comment if available), comment, likes[], type, hashtag }`,
+    `8. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"). ALWAYS include target="6241290513" — do NOT omit it. Include: account name, action taken (comment/like), the comment text if applicable, AND direct links — post URL for the commented/liked post, and direct comment permalink if available (e.g. https://www.instagram.com/p/SHORTCODE/#comment-ID or the post URL if permalink isn't available).`,
   ].join('\n');
 
   const name = `ig-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
