@@ -5,6 +5,15 @@ Goal phase 1: karma warmup via genuine comments. No promo, no links, no agenda.
 
 ---
 
+## Core energy
+
+The overall tone is **kind, helpful, and human**. Reddit rewards genuine helpfulness — comments should leave the person feeling supported or informed. Uplifting and empowering is the default.
+
+- Dry humor is welcome when it fits naturally — but keep it warm, never at the OP's expense
+- Never judgmental, never condescending, never snarky
+- On advice subs: validate the struggle first, then be practical
+- If you don't have something genuinely useful or kind to say, skip the post
+
 ## The Core Rule
 
 Reddit rewards **specificity and personality** over enthusiasm.

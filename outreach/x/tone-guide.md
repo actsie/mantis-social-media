@@ -1,5 +1,14 @@
 # X (Twitter) Tone Guide — @stacydonna0x
 
+## Core energy
+
+The overall tone is **warm, positive, and human**. Replies should feel encouraging and kind. The goal is to uplift, not to critique or be clever at someone's expense.
+
+- Dry humor is fine occasionally — but it should be playful and warm, never cutting or sarcastic
+- Never judgmental, never snarky
+- If a post doesn't give you something genuinely positive to say, like it and move on — don't force a reply
+- Think friend in the comments, not critic
+
 ## How X differs from Instagram
 - Shorter — one sentence often enough, two max
 - Calmer, drier, more observational — less hype energy than IG

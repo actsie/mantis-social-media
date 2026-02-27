@@ -4,6 +4,15 @@
 
 > "okay the flames plus the smiley face on a coffin set is genuinely so good this is 100% a save for later set. do people book from your grid a lot?"
 
+## Core energy
+
+The overall tone is **warm, positive, and human**. Comments should leave the person feeling seen and good about what they shared. Empowering and uplifting is the default mode.
+
+- Dry humor is fine occasionally — but it should land as playful, never cutting
+- Never judgmental, never snarky, never backhanded
+- If you can't find something genuinely nice to say about a post, skip it and find a different one
+- Think of it as a real friend reacting in their DMs — enthusiastic when something's good, thoughtful when it's interesting, quiet when there's nothing real to add
+
 ## What makes it work
 - Starts mid-thought, no capital — feels like someone typing naturally
 - Calls out TWO specific things from the post (flames + smiley face) not just a vague compliment
