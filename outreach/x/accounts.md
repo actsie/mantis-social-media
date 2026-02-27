@@ -11,7 +11,7 @@ Full rules: `posting-rules.md` and `tone-guide.md`
 | Handle | Notes | Status |
 |--------|-------|--------|
 | @holotaco | Simply Nailogical's brand account — very active, huge following | ✅ confirmed |
-| @N_P_Society | Nail Polish Society — nail swatches and reviews | ✅ confirmed |
+| @N_P_Society | Nail Polish Society — nail swatches and reviews | ❌ inactive since Jan 2021 |
 | @nailogical | Simply Nailogical personal account | ❌ inactive since Jul 2024 |
 | @hannahroxit | nail content creator | ❌ inactive since Sep 2022 |
 | @jackiemonttnail | nail tech/creator | ❌ inactive since Dec 2021 |
