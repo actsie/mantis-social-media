@@ -65,9 +65,9 @@ Like by default. Comment only when post is nail-related or clearly cute/aestheti
 
 | Handle | Notes | Status |
 |--------|-------|--------|
-| @olaplex | huge brand, very active — broad audience | verify |
-| @redken | pro color brand, salon-focused | verify |
-| @moroccanoil | lifestyle + hair brand, visual content | verify |
+| @olaplex | huge brand, very active — broad audience | ❌ inactive since Sep 2024 |
+| @redken | pro color brand, salon-focused | ❌ @RedKen is a personal UK account, not the brand |
+| @moroccanoil | lifestyle + hair brand, visual content | ✅ confirmed Feb 24, 2026 |
 | @OUAI | trendy hair brand, active community | verify |
 | @IGK_hair | colorful, fun brand voice | verify |
 | @dpHUE | color gloss/hair care, salon-adjacent | verify |

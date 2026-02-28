@@ -11,17 +11,17 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 
 | Handle | Notes | Status |
 |--------|-------|--------|
-| @luxsfnailcare | nail care | verify |
-| @ryunailbar | nail bar | verify |
-| @nailsbykevin716 | nail artist | verify |
-| @uwu_nails | nail salon | verify |
+| @luxsfnailcare | nail care | ✅ |
+| @ryunailbar | nail bar | ✅ |
+| @nailsbykevin716 | nail artist | ✅ |
+| @uwu_nails | nail salon | ✅ |
 | @vipnailssouthloop | Chicago nail salon | verify |
-| @saltmaranails | nail salon | verify |
+| @saltmaranails | nail salon | ✅ |
 | @123nailsalon_chicago | Chicago nail salon | verify |
 | @luxy_nails_and_lashes | nails + lashes | verify |
 | @luxonailspa.wickerpark | Chicago nail spa | verify |
 | @refinenailsandspa_chicago | Chicago nail salon | verify |
-| @7amnailcare | nail care | verify |
+| @7amnailcare | nail care | ✅ |
 | @houseofhuenails | nail salon | ⏭️ skip (engaged 2/24) |
 | @thenailhall | nail salon | ⏭️ skip (engaged 2/25) |
 
@@ -37,7 +37,7 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 | @jdacademyofsalon | salon academy | verify |
 | @agnesohairdesign | hair design | verify |
 | @mariannestrokirksalon | salon | verify |
-| @charlesifergan | hair salon | verify |
+| @charlesifergan | hair salon | ✅ |
 | @swervesalon | salon | verify |
 | @arsovasalon | salon | verify |
 | @salonbuzzchi | Chicago salon | verify |

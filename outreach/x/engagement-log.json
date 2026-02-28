@@ -8,6 +8,145 @@
       "liked": true,
       "type": "nail-brand",
       "platform": "x"
+    },
+    {
+      "timestamp": "2026-02-26T07:10:00-08:00",
+      "account": "N_P_Society",
+      "tweetUrl": "https://x.com/N_P_Society/status/1346935484425981958",
+      "reply": "multichrome finishes from cirque are always a moment. super future delivered",
+      "liked": true,
+      "type": "nail-enthusiast",
+      "platform": "x",
+      "note": "⚠️ Posted by stale duplicate cron (old planner run). Tweet from Jan 2021 — not same-day.",
+      "additionalLikes": [
+        "https://x.com/N_P_Society/status/1285337361207799808"
+      ]
+    },
+    {
+      "timestamp": "2026-02-26T09:02:00-08:00",
+      "account": "hannahroxit",
+      "tweetUrl": "https://x.com/hannahroxit/status/1567238473202941952",
+      "reply": "dark rainbow holos are genuinely hypnotic. every angle shifts something new",
+      "liked": true,
+      "type": "creator",
+      "platform": "x",
+      "note": "⚠️ Posted by stale duplicate cron (old planner run). Tweet from 2022 — not same-day. Account dormant on X since ~Sep 2022.",
+      "additionalLikes": [
+        "https://x.com/hannahroxit/status/1533678523193368576",
+        "https://x.com/hannahroxit/status/1485342037054476297"
+      ]
+    },
+    {
+      "timestamp": "2026-02-26T14:10:00-08:00",
+      "account": "nailogical",
+      "tweetUrl": "https://x.com/nailogical/status/1815090320960626849",
+      "reply": "a manis and tacos party is such a good idea. why isn't this just every party now",
+      "liked": true,
+      "type": "creator",
+      "platform": "x",
+      "note": "Account inactive on X since Jul 2024. Most recent non-pinned post used. No same-day posts available.",
+      "additionalLikes": [
+        "https://x.com/nailogical/status/1811946462655160344"
+      ]
+    },
+    {
+      "timestamp": "2026-02-26T18:24:00-08:00",
+      "account": "jackiemonttnail",
+      "tweetUrl": "https://x.com/jackiemonttnail/status/1471873923562319874",
+      "reply": "nothing like getting your account back and immediately posting the mani. priorities right",
+      "liked": true,
+      "type": "creator",
+      "platform": "x",
+      "note": "Account dormant on X since Dec 2021. Most recent original post used. No same-day posts available. Makeup of missed 8:07 AM session.",
+      "additionalLikes": [
+        "https://x.com/holotaco/status/1484986743896035331",
+        "https://x.com/holotaco/status/1473360146986192898"
+      ]
+    },
+    {
+      "timestamp": "2026-02-26T20:35:00-08:00",
+      "account": "essie",
+      "tweetUrl": "https://x.com/essie/status/2027066187524272486",
+      "reply": "Bubbles Only for a signature red. can't really argue with that choice",
+      "liked": true,
+      "type": "nail-brand",
+      "platform": "x",
+      "additionalLikes": [
+        "https://x.com/essie/status/2025616677493174525",
+        "https://x.com/essie/status/2024891890676416993"
+      ]
+    },
+    {
+      "timestamp": "2026-02-27T07:21:00-08:00",
+      "account": "holotaco",
+      "tweetUrl": "https://x.com/holotaco/status/2027058690897932459",
+      "replyUrl": "https://x.com/stacydonna0x/status/2027404006348489140",
+      "reply": "cottagecore nails as a flower summoning ritual. completely valid spring strategy.",
+      "liked": true,
+      "type": "nail-brand",
+      "platform": "x",
+      "note": "Original tweet already liked. Reply count went 0→1. Also liked 2 older posts.",
+      "additionalLikes": [
+        "https://x.com/holotaco/status/2026333934334681119",
+        "https://x.com/holotaco/status/2025971549975572985"
+      ]
+    },
+    {
+      "timestamp": "2026-02-27T07:52:00-08:00",
+      "account": "Moroccanoil",
+      "tweetUrl": "https://x.com/Moroccanoil/status/2026338056098193757",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "hair-brand",
+      "platform": "x",
+      "note": "Original target @olaplex inactive since Sep 2024. @RedKen on X is a personal account (not the brand), last posted Oct 2019. Substituted @Moroccanoil (next active on hair brand list). Feb 24 post was a fragrance launch — no hair technique detail, like only per rules."
+    },
+    {
+      "timestamp": "2026-02-27T09:42:00-08:00",
+      "account": "MACcosmetics",
+      "tweetUrl": "https://x.com/MACcosmetics/status/2026009406761226424",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "beauty-brand",
+      "platform": "x",
+      "note": "Account active and verified (1.5M followers). Most recent posts (Feb 23) are lip product and foundation promos — not nail-related. Like only per rules."
+    },
+    {
+      "timestamp": "2026-02-27T10:26:00-08:00",
+      "account": "kandeejohnson",
+      "tweetUrl": "https://x.com/kandeejohnson/status/2017883469461020868",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "beauty-creator",
+      "platform": "x",
+      "note": "Account active (618.7K followers, unverified). Most recent post (Feb 1) is a motivational/support message — no nail or aesthetic content. Like only per rules."
+    }
+  ],
+  "skipped": [
+    {
+      "timestamp": "2026-02-26T08:07:00-08:00",
+      "account": "jackiemonttnail",
+      "reason": "Browser unavailable — Chrome extension relay had no tab connected.",
+      "platform": "x"
+    },
+    {
+      "timestamp": "2026-02-26T21:21:00-08:00",
+      "account": "N_P_Society",
+      "reason": "Makeup of missed 3:41 PM session. Account is dormant — most recent original post is Jan 6, 2021. That tweet was already engaged by stale duplicate cron at 7:10 AM (reply posted, liked). Duplicate engagement skipped to avoid double-reply on the same post.",
+      "platform": "x"
+    },
+    {
+      "timestamp": "2026-02-27T18:09:00-08:00",
+      "account": "ColourPopCo",
+      "tweetUrl": "https://x.com/ColourPopCo/status/2027081269927198826",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "like-only",
+      "platform": "x"
     }
   ]
 }
