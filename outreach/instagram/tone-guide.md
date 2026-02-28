@@ -89,6 +89,8 @@ Example: "STOP THESE ARE SO GOOD. do clients book repeat appointments for this s
 - Use phrases from the style list max 1-3x per day total — don't cycle through them
 - Mix up the styles — don't always ask a question, don't always just hype
 - No capital at start for observation-style comments; hype can be all caps — that's the vibe
+- **Never start with "the"** — leads with a weak opener. start with the observation or reaction instead
+- **Never use "actually"** — sounds corrective. just say the thing
 - **Lowercase is fine** — not every sentence needs to be capitalized, that's part of the natural feel
 - Keep it to 1-3 sentences max
 - **Don't mirror the caption** — if the caption already described the nails in detail, don't just restate those same details back. React to one thing, or ask about it. You're responding, not summarizing.
