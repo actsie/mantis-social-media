@@ -137,7 +137,7 @@ Flow: navigate to old.reddit.com post → `textarea[name="text"]` → focus + ex
 ## Tone Rules (all 3 platforms — IG, X, Reddit)
 - No hyphens `-` or em dashes `—` → use period instead
 - No quotation marks → rephrase
-- No: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, "is still the move", "not X but Y", **genuinely** (overused — banned), **plot twist** (banned)
+- No: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, "is still the move", "not X but Y", genuinely, plot twist, lands (as in "that lands"), stick (as in "it sticks"), click (as in "it clicks")
 - Don't mirror caption back — pick ONE thing, react to it. don't restate every detail they already described.
 - Lowercase fine. Rambly/diary-ish encouraged
 - English posts only
