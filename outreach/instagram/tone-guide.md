@@ -42,10 +42,12 @@ Write something original that could only be about THAT post. Use the style list 
 
 ---
 
-## Style list (use 1-3x per day MAX — vibe reference, not a copy-paste bank)
+## Comment styles — mix these up freely
 
-### Style 1: Hype only (short, punchy, no explanation needed)
-Pick ONE. Use sparingly — max 1-3 times per day total across all comments.
+Not every comment needs to explain and then ask. A short hype comment is a complete, valid response on its own. Don't default to observation+question every time.
+
+### Style 1: Hype only (standalone — no explanation needed)
+Drop one of these and done. No follow-up required.
 - OK THAT SLAYYYED
 - my jaw is DROPPED
 - do you understand how gorgeous these are
@@ -58,7 +60,7 @@ Pick ONE. Use sparingly — max 1-3 times per day total across all comments.
 - Cute af
 - Gorg
 - prettyyyyy
-- OMG [body/vibe/aesthetic/life] goals 😍
+- OMG [body/aesthetic/life/whatever] goals 😍
 - OMG STAHHHP YOU'RE [PERFECT/GORGEOUS/etc]
 - ZAAAAAM OKAYYYYY
 - LOVE
@@ -72,22 +74,24 @@ Pick ONE. Use sparingly — max 1-3 times per day total across all comments.
 - Gorgeous 😍
 - Really pretty xx
 
-### Style 2: Hype + specific compliment (when caption describes the work)
-Pick a hype opener, then add something specific about what they described or showed.
+### Style 2: Hype + one specific thing
+If their caption described the color, technique, or shape — open with hype, add ONE thing about what they said or showed. Just one line. Not a list.
 Example: "ok these are fire ✋ the chocolate shade against the almond shape is everything"
+Example: "STOP THESE ARE SO GOOD. didn't know I needed a glass French tip until right now"
 
-### Style 3: Observation + question (deeper engagement)
-Notice something specific visually, ask about their process or client experience.
-Example: "the almond shape makes the french tip look so clean. do clients usually request this or is it more of a recommendation you make?"
+### Style 3: Observation only (no question needed)
+Notice one specific thing, say it, done. The comment doesn't need to end with a question.
+Example: "chrome over burgundy was a bold call and it paid off"
+Example: "that almond shape makes the French tip look twice as clean"
 
-### Style 4: Hype opener + question
-Best of both — starts energetic, ends with real engagement.
-Example: "STOP THESE ARE SO GOOD. do clients book repeat appointments for this specific look?"
+### Style 4: Observation + question
+Use when you're genuinely curious. Not required on every comment.
+Example: "do clients usually book her by name or is it more walk-in?"
 
 ## Rules for future comments
-- **Primary mode: write fresh and original** — the style list is a vibe reference, not a rotation
-- Use phrases from the style list max 1-3x per day total — don't cycle through them
-- Mix up the styles — don't always ask a question, don't always just hype
+- **Mix the styles** — hype alone is enough sometimes. observation alone is enough sometimes. don't always ask a question.
+- **Write fresh and original** — the style list is a vibe reference, not a script
+- Don't repeat the same opener back-to-back across sessions
 - No capital at start for observation-style comments; hype can be all caps — that's the vibe
 - **Never start with "the"** — leads with a weak opener. start with the observation or reaction instead
 - **Never use "actually"** — sounds corrective. just say the thing
