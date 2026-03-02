@@ -2,14 +2,16 @@
 Account: @stacydonna0x
 1 original post per day. Mode rotates via cycle in `original-posts-state.json`.
 
-## Mode Cycle
-Pattern: [1, 2, 3, 2, 4, 2, 2, 1] — repeating
-- Mode 1 = Fan / nail girl
-- Mode 2 = Building something / noticing things
-- Mode 3 = Hot take / opinion
-- Mode 4 = Relatable beauty person
+## Mode Selection
+Weighted random — picks a different mode each day, never repeats the same mode two days in a row.
 
-Mode 2 appears most. Mode 3 is the rarest — high-engagement opinion posts.
+Weights:
+- Mode 1 (fan / nail girl) — weight 2
+- Mode 2 (building something) — weight 4 — appears most
+- Mode 3 (hot take) — weight 1 — rarest, highest engagement
+- Mode 4 (relatable) — weight 2
+
+Mode 3 is intentionally rare — saves it for impact.
 
 ---
 

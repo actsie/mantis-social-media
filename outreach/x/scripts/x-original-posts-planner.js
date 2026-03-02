@@ -15,6 +15,27 @@ const STATE_FILE   = path.join(WORKSPACE, 'outreach/x/original-posts-state.json'
 const LOG_FILE     = path.join(WORKSPACE, 'outreach/x/original-posts-log.json');
 const GUIDE_FILE   = path.join(WORKSPACE, 'outreach/x/original-posts-guide.md');
 
+// Weighted mode pool — mode 2 (building) appears most
+// Mode 1: fan/nail girl | 2: building | 3: hot take | 4: relatable
+const MODE_WEIGHTS = [
+  { mode: 1, weight: 2 },
+  { mode: 2, weight: 4 },
+  { mode: 3, weight: 1 },
+  { mode: 4, weight: 2 },
+];
+
+function pickMode(lastMode) {
+  // Exclude lastMode so we never repeat the same mode two days in a row
+  const pool = lastMode ? MODE_WEIGHTS.filter(m => m.mode !== lastMode) : MODE_WEIGHTS;
+  const total = pool.reduce((s, m) => s + m.weight, 0);
+  let r = Math.random() * total;
+  for (const item of pool) {
+    r -= item.weight;
+    if (r <= 0) return item.mode;
+  }
+  return pool[pool.length - 1].mode;
+}
+
 const MIN_HOUR = 9;   // 9:00 AM PST
 const MAX_HOUR = 21;  // 9:00 PM PST
 
@@ -43,7 +64,7 @@ function targetDate() {
 }
 
 // ── Load state ────────────────────────────────────────────────────────────────
-let state = { cycle: [1, 2, 3, 2, 4, 2, 2, 1], cycleIndex: 0, lastPostDate: null };
+let state = { lastMode: null, lastPostDate: null };
 if (fs.existsSync(STATE_FILE)) {
   try { state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8')); } catch (_) {}
 }
@@ -56,8 +77,7 @@ if (fs.existsSync(LOG_FILE)) {
 
 // ── Determine today's mode ────────────────────────────────────────────────────
 const today = targetDate();
-const cycle = state.cycle;
-const mode  = cycle[state.cycleIndex % cycle.length];
+const mode  = pickMode(state.lastMode);
 
 // Mode names for readability
 const MODE_NAMES = {
@@ -85,7 +105,7 @@ const msg = [
   `X ORIGINAL POST SESSION for ${today} — post as @stacydonna0x.`,
   ``,
   `TODAY'S MODE: ${mode} — ${MODE_NAMES[mode]}`,
-  `Cycle position: ${state.cycleIndex % cycle.length + 1}/${cycle.length}`,
+  `Last mode: ${state.lastMode ? state.lastMode + ' (' + MODE_NAMES[state.lastMode] + ')' : 'none'}`,
   ``,
   `Steps:`,
   ``,
@@ -119,11 +139,11 @@ const msg = [
   `   e. Click the "Post" button (NOT Ctrl+Enter)`,
   `   f. Take a snapshot to confirm it posted`,
   ``,
-  `7. Advance the cycle index. Update ${STATE_FILE}:`,
+  `7. Update state after posting. Run in exec:`,
   `   const fs = require('fs');`,
   `   const stateFile = '${STATE_FILE}';`,
   `   const s = JSON.parse(fs.readFileSync(stateFile, 'utf8'));`,
-  `   s.cycleIndex = (s.cycleIndex + 1) % s.cycle.length;`,
+  `   s.lastMode = ${mode};`,
   `   s.lastPostDate = '${today}';`,
   `   fs.writeFileSync(stateFile, JSON.stringify(s, null, 2));`,
   ``,
@@ -155,7 +175,7 @@ const at   = `${today}T${time}:00${getLAOffset()}`;
 
 console.log(`\n📝 X original post for ${today}`);
 console.log(`   Mode: ${mode} — ${MODE_NAMES[mode]}`);
-console.log(`   Cycle position: ${state.cycleIndex % cycle.length + 1}/${cycle.length}`);
+console.log(`   Last mode: ${state.lastMode || 'none'}`);
 console.log(`   Time: ${time}`);
 console.log(`   Recent drafts to avoid: ${[...recentDrafts].join(', ') || 'none'}`);
 

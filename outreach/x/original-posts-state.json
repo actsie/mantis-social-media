@@ -1,6 +1,5 @@
 {
-  "cycle": [1, 2, 3, 2, 4, 2, 2, 1],
-  "cycleIndex": 0,
+  "lastMode": null,
   "lastPostDate": null,
-  "note": "cycleIndex advances by 1 each day after posting. Wraps around at end of cycle."
+  "note": "lastMode prevents repeating the same mode two days in a row. Mode picked via weighted random (mode 2 = weight 4, modes 1+4 = weight 2, mode 3 = weight 1)."
 }
