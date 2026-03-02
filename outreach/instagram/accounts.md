@@ -59,7 +59,7 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 | @joinvitalskinderm | skin/derm spa | verify |
 | @spavialincolnpark | Chicago spa | verify |
 | @massageenvy_sf | massage + spa franchise | verify |
-| @crystaleyezbeautylounge | beauty lounge | verify |
+| @crystaleyezbeautylounge | beauty lounge | ✅ |
 
 ---
 
@@ -79,7 +79,7 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 
 | Handle | Notes | Status |
 |--------|-------|--------|
-| @ultabeauty | major beauty retailer, very active | verify |
+| @ultabeauty | major beauty retailer, very active | ✅ |
 | @hellosugar.salon | waxing salon franchise | verify |
 | @kidsnips | kids hair salon | verify |
 | @massageenvy_sf | see spas section | — |

@@ -45,6 +45,16 @@ Like by default. Comment only when post is nail-related or clearly cute/aestheti
 
 ---
 
+## 🛍️ Beauty Retailers
+
+| Handle | Notes | Status |
+|--------|-------|--------|
+| @ultabeauty | Ulta Beauty — very active, posts nail, hair, skincare, brand collabs constantly | ✅ confirmed |
+
+Full engagement on nail/beauty posts. Like-only on promos and product launches unless there's real content worth a genuine reaction.
+
+---
+
 ## 💅 Nail Polish Brands
 
 | Handle | Notes | Status |

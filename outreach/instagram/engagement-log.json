@@ -432,6 +432,37 @@
       "type": "comment+like",
       "hashtag": "#nailsalon",
       "note": "fallback: only same-day post in #nailsalon was dlaw_nail (Japanese caption, skipped); engaged verify account sarayasalonchicago (Chicago hair salon, most recent post March 26 2025)"
+    },
+    {
+      "timestamp": "2026-03-01T20:29:00-08:00",
+      "account": "ultabeauty",
+      "postUrl": "https://www.instagram.com/ultabeauty/p/DVUyfsSESRc/",
+      "commentUrl": "https://www.instagram.com/p/DVUyfsSESRc/c/18426356059184947/",
+      "comment": "ok that brown liner and mascara in the same shade is doing the most. need this whole look immediately",
+      "likes": [
+        "https://www.instagram.com/ultabeauty/p/DVUyfsSESRc/",
+        "https://www.instagram.com/ultabeauty/p/DVSucajFUar/",
+        "https://www.instagram.com/ultabeauty/p/DVRwMZ3ExRT/"
+      ],
+      "type": "comment+like",
+      "hashtag": "#nailslove",
+      "note": "fallback: no same-day posts in #nailslove hashtag feed; engaged verify account ultabeauty — post from March 1, 2026 featuring Selena Gomez in Rare Beauty Neutral Eye Collection"
+    }
+  ,
+    {
+      "timestamp": "2026-03-01T22:47:00-08:00",
+      "account": "crystaleyezbeautylounge",
+      "postUrl": "https://www.instagram.com/crystaleyezbeautylounge/reel/DVOvUlAEQvU/",
+      "commentUrl": "https://www.instagram.com/p/DVOvUlAEQvU/c/17898804045392646/",
+      "comment": "Amber's entire squad ate and left no crumbs 😍 love how polished everyone looks",
+      "likes": [
+        "https://www.instagram.com/crystaleyezbeautylounge/reel/DVOvUlAEQvU/",
+        "https://www.instagram.com/crystaleyezbeautylounge/reel/DMNwdF0qr5f/",
+        "https://www.instagram.com/crystaleyezbeautylounge/p/DVMGEs_iMV2/"
+      ],
+      "type": "comment+like",
+      "hashtag": "#nailart",
+      "note": "fallback: no same-day posts in #nailart hashtag feed; engaged verify account crystaleyezbeautylounge (Chicago beauty lounge) — bridal party glow-up reel, 3 days old"
     }
   ]
 }

@@ -85,6 +85,17 @@ Confirmed working: liked @11nailangeles11 post Feb 25, 2026. Count 3→4 ✅
 
 Full details: `outreach/x/posting-rules.md`
 
+## X Original Posts System (added 2026-03-02)
+- 1 original tweet/day, random time 9am–9pm PST
+- Mode cycle: [1, 2, 3, 2, 4, 2, 2, 1] (fan, building, hot-take, building, relatable, building, building, fan)
+- Mode 2 (building something / noticing things) appears most — builds follow-back curiosity
+- Draft bank: `outreach/x/original-posts-guide.md`
+- Log: `outreach/x/original-posts-log.json`
+- State/cycle tracker: `outreach/x/original-posts-state.json`
+- Planner: `outreach/x/scripts/x-original-posts-planner.js`
+- Cron: `x-original-posts-planner` — 6:04am PST daily
+- @ultabeauty added to accounts.md (Beauty Retailers section, full engagement on nail/beauty posts)
+
 **Active crons (X):**
 - `x-daily-planner` (ID: 0ccc5cd2) — 5:58am PST daily (staggered 3min after IG), generates 4-5 session crons
 - `x-s1` through `x-s4/s5` — created fresh each morning, delete after run

@@ -1,0 +1,6 @@
+{
+  "cycle": [1, 2, 3, 2, 4, 2, 2, 1],
+  "cycleIndex": 0,
+  "lastPostDate": null,
+  "note": "cycleIndex advances by 1 each day after posting. Wraps around at end of cycle."
+}

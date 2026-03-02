@@ -174,6 +174,28 @@
       "account": "Alive_Kick7098",
       "status": "skipped",
       "skipReason": "No posts under 3 hours old found. Newest post was 484 minutes old (8+ hours). All posts were help/advice requests or too old."
+    },
+    {
+      "timestamp": "2026-03-01T22:02:00-08:00",
+      "subreddit": "r/curlyhair",
+      "postUrl": "https://old.reddit.com/r/curlyhair/comments/1rik1wi/used_to_think_i_had_bad_straight_hair/",
+      "postTitle": "Used to think I had bad straight hair",
+      "commentUrl": "https://old.reddit.com/r/curlyhair/comments/1rik1wi/used_to_think_i_had_bad_straight_hair/o86p8d3/",
+      "comment": "those curls coming through after years of thinking it was just straight hair is such a satisfying flip. the definition looks solid too.",
+      "upvoted": true,
+      "platform": "reddit",
+      "account": "Alive_Kick7098"
+    },
+    {
+      "timestamp": "2026-03-02T23:00:00-08:00",
+      "subreddit": "r/beauty",
+      "postUrl": "https://old.reddit.com/r/beauty/comments/1riijnn/bro_help/",
+      "postTitle": "bro help",
+      "commentUrl": "https://old.reddit.com/r/beauty/comments/1riijnn/bro_help/o86vvsx/",
+      "comment": "five months of growing after biting is real dedication. for the lifting, try cuticle oil on the nail bed daily. it helps with flexibility and reduces the cracking that leads to lifts. also filing instead of clipping puts less shock on the nail edge, which can help keep the sides from separating.",
+      "upvoted": true,
+      "platform": "reddit",
+      "account": "Alive_Kick7098"
     }
   ],
   "karma_checks": [

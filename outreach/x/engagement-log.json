@@ -251,6 +251,16 @@
       "type": "reply+like",
       "platform": "x",
       "additionalLikes": ["https://x.com/essie/status/2027066187524272486"]
+    },
+    {
+      "timestamp": "2026-03-01T20:48:00-08:00",
+      "account": "IGK_HAIR",
+      "tweetUrl": "https://x.com/IGK_HAIR/status/1790791957720994042",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "like-only",
+      "platform": "x"
     }
   ]
 }
