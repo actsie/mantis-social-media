@@ -23,7 +23,7 @@ const LONG_GAP_MIN = 180;  // "long break" threshold
 // phase 1 = warmup (karma building) | phase 2 = business subs (50+ karma) | phase 3 = later
 // Karma thresholds: phase2 unlocks at 50+, phase3 at 100+
 // Update CURRENT_KARMA below as account grows
-const CURRENT_KARMA = 1; // update this as karma grows
+const CURRENT_KARMA = 28; // updated 2026-03-01
 
 const SUBREDDITS = [
   // Phase 1 — warmup consumer subs
@@ -217,11 +217,15 @@ sessions.forEach(s => {
     ``,
     `5. Draft a comment that is:`,
     `   - Specific to what's actually in the post (NOT generic)`,
-    `   - 1-2 sentences max`,
+    `   - 1-4 sentences max`,
     `   - Natural, casual tone (see tone-guide.md)`,
-    `   - No hype words (gorgeous, amazing, stunning, love your content)`,
     `   - Don't start with "I"`,
     `   - For hair/skincare posts: only comment if there's real content worth engaging with`,
+    `   HARD RULES — scan draft before posting:`,
+    `   - NO em dashes (—) or hyphens (-) — use a period instead`,
+    `   - NO quotation marks around words — rephrase`,
+    `   - NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually`,
+    `   - Rewrite if any rule is violated. No exceptions.`,
     ``,
     `6. Post the comment using the old.reddit.com method:`,
     `   JS: const ta = document.querySelector('textarea[name="text"]');`,
@@ -234,12 +238,28 @@ sessions.forEach(s => {
     ``,
     `8. Reload the page and confirm your comment appears (search for your username or comment text).`,
     ``,
-    `9. Append to /Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json:`,
-    `   { timestamp, subreddit, postUrl, postTitle, comment, upvoted: true, platform: "reddit", account: "Alive_Kick7098" }`,
+    `9. Append to the engagement log using this EXACT method (no other way):`,
+    `   const fs = require('fs');`,
+    `   const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json';`,
+    `   const log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
+    `   log.sessions.push({ timestamp, subreddit, postUrl, postTitle, commentUrl, comment, upvoted: true, platform: "reddit", account: "Alive_Kick7098" });`,
+    `   fs.writeFileSync(logPath, JSON.stringify(log, null, 2));`,
+    `   Run this as a single exec block. Do NOT write to any other key — only log.sessions.push().`,
     ``,
-    `10. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"): subreddit + post title + comment text. ALWAYS include target="6241290513" — do NOT omit it.`,
+    `10. Mark this session done in today-schedule.json using this EXACT method:`,
+    `    const schedPath = '/Users/mantisclaw/.openclaw/workspace/outreach/reddit/today-schedule.json';`,
+    `    const sched = JSON.parse(fs.readFileSync(schedPath, 'utf8'));`,
+    `    sched.sessions[${s.n - 1}].done = true;`,
+    `    fs.writeFileSync(schedPath, JSON.stringify(sched, null, 2));`,
     ``,
-    `If no suitable post is found under 1hr old, try posts under 3hrs. If still nothing good, skip this session and log it as skipped.`,
+    `11. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"): subreddit + post title + comment text. ALWAYS include target="6241290513" — do NOT omit it.`,
+    ``,
+    `If no suitable post is found under 1hr old, try posts under 3hrs. If still nothing good, skip this session and log it as skipped with this EXACT method:`,
+    `   const fs = require('fs');`,
+    `   const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json';`,
+    `   const log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
+    `   log.sessions.push({ timestamp: new Date().toISOString(), subreddit: "r/${s.sub}", postUrl: null, postTitle: null, commentUrl: null, comment: null, upvoted: false, platform: "reddit", account: "Alive_Kick7098", status: "skipped", skipReason: "YOUR REASON HERE" });`,
+    `   fs.writeFileSync(logPath, JSON.stringify(log, null, 2));`,
   ].join('\n');
 
   const name = `reddit-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;

@@ -52,8 +52,8 @@
       "upvoted": true,
       "platform": "reddit",
       "account": "Alive_Kick7098"
-    }
-    ,{
+    },
+    {
       "timestamp": "2026-02-26T18:53:00-08:00",
       "subreddit": "r/SkincareAddicts",
       "postUrl": "https://old.reddit.com/r/SkincareAddicts/comments/1rfsr7b/28f_feeling_overwhelmed_with_navigating/",
@@ -84,8 +84,8 @@
       "upvoted": true,
       "platform": "reddit",
       "account": "Alive_Kick7098"
-    }
-  ,{
+    },
+    {
       "timestamp": "2026-02-27T15:05:00-08:00",
       "subreddit": "r/curlyhair",
       "postUrl": "https://old.reddit.com/r/curlyhair/comments/1rgliht/i_found_out_yesterday_i_have_curly_hair/",
@@ -95,8 +95,8 @@
       "upvoted": true,
       "platform": "reddit",
       "account": "Alive_Kick7098"
-    }
-  ,{
+    },
+    {
       "timestamp": "2026-02-27T19:44:00-08:00",
       "subreddit": "r/Nails",
       "postUrl": "https://old.reddit.com/r/Nails/comments/1rgr9s2/bubble_bunny_nails_opi/",
@@ -106,8 +106,8 @@
       "upvoted": true,
       "platform": "reddit",
       "account": "Alive_Kick7098"
-    }
-  ,{
+    },
+    {
       "timestamp": "2026-02-27T20:46:00-08:00",
       "subreddit": "r/Nails",
       "postUrl": "https://old.reddit.com/r/Nails/comments/1rgsg85/been_regrowing_clientele_in_a_new_state/",
@@ -116,6 +116,72 @@
       "comment": "the range in this gallery is doing all the work. clients in whatever state this is are lucky",
       "upvoted": true,
       "platform": "reddit",
+      "account": "Alive_Kick7098"
+    },
+    {
+      "timestamp": "2026-02-28T08:28:00-08:00",
+      "subreddit": "r/femalehairadvice",
+      "postUrl": "https://old.reddit.com/r/femalehairadvice/comments/1rh6qzy/should_i_buy_expensive_scissors_to_cut_my_split/",
+      "postTitle": "should i buy expensive scissors to cut my split ends?",
+      "commentUrl": "https://old.reddit.com/r/femalehairadvice/comments/1rh6qzy/should_i_buy_expensive_scissors_to_cut_my_split/o7wgtkp/",
+      "comment": "decent scissors do make a difference. sharpness is the real factor, not price. a dedicated pair of hair scissors ($20 to $30 range) cuts cleanly instead of crushing the hair shaft, which is what creates more splits over time. the search and destroy method works really well for curly hair since you can spot individual splits more easily when your curl pattern separates them.",
+      "upvoted": true,
+      "platform": "reddit",
+      "account": "Alive_Kick7098"
+    },
+    {
+      "timestamp": "2026-02-28T09:53:00-08:00",
+      "subreddit": "r/longhair",
+      "postUrl": "https://old.reddit.com/r/longhair/comments/1rh845w/comfy_hairstyles_for_thick_and_heavy_hair/",
+      "postTitle": "Comfy hairstyles for thick and heavy hair?",
+      "commentUrl": "https://old.reddit.com/r/longhair/comments/1rh845w/comfy_hairstyles_for_thick_and_heavy_hair/o7wxpxg/",
+      "comment": "hair forks and sticks are worth trying if you haven't. no elastic tension points means you can adjust throughout the day, and a loose braided bun sits lighter on the neck than a single plait when the hair is this heavy. French braids also spread the weight across more of the scalp which helps with the sensitive scalp thing.",
+      "upvoted": true,
+      "platform": "reddit",
+      "account": "Alive_Kick7098"
+    },
+    {
+      "timestamp": "2026-02-28T19:18:00-08:00",
+      "subreddit": "r/beauty",
+      "postUrl": "https://old.reddit.com/r/beauty/comments/1rhkwj7/my_rose_scents_any_other_recommendations/",
+      "postTitle": "My rose scents! Any other recommendations?",
+      "commentUrl": "https://old.reddit.com/r/beauty/comments/1rhkwj7/my_rose_scents_any_other_recommendations/o7zi69y/",
+      "comment": "Sol de Janeiro's Cheirosa 40 is worth adding to the list if you want rose paired with sandalwood. more warm and skin-close than a straight floral.",
+      "upvoted": true,
+      "platform": "reddit",
+      "account": "Alive_Kick7098"
+    },
+    {
+      "timestamp": "2026-03-01T07:17:00-08:00",
+      "subreddit": "r/Nails",
+      "postUrl": "https://old.reddit.com/r/Nails/comments/1rhznsb/my_first_time_doing_catseye_gel_polish_how_did_i/",
+      "postTitle": "My first time doing Catseye Gel polish! How did I do?",
+      "commentUrl": "https://old.reddit.com/r/Nails/comments/1rhznsb/my_first_time_doing_catseye_gel_polish_how_did_i/o82alfd/",
+      "comment": "the magnetic line being that centered and clean on a first attempt is pretty impressive. catseye is finicky about magnet distance and timing so this bodes well",
+      "upvoted": true,
+      "platform": "reddit",
+      "account": "Alive_Kick7098"
+    },
+    {
+      "timestamp": "2026-03-01T13:21:00-08:00",
+      "subreddit": "r/SkincareAddicts",
+      "postUrl": null,
+      "postTitle": null,
+      "comment": null,
+      "commentUrl": null,
+      "upvoted": false,
+      "platform": "reddit",
+      "account": "Alive_Kick7098",
+      "status": "skipped",
+      "skipReason": "No posts under 3 hours old found. Newest post was 484 minutes old (8+ hours). All posts were help/advice requests or too old."
+    }
+  ],
+  "karma_checks": [
+    {
+      "timestamp": "2026-03-01T10:00:00-08:00",
+      "post_karma": 1,
+      "comment_karma": 27,
+      "total_karma": 28,
       "account": "Alive_Kick7098"
     }
   ]

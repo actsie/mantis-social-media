@@ -5,6 +5,18 @@ Goal phase 1: karma warmup via genuine comments. No promo, no links, no agenda.
 
 ---
 
+## ⚠️ Pre-Post Checklist — Read Before Every Comment
+
+Before submitting any comment, scan the text for:
+1. **Em dashes or hyphens** (`—` or `-`) → replace with a period
+2. **Quotation marks** around words → rephrase
+3. **Banned words** → weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, reads as
+4. **More than 4-5 sentences** → trim
+
+If any of these are present, fix before posting. No exceptions.
+
+---
+
 ## Core energy
 
 The overall tone is **kind, helpful, and human**. Reddit rewards genuine helpfulness — comments should leave the person feeling supported or informed. Uplifting and empowering is the default.

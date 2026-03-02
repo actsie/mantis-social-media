@@ -51,13 +51,13 @@ Like by default. Comment only when post is nail-related or clearly cute/aestheti
 |--------|-------|--------|
 | @OPI_PRODUCTS | 243K followers, active — confirmed Feb 24 post | ✅ confirmed |
 | @essie | major nail brand, very active on X | ✅ confirmed |
-| @sallyhansenusa | mass market brand, steady posting | verify |
-| @zoyanailpolish | indie-leaning brand, engaged community | verify |
-| @ORLYbeauty | pro nail brand | verify |
-| @ChinaGlazeNails | color-forward brand, good post volume | verify |
-| @GelishNails | gel polish brand | verify |
-| @OliveAndJune | trendy DTC nail brand, popular with younger audience | verify |
-| @CND_World | professional nail brand (Shellac) | verify |
+| @sallyhansenusa | mass market brand, steady posting | ❌ account doesn't exist |
+| @zoyanailpolish | indie-leaning brand, engaged community | ✅ confirmed Feb 28, 2026 |
+| @ORLYbeauty | pro nail brand | ❌ wrong account — @OrlyBeauty is "Shel Pink", 0 posts |
+| @ChinaGlazeNails | color-forward brand, good post volume | ❌ account suspended |
+| @GelishNails | gel polish brand | ❌ compromised/spam account |
+| @OliveAndJune | trendy DTC nail brand, popular with younger audience | ❌ wrong account — dormant Flagstaff AZ local biz from 2011 |
+| @CND_World | professional nail brand (Shellac) | ❌ inactive, 0 followers, 1 post |
 
 ---
 
@@ -68,12 +68,12 @@ Like by default. Comment only when post is nail-related or clearly cute/aestheti
 | @olaplex | huge brand, very active — broad audience | ❌ inactive since Sep 2024 |
 | @redken | pro color brand, salon-focused | ❌ @RedKen is a personal UK account, not the brand |
 | @moroccanoil | lifestyle + hair brand, visual content | ✅ confirmed Feb 24, 2026 |
-| @OUAI | trendy hair brand, active community | verify |
-| @IGK_hair | colorful, fun brand voice | verify |
-| @dpHUE | color gloss/hair care, salon-adjacent | verify |
-| @JoicoHair | pro hair brand | verify |
-| @paulamitchell | classic pro brand | verify |
-| @Matrix | salon brand | verify |
+| @OUAI | trendy hair brand, active community | ❌ account doesn't exist on X |
+| @IGK_hair | colorful, fun brand voice | ❌ inactive since May 2024 |
+| @dpHUE | color gloss/hair care, salon-adjacent | ❌ inactive since Jun 2023 |
+| @JoicoHair | pro hair brand | ❌ account doesn't exist on X |
+| @paulamitchell | classic pro brand | ❌ private personal account |
+| @Matrix | salon brand | ❌ private personal account (not the brand) |
 
 ---
 

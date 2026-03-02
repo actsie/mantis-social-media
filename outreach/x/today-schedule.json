@@ -1,10 +1,10 @@
 {
-  "date": "2026-02-27",
+  "date": "2026-03-01",
   "sessionCount": 5,
   "sessions": [
     {
       "n": 1,
-      "time": "07:21",
+      "time": "06:35",
       "account": "holotaco",
       "type": "creator",
       "engagement": "full",
@@ -13,36 +13,36 @@
     },
     {
       "n": 2,
-      "time": "07:52",
-      "account": "olaplex",
-      "type": "hair-brand",
-      "engagement": "like-only",
-      "status": "verify",
+      "time": "11:49",
+      "account": "OPI_PRODUCTS",
+      "type": "nail-brand",
+      "engagement": "full",
+      "status": "confirmed",
       "done": false
     },
     {
       "n": 3,
-      "time": "09:42",
-      "account": "MACcosmetics",
-      "type": "beauty-brand",
-      "engagement": "like-only",
-      "status": "verify",
+      "time": "13:17",
+      "account": "essie",
+      "type": "nail-brand",
+      "engagement": "full",
+      "status": "confirmed",
       "done": false
     },
     {
       "n": 4,
-      "time": "10:26",
-      "account": "kandeejohnson",
-      "type": "beauty-creator",
-      "engagement": "like-only",
+      "time": "16:34",
+      "account": "ORLYbeauty",
+      "type": "nail-brand",
+      "engagement": "full",
       "status": "verify",
       "done": false
     },
     {
       "n": 5,
-      "time": "18:09",
-      "account": "ColourPopCo",
-      "type": "beauty-brand",
+      "time": "20:48",
+      "account": "IGK_hair",
+      "type": "hair-brand",
       "engagement": "like-only",
       "status": "verify",
       "done": false

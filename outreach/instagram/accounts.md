@@ -15,12 +15,12 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 | @ryunailbar | nail bar | ✅ |
 | @nailsbykevin716 | nail artist | ✅ |
 | @uwu_nails | nail salon | ✅ |
-| @vipnailssouthloop | Chicago nail salon | verify |
+| @vipnailssouthloop | Chicago nail salon | ✅ |
 | @saltmaranails | nail salon | ✅ |
-| @123nailsalon_chicago | Chicago nail salon | verify |
-| @luxy_nails_and_lashes | nails + lashes | verify |
-| @luxonailspa.wickerpark | Chicago nail spa | verify |
-| @refinenailsandspa_chicago | Chicago nail salon | verify |
+| @123nailsalon_chicago | Chicago nail salon | ✅ |
+| @luxy_nails_and_lashes | nails + lashes | ✅ |
+| @luxonailspa.wickerpark | Chicago nail spa | ✅ |
+| @refinenailsandspa_chicago | Chicago nail salon | ✅ |
 | @7amnailcare | nail care | ✅ |
 | @houseofhuenails | nail salon | ⏭️ skip (engaged 2/24) |
 | @thenailhall | nail salon | ⏭️ skip (engaged 2/25) |
@@ -40,7 +40,7 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 | @charlesifergan | hair salon | ✅ |
 | @swervesalon | salon | verify |
 | @arsovasalon | salon | verify |
-| @salonbuzzchi | Chicago salon | verify |
+| @salonbuzzchi | Chicago salon | ✅ |
 | @georgethesalon | salon | verify |
 
 ---
@@ -53,7 +53,7 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 | @omgspachicago | Chicago spa | verify |
 | @byorispa | spa | verify |
 | @voussalonandspa | salon + spa | verify |
-| @bedazzlednailsandspa | nails + spa | verify |
+| @bedazzlednailsandspa | nails + spa | ✅ |
 | @ashasalonspa | salon spa | verify |
 | @spaderma_medspa | med spa | verify |
 | @joinvitalskinderm | skin/derm spa | verify |
@@ -67,9 +67,9 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 
 | Handle | Notes | Status |
 |--------|-------|--------|
-| @no1salonchicago | Chicago salon | verify |
-| @sarayasalonchicago | Chicago salon | verify |
-| @pinkmiup_chicago | Chicago beauty | verify |
+| @no1salonchicago | Chicago salon | ✅ |
+| @sarayasalonchicago | Chicago salon | ✅ |
+| @pinkmiup_chicago | Chicago beauty | ✅ |
 | @salonsevhn | salon | verify |
 | @themusest | beauty/lifestyle | verify |
 

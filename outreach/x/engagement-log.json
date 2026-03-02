@@ -123,9 +123,58 @@
       "type": "beauty-creator",
       "platform": "x",
       "note": "Account active (618.7K followers, unverified). Most recent post (Feb 1) is a motivational/support message — no nail or aesthetic content. Like only per rules."
+    },
+    {
+      "timestamp": "2026-02-28T08:40:00-08:00",
+      "account": "ZoyaNailPolish",
+      "tweetUrl": "https://x.com/ZoyaNailPolish/status/1987186660564455511",
+      "replyUrl": "https://x.com/stacydonna0x/status/2027787141405888778",
+      "reply": "six gemstone pairings and they named all of them. tourmaline and garnet especially work as nail colors",
+      "liked": true,
+      "type": "nail-brand",
+      "platform": "x",
+      "note": "Original target @redken is a personal UK account (not the brand). @moroccanoil already engaged Feb 27 same tweet. @OUAI doesn't exist. @IGK_hair inactive since May 2024. @dpHUE inactive since Jun 2023. @JoicoHair doesn't exist. @paulamitchell private personal. @Matrix private. Pivoted to @ZoyaNailPolish (verified, 127K, active nail brand). Post: Precious Duos Nov 8 2025 — six gemstone-inspired nail pairings with product detail. Full engagement (nail brand)."
+    },
+    {
+      "timestamp": "2026-02-28T09:34:00-08:00",
+      "account": "Trendmood",
+      "tweetUrl": "https://x.com/Trendmood/status/1974949808113901899",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "beauty-brand",
+      "platform": "x",
+      "note": "Account active, verified (177.9K followers). Most recent post (Oct 5, 2025) is a promo/wallet post — not nail-related. Like only per rules."
+    },
+    {
+      "timestamp": "2026-02-28T17:12:00-08:00",
+      "account": "theOrdinary",
+      "tweetUrl": "https://x.com/theOrdinary/status/2025950143250358372",
+      "replyUrl": "https://x.com/stacydonna0x/status/2027914972261715977",
+      "reply": "cloudy days still have UV. SPF is daily, not seasonal.",
+      "liked": true,
+      "type": "reply+like",
+      "platform": "x"
+    },
+    {
+      "timestamp": "2026-03-01T06:35:00-08:00",
+      "account": "holotaco",
+      "tweetUrl": "https://x.com/holotaco/status/2027421076540575771",
+      "replyUrl": "https://x.com/stacydonna0x/status/2028117006860644514",
+      "reply": "scattered holo over teal is so good. could wear this any time of year",
+      "liked": true,
+      "type": "nail-brand",
+      "platform": "x",
+      "note": "Feb 27 post: Bring Me The Teal with 4 topper combos (Scattered Holo, Flakie Holo, Shooting Star, Freezer Burn). Older posts (Feb 26 cottagecore, Feb 24 magnetic sparks) already liked from prior session."
     }
   ],
   "skipped": [
+    {
+      "timestamp": "2026-03-01T16:34:00-08:00",
+      "account": "ORLYbeauty",
+      "reason": "Account inactive — @OrlyBeauty on X is 'Shel Pink', 0 posts. @ChinaGlazeNails suspended. @GelishNails compromised/spam. @OliveAndJune is a different dormant Flagstaff AZ local business from 2011. @CND_World is inactive (0 followers, 1 post). @sallyhansenusa doesn't exist. Substituted @ZoyaNailPolish (confirmed active nail brand, last engaged Feb 28 on different post).",
+      "platform": "x"
+    },
     {
       "timestamp": "2026-02-26T08:07:00-08:00",
       "account": "jackiemonttnail",
@@ -147,6 +196,61 @@
       "liked": true,
       "type": "like-only",
       "platform": "x"
+    },
+    {
+      "timestamp": "2026-02-28T10:10:00-08:00",
+      "account": "GlamLifeGuru",
+      "tweetUrl": "https://x.com/GlamLifeGuru/status/2020902920561053716",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "like-only",
+      "platform": "x"
+    },
+    {
+      "timestamp": "2026-03-01T11:54:00-08:00",
+      "account": "OPI_PRODUCTS",
+      "tweetUrl": "https://x.com/OPI_PRODUCTS/status/2026749040893866187",
+      "replyUrl": "https://x.com/stacydonna0x/status/2028198236943733184",
+      "reply": "cuticle oil daily is non-negotiable and i feel personally called out by the duh",
+      "liked": true,
+      "type": "reply+like",
+      "platform": "x"
+    },
+    {
+      "timestamp": "2026-03-01T11:54:00-08:00",
+      "account": "OPI_PRODUCTS",
+      "tweetUrl": "https://x.com/OPI_PRODUCTS/status/2026794336495481012",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "like-only",
+      "platform": "x"
+    },
+    {
+      "timestamp": "2026-03-01T16:34:00-08:00",
+      "account": "ZoyaNailPolish",
+      "tweetUrl": "https://x.com/ZoyaNailPolish/status/2001012598490423651",
+      "replyUrl": "https://x.com/stacydonna0x/status/2028268419964100651",
+      "reply": "mystery box drop. what was in it",
+      "liked": true,
+      "type": "reply+like",
+      "platform": "x",
+      "note": "Original target @ORLYbeauty inactive (0 posts). Substituted @ZoyaNailPolish. Tweet: Zoya Mystery Box announcement (Dec 16, 2025). Also liked older post /status/1979586781579247987.",
+      "additionalLikes": [
+        "https://x.com/ZoyaNailPolish/status/1979586781579247987"
+      ]
+    },
+    {
+      "timestamp": "2026-03-01T13:17:00-08:00",
+      "account": "essie",
+      "tweetUrl": "https://x.com/essie/status/2027791132319473821",
+      "replyUrl": "https://x.com/stacydonna0x/status/2028218898374696998",
+      "reply": "nail care restock era. nothing like a full lineup ready to go",
+      "liked": true,
+      "type": "reply+like",
+      "platform": "x",
+      "additionalLikes": ["https://x.com/essie/status/2027066187524272486"]
     }
   ]
 }

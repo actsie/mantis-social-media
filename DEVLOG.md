@@ -5,6 +5,22 @@ Newest entries at the top.
 
 ---
 
+**Date:** 2026-03-01
+**Problem:** IG engagement-log.json had a stray key `sessions_2026-02-28` containing 13 sessions (Feb 28 + Mar 1). Planner reads only `log.sessions`, so "skip recent accounts" list was missing all sessions since Feb 27.
+**Root cause:** Vague "Append to log" instruction — sub-agent on Feb 28 created a new key instead of pushing to `sessions`. Subsequent sessions kept appending to the same wrong key.
+**Solution:** Merged stray key back into `sessions` (31 total). Updated both IG and Reddit planner prompts to use explicit JS `log.sessions.push() + fs.writeFileSync` code blocks instead of a vague instruction. Same fix applied to Reddit skipped-session logging and `done` flag updates in today-schedule.json.
+**Status:** ✅ Fixed
+
+---
+
+**Date:** 2026-03-01
+**Problem:** IG session 3 (#nailsofig, 12:26 PM) timed out without engaging — counted as a miss.
+**Root cause:** Sub-agent opened the browser and found multiple tabs already open from prior sessions (IG posts, X posts). Instead of ignoring them and navigating fresh, it spent its entire runtime inspecting existing tabs — taking screenshots, trying to figure out which one to use — and never actually got to the hashtag page.
+**Solution:** Updated session prompt in daily-planner.js — step 2 now says: close any existing Instagram tabs first (list tabs, close any with instagram.com in URL), then open the hashtag URL fresh. Scoped to Instagram tabs only to avoid nuking X/Reddit tabs.
+**Status:** ⚠️ Fix deployed 2026-03-01 — monitor for 2 days (through 2026-03-03). Update to ✅ Fixed or revisit if still failing.
+
+---
+
 ## 2026-02-26
 
 ### ✅ Cron delivery channel + duplicate session crons — FIXED
