@@ -121,11 +121,27 @@ outreach/
 ## Active crons (Reddit)
 - `reddit-daily-planner` (ID: 143b337d) — 6:01am PST daily (staggered after IG + X), generates 3-4 session crons
 - `reddit-s1` through `reddit-s3/s4` — created fresh each morning, delete after run
-- `reddit-daily-summary` (ID: 6ab056e9) — 11:21pm PST daily, sends Telegram recap
+- `reddit-daily-summary` (ID: 93403c50) — 11:21pm PST daily, sends Telegram recap (comments + any post of day + missed sessions)
+- `reddit-weekly-poster-tue` (ID: e2b5a3e4) — every Tuesday 10am PST, fires post session 30min-5hrs later
+- `reddit-weekly-poster-fri` (ID: a43d5c73) — every Friday 2pm PST, fires post session 30min-5hrs later
 - Script: `outreach/reddit/scripts/reddit-daily-planner.js`
+- Post script: `outreach/reddit/scripts/reddit-weekly-poster.js`
 - Log: `outreach/reddit/engagement-log.json`
 - Schedule: `outreach/reddit/today-schedule.json`
+- Post tracker: `outreach/reddit/posted-topics.json`
+- Post guide: `outreach/reddit/post-guide.md`
 - Target subs: r/Nails (priority), r/beauty, r/femalehairadvice, r/SkincareAddicts, r/30PlusSkinCare, r/curlyhair, r/longhair
+
+## Reddit Original Posts System (added 2026-03-01)
+- 1-2 original posts/week on Tue + Fri (randomized fire time, not always same hour)
+- Format: specific question title + 2-5 sentence personal body (see post-guide.md for full rules)
+- Body tone: lowercase, not every sentence punctuated, rambly, first-person but don't START with "I"
+- When acknowledging conventional wisdom in body: explain in personal/vague terms why it doesn't feel satisfying (not rhetorical — Reddit will answer literally)
+- No em dashes, no banned words, not too polished
+- Track all posted topics in posted-topics.json — never recycle within 30 days
+- Never post twice in same sub within 7 days
+- Never post and comment in same sub same day
+- Morning notify sent when post session is scheduled; evening summary includes post URL
 
 ## Reddit Automation — ALWAYS use old.reddit.com
 New Reddit UI (faceplate custom elements + Shadow DOM) blocks ALL JS text injection. Nothing works.
