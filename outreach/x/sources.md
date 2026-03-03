@@ -91,17 +91,46 @@ Best paired with drafts:
 
 ---
 
-## How to Use These in Tweets
+## Twitter Handles for Each Source
+Used to find the source tweet for QRT flow.
 
-**Option 1 — Lead with the take, end with the source:**
-> a pdf menu is not a service page. google can't read it. your phone clients can't open it. it helps no one
-> → google.com/search/docs/essentials
+| Source | Handle | Notes |
+|--------|---------|-------|
+| BrightLocal | @BrightLocal | Tweets survey findings when published. Search: "97% consumers reviews 2026" or "local consumer review survey" |
+| ReviewTrackers | @ReviewTrackers | Tweets report stats. Search: "88% reviews" or "online reviews statistics" |
+| Think with Google | @ThinkwithGoogle | Tweets Google research. Search: "76% mobile local search" or "near me" |
+| Baymard Institute | @BaymardInstitute | Tweets checkout research. Search: "cart abandonment" or "70%" |
+| Google Search Central | @googlesearchc | Tweets SEO guidance. Search: "indexing" or "PDF" |
 
-**Option 2 — Embed the stat, then your take:**
-> 97% of people read reviews before booking. most of them then click through to the website. if that page loses them you did all the review work for nothing
-> → brightlocal.com/research/local-consumer-review-survey
+---
 
-**Option 3 — No link (for cleaner posts)**
-Some posts land harder without a link. Mode 2 and Mode 3 posts can stand alone when the take is strong enough. Don't force a link if it dilutes the punch.
+## How to Post — Two Flows
 
-**Rule:** Only add a link if it genuinely adds weight. Not every post needs one. Authority comes from the take, not the citation.
+### Flow A: QRT as the Main Post (preferred for Mode 1 + 2)
+The QRT IS the post. Your take + the source tweet quoted = one clean post.
+
+Steps:
+1. Navigate to the source's X profile (handle above)
+2. Find the tweet containing the relevant stat (use JS to scan tweets or scroll feed)
+   - Search alternative: navigate to `https://x.com/search?q=from%3ABrightLocal+97%25+reviews&src=typed_query`
+3. On the source tweet: click the Repost icon → click "Quote"
+4. In the compose box: type your take (follow tone rules + banned words)
+5. Click Post
+6. Log tweetUrl, quotedTweetUrl, mode, draft used
+
+### Flow B: Reply Thread (fallback if no source tweet found)
+Post your take first, then reply with the article URL.
+
+Steps:
+1. Post your take tweet normally
+2. Note the tweet URL after posting
+3. Navigate to your tweet URL
+4. Click Reply → type just the source URL (X will auto-expand into a preview card)
+5. Click Reply to submit
+6. Log both URLs (tweetUrl + replyUrl)
+
+### Flow C: Standalone (no source)
+For Mode 2 takes that don't need data, and all Mode 3 + 4 posts.
+Post normally. No link, no QRT. Authority comes from the take.
+
+**Rule:** Only add a source if it genuinely adds weight. Not every post needs one. If you can't find the source tweet within 2 minutes, use Flow C — a clean strong take beats a forced citation.
