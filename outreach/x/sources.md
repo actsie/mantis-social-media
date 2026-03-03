@@ -91,6 +91,20 @@ Best paired with drafts:
 
 ---
 
+## Visual Assets
+Saved to `outreach/x/visuals/`. Attach when posting the paired draft.
+
+| File | Paired draft | Mode | Notes |
+|------|-------------|------|-------|
+| `stat-97pct-reviews.jpg` | Mode 1 #1, Mode 2 posts about reviews | 1 + 2 | "97% of consumers read reviews" stat card, gradient bg |
+| `mockup-404-booking.jpg` | Mode 1 #7, Mode 2 #2 | 1 + 2 | Phone mockup — "They clicked Book Now. They got a 404. They won't try again." |
+
+Tweet copy for `mockup-404-booking.jpg`:
+> they clicked book now. they got a 404. they won't try again.
+> this happens more than you'd think. usually not even a broken page — just a link no one updated.
+
+---
+
 ## Twitter Handles for Each Source
 Used to find the source tweet for QRT flow.
 
