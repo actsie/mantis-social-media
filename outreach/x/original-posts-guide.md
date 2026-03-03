@@ -4,6 +4,11 @@ Account: @stacydonna0x
 
 ---
 
+📎 **Source bank for data-backed posts:** `outreach/x/sources.md`
+For Mode 1 + Mode 2 posts — check sources.md for a relevant link to pair with the draft. Not every post needs one. Authority comes from the take, not the citation.
+
+---
+
 ## The 4 Pillars (run every post through this filter)
 
 **Pillar 1 — Leads**
