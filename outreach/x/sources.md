@@ -98,6 +98,7 @@ Saved to `outreach/x/visuals/`. Attach when posting the paired draft.
 |------|-------------|------|-------|
 | `stat-97pct-reviews.jpg` | Mode 1 #1, Mode 2 posts about reviews | 1 + 2 | "97% of consumers read reviews" stat card, gradient bg |
 | `mockup-404-booking.jpg` | Mode 1 #7, Mode 2 #2 | 1 + 2 | Phone mockup — "They clicked Book Now. They got a 404. They won't try again." |
+| `mockup-reviews-vs-website.jpg` | Mode 1 #1, Mode 2 #5, Mode 3 #5 | 1 + 2 + 3 | Side by side — 4.9 stars / 283 reviews vs broken website. Footer: "283 people trusted the reviews. Then clicked the website. First impression = last impression." |
 
 Tweet copy for `mockup-404-booking.jpg`:
 > they clicked book now. they got a 404. they won't try again.
