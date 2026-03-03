@@ -140,6 +140,8 @@ sessions.forEach(s => {
     `1. Read /Users/mantisclaw/.openclaw/workspace/outreach/instagram/tone-guide.md + scheduling-rules.md`,
     `2. Before navigating: close any existing Instagram tabs in the browser (use browser tabs tool to list tabs, then close any whose URL contains instagram.com). Then open https://www.instagram.com/explore/tags/${s.tag}/ in a new tab.`,
     `3. Find a post from TODAY (same day — look for "Xh ago" or today's date). Skip accounts in the skip list.`,
+    `   FALLBACK: If no same-day posts in the hashtag feed, go to /Users/mantisclaw/.openclaw/workspace/outreach/instagram/accounts.md and pick the next unengaged account.`,
+    `   ⚠️ RECENCY RULE for accounts.md fallback: Only engage on posts that are 7 days old or less. Check the account's most recent post timestamp. If the newest post is older than 7 days, skip that account and pick the next one on the list. Do not comment on posts older than 1 week.`,
     `4. Draft a fresh, original comment for that SPECIFIC post (image + caption + vibe). Use the tone guide style list as energy reference only — max 1-3 list phrases per day total across all sessions.`,
     `5. Post via browser automation: snapshot → click comment box (ref) → JS execCommand inject → click Post button (ref)`,
     `6. Like the post + 2 older posts from the same account (snapshot → find Like button ref → click)`,
