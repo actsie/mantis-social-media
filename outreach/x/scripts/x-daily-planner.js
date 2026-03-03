@@ -36,7 +36,7 @@ const ACCOUNTS = [
   { handle: 'GelishNails',     type: 'nail-brand', engagement: 'full',      status: 'verify'    },
   { handle: 'OliveAndJune',    type: 'nail-brand', engagement: 'full',      status: 'verify'    },
   // Hair brands — like only (reply only if caption has technique detail)
-  // Beauty creators & brands (mixed content — like-only by default, comment on nail/cute posts)
+  // Beauty creators & brands (like-only by default — reply when there's a genuine hook per global rule)
   { handle: 'elfcosmetics',    type: 'beauty-brand',    engagement: 'like-only', status: 'verify' },
   { handle: 'ColourPopCo',     type: 'beauty-brand',    engagement: 'like-only', status: 'verify' },
   { handle: 'MACcosmetics',    type: 'beauty-brand',    engagement: 'like-only', status: 'verify' },
@@ -181,7 +181,7 @@ sessions.forEach(s => {
     ? [
         `ENGAGEMENT: LIKE ONLY by default.`,
         isBeautyType
-          ? `Only reply if the post is nail-related or clearly cute/aesthetic content worth a genuine reaction. Skip makeup tutorials, selfies, promos, non-nail content.`
+          ? `Like only by default — but reply if there's a genuine hook: nail/beauty craft content, beauty business topics (website, booking, marketing, online presence, slow periods), industry observations, or anything where you have something real to add. Skip generic promos, selfies, filler posts.`
           : `Only reply if the caption/post has specific technique or product detail worth responding to.`,
         `If replying: Style 1 or 3 only (observation or opinion), no question, no hype compliment.`,
       ].join('\n')

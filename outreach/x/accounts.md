@@ -1,8 +1,18 @@
 # X Target Accounts — @stacydonna0x Outreach
 
-Accounts worth engaging: nail brands, creators, hair/skincare brands.
+Accounts worth engaging: nail brands, creators, hair/skincare brands, beauty businesses.
 Engage = reply to recent posts (same-day preferred) + like.
 Full rules: `posting-rules.md` and `tone-guide.md`
+
+## Global Engagement Rule (updated Mar 3)
+Reply when there's a genuine hook — not just nail content. Brand pillars apply:
+- **Nail/beauty craft content** → always fair game for a reaction
+- **Beauty business topics** — website, booking, online presence, marketing, slow periods, tech → reply with a take (this is our ICP talking)
+- **Industry trends, launches, business observations** → reply if you have something real to add
+- **Generic lifestyle, promos, "buy this" posts** → like only, nothing to say
+- **Posts where your reply would just be agreement or filler** → like only
+
+One rule overrides everything: if you don't have something specific and genuine to say, don't reply. Quality over volume.
 
 ---
 
@@ -18,21 +28,23 @@ Full rules: `posting-rules.md` and `tone-guide.md`
 
 ---
 
-## 💄 Beauty Creators & Brands (mixed content — nail/cute posts only)
+## 💄 Beauty Creators & Brands
 
-Like by default. Comment only when post is nail-related or clearly cute/aesthetic content worth a genuine reaction. Style 1 or 3 only (observation or opinion), no question, no hype.
+Like by default. Reply when there's a genuine hook per the global engagement rule above.
+Good reply triggers: nail looks, product opinions, beauty business frustrations, marketing takes, industry observations.
+Not just nail content anymore — if a brand tweets something about running a business, online presence, or beauty industry trends, that's fair game.
 
 | Handle | Notes | Status |
 |--------|-------|--------|
-| @elfcosmetics | e.l.f. cosmetics — very active brand | verify |
-| @ColourPopCo | ColourPop — active brand, frequent collabs | verify |
-| @MACcosmetics | MAC Cosmetics — large brand, active | verify |
-| @NYXCosmetics | NYX Professional Makeup | verify |
-| @MannyMua733 | Manny MUA — makeup artist, large following | verify |
-| @patrickstarrr | Patrick Starr — makeup influencer | verify |
-| @amrezy | Amrezy — beauty influencer | verify |
+| @elfcosmetics | e.l.f. cosmetics — very active, posts product, campaigns, business content | verify |
+| @ColourPopCo | ColourPop — active brand, frequent collabs, trend-forward | verify |
+| @MACcosmetics | MAC Cosmetics — large brand, posts campaigns + technique content | verify |
+| @NYXCosmetics | NYX Professional Makeup — active, posts product + beauty creator collabs | verify |
+| @MannyMua733 | Manny MUA — makeup artist, large following, personal opinions | verify |
+| @patrickstarrr | Patrick Starr — makeup influencer, very personal voice | verify |
+| @amrezy | Amrezy — beauty influencer, nail content occasional | verify |
 | @Rocioceja_ | Rocio Ceja — beauty creator | verify |
-| @Trendmood | Trendmood — beauty trend account, active | verify |
+| @Trendmood | Trendmood — beauty trend account, very active | verify |
 | @GlamLifeGuru | Tati Westbrook — beauty creator | verify |
 | @kandeejohnson | Kandee Johnson — beauty creator | verify |
 | @carlibybel | Carli Bybel — beauty creator | verify |
@@ -51,7 +63,7 @@ Like by default. Comment only when post is nail-related or clearly cute/aestheti
 |--------|-------|--------|
 | @ultabeauty | Ulta Beauty — very active, posts nail, hair, skincare, brand collabs constantly | ✅ confirmed |
 
-Full engagement on nail/beauty posts. Like-only on promos and product launches unless there's real content worth a genuine reaction.
+Full engagement per global rule. Ulta posts a lot about beauty industry, brand collabs, business — reply when there's a real hook beyond just product promo.
 
 ---
 
@@ -103,7 +115,7 @@ Full engagement on nail/beauty posts. Like-only on promos and product launches u
 ## Notes
 
 - **"verify"** = account exists/likely active but not confirmed live in browser yet
-- **Engagement rule for hair/skincare brands:** same as IG — like only unless caption has technique/product detail worth responding to
+- **Engagement rule for hair/skincare brands:** like only unless there's a genuine hook per global rule — technique content, product opinions, or anything beauty-business adjacent
 - **Nail brands/creators:** full engagement (reply + like) when post has real content
 - Update status to ✅ or ❌ after first visit
 - Add follower count and last post date once verified
