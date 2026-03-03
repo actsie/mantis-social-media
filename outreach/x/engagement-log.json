@@ -261,6 +261,39 @@
       "liked": true,
       "type": "like-only",
       "platform": "x"
+    },
+    {
+      "timestamp": "2026-03-02T08:37:00-08:00",
+      "account": "Araduaduadua",
+      "tweetUrl": "https://x.com/Araduaduadua/status/2028320194150769091",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "like-only",
+      "platform": "x",
+      "note": "Account active and verified (25.7K posts, 6.3K followers). Most recent post (Mar 1, 12h ago): motivational text-only 'March will work in yout favor.' No image, no nail content. Like only per rules."
+    },
+    {
+      "timestamp": "2026-03-02T14:27:00-08:00",
+      "account": "NYXCosmetics",
+      "tweetUrl": "https://x.com/NYXCosmetics/status/2028591176622703016",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "like-only",
+      "platform": "x",
+      "note": "Account active and verified (1.2M followers). Most recent post (today 2:00 PM): 'all of the above??? 😏' with embedded video. Not nail-related — makeup/beauty generic. Like only per rules."
+    },
+    {
+      "timestamp": "2026-03-02T17:33:00-08:00",
+      "account": "Moroccanoil",
+      "tweetUrl": "https://x.com/Moroccanoil/status/2024184545545756830",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "hair-brand",
+      "platform": "x",
+      "note": "Original target @redken confirmed as personal UK account (not the hair brand) — already flagged in accounts.md. Substituted @Moroccanoil (next active hair brand). Feb 18 post is a fragrance launch (Lumière du Jour) — no hair technique detail. Like only per rules. Feb 24 post was already liked in prior session (Feb 27)."
     }
   ]
 }

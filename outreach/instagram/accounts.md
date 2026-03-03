@@ -35,10 +35,10 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 | @ursthreading | threading salon | verify |
 | @jjsthreadingsalon | threading salon | ⏭️ skip (engaged 2/24) |
 | @jdacademyofsalon | salon academy | verify |
-| @agnesohairdesign | hair design | verify |
+| @agnesohairdesign | hair design | ✅ |
 | @mariannestrokirksalon | salon | verify |
 | @charlesifergan | hair salon | ✅ |
-| @swervesalon | salon | verify |
+| @swervesalon | salon | ✅ |
 | @arsovasalon | salon | verify |
 | @salonbuzzchi | Chicago salon | ✅ |
 | @georgethesalon | salon | verify |
@@ -70,7 +70,7 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 | @no1salonchicago | Chicago salon | ✅ |
 | @sarayasalonchicago | Chicago salon | ✅ |
 | @pinkmiup_chicago | Chicago beauty | ✅ |
-| @salonsevhn | salon | verify |
+| @salonsevhn | salon | ✅ |
 | @themusest | beauty/lifestyle | verify |
 
 ---
@@ -80,7 +80,7 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 | Handle | Notes | Status |
 |--------|-------|--------|
 | @ultabeauty | major beauty retailer, very active | ✅ |
-| @hellosugar.salon | waxing salon franchise | verify |
+| @hellosugar.salon | waxing salon franchise | ✅ |
 | @kidsnips | kids hair salon | verify |
 | @massageenvy_sf | see spas section | — |
 

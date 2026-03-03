@@ -126,7 +126,7 @@ const msg = [
   `   - NO hyphens (-) or em dashes (—) — use a period instead`,
   `   - NO quotation marks around words — rephrase`,
   `   - NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially,`,
-  `     vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, reads as`,
+  `     vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, read/reads (e.g. "reads clearly", "reads as")`,
   `   - Short: 1-3 sentences max`,
   `   - No hashtags unless completely natural`,
   `   - Rewrite if any rule is violated`,

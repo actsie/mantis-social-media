@@ -1,49 +1,49 @@
 {
-  "date": "2026-03-01",
+  "date": "2026-03-02",
   "sessionCount": 5,
   "sessions": [
     {
       "n": 1,
-      "time": "06:35",
-      "account": "holotaco",
-      "type": "creator",
-      "engagement": "full",
-      "status": "confirmed",
+      "time": "08:37",
+      "account": "Araduaduadua",
+      "type": "beauty-creator",
+      "engagement": "like-only",
+      "status": "verify",
       "done": false
     },
     {
       "n": 2,
-      "time": "11:49",
-      "account": "OPI_PRODUCTS",
-      "type": "nail-brand",
-      "engagement": "full",
-      "status": "confirmed",
+      "time": "14:27",
+      "account": "NYXCosmetics",
+      "type": "beauty-brand",
+      "engagement": "like-only",
+      "status": "verify",
       "done": false
     },
     {
       "n": 3,
-      "time": "13:17",
-      "account": "essie",
-      "type": "nail-brand",
-      "engagement": "full",
-      "status": "confirmed",
+      "time": "17:33",
+      "account": "redken",
+      "type": "hair-brand",
+      "engagement": "like-only",
+      "status": "verify",
       "done": false
     },
     {
       "n": 4,
-      "time": "16:34",
-      "account": "ORLYbeauty",
-      "type": "nail-brand",
-      "engagement": "full",
+      "time": "19:22",
+      "account": "amrezy",
+      "type": "beauty-creator",
+      "engagement": "like-only",
       "status": "verify",
       "done": false
     },
     {
       "n": 5,
-      "time": "20:48",
-      "account": "IGK_hair",
-      "type": "hair-brand",
-      "engagement": "like-only",
+      "time": "20:32",
+      "account": "GelishNails",
+      "type": "nail-brand",
+      "engagement": "full",
       "status": "verify",
       "done": false
     }

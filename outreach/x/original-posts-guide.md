@@ -18,7 +18,7 @@ Mode 3 is intentionally rare — saves it for impact.
 ## Tone Rules (mandatory)
 - No hyphens `-` or em dashes `—` — use a period instead
 - No quotation marks around words — rephrase
-- No banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, reads as
+- No banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, read/reads (e.g. "reads clearly", "reads as")
 - Lowercase fine. Rambly/diary-ish encouraged.
 - Short. 1-3 sentences. Never sounds corporate or polished.
 - Don't start with "I" every single time — vary openers
