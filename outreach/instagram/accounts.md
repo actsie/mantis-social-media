@@ -50,7 +50,7 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 | Handle | Notes | Status |
 |--------|-------|--------|
 | @napavalleyspa | spa | verify |
-| @omgspachicago | Chicago spa | verify |
+| @omgspachicago | Chicago spa | ✅ |
 | @byorispa | spa | verify |
 | @voussalonandspa | salon + spa | verify |
 | @bedazzlednailsandspa | nails + spa | ✅ |

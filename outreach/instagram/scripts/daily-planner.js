@@ -13,7 +13,7 @@ const WORKSPACE = '/Users/mantisclaw/.openclaw/workspace';
 const LOG_FILE   = path.join(WORKSPACE, 'outreach/instagram/engagement-log.json');
 const SCHED_FILE = path.join(WORKSPACE, 'outreach/instagram/today-schedule.json');
 
-const COMMENT_COUNT  = 8;
+const COMMENT_COUNT  = 10;
 const MIN_HOUR       = 6;    // 6:00 AM
 const MAX_HOUR       = 23;   // 11:00 PM
 const MIN_GAP        = 30;   // min minutes between any two sessions
@@ -121,7 +121,7 @@ sessions.forEach(s => {
   const skipList = [...recentAccounts].join(', ') || 'none';
 
   const msg = [
-    `INSTAGRAM SESSION ${s.n}/8 for ${today} — run as stacyd0nna.`,
+    `INSTAGRAM SESSION ${s.n}/${COMMENT_COUNT} for ${today} — run as stacyd0nna.`,
     ``,
     `Hashtag: #${s.tag}`,
     engagementRule,

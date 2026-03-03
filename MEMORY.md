@@ -30,7 +30,7 @@ Do this every time — don't wait to be asked. Newest entries at top.
 **Target same-day posts when possible.** Accounts are actively watching early on — higher chance of a reply. Filter hashtag grids for posts tagged "Xh ago" or today's date before picking a target.
 
 **Comment scheduling rules (anti-pattern):**
-- 8 comments/day, 6am–11pm PST
+- 10 comments/day, 6am–11pm PST
 - At least 2 comments per day must be within 90min of each other (natural cluster)
 - At least one gap must be 3hrs+ (long break looks human)
 - Never evenly spaced — vary gaps between 44min and 4hrs
@@ -42,7 +42,7 @@ Do this every time — don't wait to be asked. Newest entries at top.
 - Makeup (#makeupgoals): like only by default
 
 **Active crons (Instagram):**
-- `ig-daily-planner` — 5:55am PST daily, generates 8 session crons for the day
+- `ig-daily-planner` — 5:55am PST daily, generates 10 session crons for the day
 - `ig-s1` through `ig-s8` — created fresh each morning by planner, delete after run
 - `ig-daily-summary` — 11:15pm PST daily, sends Telegram recap of day's activity
 - `ig-comment-frequency-review` — March 2 2026 10am PST, one-shot review reminder
@@ -55,7 +55,7 @@ Do this every time — don't wait to be asked. Newest entries at top.
 **Likes are bundled with comment sessions:**
 - Each comment session = comment + like that post + 1-2 older posts from same account (~20 likes/day from comments)
 - Separate standalone like batches 2-3x/day, different accounts, no comment (~15 likes/day)
-- Total: ~35 likes/day + 8 comments/day
+- Total: ~35 likes/day + 10 comments/day
 - Full rules: `outreach/scheduling-rules.md`
 
 Steps:
@@ -118,7 +118,7 @@ outreach/
 ## Phase Systems
 
 ### Instagram Phases
-- **Phase 1** (Feb 26-28): 8 comments/day, hashtag engagement, build comment history
+- **Phase 1** (Feb 26-28): 10 comments/day, hashtag engagement, build comment history
 - **Phase 2** (from ~March 1): DMs to US beauty/nail salons with fix-your-page offer — DO NOT start without user approval
 - Reminder cron `ig-phase2-reminder` fires Feb 28 10am PST — asks user for go-ahead
 - Strategy: `outreach/instagram/strategy.md`

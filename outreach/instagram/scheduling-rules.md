@@ -24,7 +24,7 @@
 
 ---
 
-## Comment Sessions (8/day)
+## Comment Sessions (10/day)
 Each comment session is a bundled action — not just a comment in isolation.
 
 **Per session:**
@@ -60,7 +60,7 @@ Separate from comment sessions — browsing and liking different accounts, no co
 - ~20 likes from comment sessions
 - ~15 likes from standalone batches
 - **~35 likes/day total**
-- **8 comments/day**
+- **10 comments/day**
 
 ---
 

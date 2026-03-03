@@ -550,6 +550,21 @@
       ],
       "type": "hashtag",
       "hashtag": "#nailsalon"
+    },
+    {
+      "timestamp": "2026-03-02T17:41:00-08:00",
+      "account": "omgspachicago",
+      "postUrl": "https://www.instagram.com/omgspachicago/reel/DVWgm_7kSlp/",
+      "commentUrl": "https://www.instagram.com/p/DVWgm_7kSlp/c/18100863830506287/",
+      "comment": "ok daisy nail art with a matching mani-pedi is so much cuter than I expected. blue base and yellow accents is the perfect spring call 🌼",
+      "likes": [
+        "https://www.instagram.com/omgspachicago/reel/DVWgm_7kSlp/",
+        "https://www.instagram.com/omgspachicago/reel/DVT5WGXkbze/",
+        "https://www.instagram.com/omgspachicago/reel/DVRNqmukcfa/"
+      ],
+      "type": "comment+like",
+      "hashtag": "#nailslove",
+      "note": "fallback: no same-day posts in #nailslove hashtag feed; engaged verify account omgspachicago (OMG Spa, Chicago South Loop). Most recent post: Daisy Nail Art reel (1d old). Liked main post + Saturday Vibes (2d) + Lake Michigan Spa Pedicure (3d). Updated omgspachicago status to ✅ in accounts.md."
     }
   ]
 }
