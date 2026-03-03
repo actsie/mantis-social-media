@@ -181,7 +181,7 @@ sessions.forEach(s => {
     ? [
         `ENGAGEMENT: LIKE ONLY by default.`,
         isBeautyType
-          ? `Like only by default — but reply if there's a genuine hook: nail/beauty craft content, beauty business topics (website, booking, marketing, online presence, slow periods), industry observations, or anything where you have something real to add. Skip generic promos, selfies, filler posts.`
+          ? `Like only by default. Reply ONLY when the post gives you a chance to say something specific that comes from a real POV — nail/beauty craft you genuinely react to, or content that touches the gap between how beauty businesses show up online vs the quality of their work. Generic complaints, promos, app issues, selfies, lifestyle = like only. Ask: would someone without this specific POV say the same thing? If yes, don't reply.`
           : `Only reply if the caption/post has specific technique or product detail worth responding to.`,
         `If replying: Style 1 or 3 only (observation or opinion), no question, no hype compliment.`,
       ].join('\n')
