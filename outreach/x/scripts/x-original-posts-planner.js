@@ -15,12 +15,15 @@ const STATE_FILE   = path.join(WORKSPACE, 'outreach/x/original-posts-state.json'
 const LOG_FILE     = path.join(WORKSPACE, 'outreach/x/original-posts-log.json');
 const GUIDE_FILE   = path.join(WORKSPACE, 'outreach/x/original-posts-guide.md');
 
-// Weighted mode pool — mode 2 (building) appears most
-// Mode 1: fan/nail girl | 2: building | 3: hot take | 4: relatable
+// Weighted mode pool — mapped to 4 brand pillars
+// Mode 1: Leads (ICP-aware, problem/solution)
+// Mode 2: Authority (strong takes, sharp POV)
+// Mode 3: Build in Public (messy middle, real observations)
+// Mode 4: Think Out Loud (personality, fan energy, exploration)
 const MODE_WEIGHTS = [
   { mode: 1, weight: 2 },
-  { mode: 2, weight: 4 },
-  { mode: 3, weight: 1 },
+  { mode: 2, weight: 3 },
+  { mode: 3, weight: 3 },
   { mode: 4, weight: 2 },
 ];
 
@@ -81,10 +84,10 @@ const mode  = pickMode(state.lastMode);
 
 // Mode names for readability
 const MODE_NAMES = {
-  1: 'Fan / Nail Girl',
-  2: 'Building Something / Noticing Things',
-  3: 'Hot Take / Opinion',
-  4: 'Relatable Beauty Person'
+  1: 'Leads — Talking to ICP',
+  2: 'Authority — Strong Take',
+  3: 'Build in Public — Messy Middle',
+  4: 'Think Out Loud — Personality'
 };
 
 // ── Determine recently used drafts (last 14 days) ─────────────────────────────

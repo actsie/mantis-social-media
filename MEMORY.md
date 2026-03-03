@@ -85,13 +85,18 @@ Confirmed working: liked @11nailangeles11 post Feb 25, 2026. Count 3→4 ✅
 
 Full details: `outreach/x/posting-rules.md`
 
-## X Original Posts System (added 2026-03-02)
+## X Original Posts System (added 2026-03-02, updated 2026-03-02)
 - 1 original tweet/day, random time 9am–9pm PST
-- Mode cycle: [1, 2, 3, 2, 4, 2, 2, 1] (fan, building, hot-take, building, relatable, building, building, fan)
-- Mode 2 (building something / noticing things) appears most — builds follow-back curiosity
-- Draft bank: `outreach/x/original-posts-guide.md`
+- 4 pillars framework — every post must serve at least one:
+  - **Pillar 1 / Mode 1 — Leads (w2):** ICP-aware, talking to salon/beauty biz owners about their problems
+  - **Pillar 2 / Mode 2 — Authority (w3):** Strong stances, sharp POV, vocal about what's broken in beauty biz online presence
+  - **Pillar 3 / Mode 3 — Build in Public (w3):** Messy middle, real observations, what you actually found
+  - **Pillar 4 / Mode 4 — Think Out Loud (w2):** Fan energy, personality, exploration — the glue
+- ICP: salon/spa/beauty business owners with weak online presence, broken booking pages, good work not showing up online
+- No same mode two days in a row
+- Draft bank: `outreach/x/original-posts-guide.md` (10 drafts per mode, 40 total)
 - Log: `outreach/x/original-posts-log.json`
-- State/cycle tracker: `outreach/x/original-posts-state.json`
+- State tracker: `outreach/x/original-posts-state.json`
 - Planner: `outreach/x/scripts/x-original-posts-planner.js`
 - Cron: `x-original-posts-planner` — 6:04am PST daily
 - @ultabeauty added to accounts.md (Beauty Retailers section, full engagement on nail/beauty posts)

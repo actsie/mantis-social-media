@@ -294,6 +294,31 @@
       "type": "hair-brand",
       "platform": "x",
       "note": "Original target @redken confirmed as personal UK account (not the hair brand) — already flagged in accounts.md. Substituted @Moroccanoil (next active hair brand). Feb 18 post is a fragrance launch (Lumière du Jour) — no hair technique detail. Like only per rules. Feb 24 post was already liked in prior session (Feb 27)."
+    },
+    {
+      "timestamp": "2026-03-02T19:22:00-08:00",
+      "account": "amrezy",
+      "tweetUrl": "https://x.com/amrezy/status/2028646225193439666",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "beauty-creator",
+      "platform": "x",
+      "note": "Account confirmed active and verified (370.2K followers). Most recent post (1h ago) was a quote retweet of Page Six celebrity content — not nail-related. Like only per rules."
+    },
+    {
+      "timestamp": "2026-03-02T20:32:00-08:00",
+      "account": "Moroccanoil",
+      "tweetUrl": "https://x.com/Moroccanoil/status/2016257805687157216",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "hair-brand",
+      "platform": "x",
+      "note": "Original target @GelishNails was inactive (last post March 2012, compromised/spam). Fell back to @Moroccanoil (next active account). All recent posts are fragrance/lip balm — not nail or technique related. Like-only per hair brand rules. Liked Jan 27 post (lip balms) and Dec 31 post (lip balm flavors). Feb 24 and Feb 18 posts already liked from prior session.",
+      "additionalLikes": [
+        "https://x.com/Moroccanoil/status/2006390316052414482"
+      ]
     }
   ]
 }

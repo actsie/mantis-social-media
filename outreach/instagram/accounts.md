@@ -98,7 +98,7 @@ Handles marked "verify" — confirm account exists and is active before engaging
 | Handle | Business | Notes | Status |
 |--------|----------|-------|--------|
 | @lovelyyfaces | LovelyyFaces Spa Lounge | Bethlehem PA, lashes + nails + academy | verify |
-| @hellobirdielab | Hello Birdie Nail & Lash Lab | North Park SD, hand-painted nail art specialist | verify |
+| @hellobirdielab | Hello Birdie Nail & Lash Lab | North Park SD, hand-painted nail art specialist | ✅ |
 | @varnishlane | Varnish Lane | DC, waterless nail salon, eco-focused | verify |
 | @blinklashboutique | Blink Lash Boutique | Master lash artists since 2006, lash certification school | verify |
 | @jjeyelashes | JJ Eyelashes | Founded 1999 by May Lee, semi-perm makeup + lash extensions | verify |
