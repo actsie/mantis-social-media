@@ -105,7 +105,7 @@ Handles marked "verify" — confirm account exists and is active before engaging
 | @lashbarusa | LashBar | Franchise lash bars, San Diego + expanding | verify |
 | @houseoflashes | House of Lashes | False lash product brand, Leaping Bunny certified | verify |
 | @buffandfile | Buff & File Nail Bar | Portsmouth NH, non-toxic polishes, 2 locations | verify |
-| @curestudios | Cure Studios | East Austin, sustainable + inclusive nail boutique since 2021 | verify |
+| @curestudios | Cure Studios | East Austin, sustainable + inclusive nail boutique since 2021 | ✅ |
 | @miniluxe | MiniLuxe | Nail franchise with own press-on + polish line | verify |
 | @frenchiesmodernnailcare | Frenchies Modern Nail Care | Franchise nail care, Littleton CO location | verify |
 
