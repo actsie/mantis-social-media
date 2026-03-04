@@ -34,8 +34,7 @@ Write something original that could only be about THAT post. Use the style list 
 - `the way the pink fades into the white on these is actually insane`
 - `i don't even wear acrylics and I need these!` ← exclamation ok sometimes, not every time
 - `ok who told you to make them this perfect 😭` ← emoji ok sometimes, not every time
-- `plaid and florals should not work together and yet here i am completely won over`
-- `ok i would have said no to [combo] on the same set but this changed my mind immediately`
+- `plaid and florals should not work together and yet here i am completely won over` ← example of reacting without explaining — do NOT copy this structure, write something fresh every time
 - `i've never wanted [subject] until this very moment and now I need to have it`
 
 **Exclamation marks:** natural and human sometimes, don't overuse — maybe 1 in 3 comments

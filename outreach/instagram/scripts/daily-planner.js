@@ -134,7 +134,7 @@ sessions.forEach(s => {
     `- NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, reads as, clean, bingo card`,
     `- NO starting with "the"`,
     `- Max 3 sentences`,
-    `- DO NOT explain why something works — react to it. If you're surprised a combo works, say you're surprised. Don't follow with design logic. "i would have said no to this but it changed my mind" = good. "this works because the color ties both elements together" = too analytical, not human.`,
+    `- DO NOT explain why something works — react to it. If you're surprised a combo works, say you're surprised. Don't follow with design logic. Do NOT copy or template any example from the tone guide — every comment must be written fresh for that specific post.`,
     `- Scan your draft for all of the above before posting. If any are present, rewrite.`,
     ``,
     `Steps:`,

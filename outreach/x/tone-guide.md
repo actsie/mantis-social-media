@@ -46,8 +46,7 @@ One specific thing you noticed. Clean, dry, no over-explaining. Never start with
 - `chrome over burgundy is such a good combo`
 - `gradient fade on these is so precise`
 - `negative space done right is so hard to pull off`
-- `plaid and florals should not work together and yet here i am completely won over`
-- `ok i would have said no to [combo] on the same set but this changed my mind immediately`
+- `plaid and florals should not work together and yet here i am completely won over` ← example of reacting without explaining — do NOT copy this structure, write something fresh every time
 
 ### Style 2: Conversational follow-up (caption has detail)
 They described something specific — respond to it naturally. No "actually", don't start with "the".
