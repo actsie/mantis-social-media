@@ -1,11 +1,11 @@
 {
-  "date": "2026-03-02",
+  "date": "2026-03-03",
   "sessionCount": 5,
   "sessions": [
     {
       "n": 1,
-      "time": "08:37",
-      "account": "Araduaduadua",
+      "time": "07:29",
+      "account": "patrickstarrr",
       "type": "beauty-creator",
       "engagement": "like-only",
       "status": "verify",
@@ -13,8 +13,8 @@
     },
     {
       "n": 2,
-      "time": "14:27",
-      "account": "NYXCosmetics",
+      "time": "08:08",
+      "account": "ColourPopCo",
       "type": "beauty-brand",
       "engagement": "like-only",
       "status": "verify",
@@ -22,17 +22,17 @@
     },
     {
       "n": 3,
-      "time": "17:33",
-      "account": "redken",
-      "type": "hair-brand",
+      "time": "16:25",
+      "account": "GlamLifeGuru",
+      "type": "beauty-creator",
       "engagement": "like-only",
       "status": "verify",
       "done": false
     },
     {
       "n": 4,
-      "time": "19:22",
-      "account": "amrezy",
+      "time": "18:26",
+      "account": "Rocioceja_",
       "type": "beauty-creator",
       "engagement": "like-only",
       "status": "verify",
@@ -40,8 +40,8 @@
     },
     {
       "n": 5,
-      "time": "20:32",
-      "account": "GelishNails",
+      "time": "20:14",
+      "account": "OliveAndJune",
       "type": "nail-brand",
       "engagement": "full",
       "status": "verify",

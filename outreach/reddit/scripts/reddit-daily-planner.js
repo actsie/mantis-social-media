@@ -224,7 +224,7 @@ sessions.forEach(s => {
     `   HARD RULES — scan draft before posting:`,
     `   - NO em dashes (—) or hyphens (-) — use a period instead`,
     `   - NO quotation marks around words — rephrase`,
-    `   - NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually`,
+    `   - NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, bingo card`,
     `   - Rewrite if any rule is violated. No exceptions.`,
     ``,
     `6. Post the comment using the old.reddit.com method:`,

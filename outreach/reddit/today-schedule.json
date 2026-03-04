@@ -1,26 +1,33 @@
 {
-  "date": "2026-03-02",
-  "sessionCount": 3,
+  "date": "2026-03-03",
+  "sessionCount": 4,
   "sessions": [
     {
       "n": 1,
-      "time": "15:59",
+      "time": "16:02",
       "sub": "beauty",
       "type": "beauty",
       "done": false
     },
     {
       "n": 2,
-      "time": "16:45",
+      "time": "17:36",
       "sub": "Nails",
       "type": "nail",
       "done": false
     },
     {
       "n": 3,
-      "time": "21:40",
+      "time": "21:01",
       "sub": "Nails",
       "type": "nail",
+      "done": false
+    },
+    {
+      "n": 4,
+      "time": "21:49",
+      "sub": "curlyhair",
+      "type": "hair",
       "done": false
     }
   ]

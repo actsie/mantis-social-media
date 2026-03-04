@@ -217,7 +217,7 @@ sessions.forEach(s => {
     `   HARD RULES — scan draft before posting:`,
     `   - NO em dashes (—) or hyphens (-) — use a period instead`,
     `   - NO quotation marks around words — rephrase`,
-    `   - NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, read/reads (e.g. "reads clearly", "reads as")`,
+    `   - NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, read/reads (e.g. "reads clearly", "reads as"), bingo card`,
     `   - Never start with "the". Max 2-3 sentences. Rewrite if any rule is violated.`,
     ``,
     `6. Click reply textbox (ref) → type comment → click Reply button (ref).`,

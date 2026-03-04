@@ -36,15 +36,15 @@ Not just nail content anymore — if a brand tweets something about running a bu
 
 | Handle | Notes | Status |
 |--------|-------|--------|
-| @elfcosmetics | e.l.f. cosmetics — very active, posts product, campaigns, business content | verify |
+| @elfcosmetics | e.l.f. cosmetics — very active, posts product, campaigns, business content | ✅ confirmed Mar 3, 2026 |
 | @ColourPopCo | ColourPop — active brand, frequent collabs, trend-forward | verify |
 | @MACcosmetics | MAC Cosmetics — large brand, posts campaigns + technique content | verify |
 | @NYXCosmetics | NYX Professional Makeup — active, posts product + beauty creator collabs | verify |
 | @MannyMua733 | Manny MUA — makeup artist, large following, personal opinions | verify |
 | @patrickstarrr | Patrick Starr — makeup influencer, very personal voice | verify |
 | @amrezy | Amrezy — beauty influencer, nail content occasional | verify |
-| @Rocioceja_ | Rocio Ceja — beauty creator | verify |
-| @Trendmood | Trendmood — beauty trend account, very active | verify |
+| @Rocioceja_ | Rocio Ceja — beauty creator | ❌ protected account — posts locked, cannot engage |
+| @Trendmood | Trendmood — beauty trend account, very active | ❌ inactive — last post Oct 2025 |
 | @GlamLifeGuru | Tati Westbrook — beauty creator | verify |
 | @kandeejohnson | Kandee Johnson — beauty creator | verify |
 | @carlibybel | Carli Bybel — beauty creator | verify |
