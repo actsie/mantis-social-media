@@ -61,7 +61,7 @@ Not just nail content anymore — if a brand tweets something about running a bu
 
 | Handle | Notes | Status |
 |--------|-------|--------|
-| @ultabeauty | Ulta Beauty — very active, posts nail, hair, skincare, brand collabs constantly | ✅ confirmed |
+| @ultabeauty | Ulta Beauty — last post Dec 19, 2024. Inactive on X since then. | ❌ inactive since Dec 2024 |
 
 Full engagement per global rule. Ulta posts a lot about beauty industry, brand collabs, business — reply when there's a real hook beyond just product promo.
 
