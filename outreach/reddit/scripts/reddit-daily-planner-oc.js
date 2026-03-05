@@ -23,7 +23,7 @@ const LONG_GAP_MIN = 180;  // "long break" threshold
 // phase 1 = warmup (karma building) | phase 2 = business subs (50+ karma) | phase 3 = later
 // Karma thresholds: phase2 unlocks at 50+, phase3 at 100+
 // Update CURRENT_KARMA below as account grows
-const CURRENT_KARMA = 1; // update this as karma grows
+const CURRENT_KARMA = 60; // updated 2026-03-05 — Phase 2 unlocked
 
 const SUBREDDITS = [
   // Phase 1 — warmup consumer subs
@@ -40,7 +40,7 @@ const SUBREDDITS = [
   { sub: 'Nailtechs',           type: 'pro-nail',   phase: 2, weight: 5 },
   { sub: 'hairstylist',         type: 'pro-hair',   phase: 2, weight: 4 },
   { sub: 'EstheticianLife',     type: 'pro-beauty', phase: 2, weight: 3 },
-  { sub: 'smallbusiness',       type: 'biz',        phase: 2, weight: 2 },
+  { sub: 'smallbusiness',       type: 'biz',        phase: 99, weight: 2 }, // paused — manual approval required before posting
   // Phase 3 — expand later
   { sub: 'SkincareAddiction',   type: 'skincare',   phase: 3, weight: 2 },
   { sub: 'RedditLaqueristas',   type: 'nail',       phase: 3, weight: 2 },
@@ -219,11 +219,15 @@ sessions.forEach(s => {
     ``,
     `5. Draft a comment that is:`,
     `   - Specific to what's actually in the post (NOT generic)`,
-    `   - 1-2 sentences max`,
+    `   - 1-4 sentences max`,
     `   - Natural, casual tone (see tone-guide.md)`,
-    `   - No hype words (gorgeous, amazing, stunning, love your content)`,
     `   - Don't start with "I"`,
     `   - For hair/skincare posts: only comment if there's real content worth engaging with`,
+    `   HARD RULES — scan draft before posting:`,
+    `   - NO em dashes (—) or hyphens (-) — use a period instead`,
+    `   - NO quotation marks around words — rephrase`,
+    `   - NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, bingo card, frame/framing`,
+    `   - Rewrite if any rule is violated. No exceptions.`,
     ``,
     `6. Post the comment using the old.reddit.com method:`,
     `   JS: const ta = document.querySelector('textarea[name="text"]');`,
@@ -236,31 +240,85 @@ sessions.forEach(s => {
     ``,
     `8. Reload the page and confirm your comment appears (search for your username or comment text).`,
     ``,
-    `9. Append to /Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json:`,
-    `   { timestamp, subreddit, postUrl, postTitle, commentUrl (direct permalink to your comment), comment, upvoted: true, platform: "reddit", account: "Alive_Kick7098" }`,
+    `9. Append to the engagement log using this EXACT method (no other way):`,
+    `   const fs = require('fs');`,
+    `   const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json';`,
+    `   const log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
+    `   log.sessions.push({ timestamp: new Date().toISOString(), subreddit: "r/${s.sub}", postUrl, postTitle, commentUrl, comment, upvoted: true, platform: "reddit", account: "Alive_Kick7098" });`,
+    `   fs.writeFileSync(logPath, JSON.stringify(log, null, 2));`,
+    `   Run this as a single exec block. Do NOT write to any other key — only log.sessions.push().`,
     ``,
-    `10. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"). ALWAYS include target="6241290513" — do NOT omit it. Include: subreddit, post title, comment text, AND direct links — URL of the post commented on (old.reddit.com/r/sub/comments/...) and your comment permalink (old.reddit.com/r/sub/comments/postid/title/commentid/).`,
+    `10. CHECK INBOX FOR REPLIES — do this once per day (session 1 only):`,
+    `    a. Navigate to https://old.reddit.com/message/unread/`,
+    `       Read all unread messages. These are replies to our posts and comments.`,
+    `    b. For each unread message that is a reply to one of our posts or comments:`,
+    `       - Note the parent post URL and the commenter's text`,
+    `       - Skip: low effort replies ("nice", "same", emojis only), replies that don't need a response`,
+    `       - Always include the TOP VOTED comment on any post that has replies, even if not in inbox`,
+    `         (navigate to the post, sort by top, check if top commenter got a reply from us already)`,
+    `    c. Pick 2-3 worth replying to. Not everyone. Prioritize top-voted comment first.`,
+    `    d. For each reply you write:`,
+    `       - FIRST navigate to the original post and re-read our OP text carefully`,
+    `         Your reply must stay 100% consistent with what we said. If OP says "i tried X and it seemed to help",`,
+    `         don't reply as if you've never tried it. Never contradict the original post.`,
+    `       - Read ONLY the commenter's actual words. Identify the ONE specific thing you're reacting to.`,
+    `       - Write from scratch based on that one thing. No structure, no formula.`,
+    `         Not "great point + my experience" — just react directly to what they said.`,
+    `       - Short: 1-2 sentences max. Lowercase. No banned words. No hyphens or em dashes.`,
+    `       - Every reply must feel structurally different from every other reply — different length,`,
+    `         different opening, different type (question / observation / agreement with a twist / etc).`,
+    `         If two replies start the same way or follow the same pattern, rewrite one before posting.`,
+    `    e. Post each reply using the old.reddit.com method:`,
+    `       Navigate to the comment's parent post URL. Find the comment by author name.`,
+    `       Click reply → focus textarea → execCommand insertText → click Save button.`,
+    `       Add uneven gaps of 1-3 minutes between replies (not equally spaced).`,
+    `    f. Log each reply in engagement-log.json with type: "reply" and include replyTo: "their_username"`,
+    `       so we never accidentally reply twice to the same person on the same post.`,
+    `       Before posting any reply, check engagement-log.json for existing entries where`,
+    `       type === "reply" and replyTo === their username and postUrl matches. If found, skip.`,
+    `    g. After all replies posted: navigate to https://old.reddit.com/message/unread/`,
+    `       and mark inbox as read by clicking "mark all as read".`,
     ``,
-    `If no suitable post is found under 1hr old, try posts under 3hrs. If still nothing good, skip this session and log it as skipped.`,
+    `11. Mark this session done in today-schedule.json using this EXACT method:`,
+    `    const schedPath = '/Users/mantisclaw/.openclaw/workspace/outreach/reddit/today-schedule.json';`,
+    `    const sched = JSON.parse(fs.readFileSync(schedPath, 'utf8'));`,
+    `    sched.sessions[${s.n - 1}].done = true;`,
+    `    fs.writeFileSync(schedPath, JSON.stringify(sched, null, 2));`,
+    ``,
+    `12. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"): subreddit + post title + comment text + any replies posted to our own posts. ALWAYS include target="6241290513" — do NOT omit it.`,
+    ``,
+    `If no suitable post is found under 1hr old, try posts under 3hrs. If still nothing good, skip this session and log it as skipped with this EXACT method:`,
+    `   const fs = require('fs');`,
+    `   const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json';`,
+    `   const log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
+    `   log.sessions.push({ timestamp: new Date().toISOString(), subreddit: "r/${s.sub}", postUrl: null, postTitle: null, commentUrl: null, comment: null, upvoted: false, platform: "reddit", account: "Alive_Kick7098", status: "skipped", skipReason: "YOUR REASON HERE" });`,
+    `   fs.writeFileSync(logPath, JSON.stringify(log, null, 2));`,
   ].join('\n');
 
   const name = `reddit-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
   const at   = `${today}T${s.time}:00${getLAOffset()}`;
 
+  // Write to temp file to avoid OS arg length limits
+  const tmpFile = `/tmp/reddit-session-msg-${s.n}-${Date.now()}.txt`;
+  fs.writeFileSync(tmpFile, msg);
+
   const result = spawnSync('openclaw', [
     'cron', 'add',
     '--name', name,
     '--at',   at,
-    '--message', msg,
+    '--message-file', tmpFile,
     '--announce',
     '--delete-after-run',
     '--tz', 'America/Los_Angeles'
   ], { encoding: 'utf8' });
 
+  try { fs.unlinkSync(tmpFile); } catch (_) {}
+
   if (result.status === 0) {
     console.log(`✓ Cron: ${name} at ${s.time} → r/${s.sub}`);
   } else {
     console.error(`✗ Failed: ${name}\n${result.stderr}`);
+    console.error(`  stdout: ${result.stdout}`);
   }
 });
 

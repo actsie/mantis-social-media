@@ -36,7 +36,7 @@ const ACCOUNTS = [
   { handle: 'GelishNails',     type: 'nail-brand', engagement: 'full',      status: 'verify'    },
   { handle: 'OliveAndJune',    type: 'nail-brand', engagement: 'full',      status: 'verify'    },
   // Hair brands — like only (reply only if caption has technique detail)
-  // Beauty creators & brands (mixed content — like-only by default, comment on nail/cute posts)
+  // Beauty creators & brands (like-only by default — reply when there's a genuine hook per global rule)
   { handle: 'elfcosmetics',    type: 'beauty-brand',    engagement: 'like-only', status: 'verify' },
   { handle: 'ColourPopCo',     type: 'beauty-brand',    engagement: 'like-only', status: 'verify' },
   { handle: 'MACcosmetics',    type: 'beauty-brand',    engagement: 'like-only', status: 'verify' },
@@ -181,7 +181,7 @@ sessions.forEach(s => {
     ? [
         `ENGAGEMENT: LIKE ONLY by default.`,
         isBeautyType
-          ? `Only reply if the post is nail-related or clearly cute/aesthetic content worth a genuine reaction. Skip makeup tutorials, selfies, promos, non-nail content.`
+          ? `Like only by default. Reply ONLY when the post gives you a chance to say something specific that comes from a real POV — nail/beauty craft you genuinely react to, or content that touches the gap between how beauty businesses show up online vs the quality of their work. Generic complaints, promos, app issues, selfies, lifestyle = like only. Ask: would someone without this specific POV say the same thing? If yes, don't reply.`
           : `Only reply if the caption/post has specific technique or product detail worth responding to.`,
         `If replying: Style 1 or 3 only (observation or opinion), no question, no hype compliment.`,
       ].join('\n')
@@ -215,9 +215,12 @@ sessions.forEach(s => {
     `   If wrong tweet, try next URL. NEVER post without verifying content.`,
     ``,
     `5. Draft a fresh, specific reply based on the actual post content.`,
-    `   Follow tone-guide.md styles. No hyphens, no quotation marks.`,
-    `   Banned: weird, resonate, amazing, stunning, love your content.`,
-    `   Never start with "the". Never use "actually".`,
+    `   Follow tone-guide.md styles.`,
+    `   HARD RULES — scan draft before posting:`,
+    `   - NO em dashes (—) or hyphens (-) — use a period instead`,
+    `   - NO quotation marks around words — rephrase`,
+    `   - NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, read/reads (e.g. "reads clearly", "reads as"), bingo card, frame/framing`,
+    `   - Never start with "the". Max 2-3 sentences. Rewrite if any rule is violated.`,
     ``,
     `6. Click reply textbox (ref) → type comment → click Reply button (ref).`,
     `   DO NOT use Ctrl+Enter.`,
@@ -225,29 +228,90 @@ sessions.forEach(s => {
     `7. Like the post (JS: document.querySelectorAll('[data-testid="like"]')[0]?.click()).`,
     `   If full engagement: also like 1-2 older posts from the same account.`,
     ``,
-    `8. Append to /Users/mantisclaw/.openclaw/workspace/outreach/x/engagement-log.json:`,
-    `   { timestamp, account, tweetUrl, replyUrl (URL of your reply tweet, if posted), reply (or null if like-only), liked: true, type, platform: "x" }`,
+    `8. ⚡ FOLLOW BUILDER — THIS STEP IS MANDATORY. Do it before logging. Target: 1-2 follows per session.`,
+    `   a. Go back to the tweet you engaged with in step 4. Scroll down to the reply section.`,
+    `   b. Scan for 1-2 real people who replied (skip brands, verified accounts, anyone with 1000+ followers).`,
+    `      BEFORE clicking their profile: read their reply first. Skip immediately if it's only emojis,`,
+    `      only "love this" / "so pretty" / single-word filler, or looks like a bot reply.`,
+    `      Only proceed with people who left a real, specific reply — even just one genuine sentence.`,
+    `   c. For each candidate, click their profile and check ALL of the following:`,
+    `      - Last post is 2 days old or less (check timestamp on their most recent post)`,
+    `      - Follower count is under 500`,
+    `      - Recent posts are positive, safe content — nail/beauty/lifestyle/food/travel/fashion is fine`,
+    `        SKIP immediately if recent posts contain: political opinions, religious content, negativity,`,
+    `        arguments, anything controversial or charged. When in doubt, skip.`,
+    `      - Not already following @stacydonna0x`,
+    `   d. If candidate passes ALL checks:`,
+    `      - Like 2 of their recent posts`,
+    `      - Comment on 1 post if there is a genuine hook (same tone rules apply — no filler, no hype). Skip the comment if nothing genuine to say — like-only is fine.`,
+    `      - Click Follow`,
+    `   e. Log each follow immediately using this EXACT method — run as a single exec block:`,
+    `      const fs = require('fs');`,
+    `      const ftPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/follow-tracker.json';`,
+    `      const ft = JSON.parse(fs.readFileSync(ftPath, 'utf8'));`,
+    `      ft.follows.push({`,
+    `        handle: 'THEIR_HANDLE',`,
+    `        followedDate: '${today}',`,
+    `        followerCount: THEIR_FOLLOWER_COUNT,`,
+    `        followedBack: null,`,
+    `        source: 'reply-thread @${s.account}',`,
+    `        sourcePost: 'TWEET_URL_YOU_ENGAGED_WITH',`,
+    `        commented: true_or_false,`,
+    `        notes: ''`,
+    `      });`,
+    `      fs.writeFileSync(ftPath, JSON.stringify(ft, null, 2));`,
+    `   f. If no qualifying candidates found after scanning 5+ replies, note why and move on. Zero is acceptable — but you must have looked.`,
     ``,
-    `9. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"). ALWAYS include target="6241290513" — do NOT omit it. Include: account name, action taken (reply/like), the reply text if applicable, AND direct links — URL of the tweet replied to or liked (e.g. https://x.com/handle/status/ID), and the URL of your reply tweet if posted.`,
+    `9. Log the session using this EXACT method — run as a single exec block:`,
+    `   const fs = require('fs');`,
+    `   const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/engagement-log.json';`,
+    `   const log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
+    `   log.sessions.push({`,
+    `     timestamp: new Date().toISOString(),`,
+    `     account: '${s.account}',`,
+    `     type: '${s.type}',`,
+    `     engagement: '${s.engagement}',`,
+    `     tweetUrl: 'TWEET_URL_HERE',`,
+    `     reply: 'YOUR_REPLY_TEXT_OR_null',`,
+    `     liked: true,`,
+    `     platform: 'x'`,
+    `   });`,
+    `   fs.writeFileSync(logPath, JSON.stringify(log, null, 2));`,
+    `   Do NOT write to any other key — only log.sessions.push(). Fill in tweetUrl and reply (null if like-only).`,
+    ``,
+    `10. Mark session done in today-schedule.json:`,
+    `    const schedPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/today-schedule.json';`,
+    `    const sched = JSON.parse(fs.readFileSync(schedPath, 'utf8'));`,
+    `    sched.sessions[${s.n - 1}].done = true;`,
+    `    fs.writeFileSync(schedPath, JSON.stringify(sched, null, 2));`,
+    ``,
+    `11. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"): account name + what was done (reply text or "liked only") + follow count REQUIRED (e.g. "followed 2: @handle1, @handle2" or "followed 0 — no qualifying replies found"). ALWAYS include target="6241290513" — do NOT omit it.`,
   ].filter(Boolean).join('\n');
 
   const name = `x-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
   const at   = `${today}T${s.time}:00${getLAOffset()}`;
 
+  // Write to temp file to avoid OS arg length limits
+  const tmpFile = `/tmp/x-session-msg-${s.n}-${Date.now()}.txt`;
+  fs.writeFileSync(tmpFile, msg);
+
   const result = spawnSync('openclaw', [
     'cron', 'add',
     '--name', name,
     '--at',   at,
-    '--message', msg,
+    '--message-file', tmpFile,
     '--announce',
     '--delete-after-run',
     '--tz', 'America/Los_Angeles'
   ], { encoding: 'utf8' });
 
+  try { fs.unlinkSync(tmpFile); } catch (_) {}
+
   if (result.status === 0) {
     console.log(`✓ Cron: ${name} at ${s.time} → @${s.account}`);
   } else {
     console.error(`✗ Failed: ${name}\n${result.stderr}`);
+    console.error(`  stdout: ${result.stdout}`);
   }
 });
 
