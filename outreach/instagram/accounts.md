@@ -100,14 +100,14 @@ Handles marked "verify" — confirm account exists and is active before engaging
 | @lovelyyfaces | LovelyyFaces Spa Lounge | Bethlehem PA, lashes + nails + academy | ✅ |
 | @hellobirdielab | Hello Birdie Nail & Lash Lab | North Park SD, hand-painted nail art specialist | ✅ |
 | @varnishlane | Varnish Lane | DC, waterless nail salon, eco-focused | ✅ |
-| @blinklashboutique | Blink Lash Boutique | Master lash artists since 2006, lash certification school | verify |
-| @jjeyelashes | JJ Eyelashes | Founded 1999 by May Lee, semi-perm makeup + lash extensions | verify |
-| @lashbarusa | LashBar | Franchise lash bars, San Diego + expanding | verify |
+| @blinklashboutique | Blink Lash Boutique | Master lash artists since 2006, lash certification school | ❌ (account not found) |
+| @jjeyelashes | JJ Eyelashes | Founded 1999 by May Lee, semi-perm makeup + lash extensions | ✅ |
+| @lashbarusa | LashBar | Franchise lash bars, San Diego + expanding | ✅ |
 | @houseoflashes | House of Lashes | False lash product brand, Leaping Bunny certified | verify |
-| @buffandfile | Buff & File Nail Bar | Portsmouth NH, non-toxic polishes, 2 locations | verify |
+| @buffandfile | Buff & File Nail Bar | Portsmouth NH, non-toxic polishes, 2 locations | ✅ |
 | @curestudios | Cure Studios | East Austin, sustainable + inclusive nail boutique since 2021 | ✅ |
-| @miniluxe | MiniLuxe | Nail franchise with own press-on + polish line | verify |
-| @frenchiesmodernnailcare | Frenchies Modern Nail Care | Franchise nail care, Littleton CO location | verify |
+| @miniluxe | MiniLuxe | Nail franchise with own press-on + polish line | ✅ |
+| @frenchiesmodernnailcare | Frenchies Modern Nail Care | Franchise nail care, Littleton CO location | ❌ (inactive since 2015) |
 
 ### ✂️ Hair Salons (full engagement on nail/color posts, like-only on cuts)
 
@@ -118,7 +118,7 @@ Handles marked "verify" — confirm account exists and is active before engaging
 | @karmasalononline | Karma Salon Spa & Boutique | Buford GA, Allure Salon of the Year nominee | verify |
 | @vanmichaelsalons | Van Michael Salon | Atlanta GA, multi-location luxury salon | verify |
 | @myrubysalon | Ruby Salon | Huntington Station NY, European-styled full-service | verify |
-| @swinkstylebar | Swink Style Bar | Seattle, top 100 salons Elle Magazine, lash cert school | verify |
+| @swinkstylebar | Swink Style Bar | Seattle, top 100 salons Elle Magazine, lash cert school | ✅ |
 | @salonoriana | Salon Oriana | Bloomington MN, Aveda concept salon, 13 stylists | verify |
 | @studio33salonandspa | Studio 33 Salon & Spa | Columbus OH, 20+ years | verify |
 | @beautylanesaloninorange | Beauty Lane Hair Salon | Orange CA, Shaunee-owned, personal + skilled | verify |
@@ -147,7 +147,7 @@ Handles marked "verify" — confirm account exists and is active before engaging
 
 | Handle | Business | Notes | Status |
 |--------|----------|-------|--------|
-| @glamnetic | Glamnetic | Magnetic lashes + press-on nails, very active brand | verify |
+| @glamnetic | Glamnetic | Magnetic lashes + press-on nails, very active brand | ✅ |
 | @socalbeauty | SoCal Beauty | Lash pro products + adhesive, B2B-leaning | verify |
 
 ---

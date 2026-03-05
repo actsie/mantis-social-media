@@ -23,7 +23,7 @@ const LONG_GAP_MIN = 180;  // "long break" threshold
 // phase 1 = warmup (karma building) | phase 2 = business subs (50+ karma) | phase 3 = later
 // Karma thresholds: phase2 unlocks at 50+, phase3 at 100+
 // Update CURRENT_KARMA below as account grows
-const CURRENT_KARMA = 28; // updated 2026-03-01
+const CURRENT_KARMA = 60; // updated 2026-03-05 — Phase 2 unlocked
 
 const SUBREDDITS = [
   // Phase 1 — warmup consumer subs

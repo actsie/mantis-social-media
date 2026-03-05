@@ -1,3 +1,67 @@
 {
-  "follows": []
+  "follows": [
+    {
+      "handle": "elly_nails.91",
+      "display_name": "Elly Nails by Stelly",
+      "source": "nailboo_followers",
+      "date": "2026-03-05",
+      "platform": "instagram",
+      "followed_back": false,
+      "notes": "nail artist username + display name"
+    },
+    {
+      "handle": "nailsdonebynaomi",
+      "display_name": "Naomi | Gel Nail Artist",
+      "source": "nailboo_followers",
+      "date": "2026-03-05",
+      "platform": "instagram",
+      "followed_back": false,
+      "notes": "nails in username, gel nail artist bio"
+    },
+    {
+      "handle": "luxurybeautynails2025",
+      "display_name": "Luxury Nails",
+      "source": "nailboo_followers",
+      "date": "2026-03-05",
+      "platform": "instagram",
+      "followed_back": false,
+      "notes": "beauty + nails in username, Luxury Nails display"
+    },
+    {
+      "handle": "rolabeautybutterfly",
+      "display_name": "Rola Beauty Butterfly",
+      "source": "nailboo_followers",
+      "date": "2026-03-05",
+      "platform": "instagram",
+      "followed_back": false,
+      "notes": "beauty in username and display name"
+    },
+    {
+      "handle": "x.avneet_kaur67",
+      "display_name": "x.avneet_kaur67",
+      "source": "nailboo_followers",
+      "date": "2026-03-05",
+      "platform": "instagram",
+      "followed_back": false,
+      "notes": "bio: Professional Nail Artist"
+    },
+    {
+      "handle": "lubrito.nails",
+      "display_name": "Luciana Brito | Nail Designer",
+      "source": "nailboo_followers",
+      "date": "2026-03-05",
+      "platform": "instagram",
+      "followed_back": false,
+      "notes": "nails in username, Nail Designer bio"
+    },
+    {
+      "handle": "lopchen_beautyglo",
+      "display_name": "lopchen_beautyglo",
+      "source": "nailboo_followers",
+      "date": "2026-03-05",
+      "platform": "instagram",
+      "followed_back": false,
+      "notes": "beauty + glo in username"
+    }
+  ]
 }

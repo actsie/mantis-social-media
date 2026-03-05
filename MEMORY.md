@@ -1,5 +1,13 @@
 # MEMORY.md — Long-Term Memory
 
+## Rule: Always Test After Changes
+Whenever a session message, planner step, or automation behavior is updated or added, test it immediately before considering it done:
+- Use `openclaw cron run <id>` to fire a session right away
+- Check the session transcript + tracker files to confirm the new behavior actually ran
+- Don't assume repositioning/rewording worked — verify it in a live session
+This applies to: follow-builder steps, new logging methods, tone rule changes, step reordering, anything behavioral.
+Discovered Mar 4: follow-builder was silently skipped for days because it was the last step. Reordering to step 7/8 fixed it — but only confirmed working after running a live test.
+
 ## DEVLOG.md — Always Update on Problems
 Whenever an error, crash, or unexpected behavior is encountered during automation work, log it to `DEVLOG.md` (workspace root). Format:
 - **Problem:** what happened
@@ -129,9 +137,10 @@ outreach/
 - Strategy: `outreach/instagram/strategy.md`
 
 ### Reddit Phases
-- **Phase 1** (now → 50 karma): Consumer subs (r/Nails, r/beauty, r/femalehairadvice etc.)
-- **Phase 2** (50+ karma): Add r/Nailtechs, r/hairstylist, r/EstheticianLife — DO NOT start without user approval
-- Weekly karma check cron `reddit-karma-check` fires every Sunday 10am — notifies when approaching 50
+- **Phase 1** (warmup → 50 karma): Consumer subs (r/Nails, r/beauty, r/femalehairadvice etc.) ✅ complete
+- **Phase 2** (50+ karma): **ACTIVE as of Mar 5, 2026** (60 karma) — r/Nailtechs, r/hairstylist, r/EstheticianLife + smallbusiness now in rotation
+- **Phase 3** (100+ karma): mention fountainofprofit.com when directly relevant — NOT yet
+- Weekly karma check cron `reddit-karma-check` fires every Sunday 10am
 - Strategy: `outreach/reddit/strategy.md`
 
 ## Active crons (Reddit)

@@ -166,8 +166,7 @@
       "type": "nail-brand",
       "platform": "x",
       "note": "Feb 27 post: Bring Me The Teal with 4 topper combos (Scattered Holo, Flakie Holo, Shooting Star, Freezer Burn). Older posts (Feb 26 cottagecore, Feb 24 magnetic sparks) already liked from prior session."
-    }
-  ],
+    },
     {
       "timestamp": "2026-03-03T20:14:00-08:00",
       "account": "holotaco",
@@ -182,6 +181,46 @@
         "https://x.com/holotaco/status/2028508245719953633",
         "https://x.com/holotaco/status/2028145842658435420"
       ]
+    },
+    {
+      "timestamp": "2026-03-04T06:14:00-08:00",
+      "account": "essie",
+      "tweetUrl": "https://x.com/essie/status/2025616677493174525",
+      "replyUrl": "https://x.com/stacydonna0x/status/2029199116845367804",
+      "reply": "break fix does exactly what it says. liquid nail patch for a clean repair makes sense",
+      "liked": true,
+      "type": "reply+like",
+      "platform": "x",
+      "note": "Most recent essie post (Feb 28) and Feb 26 post both already had @stacydonna0x replies from prior sessions. Feb 22 Break Fix tutorial had 0 replies and was only previously liked as additionalLike. Full reply+like engagement on Feb 22 post. Also liked Feb 17 Ballet Slippers post and Feb 16 Ink Jelly/Bordeaux post (both new).",
+      "additionalLikes": [
+        "https://x.com/essie/status/2023804666144784530",
+        "https://x.com/essie/status/2023442433380389125"
+      ]
+    },
+    {
+      "timestamp": "2026-03-04T07:44:00-08:00",
+      "account": "OPI_PRODUCTS",
+      "tweetUrl": "https://x.com/OPI_PRODUCTS/status/2028983763221233731",
+      "replyUrl": "https://x.com/stacydonna0x/status/2029221622197174547",
+      "reply": "across the pond and still one unanimous feeling. that trip delivered",
+      "liked": true,
+      "type": "reply+like",
+      "platform": "x",
+      "additionalLikes": [
+        "https://x.com/OPI_PRODUCTS/status/2028621376064499825",
+        "https://x.com/OPI_PRODUCTS/status/2028593319891042566"
+      ]
+    },
+    {
+      "timestamp": "2026-03-05T02:01:25.500Z",
+      "account": "elfcosmetics",
+      "type": "beauty-brand",
+      "engagement": "like-only",
+      "tweetUrl": "https://x.com/elfcosmetics/status/2028878221937459538",
+      "reply": null,
+      "liked": true,
+      "platform": "x",
+      "note": "Mar 3 post: routine consistency lifestyle tweet (no image). Like-only per rules. 2 replies in thread: @BeautyEssNow (bot-pattern reply) and @bsngln38133 Finance Wisdom (verified brand account, niche mismatch). Zero qualifying follow candidates."
     }
   ],
   "skipped": [
@@ -266,7 +305,9 @@
       "liked": true,
       "type": "reply+like",
       "platform": "x",
-      "additionalLikes": ["https://x.com/essie/status/2027066187524272486"]
+      "additionalLikes": [
+        "https://x.com/essie/status/2027066187524272486"
+      ]
     },
     {
       "timestamp": "2026-03-01T20:48:00-08:00",
@@ -357,6 +398,28 @@
       "type": "like-only",
       "platform": "x",
       "note": "Primary target @Rocioceja_ is a protected account — posts locked. @Trendmood last posted Oct 2025, inactive. Fell back to @elfcosmetics (very active, verified). Tweet from today (Mar 3, 12:00 PM PT): product launch promo for Power Grip Hair Gel. Like only per rules (promo post, no genuine reply hook)."
+    },
+    {
+      "timestamp": "2026-03-04T13:56:00-08:00",
+      "account": "holotaco",
+      "tweetUrl": "https://x.com/holotaco/status/2029233020943634665",
+      "replyUrl": "https://x.com/stacydonna0x/status/2029315203826106496",
+      "reply": "So Toxic with Black Flake Taco was not on my radar and now it's all i can think about",
+      "liked": true,
+      "type": "reply+like",
+      "platform": "x",
+      "note": "Replied to same-day green #holotacocombo inspo post (Mar 4, 8:30 AM PT). Four green nail combos with images. Also liked the replied-to post. Older posts (Mar 3, Mar 2, Feb 27) were already liked from prior sessions."
+    },
+    {
+      "timestamp": "2026-03-04T14:54:00-08:00",
+      "account": "CeraVe",
+      "tweetUrl": "https://x.com/cerave/status/2027376331491549450",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "like-only",
+      "platform": "x",
+      "note": "Original target @OUAI doesn't exist on X (confirmed, also already flagged in accounts.md). All subsequent hair brand accounts were inactive/non-existent. Pivoted to skincare brands section: @CeraVe (verified, 52.2K followers, active). Most recent post (Feb 27): Kevin Durant GLOAT collectible cards promo — marketing/giveaway content, no skincare technique detail. Like only per skincare brand rules."
     }
   ]
 }

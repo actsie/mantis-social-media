@@ -103,7 +103,7 @@ Full engagement per global rule. Ulta posts a lot about beauty industry, brand c
 
 | Handle | Notes | Status |
 |--------|-------|--------|
-| @CeraVe | massive brand, very active on X | verify |
+| @CeraVe | massive brand, very active on X — 52.2K followers, verified | ✅ confirmed Mar 4, 2026 |
 | @TheOrdinary | cult brand, strong community | verify |
 | @PaulasChoice | science-forward skincare | verify |
 | @DrunkElephant | popular DTC brand | verify |
