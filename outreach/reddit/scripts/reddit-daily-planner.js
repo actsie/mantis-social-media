@@ -40,7 +40,7 @@ const SUBREDDITS = [
   { sub: 'Nailtechs',           type: 'pro-nail',   phase: 2, weight: 5 },
   { sub: 'hairstylist',         type: 'pro-hair',   phase: 2, weight: 4 },
   { sub: 'EstheticianLife',     type: 'pro-beauty', phase: 2, weight: 3 },
-  { sub: 'smallbusiness',       type: 'biz',        phase: 2, weight: 2 },
+  { sub: 'smallbusiness',       type: 'biz',        phase: 99, weight: 2 }, // paused — manual approval required before posting
   // Phase 3 — expand later
   { sub: 'SkincareAddiction',   type: 'skincare',   phase: 3, weight: 2 },
   { sub: 'RedditLaqueristas',   type: 'nail',       phase: 3, weight: 2 },
@@ -166,10 +166,11 @@ console.log(`\n✓ Written: today-schedule.json`);
 // ── Create session crons ───────────────────────────────────────────────────────
 sessions.forEach(s => {
   const isProSub = ['pro-nail','pro-hair','pro-beauty','biz'].includes(s.type);
+  const isBizSub = s.type === 'biz'; // r/smallbusiness — draft only, no posting
   const proNote = isProSub ? [
     ``,
     `⚠️ BUSINESS SUB — This is r/${s.sub}, a professional community. These are our TARGET CUSTOMERS (nail techs, stylists, salon owners).`,
-    ``,
+    isBizSub ? `\n🚫 DRAFT ONLY — r/smallbusiness comments require approval before posting. DO NOT post. See Step 6 below.\n` : ``,
     `ONLY comment on posts about:`,
     `  - Getting new clients / online visibility`,
     `  - Booking issues (clients DM instead of booking, booking confusion)`,
