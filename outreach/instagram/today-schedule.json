@@ -1,53 +1,65 @@
 {
-  "date": "2026-03-04",
+  "date": "2026-03-05",
   "sessions": [
     {
       "n": 1,
-      "time": "06:02",
+      "time": "07:13",
       "tag": "nailslove",
-      "done": true
+      "done": false
     },
     {
       "n": 2,
-      "time": "07:51",
+      "time": "10:41",
       "tag": "nailart",
       "done": false
     },
     {
       "n": 3,
-      "time": "08:54",
-      "tag": "balayagehair",
+      "time": "11:11",
+      "tag": "nailsofig",
       "done": false
     },
     {
       "n": 4,
-      "time": "10:02",
-      "tag": "haircuts",
+      "time": "11:49",
+      "tag": "makeupgoals",
       "done": false
     },
     {
       "n": 5,
-      "time": "11:47",
+      "time": "12:57",
       "tag": "naildesigner",
       "done": false
     },
     {
       "n": 6,
-      "time": "12:41",
+      "time": "13:36",
       "tag": "nailsalon",
       "done": false
     },
     {
       "n": 7,
-      "time": "17:05",
+      "time": "17:07",
       "tag": "nailslove",
       "done": false
     },
     {
       "n": 8,
-      "time": "22:21",
-      "tag": "haircuts",
-      "done": true
+      "time": "18:41",
+      "tag": "nailart",
+      "done": false
+    },
+    {
+      "n": 9,
+      "time": "20:35",
+      "tag": "nailsofig",
+      "done": false
+    },
+    {
+      "n": 10,
+      "time": "21:36",
+      "tag": "nailinspiration",
+      "done": false
     }
   ]
 }
