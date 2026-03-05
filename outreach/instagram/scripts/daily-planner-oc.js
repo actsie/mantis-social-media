@@ -13,7 +13,7 @@ const WORKSPACE = '/Users/mantisclaw/.openclaw/workspace';
 const LOG_FILE   = path.join(WORKSPACE, 'outreach/instagram/engagement-log.json');
 const SCHED_FILE = path.join(WORKSPACE, 'outreach/instagram/today-schedule.json');
 
-const COMMENT_COUNT  = 8;
+const COMMENT_COUNT  = 10;
 const MIN_HOUR       = 6;    // 6:00 AM
 const MAX_HOUR       = 23;   // 11:00 PM
 const MIN_GAP        = 30;   // min minutes between any two sessions
@@ -145,20 +145,27 @@ sessions.forEach(s => {
   const name = `ig-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
   const at   = `${today}T${s.time}:00${getLAOffset()}`;
 
+  // Write message to temp file to avoid OS arg length limits (was causing silent failures)
+  const tmpFile = `/tmp/ig-session-msg-${s.n}-${Date.now()}.txt`;
+  fs.writeFileSync(tmpFile, msg);
+
   const result = spawnSync('openclaw', [
     'cron', 'add',
     '--name', name,
     '--at',   at,
-    '--message', msg,
+    '--message-file', tmpFile,
     '--announce',
     '--delete-after-run',
     '--tz', 'America/Los_Angeles'
   ], { encoding: 'utf8' });
 
+  try { fs.unlinkSync(tmpFile); } catch (_) {}
+
   if (result.status === 0) {
     console.log(`✓ Cron: ${name} at ${s.time}`);
   } else {
     console.error(`✗ Failed: ${name}\n${result.stderr}`);
+    console.error(`  stdout: ${result.stdout}`);
   }
 });
 
