@@ -36,9 +36,20 @@ These are insights from posts we've seen — use them to inform comments, not co
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm6jq3/our_dental_clinic_cut_noshows_by_like_half_after/
 **Posted:** (not yet)
 **Comment:**
-> confirmation texts with a reply option do the heavy lifting. "reply C to confirm or R to reschedule" makes it stupid easy for them. and having that public booking page with your actual availability visible means people can self-serve before they even think about bailing. way fewer back and forth messages.
+> confirmation texts with a reply option do the heavy lifting. "reply C to confirm or R to reschedule" makes it stupid easy for them. the difference between "call us back during office hours" and "tap reply" is huge. people text back while they're thinking about it instead of forgetting.
 
-**Notes:** 2hr old, 32 upvotes, 14 comments. High visibility. No-shows + booking friction is our exact angle. Best draft.
+**Notes:** 2hr old, 32 upvotes, 14 comments. High visibility. Sticks to their texting vs calling angle — no forced pivot.
+
+---
+
+## Rule: No Forced Pivots
+
+**Only comment on what's actually in the post.** Don't extend toward our angle if they didn't mention it.
+
+❌ Bad: They talk about texting confirmations → we pivot to "public booking page"
+✅ Good: They talk about texting confirmations → we react to texting confirmations
+
+If the post doesn't have a natural hook to our angle, skip it. There will be another post.
 
 ---
 
@@ -47,9 +58,9 @@ These are insights from posts we've seen — use them to inform comments, not co
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm6vkw/how_are_you_managing_customer_appointments_and/
 **Posted:** (not yet)
 **Comment:**
-> separate calendars for walk-ins vs booked slots saves a lot of chaos. we see businesses jam everything into one calendar and then double book when a walk-in shows up. if your booking software lets you block off chunks for walk-ins, use it. and having a visible waitlist people can join themselves means you're not playing phone tag when a slot opens.
+> separate calendars for walk-ins vs booked slots saves a lot of chaos. we see businesses jam everything into one calendar and then double book when a walk-in shows up. if your booking software lets you block off chunks for walk-ins, use it.
 
-**Notes:** 2hr old, 1 comment. Low competition, but also low visibility. Booking systems angle.
+**Notes:** 2hr old, 1 comment. Low competition, but also low visibility. Removed waitlist mention — only if they mentioned it.
 
 ---
 
@@ -58,9 +69,9 @@ These are insights from posts we've seen — use them to inform comments, not co
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm57kj/whats_the_easiest_way_youve_found_to_get/
 **Posted:** (not yet)
 **Comment:**
-> making rebooking stupid simple. if they have to call or navigate your site to book again, you've already lost some. a direct link in the confirmation email or a "book again" button in your google profile removes that friction. people remember you when it's easy, not when you're the one they have to chase down.
+> making rebooking stupid simple. if they have to call or navigate your site to book again, you've already lost some. a direct link in the confirmation email removes that friction. people remember you when it's easy, not when you're the one they have to chase down.
 
-**Notes:** 3hr old, 18 comments. Good engagement. Retention + friction angle.
+**Notes:** 3hr old, 18 comments. Good engagement. Removed Google profile mention — only if they mentioned it.
 
 ---
 
