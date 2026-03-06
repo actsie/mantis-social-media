@@ -38,9 +38,9 @@ These are insights from posts we've seen — use them to inform comments, not co
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm8gxj/how_do_you_collect_and_share_customer_reviews/
 **Posted:** (not yet)
 **Comment:**
-> automated requests right after the appointment win. we see a lot of businesses wait for the customer to remember to leave a review. by then they've moved on. a simple sms or email within an hour while they're still thinking about the experience gets way more responses. and make sure your google business profile link goes directly to the review form, not your homepage.
+> timing matters more than the ask itself. send it within an hour while they're still thinking about the appointment. wait until the next day and they've already moved on.
 
-**Notes:** 30 min old, 5 comments. Good visibility. Ties to GBP + customer communication angle.
+**Notes:** 30 min old, 5 comments. Framed as observation, not prescriptive. No forced pivot to GBP.
 
 ---
 
@@ -49,9 +49,9 @@ These are insights from posts we've seen — use them to inform comments, not co
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm6jq3/our_dental_clinic_cut_noshows_by_like_half_after/
 **Posted:** (not yet)
 **Comment:**
-> confirmation texts with a reply option do the heavy lifting. reply C to confirm or R to reschedule makes it stupid easy for them. the difference between call us back during office hours and tap reply is huge. people text back while they're thinking about it instead of forgetting.
+> people text back while they're thinking about it. phone calls just get forgotten or sent to voicemail.
 
-**Notes:** 2hr old, 32 upvotes, 14 comments. High visibility. Sticks to their texting vs calling angle — no forced pivot. **No quotes.**
+**Notes:** 2hr old, 47 upvotes, 19 comments. Reacts to ONE thing (texting vs calling). No enumeration.
 
 ---
 
@@ -80,6 +80,28 @@ If the post doesn't have a natural hook to our angle, skip it. There will be ano
 ### Vary Your Language
 **Don't reuse the same phrases** across drafts. If you used "stupid simple" already, use "effortless" or "frictionless" next time.
 
+### Tired Words — Avoid
+**chaos, messy, wild, insane, game changer, huge, game-changer**
+
+These sound AI-generated or like LinkedIn speak. Use specific descriptions instead.
+
+### Don't Claim Experience You Don't Have
+**Avoid:** "we've seen", "we see", "what helped us", "in our experience"
+
+**Use:** "this works", "the difference is", or just state it as an observation
+
+### React to ONE Thing, Not Every Sentence
+**Don't** enumerate their points and respond to each. **Pick one** thing that stood out and react to that.
+
+### No Forced Contrasts (When X Not Y)
+**Avoid:** "people remember you when it's easy, not when you're the one they have to chase down"
+
+This structure sounds templated. Just say the thing.
+
+### Frame as Observation, Not Prescription
+**Bad:** "make sure you do X"
+**Good:** "the difference is X" or "what works is X" or pose it as a question that makes them think
+
 ---
 
 ### Draft 3: Appointments vs walk-ins
@@ -87,9 +109,9 @@ If the post doesn't have a natural hook to our angle, skip it. There will be ano
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm6vkw/how_are_you_managing_customer_appointments_and/
 **Posted:** (not yet)
 **Comment:**
-> separate calendars for walk-ins vs booked slots saves a lot of chaos. we see businesses jam everything into one calendar and then double book when a walk-in shows up. if your booking software lets you block off chunks for walk-ins, use it.
+> separate calendars for walk-ins vs booked slots. double booking happens when everything lives in one place.
 
-**Notes:** 2hr old, 1 comment. Low competition, but also low visibility. Removed waitlist mention — only if they mentioned it.
+**Notes:** 2hr old, 1 comment. Removed "chaos" and "we see". Short, specific.
 
 ---
 
@@ -98,9 +120,9 @@ If the post doesn't have a natural hook to our angle, skip it. There will be ano
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm57kj/whats_the_easiest_way_youve_found_to_get/
 **Posted:** (not yet)
 **Comment:**
-> making rebooking effortless. if they have to call or navigate your site to book again, you've already lost some. a direct link in the confirmation email removes that friction. people remember you when it's easy, not when you're the one they have to chase down.
+> making rebooking effortless. a direct link in the confirmation email removes the friction of having to call or navigate your site again.
 
-**Notes:** 3hr old, 18 comments. Good engagement. Removed Google profile mention — only if they mentioned it. **No quotes. No "stupid simple".**
+**Notes:** 3hr old, 18 comments. Removed "when X not Y" contrast. Shorter, direct.
 
 ---
 
@@ -120,9 +142,9 @@ If the post doesn't have a natural hook to our angle, skip it. There will be ano
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm81pi/do_you_still_ask_your_team_for_numbers_instead_of/
 **Posted:** (not yet)
 **Comment:**
-> dashboards answer what but the why lives in the messy stuff like support tickets and call notes. what helped us was picking 3 repeat questions and making sure those answers live in one place instead of scattered across tools. now the owner can check without waiting on someone to piece it together.
+> dashboards show numbers but the context lives in support tickets and call logs. picking 3 repeat questions and putting those answers in one spot means the owner can check without waiting.
 
-**Notes:** 2hr old, 7 comments. Reacts to their actual point about data being scattered. No pivot.
+**Notes:** 2hr old, 7 comments. Removed "messy" and "what helped us". More specific.
 
 ---
 
@@ -131,9 +153,9 @@ If the post doesn't have a natural hook to our angle, skip it. There will be ano
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm8gxj/how_do_you_collect_and_share_customer_reviews/
 **Posted:** (not yet)
 **Comment:**
-> automated requests right after the appointment win. we see a lot of businesses wait for the customer to remember to leave a review. by then they've moved on. a simple sms or email within an hour while they're still thinking about the experience gets way more responses.
+> sending the request within an hour gets more responses than waiting until tomorrow. they're still thinking about the appointment then.
 
-**Notes:** 1hr old, 6 comments. Sticks to review timing only. No Google Business Profile mention.
+**Notes:** 1hr old, 6 comments. Framed as observation. No prescriptive "make sure you".
 
 ---
 
@@ -142,9 +164,9 @@ If the post doesn't have a natural hook to our angle, skip it. There will be ano
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm57kj/whats_the_easiest_way_youve_found_to_get/
 **Posted:** (not yet)
 **Comment:**
-> making rebooking effortless. if they have to call or navigate your site to book again, you've already lost some. a direct link in the confirmation email removes that friction. people remember you when it's easy, not when you're the one they have to chase down.
+> making rebooking effortless could help. maybe a direct link in the confirmation email so they don't have to navigate your site again.
 
-**Notes:** 4hr old, 19 comments. Uses "effortless" instead of "stupid simple" to vary from Draft 4.
+**Notes:** 5hr old, 20 comments. Framed as suggestion ("could help", "maybe"). Read comments - top answers are thank you emails, follow up without selling, handwritten notes.
 
 ---
 
