@@ -6,14 +6,27 @@
 
 ---
 
+## ⚠️ Pre-Post Checklist — MANDATORY Before Every Draft
+
+Before finalizing ANY draft, scan for:
+
+1. **Em dashes or hyphens** (`—` or `-`) → replace with period
+2. **Quotation marks** around words → rephrase (don't quote, just say it)
+3. **Banned words** → weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, read/reads, bingo card, frame/framing
+4. **More than 4 sentences** → trim
+
+**If any are present, fix before saving the draft. No exceptions.**
+
+---
+
 ## Observations — Real Pain Points to Reference
 
 These are insights from posts we've seen — use them to inform comments, not copy directly.
 
 ### Patients/clients text back immediately vs. not answering calls
-**Source:** "Our dental clinic cut no-shows by like half after we stopped relying on phone calls"
+**Source:** Our dental clinic cut no-shows by like half after we stopped relying on phone calls
 **Date:** 2026-03-05
-**Insight:** People don't answer unknown numbers (clinic/business lines). But they TEXT BACK immediately. "Reply C to confirm or R to reschedule" is frictionless. Phone tag = dead. Text = done.
+**Insight:** People don't answer unknown numbers (clinic/business lines). But they TEXT BACK immediately. Reply C to confirm or R to reschedule is frictionless. Phone tag = dead. Text = done.
 **Use when:** Commenting on no-shows, appointment confirmations, customer communication, booking friction.
 
 ---
