@@ -212,6 +212,20 @@
       ]
     },
     {
+      "timestamp": "2026-03-05T14:32:00.000Z",
+      "account": "OPI_PRODUCTS",
+      "tweetUrl": "https://x.com/OPI_PRODUCTS/status/2029331054675320935",
+      "replyUrl": "https://x.com/stacydonna0x/status/2029566635867300124",
+      "reply": "picking the color is a full decision. sometimes longer than the appointment itself",
+      "liked": true,
+      "type": "reply+like",
+      "platform": "x",
+      "note": "Original target @OliveAndJune confirmed wrong account (dormant Flagstaff AZ event planning biz, last post 2011). @moroccanoil all recent posts already liked from prior sessions. @holotaco most recent post (22h ago, Mar 4 green combos) already engaged yesterday. Fell back to @OPI_PRODUCTS (next confirmed active nail brand). Mar 4 3:00PM post: color as choice/mood brand statement, 3 images, 0 replies. Full engagement. Also liked 18h OPI video post.",
+      "additionalLikes": [
+        "https://x.com/OPI_PRODUCTS/status/2029285755881738525"
+      ]
+    },
+    {
       "timestamp": "2026-03-05T02:01:25.500Z",
       "account": "elfcosmetics",
       "type": "beauty-brand",
@@ -420,6 +434,17 @@
       "type": "like-only",
       "platform": "x",
       "note": "Original target @OUAI doesn't exist on X (confirmed, also already flagged in accounts.md). All subsequent hair brand accounts were inactive/non-existent. Pivoted to skincare brands section: @CeraVe (verified, 52.2K followers, active). Most recent post (Feb 27): Kevin Durant GLOAT collectible cards promo — marketing/giveaway content, no skincare technique detail. Like only per skincare brand rules."
+    },
+    {
+      "timestamp": "2026-03-05T21:58:00-08:00",
+      "account": "ColourPopCo",
+      "tweetUrl": "https://x.com/ColourPopCo/status/2029628118730952864",
+      "replyUrl": null,
+      "reply": null,
+      "liked": true,
+      "type": "like-only",
+      "platform": "x",
+      "note": "Account active and verified (1.2M followers). Most recent post (Mar 5, today): sitewide sale promo. Other visible posts: eyeshadow palette features and brow content. No nail-related or qualifying aesthetic content — like only per rules."
     }
   ]
 }

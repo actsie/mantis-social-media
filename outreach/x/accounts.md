@@ -78,7 +78,7 @@ Full engagement per global rule. Ulta posts a lot about beauty industry, brand c
 | @ORLYbeauty | pro nail brand | ❌ wrong account — @OrlyBeauty is "Shel Pink", 0 posts |
 | @ChinaGlazeNails | color-forward brand, good post volume | ❌ account suspended |
 | @GelishNails | gel polish brand | ❌ compromised/spam account |
-| @OliveAndJune | trendy DTC nail brand, popular with younger audience | ❌ wrong account — dormant Flagstaff AZ local biz from 2011 |
+| @OliveAndJune | trendy DTC nail brand, popular with younger audience | ❌ wrong account — dormant Flagstaff AZ local biz from 2011 (confirmed Mar 5, 2026) — real nail brand handle unknown |
 | @CND_World | professional nail brand (Shellac) | ❌ inactive, 0 followers, 1 post |
 
 ---

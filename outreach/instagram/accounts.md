@@ -57,7 +57,7 @@ Full rules: `tone-guide.md` and `scheduling-rules.md`
 | @ashasalonspa | salon spa | verify |
 | @spaderma_medspa | med spa | verify |
 | @joinvitalskinderm | skin/derm spa | verify |
-| @spavialincolnpark | Chicago spa | verify |
+| @spavialincolnpark | Chicago spa | ✅ |
 | @massageenvy_sf | massage + spa franchise | verify |
 | @crystaleyezbeautylounge | beauty lounge | ✅ |
 
@@ -103,7 +103,7 @@ Handles marked "verify" — confirm account exists and is active before engaging
 | @blinklashboutique | Blink Lash Boutique | Master lash artists since 2006, lash certification school | ❌ (account not found) |
 | @jjeyelashes | JJ Eyelashes | Founded 1999 by May Lee, semi-perm makeup + lash extensions | ✅ |
 | @lashbarusa | LashBar | Franchise lash bars, San Diego + expanding | ✅ |
-| @houseoflashes | House of Lashes | False lash product brand, Leaping Bunny certified | verify |
+| @houseoflashes | House of Lashes | False lash product brand, Leaping Bunny certified | ✅ |
 | @buffandfile | Buff & File Nail Bar | Portsmouth NH, non-toxic polishes, 2 locations | ✅ |
 | @curestudios | Cure Studios | East Austin, sustainable + inclusive nail boutique since 2021 | ✅ |
 | @miniluxe | MiniLuxe | Nail franchise with own press-on + polish line | ✅ |
@@ -114,7 +114,7 @@ Handles marked "verify" — confirm account exists and is active before engaging
 | Handle | Business | Notes | Status |
 |--------|----------|-------|--------|
 | @lookshairdesign | Looks Hair Design & Spa | State College PA, voted best salon 9 years in a row | verify |
-| @bijinsalonandspa | Bijin Salon & Spa | Prairie Village KS, est. 1988, luxury hair + spa | verify |
+| @bijinsalonandspa | Bijin Salon & Spa | Prairie Village KS, est. 1988, luxury hair + spa | ✅ |
 | @karmasalononline | Karma Salon Spa & Boutique | Buford GA, Allure Salon of the Year nominee | verify |
 | @vanmichaelsalons | Van Michael Salon | Atlanta GA, multi-location luxury salon | verify |
 | @myrubysalon | Ruby Salon | Huntington Station NY, European-styled full-service | verify |
@@ -141,7 +141,7 @@ Handles marked "verify" — confirm account exists and is active before engaging
 |--------|----------|-------|--------|
 | @browart23 | BrowArt23 | 117 salons, eyebrow threading franchise | verify |
 | @zibabeauty | Ziba Beauty | 35+ years threading/waxing, 10M+ brows shaped | verify |
-| @cosmeticseyebrowsatelier | C&E Atelier | Gurnee IL, threading + microblading + training | verify |
+| @cosmeticseyebrowsatelier | C&E Atelier | Gurnee IL, threading + microblading + training | ✅ |
 
 ### 🎀 Brands (like-only, comment on nail/beauty launches worth reacting to)
 

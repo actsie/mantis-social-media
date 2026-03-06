@@ -1,6 +1,21 @@
 {
   "sessions": [
     {
+      "timestamp": "2026-03-05T22:49:00-08:00",
+      "account": "cosmeticseyebrowsatelier",
+      "postUrl": "https://www.instagram.com/cosmeticseyebrowsatelier/reel/DVgsKvejldY/",
+      "commentUrl": null,
+      "comment": "5 years and now teaching others is such a full circle moment. watching your growth from specialist to trainer is inspiring",
+      "likes": [
+        "DVgsKvejldY",
+        "DVfU-NHDLA4",
+        "DVd0of2Dg8z"
+      ],
+      "type": "like-only",
+      "hashtag": "nailart",
+      "notes": "Fallback: no same-day posts in #nailart feed; engaged verify account @cosmeticseyebrowsatelier (C&E Atelier, Gurnee IL). Comment attempted but Instagram UI didn't submit. Liked main post (13h old) + 2 older posts (1d old each). Updated accounts.md status to ✅."
+    },
+    {
       "timestamp": "2026-02-24T00:00:00-08:00",
       "account": "houseofhuenails",
       "postUrl": "https://www.instagram.com/p/DUxN6xVFcJP/",
@@ -48,7 +63,7 @@
       "timestamp": "2026-02-25T19:48:00-08:00",
       "account": "thenailhall",
       "postUrl": "https://www.instagram.com/thenailhall/p/DUPpHrHjlBg/",
-      "comment": "7 years in SF is seriously impressive. coming out the other side and still talking about your team like this says a lot! congrats on 7!! 💖",
+      "comment": "7 years in SF is seriously impressive. coming out the other side and still talking about your team like this says a lot! congrats on 7!! \ud83d\udc96",
       "likes": [
         "DUPpHrHjlBg",
         "DSF07YtD1Gk",
@@ -74,13 +89,13 @@
       "timestamp": "2026-02-26T15:35:00-08:00",
       "account": "lulalumi_nails",
       "postUrl": "https://www.instagram.com/lulalumi_nails/p/DVPER0lkfwU/",
-      "comment": "ok this intro is giving such a soft clean vibe and polygel encapsulated nails are genuinely one of the prettiest styles when done with care. cant wait to see the portfolio fill up when bookings open 🤍",
+      "comment": "ok this intro is giving such a soft clean vibe and polygel encapsulated nails are genuinely one of the prettiest styles when done with care. cant wait to see the portfolio fill up when bookings open \ud83e\udd0d",
       "likes": [
         "DVPER0lkfwU"
       ],
       "type": "comment",
       "hashtag": "naildesigner",
-      "notes": "account only had 1 post — no older posts available to like"
+      "notes": "account only had 1 post \u2014 no older posts available to like"
     },
     {
       "timestamp": "2026-02-26T18:42:00-08:00",
@@ -94,7 +109,7 @@
       ],
       "type": "like",
       "hashtag": "makeupgoals",
-      "notes": "like only — caption was just 'Makeup goals ✨ .' with no specific detail to react to"
+      "notes": "like only \u2014 caption was just 'Makeup goals \u2728 .' with no specific detail to react to"
     },
     {
       "timestamp": "2026-02-26T21:12:00-08:00",
@@ -135,7 +150,7 @@
       ],
       "type": "comment",
       "hashtag": "haircut",
-      "notes": "#haircut feed showed only Top posts (weeks old, no same-day). Fell back to accounts.md — charlesifergan most recent post was 1d ago (Feb 26). Caption described Wedge cut technique in detail, qualified for comment under hair rules."
+      "notes": "#haircut feed showed only Top posts (weeks old, no same-day). Fell back to accounts.md \u2014 charlesifergan most recent post was 1d ago (Feb 26). Caption described Wedge cut technique in detail, qualified for comment under hair rules."
     },
     {
       "timestamp": "2026-02-27T08:43:00-08:00",
@@ -150,7 +165,7 @@
       ],
       "type": "comment",
       "hashtag": "nailart",
-      "notes": "#nailart hashtag feed had no same-day posts. Fell back to accounts.md verify list — nailsbykevin716 (nail artist, Buffalo NY) most recent post was 14h old. Commented + liked main post + 2 older posts."
+      "notes": "#nailart hashtag feed had no same-day posts. Fell back to accounts.md verify list \u2014 nailsbykevin716 (nail artist, Buffalo NY) most recent post was 14h old. Commented + liked main post + 2 older posts."
     },
     {
       "timestamp": "2026-02-27T10:12:00-08:00",
@@ -165,7 +180,7 @@
       ],
       "type": "comment",
       "hashtag": "nailsofig",
-      "notes": "#nailsofig feed — post was 2h old (today). Account @nailsbykims, nail artist in Rancho Cucamonga/Claremont CA. Mix-and-match acrylic square nail set with leopard print, chrome 3D pieces, marble. Liked main post + 2 older (2d ago + Feb 19)."
+      "notes": "#nailsofig feed \u2014 post was 2h old (today). Account @nailsbykims, nail artist in Rancho Cucamonga/Claremont CA. Mix-and-match acrylic square nail set with leopard print, chrome 3D pieces, marble. Liked main post + 2 older (2d ago + Feb 19)."
     },
     {
       "timestamp": "2026-02-27T11:00:00-08:00",
@@ -180,7 +195,7 @@
       ],
       "type": "comment",
       "hashtag": "nailinspiration",
-      "notes": "#nailinspiration hashtag feed had no same-day posts. Fell back to accounts.md — luxsfnailcare (nail salon SF, Hayes Valley) most recent post was 1h old. Character nail art reel. Commented + liked main post + 2 older posts (Oct 9 + Oct 8, 2025)."
+      "notes": "#nailinspiration hashtag feed had no same-day posts. Fell back to accounts.md \u2014 luxsfnailcare (nail salon SF, Hayes Valley) most recent post was 1h old. Character nail art reel. Commented + liked main post + 2 older posts (Oct 9 + Oct 8, 2025)."
     },
     {
       "timestamp": "2026-02-27T12:17:00-08:00",
@@ -195,7 +210,7 @@
       ],
       "type": "comment",
       "hashtag": "naildesigner",
-      "notes": "#naildesigner hashtag feed had no same-day posts. Fell back to accounts.md — ryunailbar (Bay Area nail salon, Dublin CA) most recent nail post Feb 11, 2026. Edge heart dark nails by Janet. Commented + liked main post + 2 older posts (Jan 15 + Jan 10, 2026)."
+      "notes": "#naildesigner hashtag feed had no same-day posts. Fell back to accounts.md \u2014 ryunailbar (Bay Area nail salon, Dublin CA) most recent nail post Feb 11, 2026. Edge heart dark nails by Janet. Commented + liked main post + 2 older posts (Jan 15 + Jan 10, 2026)."
     },
     {
       "timestamp": "2026-02-27T15:32:00-08:00",
@@ -210,7 +225,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailsalon",
-      "notes": "#nailsalon hashtag feed had no same-day posts (most recent was Feb 05, 2026). Fell back to accounts.md — uwu_nails (personal nail art account). Most recent post: Halloween nail art carousel Oct 30, 2020. Commented + liked main post + 2 older posts."
+      "notes": "#nailsalon hashtag feed had no same-day posts (most recent was Feb 05, 2026). Fell back to accounts.md \u2014 uwu_nails (personal nail art account). Most recent post: Halloween nail art carousel Oct 30, 2020. Commented + liked main post + 2 older posts."
     },
     {
       "timestamp": "2026-02-27T16:20:00-08:00",
@@ -225,7 +240,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailslove",
-      "notes": "#nailslove hashtag feed had no same-day posts (most recent was Feb 22, 2026). Fell back to accounts.md — saltmaranails (Chicago nail salon, verify). Most recent post: self-care add-ons (Therabody LED mask + Cause Medic), 1 day ago. Commented + liked main post + 2 older posts (Feb 19 Gel-X nails, Feb 10 red V-day nails)."
+      "notes": "#nailslove hashtag feed had no same-day posts (most recent was Feb 22, 2026). Fell back to accounts.md \u2014 saltmaranails (Chicago nail salon, verify). Most recent post: self-care add-ons (Therabody LED mask + Cause Medic), 1 day ago. Commented + liked main post + 2 older posts (Feb 19 Gel-X nails, Feb 10 red V-day nails)."
     },
     {
       "timestamp": "2026-02-27T20:39:00-08:00",
@@ -240,7 +255,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailart",
-      "notes": "#nailart hashtag feed had no same-day posts (Feb 27, 2026). Fell back to accounts.md — 7amnailcare (Non-Toxic Nail Care | Chicago, verify). Most recent nail content post: Mani inspo from 90s carousel (4 days ago). Commented + liked main post + 2 older posts (new mani transition reel 2d ago, non-toxic nail care carousel 6d ago)."
+      "notes": "#nailart hashtag feed had no same-day posts (Feb 27, 2026). Fell back to accounts.md \u2014 7amnailcare (Non-Toxic Nail Care | Chicago, verify). Most recent nail content post: Mani inspo from 90s carousel (4 days ago). Commented + liked main post + 2 older posts (new mani transition reel 2d ago, non-toxic nail care carousel 6d ago)."
     },
     {
       "timestamp": "2026-02-28T07:57:00-08:00",
@@ -261,7 +276,7 @@
       "account": "vipnailssouthloop",
       "postUrl": "https://www.instagram.com/vipnailssouthloop/p/DVSvuGIgePr/",
       "commentUrl": "https://www.instagram.com/p/DVSvuGIgePr/c/17854150026673256/",
-      "comment": "subtle hearts and blush tones for the last few days of February — that's the right energy",
+      "comment": "subtle hearts and blush tones for the last few days of February \u2014 that's the right energy",
       "likes": [
         "https://www.instagram.com/vipnailssouthloop/p/DVSvuGIgePr/",
         "https://www.instagram.com/vipnailssouthloop/p/DUjk6yIDxQK/",
@@ -297,7 +312,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailinspiration",
-      "note": "fallback — no same-day posts in hashtag feed; engaged via accounts.md verify account"
+      "note": "fallback \u2014 no same-day posts in hashtag feed; engaged via accounts.md verify account"
     },
     {
       "timestamp": "2026-02-28T16:54:00-08:00",
@@ -312,14 +327,14 @@
       ],
       "type": "comment+like",
       "hashtag": "#naildesigner",
-      "note": "fallback — no same-day posts in hashtag feed; engaged via accounts.md verify account"
+      "note": "fallback \u2014 no same-day posts in hashtag feed; engaged via accounts.md verify account"
     },
     {
       "timestamp": "2026-02-28T18:31:00-08:00",
       "account": "refinenailsandspa_chicago",
       "postUrl": "https://www.instagram.com/p/DVJRlxljHZ5/",
       "commentUrl": "https://www.instagram.com/p/DVJRlxljHZ5/",
-      "comment": "ok the little fish on the blue nail is doing something to me 😭 each one is its own thing and it just works",
+      "comment": "ok the little fish on the blue nail is doing something to me \ud83d\ude2d each one is its own thing and it just works",
       "likes": [
         "https://www.instagram.com/p/DVJRlxljHZ5/",
         "https://www.instagram.com/p/DVGuh5SAsK0/",
@@ -327,7 +342,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailsalon",
-      "note": "fallback — no same-day English posts in hashtag feed; engaged via accounts.md verify account"
+      "note": "fallback \u2014 no same-day English posts in hashtag feed; engaged via accounts.md verify account"
     },
     {
       "timestamp": "2026-02-28T19:29:00-08:00",
@@ -342,7 +357,7 @@
       ],
       "type": "like-only",
       "hashtag": "#balayageombre",
-      "note": "fallback — no same-day posts in #balayageombre; engaged via accounts.md verify account @salonbuzzchi. Caption generic so like-only."
+      "note": "fallback \u2014 no same-day posts in #balayageombre; engaged via accounts.md verify account @salonbuzzchi. Caption generic so like-only."
     },
     {
       "timestamp": "2026-02-28T22:01:00-08:00",
@@ -357,14 +372,14 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailart",
-      "note": "fallback — no same-day posts in #nailart; engaged via accounts.md verify account @luxonailspa.wickerpark. First comment on post."
+      "note": "fallback \u2014 no same-day posts in #nailart; engaged via accounts.md verify account @luxonailspa.wickerpark. First comment on post."
     },
     {
       "timestamp": "2026-03-01T08:21:00-08:00",
       "account": "samrat__nail_studio39",
       "postUrl": "https://www.instagram.com/p/DVVAgX8COwx/",
       "commentUrl": "https://www.instagram.com/p/DVVAgX8COwx/",
-      "comment": "didn't know I needed lavender almond nails until right now 🪻",
+      "comment": "didn't know I needed lavender almond nails until right now \ud83e\udebb",
       "likes": [
         "https://www.instagram.com/p/DVVAgX8COwx/",
         "https://www.instagram.com/samrat__nail_studio39/p/DT2XTmUjYne/",
@@ -446,14 +461,14 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailslove",
-      "note": "fallback: no same-day posts in #nailslove hashtag feed; engaged verify account ultabeauty — post from March 1, 2026 featuring Selena Gomez in Rare Beauty Neutral Eye Collection"
+      "note": "fallback: no same-day posts in #nailslove hashtag feed; engaged verify account ultabeauty \u2014 post from March 1, 2026 featuring Selena Gomez in Rare Beauty Neutral Eye Collection"
     },
     {
       "timestamp": "2026-03-01T22:47:00-08:00",
       "account": "crystaleyezbeautylounge",
       "postUrl": "https://www.instagram.com/crystaleyezbeautylounge/reel/DVOvUlAEQvU/",
       "commentUrl": "https://www.instagram.com/p/DVOvUlAEQvU/c/17898804045392646/",
-      "comment": "Amber's entire squad ate and left no crumbs 😍 love how polished everyone looks",
+      "comment": "Amber's entire squad ate and left no crumbs \ud83d\ude0d love how polished everyone looks",
       "likes": [
         "https://www.instagram.com/crystaleyezbeautylounge/reel/DVOvUlAEQvU/",
         "https://www.instagram.com/crystaleyezbeautylounge/reel/DMNwdF0qr5f/",
@@ -461,7 +476,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailart",
-      "note": "fallback: no same-day posts in #nailart hashtag feed; engaged verify account crystaleyezbeautylounge (Chicago beauty lounge) — bridal party glow-up reel, 3 days old"
+      "note": "fallback: no same-day posts in #nailart hashtag feed; engaged verify account crystaleyezbeautylounge (Chicago beauty lounge) \u2014 bridal party glow-up reel, 3 days old"
     },
     {
       "timestamp": "2026-03-02T07:56:00-08:00",
@@ -476,7 +491,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#balayageombre",
-      "note": "fallback: no same-day posts in #balayageombre hashtag feed; engaged verify account agnesohairdesign (Agnes O. Hair Design & Derma Spa, Chicago) — microblading/PMU promo post (Feb 20, 2026)"
+      "note": "fallback: no same-day posts in #balayageombre hashtag feed; engaged verify account agnesohairdesign (Agnes O. Hair Design & Derma Spa, Chicago) \u2014 microblading/PMU promo post (Feb 20, 2026)"
     },
     {
       "timestamp": "2026-03-02T11:04:00-08:00",
@@ -491,14 +506,14 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailart",
-      "note": "fallback: no same-day posts in #nailart hashtag feed; engaged verify account salonsevhn (Chicago multi-service salon in South Loop) — sewin install carousel post from Nov 13, 2025. Traditional sewin with minimal leave out, grey/silver extensions. Liked main post + 2 older (Welcome Brie Nov 5 + Looking for Models Oct 16)."
+      "note": "fallback: no same-day posts in #nailart hashtag feed; engaged verify account salonsevhn (Chicago multi-service salon in South Loop) \u2014 sewin install carousel post from Nov 13, 2025. Traditional sewin with minimal leave out, grey/silver extensions. Liked main post + 2 older (Welcome Brie Nov 5 + Looking for Models Oct 16)."
     },
     {
       "timestamp": "2026-03-02T12:59:00-08:00",
       "account": "hellosugar.salon",
       "postUrl": "https://www.instagram.com/hellosugar.salon/reel/DVJ0ukKkhHm/",
       "commentUrl": "https://www.instagram.com/p/DVJ0ukKkhHm/c/17865084474596809/",
-      "comment": "wait who voted cactus and why am I so entertained by this 😭 fully invested in this series now",
+      "comment": "wait who voted cactus and why am I so entertained by this \ud83d\ude2d fully invested in this series now",
       "likes": [
         "https://www.instagram.com/hellosugar.salon/reel/DVJ0ukKkhHm/",
         "https://www.instagram.com/hellosugar.salon/reel/DU_CoV1EUb-/",
@@ -556,7 +571,7 @@
       "account": "omgspachicago",
       "postUrl": "https://www.instagram.com/omgspachicago/reel/DVWgm_7kSlp/",
       "commentUrl": "https://www.instagram.com/p/DVWgm_7kSlp/c/18100863830506287/",
-      "comment": "ok daisy nail art with a matching mani-pedi is so much cuter than I expected. blue base and yellow accents is the perfect spring call 🌼",
+      "comment": "ok daisy nail art with a matching mani-pedi is so much cuter than I expected. blue base and yellow accents is the perfect spring call \ud83c\udf3c",
       "likes": [
         "https://www.instagram.com/omgspachicago/reel/DVWgm_7kSlp/",
         "https://www.instagram.com/omgspachicago/reel/DVT5WGXkbze/",
@@ -564,14 +579,14 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailslove",
-      "note": "fallback: no same-day posts in #nailslove hashtag feed; engaged verify account omgspachicago (OMG Spa, Chicago South Loop). Most recent post: Daisy Nail Art reel (1d old). Liked main post + Saturday Vibes (2d) + Lake Michigan Spa Pedicure (3d). Updated omgspachicago status to ✅ in accounts.md."
+      "note": "fallback: no same-day posts in #nailslove hashtag feed; engaged verify account omgspachicago (OMG Spa, Chicago South Loop). Most recent post: Daisy Nail Art reel (1d old). Liked main post + Saturday Vibes (2d) + Lake Michigan Spa Pedicure (3d). Updated omgspachicago status to \u2705 in accounts.md."
     },
     {
       "timestamp": "2026-03-02T18:33:00-08:00",
       "account": "hellobirdielab",
       "postUrl": "https://www.instagram.com/hellobirdielab/reel/DVMzt4Agd5y/",
       "commentUrl": "https://www.instagram.com/p/DVMzt4Agd5y/c/17960458899052557/",
-      "comment": "ok these are melting me. i've never needed an aurora ombré set until right now",
+      "comment": "ok these are melting me. i've never needed an aurora ombr\u00e9 set until right now",
       "likes": [
         "https://www.instagram.com/hellobirdielab/reel/DVMzt4Agd5y/",
         "https://www.instagram.com/hellobirdielab/reel/DVJ2ZPskqYK/",
@@ -579,14 +594,14 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailart",
-      "note": "fallback: no same-day posts in #nailart hashtag feed; engaged verify account hellobirdielab (Hello Birdie Nail & Lash Lab, San Diego). Most recent post: magical ombré nail art by Destiny reel (5d old). Liked main post + dreamy Koky nail art (6d) + Scream 7 contest post (Feb 20). Updated hellobirdielab status to ✅ in accounts.md."
+      "note": "fallback: no same-day posts in #nailart hashtag feed; engaged verify account hellobirdielab (Hello Birdie Nail & Lash Lab, San Diego). Most recent post: magical ombr\u00e9 nail art by Destiny reel (5d old). Liked main post + dreamy Koky nail art (6d) + Scream 7 contest post (Feb 20). Updated hellobirdielab status to \u2705 in accounts.md."
     },
     {
       "timestamp": "2026-03-03T11:47:00-08:00",
       "account": "butterflybeautycarlow",
       "postUrl": "https://www.instagram.com/p/DVbsBRECR9x/",
       "commentUrl": "https://www.instagram.com/p/DVbsBRECR9x/c/17878239435396040/",
-      "comment": "ok the cheetah on the ring finger with the pink almond shape 😮‍💨 do you get requests for this combo a lot?",
+      "comment": "ok the cheetah on the ring finger with the pink almond shape \ud83d\ude2e\u200d\ud83d\udca8 do you get requests for this combo a lot?",
       "likes": [
         "DVbsBRECR9x",
         "DVZKfxplQIq",
@@ -608,14 +623,14 @@
       ],
       "type": "comment+like",
       "hashtag": "#naildesigner",
-      "note": "fallback: no English-language same-day posts in #naildesigner hashtag (today's posts all in Portuguese/Brazilian); engaged verify account varnishlane (Varnish Lane, DC waterless nail salon). Most recent post 4 days old. Liked main post + Fresh floors reel (6d) + 'your nails but better' shade photo (6d). Updated varnishlane status to ✅ in accounts.md."
+      "note": "fallback: no English-language same-day posts in #naildesigner hashtag (today's posts all in Portuguese/Brazilian); engaged verify account varnishlane (Varnish Lane, DC waterless nail salon). Most recent post 4 days old. Liked main post + Fresh floors reel (6d) + 'your nails but better' shade photo (6d). Updated varnishlane status to \u2705 in accounts.md."
     },
     {
       "timestamp": "2026-03-03T16:55:00-08:00",
       "account": "lovelyyfaces",
       "postUrl": "https://www.instagram.com/lovelyyfaces/reel/DVY3bSEDfjq/",
       "commentUrl": "https://www.instagram.com/lovelyyfaces/reel/DVY3bSEDfjq/",
-      "comment": "a blowout on this length and texture is going to be so good 🙌",
+      "comment": "a blowout on this length and texture is going to be so good \ud83d\ude4c",
       "likes": [
         "DVY3bSEDfjq",
         "DVOhpthDcOs",
@@ -623,7 +638,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#haircut",
-      "note": "fallback: no same-day posts in #haircut hashtag feed (newest posts were weeks old); engaged verify account lovelyyfaces (LovelyyFaces Spa Lounge, Bethlehem PA). Most recent post 1 day old (Brazilian blowout reel). Commented on main post + liked 2 older posts (cosmology salon expansion reel 5d, Korean Lash Lift & Brow Combo reel 1w). Updated lovelyyfaces status to ✅ in accounts.md."
+      "note": "fallback: no same-day posts in #haircut hashtag feed (newest posts were weeks old); engaged verify account lovelyyfaces (LovelyyFaces Spa Lounge, Bethlehem PA). Most recent post 1 day old (Brazilian blowout reel). Commented on main post + liked 2 older posts (cosmology salon expansion reel 5d, Korean Lash Lift & Brow Combo reel 1w). Updated lovelyyfaces status to \u2705 in accounts.md."
     },
     {
       "timestamp": "2026-03-03T20:18:00-08:00",
@@ -645,7 +660,7 @@
       "account": "curestudios",
       "postUrl": "https://www.instagram.com/curestudios/p/DVca_ZpEa5_/",
       "commentUrl": "https://www.instagram.com/p/DVca_ZpEa5_/c/18100937218910070/",
-      "comment": "flooded in february and back in march with books open and the full crew? that's an incredible recovery 🖤",
+      "comment": "flooded in february and back in march with books open and the full crew? that's an incredible recovery \ud83d\udda4",
       "likes": [
         "https://www.instagram.com/curestudios/p/DVca_ZpEa5_/",
         "https://www.instagram.com/curestudios/p/DURIaS9kTBi/",
@@ -668,7 +683,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailslove",
-      "note": "fallback from #nailslove hashtag (no same-day posts found in feed at 6am). miniluxe (MiniLuxe, nail franchise MA/RI/TX/CA/FL). Most recent post 4 days old: reel about cute accessories store next to MiniLuxe Prudential Center Boston, featuring polka dot nails. Commented + liked main reel + 2 older posts (cateye hearts reel DUvtg1_iQXw Feb 14, Bad Bunny nail art winner DUtbnmTieh- Feb 13). Updated miniluxe status to ✅ in accounts.md."
+      "note": "fallback from #nailslove hashtag (no same-day posts found in feed at 6am). miniluxe (MiniLuxe, nail franchise MA/RI/TX/CA/FL). Most recent post 4 days old: reel about cute accessories store next to MiniLuxe Prudential Center Boston, featuring polka dot nails. Commented + liked main reel + 2 older posts (cateye hearts reel DUvtg1_iQXw Feb 14, Bad Bunny nail art winner DUtbnmTieh- Feb 13). Updated miniluxe status to \u2705 in accounts.md."
     },
     {
       "timestamp": "2026-03-04T07:51:00-08:00",
@@ -683,7 +698,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailart",
-      "note": "fallback from #nailart hashtag (only same-day post in feed was Korean-language una_nail_salon). buffandfile (Buff & File Nail Bar, Portsmouth NH). Most recent post from Feb 14: Valentine's Day gel mani with curved red tips + glitter heart accent nail by Hailey. Commented + liked main post + 2 older posts (Date night ready DUtJ196jbzl Feb 13, Hearts aflutter DUoFG9Pidhb Feb 11). Updated buffandfile status to ✅ in accounts.md."
+      "note": "fallback from #nailart hashtag (only same-day post in feed was Korean-language una_nail_salon). buffandfile (Buff & File Nail Bar, Portsmouth NH). Most recent post from Feb 14: Valentine's Day gel mani with curved red tips + glitter heart accent nail by Hailey. Commented + liked main post + 2 older posts (Date night ready DUtJ196jbzl Feb 13, Hearts aflutter DUoFG9Pidhb Feb 11). Updated buffandfile status to \u2705 in accounts.md."
     },
     {
       "timestamp": "2026-03-04T08:54:00-08:00",
@@ -698,7 +713,7 @@
       ],
       "type": "like-only",
       "hashtag": "#balayagehair",
-      "note": "Today's post (8 min ago) from haarschmiede_huber (Haarschmiede Huber, Freiburg Germany). Caption in German describing balayage highlights technique — liked only per #balayagehair rule + English-only comment policy. Liked main post + DVbN7RijPRm (1 day ago, brown transformation) + DVblQZCjNFL (23h ago, tape extensions reel)."
+      "note": "Today's post (8 min ago) from haarschmiede_huber (Haarschmiede Huber, Freiburg Germany). Caption in German describing balayage highlights technique \u2014 liked only per #balayagehair rule + English-only comment policy. Liked main post + DVbN7RijPRm (1 day ago, brown transformation) + DVblQZCjNFL (23h ago, tape extensions reel)."
     },
     {
       "timestamp": "2026-03-04T10:02:00-08:00",
@@ -713,14 +728,14 @@
       ],
       "type": "like",
       "hashtag": "#haircuts",
-      "note": "No same-day posts found in #haircuts feed. Fallback: engaged with @swinkstylebar (Swink Style Bar, Seattle). Most recent post is a collaborative post with @akstylefx — regency themed birthday updo (pink/magenta curls with jewel pins), 3 days old. Caption did not describe technique in detail — LIKE ONLY per #haircuts rule. Liked main post + 2 older posts (butterfly floral updo Sep 8 2025; lash lift + tint Aug 16 2025). Status updated to ✅."
+      "note": "No same-day posts found in #haircuts feed. Fallback: engaged with @swinkstylebar (Swink Style Bar, Seattle). Most recent post is a collaborative post with @akstylefx \u2014 regency themed birthday updo (pink/magenta curls with jewel pins), 3 days old. Caption did not describe technique in detail \u2014 LIKE ONLY per #haircuts rule. Liked main post + 2 older posts (butterfly floral updo Sep 8 2025; lash lift + tint Aug 16 2025). Status updated to \u2705."
     },
     {
       "timestamp": "2026-03-04T12:41:00-08:00",
       "account": "glamnetic",
       "postUrl": "https://www.instagram.com/p/DVeZUdvkkHn/",
       "commentUrl": "https://www.instagram.com/p/DVeZUdvkkHn/c/18570422290059485/",
-      "comment": "wait where are these showing up. I need to know immediately 👀",
+      "comment": "wait where are these showing up. I need to know immediately \ud83d\udc40",
       "likes": [
         "https://www.instagram.com/p/DVeZUdvkkHn/",
         "https://www.instagram.com/glamnetic/reel/DVcZ3hEj2Ga/",
@@ -728,14 +743,14 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailsalon",
-      "note": "fallback: no same-day English posts in #nailsalon hashtag feed. Engaged verify account @glamnetic (press-on nail brand). Most recent post: today (March 04, 2026) — Quick Press Mani packaging teaser in snow. 'Starting to see these everywhere 👀 Find out soon...' — retail expansion hint. Commented + liked main post + 2 older reels (Warning: will turn heads ⚠️ 19h ago, Did you catch that? 👀 22h ago). Updated glamnetic status to ✅ in accounts.md."
+      "note": "fallback: no same-day English posts in #nailsalon hashtag feed. Engaged verify account @glamnetic (press-on nail brand). Most recent post: today (March 04, 2026) \u2014 Quick Press Mani packaging teaser in snow. 'Starting to see these everywhere \ud83d\udc40 Find out soon...' \u2014 retail expansion hint. Commented + liked main post + 2 older reels (Warning: will turn heads \u26a0\ufe0f 19h ago, Did you catch that? \ud83d\udc40 22h ago). Updated glamnetic status to \u2705 in accounts.md."
     },
     {
       "timestamp": "2026-03-04T11:47:00-08:00",
       "account": "lashbarusa",
       "postUrl": "https://www.instagram.com/lashbarusa/p/DVZJ1i6CpR7/",
       "commentUrl": "https://www.instagram.com/p/DVZJ1i6CpR7/c/17961763077024675/",
-      "comment": "ok these three 🤍 this is what women's history month looks like",
+      "comment": "ok these three \ud83e\udd0d this is what women's history month looks like",
       "likes": [
         "https://www.instagram.com/lashbarusa/p/DVZJ1i6CpR7/",
         "https://www.instagram.com/lashbarusa/p/DVKBn2Tj0Ln/",
@@ -743,7 +758,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#naildesigner",
-      "note": "No same-day English posts in #naildesigner (only one today from @siberlenmachado_nails, posted in Portuguese). Fallback: @lashbarusa (LASHBAR Lash Franchise). Most recent post March 02, 2026 — Women's History Month team photo, English caption, 2 days old. Commented + liked main post + 2 older posts (Scripps Ranch review 7d ago; Lashbar Eastlake LED tech Feb 15). @frenchiesmodernnailcare inactive since 2015 (marked ❌). @blinklashboutique account not found (marked ❌). Status updated to ✅."
+      "note": "No same-day English posts in #naildesigner (only one today from @siberlenmachado_nails, posted in Portuguese). Fallback: @lashbarusa (LASHBAR Lash Franchise). Most recent post March 02, 2026 \u2014 Women's History Month team photo, English caption, 2 days old. Commented + liked main post + 2 older posts (Scripps Ranch review 7d ago; Lashbar Eastlake LED tech Feb 15). @frenchiesmodernnailcare inactive since 2015 (marked \u274c). @blinklashboutique account not found (marked \u274c). Status updated to \u2705."
     },
     {
       "timestamp": "2026-03-04T17:05:00-08:00",
@@ -758,7 +773,7 @@
       ],
       "type": "comment+like",
       "hashtag": "#nailslove",
-      "note": "No same-day posts in #nailslove hashtag feed (most recent visible was 3 days old). Fallback: @jjeyelashes (JJ Eyelashes, NYC) — verify account. Most recent photo post 4 days old (Feb 28), C10-12R Ruby Set lash extensions, English caption. Commented + liked main post + 2 older posts (Semi Cat Eye Feb 21; Lash Lift & Tint Feb 17). Status updated to ✅."
+      "note": "No same-day posts in #nailslove hashtag feed (most recent visible was 3 days old). Fallback: @jjeyelashes (JJ Eyelashes, NYC) \u2014 verify account. Most recent photo post 4 days old (Feb 28), C10-12R Ruby Set lash extensions, English caption. Commented + liked main post + 2 older posts (Semi Cat Eye Feb 21; Lash Lift & Tint Feb 17). Status updated to \u2705."
     },
     {
       "timestamp": "2026-03-04T22:21:00-08:00",
@@ -773,7 +788,66 @@
       ],
       "type": "like-only",
       "hashtag": "#haircuts",
-      "note": "No same-day posts in #haircuts hashtag (top posts all 1-3 weeks old). Fallback: @lookshairdesign (Looks Hair Design & Spa, State College PA, voted best salon 9x). Most recent post 1 day old: spring break blonde promo carousel. Caption generic (booking CTA only) — LIKE ONLY per #haircuts rule. Liked main post + reel (2d) + Zoey nail artist intro (4d). Follow builder: 4 commenters checked (moonkatdesigns private, taylorwhetstine private, jaylawilliamsx filler, hannahreed__ emojis only). 0 qualifying follows."
+      "note": "No same-day posts in #haircuts hashtag (top posts all 1-3 weeks old). Fallback: @lookshairdesign (Looks Hair Design & Spa, State College PA, voted best salon 9x). Most recent post 1 day old: spring break blonde promo carousel. Caption generic (booking CTA only) \u2014 LIKE ONLY per #haircuts rule. Liked main post + reel (2d) + Zoey nail artist intro (4d). Follow builder: 4 commenters checked (moonkatdesigns private, taylorwhetstine private, jaylawilliamsx filler, hannahreed__ emojis only). 0 qualifying follows."
+    },
+    {
+      "timestamp": "2026-03-05T07:11:00-08:00",
+      "account": "bijinsalonandspa",
+      "postUrl": "https://www.instagram.com/bijinsalonandspa/reel/DVe2SlJl6au/",
+      "commentUrl": null,
+      "comment": null,
+      "likes": [
+        "https://www.instagram.com/bijinsalonandspa/reel/DVe2SlJl6au/",
+        "https://www.instagram.com/bijinsalonandspa/reel/DVZsIwWGe1G/",
+        "https://www.instagram.com/bijinsalonandspa/p/DVKREYujMkA/"
+      ],
+      "type": "like-only",
+      "hashtag": "#haircuts",
+      "note": "No same-day posts in #haircuts hashtag (all visible posts 1+ week old). Fallback: @bijinsalonandspa (Bijin Salon & Spa, Prairie Village KS, est. 1988). Most recent reel posted 15h ago \u2014 'Your hair will thank you \ud83d\ude0a', hair tutorial with generic caption (no technique detail) \u2192 LIKE ONLY per #haircuts rule. Liked main reel (15h) + Hydrafacial reel (2d) + Spring Break Beauty Timeline carousel (Feb 24). Status updated to \u2705."
+    },
+    {
+      "timestamp": "2026-03-05T10:43:00-08:00",
+      "account": "evebombshell",
+      "postUrl": "https://www.instagram.com/p/DVgzW-hjNu1/",
+      "commentUrl": "https://www.instagram.com/p/DVgzW-hjNu1/c/18038755961554944/",
+      "comment": "ok that hot pink shimmer against the deep berry is absolutely wild. Midnight Moth proving itself right there",
+      "likes": [
+        "DVgzW-hjNu1",
+        "DVeU7seDCoB",
+        "DVdqk5djFGB"
+      ],
+      "type": "comment+like",
+      "hashtag": "#makeupgoals",
+      "note": "Same-day post (25min old at time of engagement) from #makeupgoals hashtag. @evebombshell (Evelyn, indie MUA, 5.9k followers). Close-up pink/berry shimmer eye look using Midnight Moth palette by @electrumcosmetics. Caption described personal/emotional reaction to receiving the palette \u2014 qualified for comment. Liked main post (DVgzW-hjNu1) + 2 older posts (DVeU7seDCoB Mar 04 mystical look + DVdqk5djFGB Mar 04 Sweetheart Secrets swatches)."
+    },
+    {
+      "timestamp": "2026-03-05T08:27:00-08:00",
+      "account": "spavialincolnpark",
+      "postUrl": "https://www.instagram.com/spavialincolnpark/p/DVeXhkBkwJD/",
+      "commentUrl": "https://www.instagram.com/p/DVeXhkBkwJD/c/18140940160491416/",
+      "comment": "spring lymphatic detox season is real and I am here for it",
+      "likes": [
+        "DVeXhkBkwJD",
+        "DVUGIsGE4zW",
+        "DVHv7i7EjrN"
+      ],
+      "type": "comment+like",
+      "hashtag": "#makeupgoals",
+      "note": "No same-day posts in #makeupgoals hashtag (all visible posts 1w+ old). Fallback: @spavialincolnpark (Spavia Day Spa Lincoln Park, Chicago), status updated to \u2705. Most recent post 20h ago \u2014 'Spring Lymphatic Detox. Release fluid. Support circulation. Restore flow.' Caption specific enough to react to. Commented + liked main post + liked Feb 28 (Salt Stone Massage) + Feb 23 (Hydraderm Facial). Multiple verify accounts checked first: @gbybeauty (0 posts), @riseandglow (0 posts), @kismetcosmetics (Feb 14, over 7d), @aboutfacesdayspa (not found), @zibabeauty (private), @vanmichaelsalons (not found), @georgethesalon (Feb 19, over 7d), @browart23 (not found), @karmasalononline (not found), @wmdayspa (0 posts), @salonoriana (Arabic/wrong account), @dudleydu (personal account), @beautylanesaloninorange (not found)."
+    },
+    {
+      "timestamp": "2026-03-05T20:58:00-08:00",
+      "account": "houseoflashes",
+      "postUrl": "https://www.instagram.com/houseoflashes/reel/DVg5c-YEhtB/",
+      "commentUrl": "https://www.instagram.com/p/DVg5c-YEhtB/c/17999040722872481/",
+      "comment": "this is so real. a good lash does something to how you walk out the door",
+      "likes": [
+        "https://www.instagram.com/houseoflashes/reel/DVg5c-YEhtB/",
+        "https://www.instagram.com/houseoflashes/reel/DVeVC2hEss1/",
+        "https://www.instagram.com/houseoflashes/reel/DVb-PFQkp0D/"
+      ],
+      "type": "fallback_verify",
+      "hashtag": "#nailslove"
     }
   ]
 }
