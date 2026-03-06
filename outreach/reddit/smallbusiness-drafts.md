@@ -1,8 +1,20 @@
-# r/smallbusiness Drafts
+# r/smallbusiness Drafts + Observations
 
 **Account:** u/Alive_Kick7098
 **Phase:** 2 (comments only, no links, no promotion)
 **Rule:** Max 1 comment per day in r/smallbusiness until 100+ karma
+
+---
+
+## Observations — Real Pain Points to Reference
+
+These are insights from posts we've seen — use them to inform comments, not copy directly.
+
+### Patients/clients text back immediately vs. not answering calls
+**Source:** "Our dental clinic cut no-shows by like half after we stopped relying on phone calls"
+**Date:** 2026-03-05
+**Insight:** People don't answer unknown numbers (clinic/business lines). But they TEXT BACK immediately. "Reply C to confirm or R to reschedule" is frictionless. Phone tag = dead. Text = done.
+**Use when:** Commenting on no-shows, appointment confirmations, customer communication, booking friction.
 
 ---
 
