@@ -49,9 +49,9 @@ These are insights from posts we've seen — use them to inform comments, not co
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm6jq3/our_dental_clinic_cut_noshows_by_like_half_after/
 **Posted:** (not yet)
 **Comment:**
-> people text back while they're thinking about it. phone calls just get forgotten or sent to voicemail.
+> people text back while they're thinking about it. phone calls just get forgotten or sent to voicemail. one tap vs finding a quiet spot to call back.
 
-**Notes:** 2hr old, 47 upvotes, 19 comments. Reacts to ONE thing (texting vs calling). No enumeration.
+**Notes:** 2hr old, 47 upvotes, 19 comments. Reacts to ONE thing (texting vs calling). Added specificity about WHY texting wins.
 
 ---
 
@@ -109,9 +109,9 @@ This structure sounds templated. Just say the thing.
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm6vkw/how_are_you_managing_customer_appointments_and/
 **Posted:** (not yet)
 **Comment:**
-> separate calendars for walk-ins vs booked slots. double booking happens when everything lives in one place.
+> separate calendars for walk-ins vs booked slots. double booking happens when everything lives in one place. keeping them split saves the back and forth.
 
-**Notes:** 2hr old, 1 comment. Removed "chaos" and "we see". Short, specific.
+**Notes:** 2hr old, 1 comment. Added the "why it matters" without using banned words.
 
 ---
 
@@ -120,9 +120,9 @@ This structure sounds templated. Just say the thing.
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm57kj/whats_the_easiest_way_youve_found_to_get/
 **Posted:** (not yet)
 **Comment:**
-> making rebooking effortless. a direct link in the confirmation email removes the friction of having to call or navigate your site again.
+> making rebooking effortless. a direct link in the confirmation email removes the friction of having to call or navigate your site again. they're already in the flow then.
 
-**Notes:** 3hr old, 18 comments. Removed "when X not Y" contrast. Shorter, direct.
+**Notes:** 3hr old, 18 comments. Added timing insight ("already in the flow").
 
 ---
 
@@ -153,9 +153,9 @@ This structure sounds templated. Just say the thing.
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm8gxj/how_do_you_collect_and_share_customer_reviews/
 **Posted:** (not yet)
 **Comment:**
-> sending the request within an hour gets more responses than waiting until tomorrow. they're still thinking about the appointment then.
+> sending the request within an hour gets more responses than waiting until tomorrow. they're still thinking about the appointment then. by evening they've moved on.
 
-**Notes:** 1hr old, 6 comments. Framed as observation. No prescriptive "make sure you".
+**Notes:** 1hr old, 6 comments. Added the "what happens if you wait" without being prescriptive.
 
 ---
 
@@ -164,9 +164,9 @@ This structure sounds templated. Just say the thing.
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm57kj/whats_the_easiest_way_youve_found_to_get/
 **Posted:** (not yet)
 **Comment:**
-> making rebooking effortless could help. maybe a direct link in the confirmation email so they don't have to navigate your site again.
+> making rebooking effortless could help. maybe a direct link in the confirmation email so they don't have to navigate your site again. small thing but it removes a step.
 
-**Notes:** 5hr old, 20 comments. Framed as suggestion ("could help", "maybe"). Read comments - top answers are thank you emails, follow up without selling, handwritten notes.
+**Notes:** 5hr old, 20 comments. Framed as suggestion. Added "why it matters" at the end.
 
 ---
 
