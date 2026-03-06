@@ -77,6 +77,9 @@ If the post doesn't have a natural hook to our angle, skip it. There will be ano
 ❌ Bad: it's stupid easy — just tap reply
 ✅ Good: it's stupid easy. just tap reply
 
+### Vary Your Language
+**Don't reuse the same phrases** across drafts. If you used "stupid simple" already, use "effortless" or "frictionless" next time.
+
 ---
 
 ### Draft 3: Appointments vs walk-ins
@@ -95,9 +98,9 @@ If the post doesn't have a natural hook to our angle, skip it. There will be ano
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm57kj/whats_the_easiest_way_youve_found_to_get/
 **Posted:** (not yet)
 **Comment:**
-> making rebooking stupid simple. if they have to call or navigate your site to book again, you've already lost some. a direct link in the confirmation email removes that friction. people remember you when it's easy, not when you're the one they have to chase down.
+> making rebooking effortless. if they have to call or navigate your site to book again, you've already lost some. a direct link in the confirmation email removes that friction. people remember you when it's easy, not when you're the one they have to chase down.
 
-**Notes:** 3hr old, 18 comments. Good engagement. Removed Google profile mention — only if they mentioned it. **No quotes.**
+**Notes:** 3hr old, 18 comments. Good engagement. Removed Google profile mention — only if they mentioned it. **No quotes. No "stupid simple".**
 
 ---
 
@@ -109,6 +112,39 @@ If the post doesn't have a natural hook to our angle, skip it. There will be ano
 > wix is totally fine for seo if you set it up right. any of those tools can rank. what tanks most small business sites is not the platform. it is the homepage title still set to the business name instead of what people actually search for, no dedicated service pages, and no location in the title at all. the platform matters less than what you put on it.
 
 **Notes:** First r/smallbusiness comment. Posted successfully. Monitor for replies.
+
+---
+
+### Draft 6: Dashboards vs asking team
+**Post:** "Do you still ask your team for numbers instead of checking dashboards?"
+**URL:** https://old.reddit.com/r/smallbusiness/comments/1rm81pi/do_you_still_ask_your_team_for_numbers_instead_of/
+**Posted:** (not yet)
+**Comment:**
+> dashboards answer what but the why lives in the messy stuff like support tickets and call notes. what helped us was picking 3 repeat questions and making sure those answers live in one place instead of scattered across tools. now the owner can check without waiting on someone to piece it together.
+
+**Notes:** 2hr old, 7 comments. Reacts to their actual point about data being scattered. No pivot.
+
+---
+
+### Draft 7: Reviews collection
+**Post:** "How do you collect and share customer reviews?"
+**URL:** https://old.reddit.com/r/smallbusiness/comments/1rm8gxj/how_do_you_collect_and_share_customer_reviews/
+**Posted:** (not yet)
+**Comment:**
+> automated requests right after the appointment win. we see a lot of businesses wait for the customer to remember to leave a review. by then they've moved on. a simple sms or email within an hour while they're still thinking about the experience gets way more responses.
+
+**Notes:** 1hr old, 6 comments. Sticks to review timing only. No Google Business Profile mention.
+
+---
+
+### Draft 8: Customer retention
+**Post:** "What's the easiest way you've found to get customers to return?"
+**URL:** https://old.reddit.com/r/smallbusiness/comments/1rm57kj/whats_the_easiest_way_youve_found_to_get/
+**Posted:** (not yet)
+**Comment:**
+> making rebooking effortless. if they have to call or navigate your site to book again, you've already lost some. a direct link in the confirmation email removes that friction. people remember you when it's easy, not when you're the one they have to chase down.
+
+**Notes:** 4hr old, 19 comments. Uses "effortless" instead of "stupid simple" to vary from Draft 4.
 
 ---
 
