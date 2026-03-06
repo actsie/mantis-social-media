@@ -36,20 +36,33 @@ These are insights from posts we've seen — use them to inform comments, not co
 **URL:** https://old.reddit.com/r/smallbusiness/comments/1rm6jq3/our_dental_clinic_cut_noshows_by_like_half_after/
 **Posted:** (not yet)
 **Comment:**
-> confirmation texts with a reply option do the heavy lifting. "reply C to confirm or R to reschedule" makes it stupid easy for them. the difference between "call us back during office hours" and "tap reply" is huge. people text back while they're thinking about it instead of forgetting.
+> confirmation texts with a reply option do the heavy lifting. reply C to confirm or R to reschedule makes it stupid easy for them. the difference between call us back during office hours and tap reply is huge. people text back while they're thinking about it instead of forgetting.
 
-**Notes:** 2hr old, 32 upvotes, 14 comments. High visibility. Sticks to their texting vs calling angle — no forced pivot.
+**Notes:** 2hr old, 32 upvotes, 14 comments. High visibility. Sticks to their texting vs calling angle — no forced pivot. **No quotes.**
 
 ---
 
-## Rule: No Forced Pivots
+## Rules
 
+### No Forced Pivots
 **Only comment on what's actually in the post.** Don't extend toward our angle if they didn't mention it.
 
-❌ Bad: They talk about texting confirmations → we pivot to "public booking page"
+❌ Bad: They talk about texting confirmations → we pivot to public booking page
 ✅ Good: They talk about texting confirmations → we react to texting confirmations
 
 If the post doesn't have a natural hook to our angle, skip it. There will be another post.
+
+### No Quotation Marks
+**Never use quotes** around words or phrases. Rephrase instead.
+
+❌ Bad: reply C to confirm or R to reschedule makes it easy
+✅ Good: reply C to confirm or R to reschedule makes it easy
+
+### No Hyphens or Em Dashes
+**Use periods instead** of dashes.
+
+❌ Bad: it's stupid easy — just tap reply
+✅ Good: it's stupid easy. just tap reply
 
 ---
 
@@ -71,7 +84,7 @@ If the post doesn't have a natural hook to our angle, skip it. There will be ano
 **Comment:**
 > making rebooking stupid simple. if they have to call or navigate your site to book again, you've already lost some. a direct link in the confirmation email removes that friction. people remember you when it's easy, not when you're the one they have to chase down.
 
-**Notes:** 3hr old, 18 comments. Good engagement. Removed Google profile mention — only if they mentioned it.
+**Notes:** 3hr old, 18 comments. Good engagement. Removed Google profile mention — only if they mentioned it. **No quotes.**
 
 ---
 
