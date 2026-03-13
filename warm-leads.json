@@ -1,0 +1,80 @@
+{
+  "searchDate": "2026-03-13T05:15:00Z",
+  "searchWindow": "72 hours",
+  "subreddit": "r/smallbusiness",
+  "leads": [
+    {
+      "tier": "HOT",
+      "title": "How do you handle invoicing and work orders when you're out in the field all day?",
+      "url": "https://www.reddit.com/r/smallbusiness/comments/1rs7t3n/how_do_you_handle_invoicing_and_work_orders_when/",
+      "age": "5h ago",
+      "votes": 4,
+      "comments": 15,
+      "query": "\"how do you handle\" OR \"recommend software\" OR \"recommend tool\"",
+      "notes": "Field service owner struggling with admin work while on-site. Perfect fit for automation solution."
+    },
+    {
+      "tier": "WARM",
+      "title": "How do you handle paperwork and invoicing when you're out in the field all day?",
+      "url": "https://www.reddit.com/r/smallbusiness/comments/1rrjp22/how_do_you_handle_paperwork_and_invoicing_when/",
+      "age": "22h ago",
+      "votes": 6,
+      "comments": 17,
+      "query": "\"how do you handle\" OR \"recommend software\" OR \"recommend tool\"",
+      "notes": "Similar to HOT lead - field admin pain point. May be same person or different owner with same issue."
+    },
+    {
+      "tier": "WARM",
+      "title": "How do you handle clients who are overwhelmed by the home buying/selling process?",
+      "url": "https://www.reddit.com/r/smallbusiness/comments/1rrjbfc/how_do_you_handle_clients_who_are_overwhelmed_by/",
+      "age": "23h ago",
+      "votes": 8,
+      "comments": 6,
+      "query": "\"how do you handle\" OR \"recommend software\" OR \"recommend tool\"",
+      "notes": "Real estate professional dealing with overwhelmed clients. Could benefit from client communication automation."
+    },
+    {
+      "tier": "WARM",
+      "title": "How do you handle importing old data into hubspot or another crm?",
+      "url": "https://www.reddit.com/r/smallbusiness/comments/1rqtg6r/how_do_you_handle_importing_old_data_into_hubspot/",
+      "age": "2d ago",
+      "votes": 1,
+      "comments": 4,
+      "query": "\"how do you handle\" OR \"recommend software\" OR \"recommend tool\"",
+      "notes": "CRM migration question. Owner evaluating tools."
+    },
+    {
+      "tier": "WARM",
+      "title": "How do you keep track of a hundred small things without burning out?",
+      "url": "https://www.reddit.com/r/smallbusiness/comments/1rrfff7/how_do_you_keep_track_of_a_hundred_small_things/",
+      "age": "1d ago",
+      "votes": 73,
+      "comments": 122,
+      "query": "exhausted OR \"burned out\" OR \"can't keep up\" OR \"working 80 hours\"",
+      "notes": "High engagement post. Owner feeling overwhelmed with task management. Strong burnout signal."
+    },
+    {
+      "tier": "WARM",
+      "title": "Warning: Stax Payments (formerly Payment Depot) – Horrible cancellation experience, unprofessional reps, and outdated website",
+      "url": "https://www.reddit.com/r/smallbusiness/comments/1rr9szm/warning_stax_payments_formerly_payment_depot/",
+      "age": "1d ago",
+      "votes": 1,
+      "comments": 1,
+      "query": "\"no show\" OR cancellation OR \"didn't show up\"",
+      "notes": "Payment processor complaint. Owner frustrated with vendor. May be open to alternatives."
+    }
+  ],
+  "summary": {
+    "totalLeads": 6,
+    "hotLeads": 1,
+    "warmLeads": 5,
+    "coldLeads": 0,
+    "postsByQuery": {
+      "query1_exhausted_burnout": 1,
+      "query2_phone_inbox_dms": 0,
+      "query3_cancellation_noshow": 1,
+      "query4_how_to_handle_recommend": 4,
+      "query5_overwhelmed_worklife": 0
+    }
+  }
+}

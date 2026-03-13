@@ -23,7 +23,7 @@ const LONG_GAP_MIN = 180;  // "long break" threshold
 // phase 1 = warmup (karma building) | phase 2 = business subs (50+ karma) | phase 3 = later
 // Karma thresholds: phase2 unlocks at 50+, phase3 at 100+
 // Update CURRENT_KARMA below as account grows
-const CURRENT_KARMA = 66; // updated 2026-03-06
+const CURRENT_KARMA = 91; // updated 2026-03-08
 
 const SUBREDDITS = [
   // Phase 1 — warmup consumer subs
@@ -46,6 +46,50 @@ const SUBREDDITS = [
   { sub: 'RedditLaqueristas',   type: 'nail',       phase: 3, weight: 2 },
   { sub: 'MassageTherapists',   type: 'pro-beauty', phase: 3, weight: 1 },
 ];
+
+// ── Complaint keyword monitoring (inbound leads) ───────────────────────────────
+const COMPLAINT_REDDITS = ['smallbusiness', 'Entrepreneur', 'RestaurantOwners', 'salonowners'];
+const COMPLAINT_KEYWORDS = [
+  // Burnout/overwhelm
+  'exhausted', 'burned out', "can't keep up", 'working 80 hours', "can't eat",
+  'no work-life balance', 'thinking of closing', 'not worth it anymore',
+  // Communication overload
+  'phone won\'t stop', 'inbox is', 'DMs are', 'too busy to respond',
+  'overwhelmed with messages', 'constant stream', 'fall through the cracks',
+  // No-shows/cancellations
+  'no show', 'cancellation', 'didn\'t show up', 'last-minute cancel',
+  // Asking for help
+  'how do you handle', 'recommend software', 'recommend tool', 'what do you use',
+  // Staffing
+  'staff quit', 'hiring is', 'doing everything myself', 'can\'t find help',
+  // Customer pressure
+  'customers expect', 'people are so demanding', 'reviews are killing',
+  // Chaos/no systems
+  'leads not followed', 'winging it', 'chaotic', 'slipping through',
+  // Growth frustration
+  'too busy to market', 'stuck at same', 'can\'t grow', 'plateaued'
+];
+
+// Map complaint keywords to pain types for DM templates
+const PAIN_TYPE_MAP = {
+  'chaos/no-systems': ['leads not followed', 'winging it', 'chaotic', 'slipping through', 'doing everything manually', 'build a system'],
+  'communication-overload': ['phone won\'t stop', 'inbox is', 'DMs are', 'too busy to respond', 'overwhelmed with messages', 'constant stream', 'fall through the cracks', 'client requests', 'texts'],
+  'burnout/overwhelm': ['exhausted', 'burned out', "can't keep up", 'working 80 hours', "can't eat", 'no work-life balance', 'eating me alive', 'losing motivation', 'spending 4-5 hours'],
+  'instability/growth-frustration': ['thinking of closing', 'not worth it anymore', 'stuck at same', 'can\'t grow', 'plateaued', 'clients leaving', 'anxious about', 'revenue basically goes to zero'],
+  'no-shows': ['no show', 'cancellation', 'didn\'t show up', 'last-minute cancel'],
+  'staffing': ['staff quit', 'hiring is', 'doing everything myself', 'can\'t find help'],
+  'customer-pressure': ['customers expect', 'people are so demanding', 'reviews are killing']
+};
+
+function detectPainType(postTitle, postText = '') {
+  const combined = (postTitle + ' ' + postText).toLowerCase();
+  for (const [painType, keywords] of Object.entries(PAIN_TYPE_MAP)) {
+    if (keywords.some(kw => combined.includes(kw.toLowerCase()))) {
+      return painType;
+    }
+  }
+  return 'general';
+}
 
 // Determine active phase based on karma
 const activePhase = CURRENT_KARMA >= 100 ? 3 : CURRENT_KARMA >= 50 ? 2 : 1;
@@ -197,7 +241,107 @@ sessions.forEach(s => {
     ``,
     `CRITICAL: Read these files first:`,
     `  /Users/mantisclaw/.openclaw/workspace/outreach/reddit/tone-guide.md`,
+    `  /Users/mantisclaw/.openclaw/workspace/outreach/reddit/question-examples.md`,
     `  /Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json`,
+    `  /Users/mantisclaw/.openclaw/workspace/outreach/inbound-leads.json`,
+    ``,
+    `🎯 SESSION 1 ONLY — COMPLAINT MONITORING (do this FIRST before any engagement):`,
+    ``,
+    `Search r/smallbusiness for complaint posts from the last 3 days (72 hours). These are potential inbound leads — business owners already describing the exact problems we solve.`,
+    ``,
+    `Search queries to run (one at a time, sort by "new"):`,
+    `  1. exhausted OR "burned out" OR "can't keep up" OR "working 80 hours"`,
+    `  2. "phone won't stop" OR "inbox is" OR "DMs are" OR "too busy to respond"`,
+    `  3. "no show" OR cancellation OR "didn't show up"`,
+    `  4. "how do you handle" OR "recommend software" OR "recommend tool"`,
+    `  5. "overwhelmed with" OR "can't eat" OR "no work-life balance"`,
+    ``,
+    `Filter results to show posts from the last 3 days only. Reddit search may show older results — skip anything older than 72hrs.`,
+    ``,
+    `For each complaint post found (under 72hrs old):`,
+    `  1. Read the post — is it an owner describing a real pain point?`,
+    `  2. Tier it:`,
+    `     - HOT: <2hrs old + specific complaint + owner posting → reply same day`,
+    `     - WARM: <72hrs old + general vent + owner → log for follow-up`,
+    `     - COLD: >72hrs or vague → log only, no outreach`,
+    `  3. Log to KameleonDB using the helper script:`,
+    `     `,
+    `     const { execSync } = require('child_process');`,
+    `     `,
+    `     // For HOT/WARM leads only (not COLD)`,
+    `     if (tier === 'hot' || tier === 'warm') {`,
+    `       const cmd = 'cd /Users/mantisclaw/.openclaw/workspace && node outreach/scripts/log-lead.js --platform reddit --account ' + postAuthor + ' --link https://old.reddit.com/user/' + postAuthor + ' --segment smallbusiness owner --fit 4 --reason \"' + postTitle + '\" --status ' + tier + ' --notes \"Pain type: ' + painType + '. Found via complaint search.\"';`,
+    `       execSync(cmd);`,
+    `     }`,
+    `     const leads = JSON.parse(fs.readFileSync(leadsPath, 'utf8'));`,
+    `     const warmLeads = JSON.parse(fs.readFileSync(warmLeadsPath, 'utf8'));`,
+    `     const leadId = 'lead-' + (warmLeads.leads.length + 1).toString().padStart(3, '0');`,
+    `     const now = new Date().toISOString();`,
+    `     `,
+    `     // Detect pain type from post title/text`,
+    `     const postText = (document.querySelector('article p')?.textContent || '').toLowerCase();`,
+    `     const postTitle = 'POST TITLE HERE'.toLowerCase();`,
+    `     const painTypeMap = {`,
+    `       'chaos/no-systems': ['leads not followed', 'winging it', 'chaotic', 'slipping through', 'doing everything manually', 'build a system'],`,
+    `       'communication-overload': ['phone won\\'t stop', 'inbox is', 'dms are', 'too busy to respond', 'overwhelmed with messages', 'constant stream', 'fall through the cracks', 'client requests', 'texts'],`,
+    `       'burnout/overwhelm': ['exhausted', 'burned out', 'can\\'t keep up', 'working 80 hours', 'can\\'t eat', 'no work-life balance', 'eating me alive', 'losing motivation'],`,
+    `       'instability/growth-frustration': ['thinking of closing', 'not worth it anymore', 'stuck at same', 'can\\'t grow', 'plateaued', 'clients leaving', 'anxious about', 'revenue basically goes to zero']`,
+    `     };`,
+    `     let painType = 'general';`,
+    `     for (const [type, keywords] of Object.entries(painTypeMap)) {`,
+    `       if (keywords.some(kw => (postTitle + ' ' + postText).includes(kw))) {`,
+    `         painType = type;`,
+    `         break;`,
+    `       }`,
+    `     }`,
+    `     `,
+    `     const newLead = {`,
+    `       id: leadId,`,
+    `       source: 'reddit',`,
+    `       subreddit: 'r/smallbusiness',`,
+    `       postTitle: 'POST TITLE HERE',`,
+    `       postUrl: 'FULL POST URL',`,
+    `       author: 'POST_AUTHOR',`,
+    `       foundAt: now,`,
+    `       postAge: 'X hours',`,
+    `       tier: 'hot|warm|cold',`,
+    `       painType: painType,`,
+    `       painSignals: ['signal1', 'signal2'],`,
+    `       status: 'found',`,
+    `       commentedAt: null,`,
+    `       commentUrl: null,`,
+    `       dmReadyAt: null,`,
+    `       dmSentAt: null,`,
+    `       dmStatus: null,`,
+    `       repliedAt: null,`,
+    `       notes: 'Brief note about fit and potential angle'`,
+    `     };`,
+    `     `,
+    `     leads.leads.push({ ...newLead, actionTaken: 'logged', responseDraft: null });`,
+    `     warmLeads.leads.push(newLead);`,
+    `     `,
+    `     fs.writeFileSync(leadsPath, JSON.stringify(leads, null, 2));`,
+    `     fs.writeFileSync(warmLeadsPath, JSON.stringify(warmLeads, null, 2));`,
+    ``,
+    `  4. For HOT tier leads only: Write a helpful comment (NOT a pitch). Example:`,
+    `     "saw your post about X. we work with salons on this exact thing — the chaos of [specific pain they mentioned] is real. one thing that's worked for others: [specific tactic, no link]. happy to share more if useful"`,
+    ``,
+    `  5. After posting a comment on a warm/hot lead post, update warm-leads.json:`,
+    `     const fs = require('fs');`,
+    `     const warmLeadsPath = '/Users/mantisclaw/.openclaw/workspace/outreach/reddit/warm-leads.json';`,
+    `     const warmLeads = JSON.parse(fs.readFileSync(warmLeadsPath, 'utf8'));`,
+    `     const lead = warmLeads.leads.find(l => l.postUrl === 'THE_POST_URL');`,
+    `     if (lead) {`,
+    `       lead.status = 'commented';`,
+    `       lead.commentedAt = new Date().toISOString();`,
+    `       lead.commentUrl = 'THE_COMMENT_URL';`,
+    `       // Set dmReadyAt to 2-24 hours from now (randomized)`,
+    `       const delayHours = Math.floor(Math.random() * 22) + 2;`,
+    `       lead.dmReadyAt = new Date(Date.now() + delayHours * 60 * 60 * 1000).toISOString();`,
+    `     }`,
+    `     fs.writeFileSync(warmLeadsPath, JSON.stringify(warmLeads, null, 2));`,
+    ``,
+    `After complaint search, proceed with normal engagement below.`,
     ``,
     `GOAL: Find a recent post (under 1 hour old, ideally under 30 min) and leave a genuine, specific comment.`,
     ``,
@@ -248,9 +392,23 @@ sessions.forEach(s => {
     ``,
     `4. Read the post title and caption carefully. Look at the photo description if visible.`,
     ``,
+    `2.5. BEFORE DRAFTING — Read the top 3 comments first:`,
+    `   Sort the post by "top" (not new). Read the top 3 comments.`,
+    `   Note their length, tone, and structure. Are they short reactions? Long advice? Questions?`,
+    `   Match that energy. If top comments are 3-4 sentences with specific details, don't post a 1-liner.`,
+    `   If they're asking questions, consider asking one too. Blend in with what's already working.`,
+    ``,
+    `3. Click into the best candidate post (positive show-and-tell, nail art, makeover, styling).`,
+    ``,
+    `4. Read the post title and caption carefully. Look at the photo description if visible.`,
+    ``,
     `5. Draft a comment that is:`,
-    `   - Specific to what's actually in the post (NOT generic)`,
-    `   - 1-4 sentences max`,
+    `   - Specific to what's in the post (NOT generic)`,
+    `   - Varies in length based on the post and top comments:`,
+    `     * Short reaction (1 sentence): for simple nail art posts, quick appreciation`,
+    `     * Medium (2-3 sentences): most posts — observation + specific detail`,
+    `     * Long (3-5 sentences): advice posts, skincare routines, detailed questions — show you read everything`,
+    `   - Includes a question roughly 1 out of every 3 comments (questions get replies, replies build account health)`,
     `   - Natural, casual tone (see tone-guide.md)`,
     `   - Don't start with "I"`,
     `   - For hair/skincare posts: only comment if there's real content worth engaging with`,
@@ -258,6 +416,10 @@ sessions.forEach(s => {
     `   - NO em dashes (—) or hyphens (-) — use a period instead`,
     `   - NO quotation marks around words — rephrase`,
     `   - NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, bingo card, frame/framing`,
+    `   - CRITICAL: "actually" is banned. Search your draft for "actually" and remove it. Examples:`,
+    `     * "actually really even" → "really even"`,
+    `     * "actually look like them" → "look like them"`,
+    `     * "actually helping" → "helping"`,
     `   - Rewrite if any rule is violated. No exceptions.`,
     ``,
     `6. Post the comment using the old.reddit.com method:`,
@@ -298,21 +460,15 @@ sessions.forEach(s => {
   const name = `reddit-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
   const at   = `${today}T${s.time}:00${getLAOffset()}`;
 
-  // Write to temp file to avoid OS arg length limits
-  const tmpFile = `/tmp/reddit-session-msg-${s.n}-${Date.now()}.txt`;
-  fs.writeFileSync(tmpFile, msg);
-
   const result = spawnSync('openclaw', [
     'cron', 'add',
     '--name', name,
     '--at',   at,
-    '--message-file', tmpFile,
+    '--message', msg,
     '--announce',
     '--delete-after-run',
     '--tz', 'America/Los_Angeles'
-  ], { encoding: 'utf8' });
-
-  try { fs.unlinkSync(tmpFile); } catch (_) {}
+  ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
 
   if (result.status === 0) {
     console.log(`✓ Cron: ${name} at ${s.time} → r/${s.sub}`);

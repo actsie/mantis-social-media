@@ -87,6 +87,8 @@ function generateTimes(count) {
     const times = Array.from({ length: count }, () => rand(lo, hi)).sort((a, b) => a - b);
     const gaps  = times.slice(1).map((t, i) => t - times[i]);
     if (gaps.some(g => g < MIN_GAP))        continue; // too close
+    // For 2 sessions: just need valid gap (>= MIN_GAP), skip cluster/long requirements
+    if (count === 2) return times;
     if (!gaps.some(g => g <= CLUSTER_MAX))  continue; // needs a cluster pair
     if (!gaps.some(g => g >= LONG_GAP_MIN)) continue; // needs a long break
     return times;
@@ -128,7 +130,8 @@ const recentAccounts = new Set(
 );
 
 // ── Generate schedule ─────────────────────────────────────────────────────────
-const SESSION_COUNT = rand(4, 5); // random 4 or 5 per day
+// Reduced to 2 sessions/day for account warmth/activity only
+const SESSION_COUNT = 2;
 const today   = targetDate();
 const times   = generateTimes(SESSION_COUNT);
 const gaps    = times.slice(1).map((t, i) => t - times[i]);
@@ -262,6 +265,18 @@ sessions.forEach(s => {
     `      fs.writeFileSync(ftPath, JSON.stringify(ft, null, 2));`,
     `   f. If no qualifying candidates found after scanning 5+ replies, note why and move on. Zero is acceptable — but you must have looked.`,
     ``,
+    `8.5 ⚡ LEAD LOGGING — If you discover a beauty business owner with a broken/weak online presence during this session, log it to KameleonDB:`,
+    `   Examples of lead-worthy finds:`,
+    `   - Salon owner posting great work but website link is broken/404`,
+    `   - Bio says "book now" but link goes to generic Linktree with no booking`,
+    `   - Creator with strong engagement but no website/booking system at all`,
+    `   `,
+    `   If found, log it:`,
+    `   const { execSync } = require('child_process');`,
+    `   execSync('cd /Users/mantisclaw/.openclaw/workspace && node outreach/scripts/log-lead.js --platform X --account ACCOUNT_NAME --link PROFILE_URL --segment "beauty business" --fit FIT_SCORE --reason "BRIEF_REASON" --notes "Found during @TARGET engagement session"');`,
+    `   `,
+    `   If no lead found (just normal engagement), skip this step.`,
+    ``,
     `9. Log the session using this EXACT method — run as a single exec block:`,
     `   const fs = require('fs');`,
     `   const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/engagement-log.json';`,
@@ -299,11 +314,11 @@ sessions.forEach(s => {
     'cron', 'add',
     '--name', name,
     '--at',   at,
-    '--message-file', tmpFile,
+    '--message', msg,
     '--announce',
     '--delete-after-run',
     '--tz', 'America/Los_Angeles'
-  ], { encoding: 'utf8' });
+  ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
 
   try { fs.unlinkSync(tmpFile); } catch (_) {}
 

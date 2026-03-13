@@ -1,0 +1,90 @@
+[
+  {
+    "timestamp": "2026-03-11T08:00:00Z",
+    "type": "indie-hacker",
+    "targetHandle": "@slaybuilder",
+    "actions": {
+      "replied": true,
+      "replyUrl": "https://x.com/slaybuilder/status/2030539014374064222",
+      "replyText": "launching is the only checkbox that matters. the rest is just feeling productive while avoiding it. shipping forces a real conversation with the market. everything else is just noise you control.",
+      "likedPosts": [
+        {
+          "url": "https://x.com/slaybuilder/status/2031580878501970169",
+          "topic": "startup struggles - speed > polish, launch this week"
+        },
+        {
+          "url": "https://x.com/slaybuilder/status/2031520478930620528",
+          "topic": "building in public / startup struggles - acquired startups, simple tech stack"
+        },
+        {
+          "url": "https://x.com/slaybuilder/status/2031455144236200136",
+          "topic": "building in public - Day 43 journey, $10K MRR goal, launch in 7 days"
+        }
+      ]
+    },
+    "notes": "Replied to post about launching vs staying stuck at $0. Liked 3 posts about building in public, startup struggles, and launch progress. Skipped pinned promo post about ReddWise waitlist."
+  },
+  {
+    "timestamp": "2026-03-10T07:21:00Z",
+    "type": "indie-hacker",
+    "targetHandle": "@slaybuilder",
+    "actions": {
+      "replied": true,
+      "replyUrl": "https://x.com/slaybuilder/status/2030539014374064222",
+      "replyText": "launching is the only checkbox that matters. the rest is just feeling productive while avoiding it. shipping forces a real conversation with the market. everything else is just noise you control.",
+      "likedPosts": [
+        {
+          "url": "https://x.com/slaybuilder/status/2031127892864766233",
+          "topic": "building in public - headline testing/conversion"
+        },
+        {
+          "url": "https://x.com/slaybuilder/status/2030755660284281030",
+          "topic": "building in public - Day 42 journey/work-life balance"
+        }
+      ]
+    },
+    "notes": "Replied to post about launching vs staying stuck at $0. Liked 2 posts about building in public and startup journey. Skipped promo posts."
+  },
+  {
+    "timestamp": "2026-03-10T07:38:00Z",
+    "type": "indie-hacker",
+    "targetHandle": "@ShiftToWealth",
+    "actions": {
+      "replied": true,
+      "replyUrl": "https://x.com/ShiftToWealth/status/2030625411269591464",
+      "replyText": "golden handcuffs are just handcuffs with better marketing. the cage part is real though. salary buys comfort, costs you the version of you that took risks.",
+      "likedPosts": [
+        {
+          "url": "https://x.com/ShiftToWealth/status/2030625411269591464",
+          "topic": "career transition - golden handcuffs, escaping oil & gas for independence"
+        }
+      ]
+    },
+    "notes": "Replied to pinned post about golden handcuffs and career trap. Liked 1 post (only post available) about career transition and financial independence. Account is new (joined March 2026), building escape plan in public."
+  },
+  {
+    "timestamp": "2026-03-10T07:53:00Z",
+    "type": "indie-hacker",
+    "targetHandle": "@danbuildss",
+    "actions": {
+      "replied": true,
+      "replyUrl": "https://x.com/danbuildss/status/2031019742119493942",
+      "replyText": "posting daily is easy. saying something worth repeating is hard. most people confuse the two because motion feels like progress. algorithms don't reward consistency. they reward resonance.",
+      "likedPosts": [
+        {
+          "url": "https://x.com/danbuildss/status/2029577214023352437",
+          "topic": "Web3/startup growth - EthosIQ credibility score on Base"
+        },
+        {
+          "url": "https://x.com/danbuildss/status/2031098632703729914",
+          "topic": "Web3/startup growth - ERC-8183, AI agents on Base, reputation layer"
+        },
+        {
+          "url": "https://x.com/danbuildss/status/2031019742119493942",
+          "topic": "building in public / content strategy - posting frequency vs resonance"
+        }
+      ]
+    },
+    "notes": "Replied to post about building in public and audience growth. Liked 3 posts about Web3/startup growth (EthosIQ, ERC-8183/AI agents) and content strategy. Target is founding creator of @whybasetv, contributor to @base and Web3 projects."
+  }
+]

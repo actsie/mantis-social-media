@@ -1,50 +1,23 @@
 {
-  "date": "2026-03-05",
-  "sessionCount": 5,
+  "date": "2026-03-13",
+  "sessionCount": 2,
   "sessions": [
     {
       "n": 1,
-      "time": "06:32",
-      "account": "OliveAndJune",
+      "time": "09:08",
+      "account": "essie",
       "type": "nail-brand",
       "engagement": "full",
-      "status": "verify",
+      "status": "confirmed",
       "done": false
     },
     {
       "n": 2,
-      "time": "13:02",
-      "account": "redken",
-      "type": "hair-brand",
-      "engagement": "like-only",
-      "status": "verify",
-      "done": false
-    },
-    {
-      "n": 3,
-      "time": "17:36",
-      "account": "GelishNails",
-      "type": "nail-brand",
+      "time": "15:38",
+      "account": "holotaco",
+      "type": "creator",
       "engagement": "full",
-      "status": "verify",
-      "done": false
-    },
-    {
-      "n": 4,
-      "time": "18:35",
-      "account": "aesttics",
-      "type": "beauty-creator",
-      "engagement": "like-only",
-      "status": "verify",
-      "done": false
-    },
-    {
-      "n": 5,
-      "time": "21:58",
-      "account": "ColourPopCo",
-      "type": "beauty-brand",
-      "engagement": "like-only",
-      "status": "verify",
+      "status": "confirmed",
       "done": false
     }
   ]

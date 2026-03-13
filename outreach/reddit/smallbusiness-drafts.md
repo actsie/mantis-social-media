@@ -194,3 +194,25 @@ This structure sounds templated. Just say the thing.
 | Date | Post | Comment | Result |
 |------|------|---------|--------|
 | 2026-03-06 | What AI tool for creating business websites? | Wix is fine, content matters more | Posted, monitoring |
+
+---
+
+## Saved Drafts — Ready to Post
+
+### Draft: Evening reminders timing
+**Post:** "Our dental clinic cut no-shows by like half after we stopped relying on phone calls"
+**URL:** https://old.reddit.com/r/smallbusiness/comments/1rm6jq3/our_dental_clinic_cut_noshows_by_like_half_after/
+**Comment:**
+> evening reminders around 6-7pm get way better response rates than morning-of. people are on their phones in the evening and actually have time to think about tomorrow. morning texts get lost in the rush.
+
+**Notes:** Based on u/N0omi's comment (1 upvote). Adds timing insight without restating the post.
+
+---
+
+### Draft: Automatic reminders + timing
+**Post:** "How are you managing customer appointments and walk-ins in busy hours?"
+**URL:** https://old.reddit.com/r/smallbusiness/comments/1rm6vkw/how_are_you_managing_customer_appointments_and/
+**Comment:**
+> automatic reminders cut no-shows significantly once they're in place. the timing piece matters too. evening sends outperform morning imo.
+
+**Notes:** Ties back to no-show thread. "imo" signals it's observation not universal claim.

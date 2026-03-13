@@ -1,0 +1,43 @@
+{
+  "date": "2026-03-11",
+  "sessionCount": 3,
+  "sessions": [
+    {
+      "n": 1,
+      "time": "14:50",
+      "query": "nobody is using",
+      "type": "indie-hacker",
+      "label": "nobody using",
+      "backup": [
+        "crickets after launch",
+        "launched to nothing"
+      ],
+      "done": false
+    },
+    {
+      "n": 2,
+      "time": "18:29",
+      "query": "runway running out",
+      "type": "indie-hacker",
+      "label": "runout runway",
+      "backup": [
+        "months left",
+        "need revenue"
+      ],
+      "done": false
+    },
+    {
+      "n": 3,
+      "time": "19:14",
+      "query": "golden handcuffs",
+      "type": "indie-hacker",
+      "label": "golden handcuffs",
+      "backup": [
+        "overwhelmed founder",
+        "quit my job"
+      ],
+      "done": false
+    }
+  ],
+  "track": "indie-hacker-afternoon"
+}

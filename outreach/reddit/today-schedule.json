@@ -1,26 +1,33 @@
 {
-  "date": "2026-03-05",
-  "sessionCount": 3,
+  "date": "2026-03-13",
+  "sessionCount": 4,
   "sessions": [
     {
       "n": 1,
-      "time": "13:04",
+      "time": "07:00",
+      "sub": "curlyhair",
+      "type": "hair",
+      "done": false
+    },
+    {
+      "n": 2,
+      "time": "08:13",
+      "sub": "hairstylist",
+      "type": "pro-hair",
+      "done": false
+    },
+    {
+      "n": 3,
+      "time": "20:04",
       "sub": "Nails",
       "type": "nail",
       "done": false
     },
     {
-      "n": 2,
-      "time": "18:38",
-      "sub": "femalehairadvice",
-      "type": "hair",
-      "done": false
-    },
-    {
-      "n": 3,
-      "time": "19:55",
-      "sub": "beauty",
-      "type": "beauty",
+      "n": 4,
+      "time": "21:26",
+      "sub": "SkincareAddicts",
+      "type": "skincare",
       "done": false
     }
   ]

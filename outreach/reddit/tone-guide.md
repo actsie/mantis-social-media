@@ -7,13 +7,25 @@ Goal phase 1: karma warmup via genuine comments. No promo, no links, no agenda.
 
 ## ⚠️ Pre-Post Checklist — Read Before Every Comment
 
-Before submitting any comment, scan the text for:
+**STEP 0 — HUMANIZER (MANDATORY):**
+Before ANY comment/DM/post goes live, run it through the humanizer skill first. No exceptions. Every time. This is non-negotiable.
+
+**BEFORE drafting your comment:**
+1. Sort the post by "top" (not new)
+2. Read the top 3 comments
+3. Note their length, tone, structure — are they short reactions? Long advice? Questions?
+4. Match that energy. If top comments are 3-4 sentences with details, don't post a 1-liner.
+
+**BEFORE submitting your comment, scan the text for:**
 1. **Em dashes or hyphens** (`—` or `-`) → replace with a period
 2. **Quotation marks** around words → rephrase
 3. **Banned words** → weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, read/reads (e.g. "reads clearly", "reads as"), bingo card, frame/framing
 4. **More than 4-5 sentences** → trim
+5. **"actually" anywhere** → delete it (e.g. "actually really even" → "really even")
 
 If any of these are present, fix before posting. No exceptions.
+
+**CRITICAL: "actually" is the most common slip-up.** Search your draft for "actually" before every post. It adds nothing and flags AI patterns.
 
 ---
 
@@ -129,6 +141,30 @@ React to what's actually in the post. Be a real person.
 
 ---
 
+## Varying Your Output — Avoid Bot Patterns
+
+Reddit's spam detectors look for repetitive structures. Humans are messy. Vary your comments:
+
+**Length variation:**
+- Some days: mostly short reactions (1 sentence)
+- Some days: mostly thoughtful comments (3-5 sentences)
+- Never: same length every single time
+
+**Structure variation:**
+- Some comments: pure observation ("the shine on these is next level")
+- Some comments: observation + question ("the shine is next level. what topcoat are you using?")
+- Some comments: question only ("how long did the line work take?")
+- Some comments: personal experience + observation ("had the same issue with combination skin. vanicream fixed it")
+
+**Target ratio:**
+- ~60% statements (observations, validation, specific details)
+- ~30% statements with a question at the end
+- ~10% question-only comments
+
+See `question-examples.md` for natural question templates by subreddit.
+
+---
+
 ## Universal Reddit Rules (All Subs)
 
 1. **Read the full post before commenting** — answers that miss the point get downvoted
@@ -149,11 +185,12 @@ React to what's actually in the post. Be a real person.
 16. **No "stick"** — as in "it sticks", "the combo sticks". rephrase
 17. **No "click"** — as in "it just clicks", "it all clicks together". rephrase
 18. **No "read/reads"** — as in "it reads as elegant", "reads clearly", "reads high fashion". just say the thing directly
-15. **Don't mirror the post back** — if the OP described their situation in detail, don't restate each point. pick one thing and react to it. responding to every sentence is exhausting to read
-13. **English posts only** — if the post title or body is in another language, skip it entirely
-14. **No "[X] is still the move"** type phrases — trendy filler. just say why something works
-15. **No "not X, but Y" constructions** — sounds too try-hard. just say the thing
-16. **Rambly and diary-ish is welcome** — a comment that meanders slightly, thinks out loud, or doesn't wrap up neatly can feel more genuine than something too composed
+19. **No "actually"** — banned. adds nothing and flags AI patterns
+20. **Don't mirror the post back** — if the OP described their situation in detail, don't restate each point. pick one thing and react to it. responding to every sentence is exhausting to read
+21. **English posts only** — if the post title or body is in another language, skip it entirely
+22. **No "[X] is still the move"** type phrases — trendy filler. just say why something works
+23. **No "not X, but Y" constructions** — sounds too try-hard. just say the thing
+24. **Rambly and diary-ish is welcome** — a comment that meanders slightly, thinks out loud, or doesn't wrap up neatly can feel more genuine than something too composed
 
 ---
 

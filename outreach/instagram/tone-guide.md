@@ -1,5 +1,9 @@
 # Tone Guide — Comment & Outreach Style
 
+## ⚠️ HUMANIZER RULE (MANDATORY)
+
+**Before ANY comment/DM/post goes live, run it through the humanizer skill first. No exceptions. Every time. This is non-negotiable.**
+
 ## Reference Comment (approved + sent 2026-02-24)
 
 > "okay the flames plus the smiley face on a coffin set is genuinely so good this is 100% a save for later set. do people book from your grid a lot?"

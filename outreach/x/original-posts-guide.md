@@ -7,6 +7,9 @@ Account: @stacydonna0x
 📎 **Source bank for data-backed posts:** `outreach/x/sources.md`
 For Mode 1 + Mode 2 posts — check sources.md for a relevant link to pair with the draft. Not every post needs one. Authority comes from the take, not the citation.
 
+📝 **Reddit lead insights:** `outreach/x/reddit-lead-insights.md`
+Real pain points from r/smallbusiness leads. Use for Mode 2 (Authority) and Mode 3 (Build in Public). These are validated problems from actual business owners — highest resonance.
+
 ---
 
 ## The 4 Pillars (run every post through this filter)
@@ -84,6 +87,10 @@ DRAFTS:
 8. most beauty businesses don't have a visibility problem. they have a conversion problem. traffic is fine. the page loses them
 9. an outdated yelp listing with the wrong address is not a minor issue. it is actively sending people to the wrong place
 10. "we'll be in touch" as a booking confirmation is not a booking confirmation. clients will assume nothing is scheduled
+11. a lot of businesses are still doing lead follow-up from memory. too much ends up riding on whether the reply happens at all.
+12. field service owners are juggling 30+ messages a day across apps while running crews. the ones who get it under control pull everything into one place.
+13. if it takes 4 to 5 hours to get 8 posts out, the workflow is carrying too much friction.
+14. a lot of the stress around clients leaving gets worse when new leads are inconsistent.
 
 ---
 
@@ -102,6 +109,10 @@ DRAFTS:
 8. the gap between how good a service is in person and how it shows up online is the most consistent thing i've found doing this research. it's the thing worth fixing
 9. spent time today on a salon's google listing where the phone number was disconnected. reviews still coming in. people still trying to reach them. no one picking up
 10. something i keep noticing: the beauty businesses that care the most about their craft are often the last to care about how they show up to someone who hasn't been in yet
+11. looked at 20 small business owners this month. the ones growing usually had fewer things living in their head.
+12. a lot of missed jobs start with a message that got buried.
+13. posting whenever i remember, which means twice a month, is the most relatable small business marketing system i have seen.
+14. service business owners sleep better when next month is not starting from zero.
 
 ---
 

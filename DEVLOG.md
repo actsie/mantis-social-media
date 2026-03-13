@@ -5,6 +5,14 @@ Newest entries at the top.
 
 ---
 
+**Date:** 2026-03-07
+**Problem:** Instagram + Reddit daily planners failed to create session crons this morning (~5:55-6:01 AM). Error: `unknown option '--message-file'`. ~15 outreach actions missed (10 IG + 5 Reddit). X planner worked fine.
+**Root cause:** `daily-planner-oc.js` (IG) and `reddit-daily-planner-oc.js` used `--message-file` flag when spawning crons via `openclaw cron add`, but the CLI only supports `--message` with inline content. X planner already used the correct syntax.
+**Solution:** Edited both scripts to remove temp file write logic and use `--message` with inline msg content + `maxBuffer: 10 * 1024 * 1024` option (matching X planner). Ran both planners manually at 11:57 AM — 7/10 IG sessions + 4/5 Reddit sessions created for remainder of today.
+**Status:** ✅ Fixed — full automation restored for tomorrow's 5:55-6:01 AM run
+
+---
+
 **Date:** 2026-03-01
 **Problem:** IG engagement-log.json had a stray key `sessions_2026-02-28` containing 13 sessions (Feb 28 + Mar 1). Planner reads only `log.sessions`, so "skip recent accounts" list was missing all sessions since Feb 27.
 **Root cause:** Vague "Append to log" instruction — sub-agent on Feb 28 created a new key instead of pushing to `sessions`. Subsequent sessions kept appending to the same wrong key.

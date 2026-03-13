@@ -1,0 +1,43 @@
+{
+  "date": "2026-03-12",
+  "sessionCount": 3,
+  "sessions": [
+    {
+      "n": 1,
+      "time": "20:28",
+      "query": "no traction",
+      "type": "indie-hacker",
+      "label": "no traction",
+      "backup": [
+        "zero revenue",
+        "stuck at $0"
+      ],
+      "done": false
+    },
+    {
+      "n": 2,
+      "time": "21:45",
+      "query": "quit my job to build",
+      "type": "indie-hacker",
+      "label": "quit job",
+      "backup": [
+        "first time founder",
+        "solo founder"
+      ],
+      "done": false
+    },
+    {
+      "n": 3,
+      "time": "22:33",
+      "query": "starting to not care",
+      "type": "indie-hacker",
+      "label": "losing interest",
+      "backup": [
+        "should I keep going",
+        "doubt"
+      ],
+      "done": false
+    }
+  ],
+  "track": "indie-hacker-evening"
+}

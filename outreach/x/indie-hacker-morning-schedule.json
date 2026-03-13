@@ -1,0 +1,43 @@
+{
+  "date": "2026-03-11",
+  "sessionCount": 3,
+  "sessions": [
+    {
+      "n": 1,
+      "time": "10:24",
+      "query": "can't ship",
+      "type": "indie-hacker",
+      "label": "can't ship",
+      "backup": [
+        "unfinished SaaS",
+        "stuck building"
+      ],
+      "done": false
+    },
+    {
+      "n": 2,
+      "time": "11:22",
+      "query": "no traction",
+      "type": "indie-hacker",
+      "label": "no traction",
+      "backup": [
+        "zero revenue",
+        "stuck at $0"
+      ],
+      "done": false
+    },
+    {
+      "n": 3,
+      "time": "20:10",
+      "query": "stuck building in public",
+      "type": "indie-hacker",
+      "label": "stuck building",
+      "backup": [
+        "no traction",
+        "can't get users"
+      ],
+      "done": false
+    }
+  ],
+  "track": "indie-hacker"
+}

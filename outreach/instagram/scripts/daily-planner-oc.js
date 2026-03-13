@@ -183,14 +183,26 @@ sessions.forEach(s => {
     `      fs.writeFileSync(ftPath, JSON.stringify(ft, null, 2));`,
     `   f. If no qualifying candidates found after scanning 5+ comments, note why and move on. Zero is acceptable — but you must have looked.`,
     ``,
-    `8. Append to the engagement log using this EXACT method (no other way):`,
+    `8. ⚡ LEAD LOGGING — If you discover a salon with a broken/weak website during this session, log it to KameleonDB:`,
+    `   Examples of lead-worthy finds:`,
+    `   - Bio says "visit website" but site is 404/blank`,
+    `   - Bio says "call/DM to book" but site has a booking button (disconnect)`,
+    `   - Site exists but booking CTA is buried or broken`,
+    `   `,
+    `   If found, log it:`,
+    `   const { execSync } = require('child_process');`,
+    `   execSync('cd /Users/mantisclaw/.openclaw/workspace && node outreach/scripts/log-lead.js --platform IG --account ACCOUNT_NAME --link PROFILE_URL --segment "nail salon" --fit FIT_SCORE --reason "BRIEF_REASON" --notes "Found during #TAG engagement session"');`,
+    `   `,
+    `   If no lead found (just normal engagement), skip this step.`,
+    ``,
+    `9. Append to the engagement log using this EXACT method (no other way):`,
     `   const fs = require('fs');`,
     `   const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/instagram/engagement-log.json';`,
     `   const log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
     `   log.sessions.push({ timestamp, account, postUrl, commentUrl, comment, likes, type, hashtag, note });`,
     `   fs.writeFileSync(logPath, JSON.stringify(log, null, 2));`,
     `   Run this as a single exec block. Do NOT write to any other key — only log.sessions.push().`,
-    `9. Mark this session done in today-schedule.json using this EXACT method:`,
+    `10. Mark this session done in today-schedule.json using this EXACT method:`,
     `   const schedPath = '/Users/mantisclaw/.openclaw/workspace/outreach/instagram/today-schedule.json';`,
     `   const sched = JSON.parse(fs.readFileSync(schedPath, 'utf8'));`,
     `   sched.sessions[${s.n - 1}].done = true;`,
@@ -202,21 +214,15 @@ sessions.forEach(s => {
   const name = `ig-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
   const at   = `${today}T${s.time}:00${getLAOffset()}`;
 
-  // Write message to temp file to avoid OS arg length limits (was causing silent failures)
-  const tmpFile = `/tmp/ig-session-msg-${s.n}-${Date.now()}.txt`;
-  fs.writeFileSync(tmpFile, msg);
-
   const result = spawnSync('openclaw', [
     'cron', 'add',
     '--name', name,
     '--at',   at,
-    '--message-file', tmpFile,
+    '--message', msg,
     '--announce',
     '--delete-after-run',
     '--tz', 'America/Los_Angeles'
-  ], { encoding: 'utf8' });
-
-  try { fs.unlinkSync(tmpFile); } catch (_) {}
+  ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
 
   if (result.status === 0) {
     console.log(`✓ Cron: ${name} at ${s.time}`);

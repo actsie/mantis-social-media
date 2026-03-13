@@ -1,7 +1,78 @@
 # X Target Accounts — @stacydonna0x Outreach
 
-Accounts worth engaging: nail brands, creators, hair/skincare brands, beauty businesses.
-Engage = reply to recent posts (same-day preferred) + like.
+Two tracks running in parallel:
+
+**Track 1: Beauty/Nail Brands** (existing) — see sections below
+**Track 2: Indie Hackers / Contractors / Real Estate** (new) — search-based discovery
+
+---
+
+# Track 2: Indie Hackers / Contractors / Real Estate
+
+Search-based outreach. No fixed account list — we find people expressing real struggle.
+
+## What we're looking for
+
+**Indie hackers / SaaS founders:**
+- "no traction", "no users", "can't get users"
+- "stuck between", "can't decide", "should I keep going"
+- "spent X months", "nobody cares", "building in public but..."
+- "starting to not care", "losing motivation"
+- "unfinished SaaS", "incomplete project"
+
+**Contractors (HVAC, landscaping, plumbing, etc.):**
+- "can't keep up with calls"
+- "missing jobs", "too busy to respond"
+- "phone won't stop", "overwhelmed with messages"
+- "clients expect instant replies"
+- "staff quit again", "doing everything myself"
+
+**Real estate agents:**
+- "clients not responding"
+- "hard to reach people"
+- "follow up is exhausting"
+- "too many leads, not enough time"
+- "losing deals to slow response"
+
+## Where to search
+
+**X search queries:**
+- `"no traction" filter:latest`
+- `"can't get users" filter:latest`
+- `"stuck on my" filter:latest`
+- `"should I keep going" filter:latest`
+- `"spent months building" filter:latest`
+- `"can't keep up" contractor filter:latest`
+- `"too busy to respond" filter:latest`
+
+**Communities:**
+- https://x.com/i/communities/1725580569633829064 (Bootstrapped Startup Founders)
+- https://x.com/i/communities/1493446837214187523 (Build in Public)
+- https://x.com/i/communities/1521855238277414913 (build in community)
+- https://x.com/i/communities/1892177256048447870 (Fail in Public)
+
+## Reply formula
+
+1. Pull their line that contains the truth
+2. What that probably means
+3. One cost or consequence
+4. Stop early
+
+Example:
+> starting to not care about it. that usually answers the question. an unfinished SaaS can sit in your head for months just because you want closure. that gets expensive too.
+
+## What to skip
+
+- Design feedback requests ("rate my landing page")
+- Success flexes ("just hit $10k MRR!")
+- Generic engagement bait ("what are you building?")
+- Crypto/web3/NFT projects
+- Posts with no real substance
+
+---
+
+# Track 1: Beauty/Nail Brands (Existing)
+
 Full rules: `posting-rules.md` and `tone-guide.md`
 
 ## Global Engagement Rule (updated Mar 3)
@@ -124,7 +195,11 @@ Full engagement per global rule. Ulta posts a lot about beauty industry, brand c
 
 ## To Find More
 
-Search `x.com/search` for:
-- `#nailpolish` `#gelnails` `#nailtech` → find active creators
-- `#haircare` `#haircolor` `#salonlife` → find hair accounts
-- Communities: `/i/communities/1716940963887632733` (Nails ideas, 562 members)
+**Beauty track:**
+- Search `x.com/search` for:
+  - `#nailpolish` `#gelnails` `#nailtech` → find active creators
+  - `#haircare` `#haircolor` `#salonlife` → find hair accounts
+  - Communities: `/i/communities/1716940963887632733` (Nails ideas, 562 members)
+
+**Indie hacker track:**
+- See search queries and communities in Track 2 section above

@@ -1,0 +1,151 @@
+{
+  "querySuccess": {
+    "overwhelmed founder": {
+      "successCount": 3,
+      "lastSuccess": "2026-03-13T05:45:00.000Z",
+      "validated": true,
+      "validatedAt": "2026-03-11T07:40:00.000Z",
+      "recentPostCount": 3
+    },
+    "losing deals": {
+      "successCount": 1,
+      "lastSuccess": "2026-03-11T06:24:26.963Z"
+    },
+    "stuck building in public": {
+      "successCount": 1,
+      "lastSuccess": "2026-03-11T06:25:00.000Z",
+      "validated": true,
+      "validatedAt": "2026-03-11T06:49:00.000Z",
+      "recentPostCount": 7
+    },
+    "should I keep going": {
+      "successCount": 1,
+      "lastSuccess": "2026-03-11T06:33:00.000Z"
+    },
+    "no traction": {
+      "successCount": 2,
+      "lastSuccess": "2026-03-11T08:11:21.489Z",
+      "validated": true,
+      "validatedAt": "2026-03-11T06:50:00.000Z",
+      "recentPostCount": 9
+    },
+    "can't get users": {
+      "successCount": 1,
+      "lastSuccess": "2026-03-11T06:50:00.000Z",
+      "validated": true,
+      "validatedAt": "2026-03-11T06:50:00.000Z",
+      "recentPostCount": 9
+    },
+    "spent months building": {
+      "successCount": 0,
+      "lastSuccess": null,
+      "validated": true,
+      "validatedAt": "2026-03-11T06:53:00.000Z",
+      "recentPostCount": 5
+    },
+    "starting to not care": {
+      "successCount": 1,
+      "lastSuccess": "2026-03-11T06:55:00.000Z",
+      "validated": true,
+      "validatedAt": "2026-03-11T06:55:00.000Z",
+      "recentPostCount": 9
+    },
+    "stuck at $0": {
+      "successCount": 2,
+      "lastSuccess": "2026-03-13T03:28:00.000Z",
+      "validated": true,
+      "validatedAt": "2026-03-11T07:47:24.068Z",
+      "hasRecentPosts": false
+    },
+    "quit my job to build": {
+      "successCount": 1,
+      "lastSuccess": "2026-03-11T07:13:00.000Z",
+      "validated": true,
+      "validatedAt": "2026-03-11T07:49:00.000Z",
+      "recentPostCount": 9
+    },
+    "solo founder": {
+      "successCount": 1,
+      "lastSuccess": "2026-03-11T07:20:00.000Z",
+      "validated": true,
+      "validatedAt": "2026-03-11T07:50:00.000Z",
+      "recentPostCount": 3
+    },
+    "unfinished SaaS": {
+      "successCount": 0,
+      "lastSuccess": null,
+      "validated": true,
+      "validatedAt": "2026-03-11T07:35:00.000Z",
+      "hasRecentPosts": false
+    },
+    "can't ship": {
+      "successCount": 0,
+      "lastSuccess": null,
+      "validated": true,
+      "validatedAt": "2026-03-11T07:36:00.000Z",
+      "hasRecentPosts": false
+    },
+    "zero revenue": {
+      "successCount": 2,
+      "lastSuccess": "2026-03-12T01:35:00.000Z",
+      "validated": true,
+      "validatedAt": "2026-03-11T07:42:00.000Z",
+      "recentPostCount": 10
+    },
+    "golden handcuffs": {
+      "successCount": 1,
+      "lastSuccess": "2026-03-12T02:14:00.000Z",
+      "validated": true,
+      "validatedAt": "2026-03-11T07:43:00.000Z",
+      "recentPostCount": 12
+    },
+    "first time founder": {
+      "successCount": 0,
+      "lastSuccess": null,
+      "validated": true,
+      "validatedAt": "2026-03-11T07:49:00.000Z",
+      "recentPostCount": 7
+    },
+    "launching soon": {
+      "successCount": 0,
+      "lastSuccess": null,
+      "validated": true,
+      "validatedAt": "2026-03-11T07:53:00.000Z",
+      "recentPostCount": 5
+    },
+    "just launched": {
+      "successCount": 0,
+      "lastSuccess": null,
+      "validated": true,
+      "validatedAt": "2026-03-11T07:54:43.241Z",
+      "recentPostCount": 2
+    },
+    "nobody is using": {
+      "successCount": 0,
+      "lastSuccess": null,
+      "validated": true,
+      "validatedAt": "2026-03-11T07:55:00.000Z",
+      "recentPostCount": 4
+    },
+    "churn is killing": {
+      "successCount": 0,
+      "lastSuccess": null,
+      "validated": true,
+      "validatedAt": "2026-03-11T07:56:00.000Z",
+      "recentPostCount": 5
+    },
+    "can't find PMF": {
+      "successCount": 0,
+      "lastSuccess": null,
+      "validated": true,
+      "validatedAt": "2026-03-11T07:59:55.746Z",
+      "recentPostCount": 2
+    },
+    "crickets after launch": {
+      "successCount": 1,
+      "lastSuccess": "2026-03-11T21:50:00.000Z"
+    }
+  },
+  "lastUpdated": "2026-03-13T05:45:00.000Z",
+  "notes": "Track which queries successfully find engaging posts. Queries with successCount > 0 are candidates for backup #3."
+}

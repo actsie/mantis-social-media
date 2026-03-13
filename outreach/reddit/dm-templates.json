@@ -1,0 +1,19 @@
+{
+  "templates": {
+    "chaos/no-systems": "hey, saw your post about doing everything manually and trying to build more of a system. that stage gets messy fast. we've been helping service businesses set up simpler booking and follow-up flows so leads don't get lost and everything isn't living in someone's head. just thought I'd reach out. no pressure either way. happy to share more if useful.",
+    "communication-overload": "hey, saw your post about handling client requests across DMs and texts while running crews. that kind of communication sprawl gets ugly fast. we've been helping field service owners pull everything into one place and make sure date-based follow-ups don't get missed. just thought I'd reach out. no pressure either way. happy to share more if useful.",
+    "burnout/overwhelm": "hey, saw your post about spending 4 to 5 hours getting a handful of posts out. that is such an easy time sink. we've been helping solo owners set up a simpler content flow so they can batch once, schedule it out, and stop rebuilding every post from scratch. just thought I'd reach out. no pressure either way. happy to share more if useful.",
+    "instability/growth-frustration": "hey, saw your post about the stress of clients leaving and never fully knowing what next month looks like. that kind of instability is brutal. we've been helping service businesses tighten up the inbound side so there's a steadier flow of new leads coming in, not just pressure to hold onto every current client. just thought I'd reach out. no pressure either way. happy to share more if useful."
+  },
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-03-10",
+    "rules": [
+      "Never DM before commenting on the post first",
+      "Wait 2-24 hours after comment before sending DM",
+      "One DM per lead max - no follow-ups unless they reply",
+      "Skip if post is less than 2 hours old - let comment breathe",
+      "Track all sends to avoid duplicates if script re-runs"
+    ]
+  }
+}

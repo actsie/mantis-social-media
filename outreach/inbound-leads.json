@@ -1,0 +1,116 @@
+{
+  "leads": [
+    {
+      "id": "lead-001",
+      "source": "reddit",
+      "subreddit": "r/smallbusiness",
+      "postTitle": "At what point did you stop doing everything manually and actually build a system?",
+      "postUrl": "https://old.reddit.com/r/smallbusiness/comments/1roq3je/at_what_point_did_you_stop_doing_everything/",
+      "author": "absa-research-bot",
+      "foundAt": "2026-03-09T01:30:00-08:00",
+      "postAge": "4 hours",
+      "tier": "warm",
+      "painType": "chaos/no-systems",
+      "painSignals": [
+        "Leads not followed up on",
+        "Clients not onboarded properly",
+        "No real idea which marketing is working",
+        "busy enough to feel like it's working, but chaotic enough that stuff keeps slipping through"
+      ],
+      "actionTaken": "logged",
+      "responseDraft": null,
+      "notes": "Perfect ICP - service business owner feeling the chaos. Could comment with booking/communication system angle."
+    },
+    {
+      "id": "lead-002",
+      "source": "reddit",
+      "subreddit": "r/smallbusiness",
+      "postTitle": "How do you handle client requests that come through DMs and texts?",
+      "postUrl": "https://old.reddit.com/r/smallbusiness/comments/1roh46a/how_do_you_handle_client_requests_that_come/",
+      "author": "Specific_Teacher9383",
+      "foundAt": "2026-03-09T01:30:00-08:00",
+      "postAge": "10 hours",
+      "tier": "warm",
+      "painType": "communication-overload",
+      "painSignals": [
+        "30+ messages a day across different apps",
+        "client messages just fall through the cracks",
+        "driving or in the middle of something, and then it's just... gone",
+        "constant stream of requests through messaging apps"
+      ],
+      "actionTaken": "commented",
+      "commentUrl": "https://old.reddit.com/r/smallbusiness/comments/1roh46a/how_do_you_handle_client_requests_that_come/o9gfhdf/",
+      "commentText": "30+ messages a day across apps is a lot. salons deal with this too. clients DM while techs are working. messages get missed.\n\nhaving one place that auto-creates reminders for anything with a date or time helps. way less to keep track of.",
+      "responseDraft": null,
+      "notes": "LANDSCAPING BUSINESS - 3 crews. This is EXACTLY our ICP. Owner drowning in DMs/texts. Comment posted 2026-03-09 01:45 PST."
+    },
+    {
+      "id": "lead-003",
+      "source": "reddit",
+      "subreddit": "r/smallbusiness",
+      "postTitle": "how do you guys actually handle posting content across multiple platforms without losing your mind?",
+      "postUrl": "https://old.reddit.com/r/smallbusiness/comments/1ro9mww/how_do_you_guys_actually_handle_posting_content/",
+      "author": "Main_Payment_6430",
+      "foundAt": "2026-03-09T01:30:00-08:00",
+      "postAge": "15 hours",
+      "tier": "warm",
+      "painType": "burnout/overwhelm",
+      "painSignals": [
+        "process is eating me alive",
+        "lost an hour and all motivation",
+        "spending 4-5 hours and still only get like 8 posts",
+        "posting whenever i remember which means like twice a month"
+      ],
+      "actionTaken": "logged",
+      "responseDraft": null,
+      "notes": "One-person business, content overwhelm. Less direct fit but still pain point around time/automation."
+    },
+    {
+      "id": "lead-004",
+      "source": "reddit",
+      "subreddit": "r/smallbusiness",
+      "postTitle": "Almost 30, left my job to start an online service business, surviving but constantly anxious about clients leaving",
+      "postUrl": "https://old.reddit.com/r/smallbusiness/comments/1rocdal/almost_30_left_my_job_to_start_an_online_service/",
+      "author": "National-Royal1300",
+      "foundAt": "2026-03-09T01:30:00-08:00",
+      "postAge": "13 hours",
+      "tier": "warm",
+      "painType": "instability/growth-frustration",
+      "painSignals": [
+        "constant anxiety",
+        "clients might leave at any time",
+        "revenue basically goes to zero",
+        "Getting new clients is also really difficult"
+      ],
+      "actionTaken": "logged",
+      "responseDraft": null,
+      "notes": "Service business owner, stability anxiety. Could relate to how consistent booking/communication reduces churn."
+    }
+  ],
+  "searchQueries": {
+    "reddit": [
+      "exhausted OR burned out OR \"can't keep up\" OR \"working 80 hours\"",
+      "\"phone won't stop\" OR \"inbox is\" OR \"DMs are\" OR \"too busy to respond\"",
+      "\"no show\" OR cancellation OR \"didn't show up\"",
+      "\"how do you handle\" OR \"recommend software\" OR \"recommend tool\"",
+      "\"overwhelmed with\" OR \"can't eat\" OR \"no work-life balance\"",
+      "\"staff quit\" OR \"hiring is\" OR \"doing everything myself\"",
+      "\"customers expect\" OR \"people are so demanding\" OR \"reviews are killing\""
+    ],
+    "x": [
+      "exhausted salon owner",
+      "burned out restaurant owner",
+      "can't keep up with DMs",
+      "phone won't stop ringing",
+      "no show client",
+      "overwhelmed with messages",
+      "hiring is impossible salon",
+      "work-life balance business owner"
+    ]
+  },
+  "tierDefinitions": {
+    "hot": "Specific complaint + owner posting + recent (<2hrs) — reply same day",
+    "warm": "General vent + owner + <24hrs — engage genuinely, save for follow-up",
+    "cold": "Old post or vague — log only, no outreach"
+  }
+}

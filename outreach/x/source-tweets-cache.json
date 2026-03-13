@@ -1,0 +1,39 @@
+{
+  "lastUpdated": "2026-03-06",
+  "tweets": [],
+  "directLinks": [
+    {
+      "id": "brightlocal-2026-survey",
+      "source": "BrightLocal",
+      "url": "https://www.brightlocal.com/research/local-consumer-review-survey/",
+      "stats": ["97% read reviews", "41% always read (up from 29%)", "4.5+ star threshold rising"],
+      "pairedDrafts": ["Mode 1 #1", "Mode 1 #6", "Mode 2 #10", "Mode 2 #9"],
+      "note": "Fresh 2026 survey — best source for authority posts. No recent tweet found — link directly."
+    },
+    {
+      "id": "thinkwithgoogle-mobile",
+      "source": "Think with Google",
+      "url": "https://business.google.com/us/think/",
+      "stats": ["76% of local mobile searches → store visit within 24hrs", "28% result in purchase"],
+      "pairedDrafts": ["Mode 1 #1", "Mode 1 #7", "Mode 2 #3"],
+      "note": "No active X account — link to research hub directly"
+    },
+    {
+      "id": "baymard-70pct-abandonment",
+      "source": "Baymard Institute",
+      "url": "https://baymard.com/lists/cart-abandonment-rate",
+      "stats": ["70%+ average checkout/booking abandonment"],
+      "pairedDrafts": ["Mode 1 #7", "Mode 1 #5"],
+      "note": "No official X account — link to research directly"
+    },
+    {
+      "id": "google-search-pdf",
+      "source": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/essentials",
+      "stats": ["PDFs not reliably indexed", "JS-rendered content may not be indexed"],
+      "pairedDrafts": ["Mode 2 #1"],
+      "note": "Official docs — use for PDF menu argument"
+    }
+  ],
+  "usage": {}
+}

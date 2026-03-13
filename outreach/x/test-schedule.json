@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-11",
+  "sessionCount": 7,
+  "track": "indie-hacker-test",
+  "sessions": [
+    {
+      "n": 1,
+      "time": "21:28",
+      "query": "stuck building in public",
+      "type": "indie-hacker",
+      "label": "stuck building",
+      "done": true
+    },
+    {
+      "n": 2,
+      "time": "21:53",
+      "query": "no traction",
+      "type": "indie-hacker",
+      "label": "no traction",
+      "done": true
+    },
+    {
+      "n": 3,
+      "time": "22:18",
+      "query": "can't get users",
+      "type": "indie-hacker",
+      "label": "no users",
+      "done": false
+    },
+    {
+      "n": 4,
+      "time": "22:43",
+      "query": "too busy to respond",
+      "type": "contractor",
+      "label": "too busy",
+      "done": true
+    },
+    {
+      "n": 5,
+      "time": "23:08",
+      "query": "losing deals",
+      "type": "realtor",
+      "label": "losing deals",
+      "done": false
+    },
+    {
+      "n": 6,
+      "time": "23:33",
+      "query": "overwhelmed founder",
+      "type": "indie-hacker",
+      "label": "overwhelmed",
+      "done": false
+    },
+    {
+      "n": 7,
+      "time": "23:58",
+      "query": "zero revenue",
+      "type": "indie-hacker",
+      "label": "zero revenue",
+      "done": false
+    }
+  ]
+}
