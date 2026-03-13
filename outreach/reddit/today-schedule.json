@@ -4,30 +4,30 @@
   "sessions": [
     {
       "n": 1,
-      "time": "07:00",
-      "sub": "curlyhair",
-      "type": "hair",
+      "time": "13:38",
+      "sub": "Nails",
+      "type": "nail",
       "done": false
     },
     {
       "n": 2,
-      "time": "08:13",
+      "time": "15:02",
       "sub": "hairstylist",
       "type": "pro-hair",
       "done": false
     },
     {
       "n": 3,
-      "time": "20:04",
-      "sub": "Nails",
-      "type": "nail",
+      "time": "18:30",
+      "sub": "beauty",
+      "type": "beauty",
       "done": false
     },
     {
       "n": 4,
-      "time": "21:26",
-      "sub": "SkincareAddicts",
-      "type": "skincare",
+      "time": "22:11",
+      "sub": "Nails",
+      "type": "nail",
       "done": false
     }
   ]
