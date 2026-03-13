@@ -4,18 +4,18 @@
   "sessions": [
     {
       "n": 1,
-      "time": "19:59",
-      "account": "holotaco",
-      "type": "creator",
+      "time": "17:54",
+      "account": "essie",
+      "type": "nail-brand",
       "engagement": "full",
       "status": "confirmed",
       "done": false
     },
     {
       "n": 2,
-      "time": "21:29",
-      "account": "essie",
-      "type": "nail-brand",
+      "time": "22:22",
+      "account": "holotaco",
+      "type": "creator",
       "engagement": "full",
       "status": "confirmed",
       "done": false
