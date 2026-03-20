@@ -36,15 +36,17 @@ Or via cron in OpenClaw for scheduled runs.
 
 ## Message format expected
 
-Skill requests should follow this format in Discord:
+**Pawgrammer form submissions** (from Pawgrammer-Skills-Reporter bot):
 
 ```
-Skill: [skill name]
+🎯 New Skill Request
+Skill Name: [skill name]
 Description: [what it does]
-Use case: [who needs it and why]
+Use Case: [who needs it and why]
 Email: [requester email for followup]
 ```
 
+The bot filters for `🎯 New Skill Request` marker to identify real form submissions.
 Flexible parsing — extracts what it can even if format varies.
 
 ## Security

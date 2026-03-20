@@ -60,28 +60,35 @@ function parseRequest(content) {
     rawContent: content
   };
 
-  // Try structured format first
-  const skillMatch = content.match(/Skill:\s*(.+)/i);
+  // Pawgrammer form submission format (from Pawgrammer-Skills-Reporter bot)
+  // Format: 🎯 New Skill Request + Skill Name, Description, Email fields
+  const skillMatch = content.match(/(?:🎯 New Skill Request|Skill Name|Skill):\s*([^\n]+)/i);
   if (skillMatch) result.skillName = skillMatch[1].trim();
 
-  const descMatch = content.match(/Description:\s*(.+)/i);
+  const descMatch = content.match(/Description:\s*([^\n]+)/i);
   if (descMatch) result.description = descMatch[1].trim();
 
-  const useCaseMatch = content.match(/Use case:\s*(.+)/i);
+  const useCaseMatch = content.match(/Use Case:\s*([^\n]+)/i);
   if (useCaseMatch) result.useCase = useCaseMatch[1].trim();
 
   const emailMatch = content.match(/Email:\s*([^\s\n]+)/i);
   if (emailMatch) result.email = emailMatch[1].trim();
 
-  // Fallback: if no structured format, use first line as skill name
+  // Fallback: if no structured format, use first line after the emoji header as skill name
   if (!result.skillName) {
-    const firstLine = content.split('\n')[0].trim();
-    if (firstLine) result.skillName = firstLine;
+    const lines = content.split('\n');
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (trimmed && !trimmed.includes('🎯') && !trimmed.includes('Email:')) {
+        result.skillName = trimmed;
+        break;
+      }
+    }
   }
 
-  // If still no description, use entire content
+  // If still no description, use content after skill name
   if (!result.description) {
-    result.description = content;
+    result.description = content.replace(/🎯 New Skill Request/gi, '').trim();
   }
 
   return result;
@@ -215,13 +222,15 @@ async function main() {
           continue;
         }
 
-        // Skip bot messages
-        if (msg.author.bot) {
-          continue;
-        }
-
         const content = msg.content.trim();
         if (!content) continue;
+
+        // Only process messages with the skill request format marker
+        // Pawgrammer-Skills-Reporter bot forwards form submissions with this format
+        if (!content.includes('🎯 New Skill Request')) {
+          skipped++;
+          continue;
+        }
 
         console.log(`\nProcessing request from ${msg.author.tag}:`);
         console.log(`  Content: ${content.slice(0, 80)}...`);
