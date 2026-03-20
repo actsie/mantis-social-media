@@ -28,14 +28,13 @@ const GITHUB_AUTH_HEADERS = GITHUB_TOKEN
 // GitHub search queries for finding Claude skills
 const SEARCH_QUERIES = [
   'filename:SKILL.md',
-  'path:.claude/skills',
   'topic:claude-skill',
   'topic:claude-code',
-  'claude skills in:name',
+  'path:.claude/skills',
 ];
 
 // Trusted orgs to prioritize
-const TRUSTED_ORGS = ['anthropics', 'vercel', 'composiohq', 'oven-sh', 'pytorch', 'n8n-io'];
+
 
 console.log('\n🔍 Pawgrammer Skill Finder — Daily Pipeline\n');
 console.log(`Max skills to process: ${MAX_SKILLS_PER_RUN}\n`);
@@ -79,14 +78,7 @@ async function searchGitHubForSkills(installed) {
         if (seen.has(slug) || candidates.some(c => c.name === slug)) continue;
         
         // Determine trust level
-        let trust = 'Medium';
-        if (TRUSTED_ORGS.includes(org.toLowerCase())) {
-          trust = 'High';
-        } else if (repo.stargazers_count > 1000) {
-          trust = 'High';
-        } else if (repo.stargazers_count > 100) {
-          trust = 'Medium';
-        }
+        const trust = repo.stargazers_count > 1000 ? 'High' : 'Medium';
         
         // Determine category based on repo description/name
         let category = 'development';
@@ -128,44 +120,6 @@ async function searchGitHubForSkills(installed) {
     
     // Rate limiting - wait between searches
     await new Promise(r => setTimeout(r, 2000));
-  }
-  
-  // Also search specific trusted orgs
-  console.log('  Checking trusted orgs for new skills...\n');
-  
-  for (const org of TRUSTED_ORGS) {
-    const searchUrl = `https://api.github.com/orgs/${org}/repos?per_page=50&type=all`;
-    const result = spawnSync('curl', ['-s', '-L', ...GITHUB_AUTH_HEADERS, searchUrl], { encoding: 'utf8', timeout: 15000 });
-    
-    if (result.status !== 0) continue;
-    
-    try {
-      const repos = JSON.parse(result.stdout);
-      for (const repo of repos) {
-        const slug = repo.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        
-        // Skip if already seen or doesn't look like a skill
-        if (seen.has(slug)) continue;
-        if (!repo.name.toLowerCase().includes('skill') && !repo.description?.toLowerCase().includes('claude')) continue;
-        
-        candidates.push({
-          name: slug,
-          repo: `${org}/${repo.name}`,
-          repoUrl: repo.html_url,
-          org: org,
-          trust: 'High',
-          category: 'development',
-          stars: repo.stargazers_count || 0,
-          reason: `Trusted org: ${org}`
-        });
-        
-        seen.add(slug);
-      }
-    } catch (e) {
-      // Continue to next org
-    }
-    
-    await new Promise(r => setTimeout(r, 1000));
   }
   
   console.log(`  Total candidates found: ${candidates.length}\n`);
