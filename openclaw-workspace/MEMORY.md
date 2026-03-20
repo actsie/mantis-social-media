@@ -153,6 +153,23 @@ More general. Payment friction comes up but not specifically agentic. Engagement
 
 ---
 
+## True Link Financial — Critical incumbent (elder/disability care space)
+
+Discovered 2026-03-20. Already validated, already scaled.
+
+- **Product:** Prepaid Visa card with configurable spending rules for cognitively impaired people
+- **Scale:** 250K families, $175M/year in fraud prevented
+- **Coverage:** Forbes, mainstream press
+- **Target:** Families managing spending for elderly/cognitively declining relatives
+
+**The gap Agent Card fills vs True Link:**
+True Link = prepaid card for humans who make bad decisions. Still requires a human to initiate every purchase.
+Agent Card = autonomous agent completes purchases within policy. The human never has to touch the transaction.
+
+True Link validates the market entirely. The differentiation is autonomy. Watch for them expanding into agentic purchasing — they have the customer base and trust infrastructure to become a direct competitor fast.
+
+---
+
 ## Competitors and adjacent products spotted
 
 **Stripe Tempo / Machine Payments Protocol (MPP)**
