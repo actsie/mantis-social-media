@@ -362,8 +362,22 @@ async function main() {
 
         // 3. Send AgentMail confirmation email
         if (request.email) {
-          const subject = 'Your skill request is live on Pawgrammer';
-          const body = `Hey!\n\nYour ${request.skillName} skill is live at ${skillUrl}.\n\nThanks for contributing to Pawgrammer!\n\n— Pawgrammer Team\n`;
+          const subject = 'Your skill request is live on Pawgrammer 🎉';
+          const body = `Hey!
+
+Great news — your skill request has been approved and is now live on Pawgrammer.
+
+🔗 View your skill: ${skillUrl}
+
+Here's what was built:
+• Skill: ${request.skillName}
+• Description: ${request.description || 'N/A'}
+
+Thanks for contributing to the Pawgrammer skills directory. Your skill is now available for everyone to use!
+
+— Pawgrammer Team
+skills.pawgrammer.com
+`;
 
           try {
             await sendEmail(request.email, subject, body);
