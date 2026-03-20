@@ -25,6 +25,25 @@ Think: someone who works deeply in the agentic payments space, isn't trying to s
 
 ---
 
+## Content Modes
+
+### Mode 1: Breaking news (PolyMarket style)
+
+Two separate posts, never combined:
+- **Post 1:** `BREAKING:` or `JUST IN:` + one sentence. 15-30 words. No context, no opinion, no link. The reader fills in the context — that's why it works.
+- **Post 2 (optional):** One sentence on what it means for agentic payments.
+
+Rules: no hashtags, no emojis, `reportedly` when sourcing is indirect, never combine the two posts.
+
+### Mode 2: Long-form single post (Ole Lehmann style)
+
+Not a numbered thread. One long post — hook, argument, ending. All lowercase. Line breaks after every 1-2 sentences. No connective tissue between paragraphs — each line implies the next.
+
+Hook patterns: `translation: [what this actually means]` or `hot take:` or `i can't believe nobody caught this.`
+Close: verdict or principle, never a CTA. Sign opinion with `IMO`.
+
+---
+
 ## Live examples
 
 *Pulled 2026-03-19. Use these as structural reference — not to copy, but to internalize the format.*
