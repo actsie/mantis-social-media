@@ -5,15 +5,15 @@ Discord bot that monitors the skill requests channel, parses incoming requests, 
 ## What it does
 
 1. Connects to Discord using `DISCORD_BOT_TOKEN` env var
-2. Polls channel `1429050423976919082` for new skill request messages
-3. For each new request:
-   - Parses message to extract: skill name, description, use case, email
+2. Polls channel `1429050423976919082` for new skill request messages (embeds from Pawgrammer-Skills-Reporter bot)
+3. For each new request with `🎯 New Skill Request` marker:
+   - Parses embed fields: skill name, description, use case, email
    - Checks if skill already exists in `~/claude-skills/content/skills/`
    - Spawns Claude Code to research and generate the skill .md file
    - Runs security check on generated file
-   - Logs requester email for future AgentMail followup (MAK-111)
+   - **Immediately commits and pushes to claude-skills repo** (origin/main)
+   - **Immediately sends confirmation email via AgentMail** to requester
    - Marks message as processed in tracker
-4. Passes completed skills to `mantisclaw-pawgrammer-skill-publisher` for commit/push
 
 ## Files
 

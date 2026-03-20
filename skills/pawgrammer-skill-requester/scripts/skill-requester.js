@@ -8,13 +8,17 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const http = require('http');
 
 // ─── Config ────────────────────────────────────────────────────────────────
 
 const CHANNEL_ID = '1429050423976919082';
 const SKILLS_DIR = path.join(process.env.HOME, 'claude-skills', 'content', 'skills');
+const SKILLS_REPO = path.join(process.env.HOME, 'claude-skills');
 const TRACKER_FILE = path.join(process.env.HOME, '.openclaw', 'workspace', 'skill-requests-processed.json');
 const REQUESTER_LOG = path.join(process.env.HOME, '.openclaw', 'workspace', 'skill-requester-emails.json');
+const AGENTMAIL_API_KEY = process.env.AGENTMAIL_API_KEY;
+const FROM_EMAIL = 'skills-pawgrammer-request@agentmail.to';
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -51,44 +55,52 @@ function slugify(name) {
     .slice(0, 50);
 }
 
-function parseRequest(content) {
+function parseRequest(content, embed) {
   const result = {
     skillName: null,
     description: null,
     useCase: null,
     email: null,
-    rawContent: content
+    rawContent: content || ''
   };
 
-  // Pawgrammer form submission format (from Pawgrammer-Skills-Reporter bot)
-  // Format: 🎯 New Skill Request + Skill Name, Description, Email fields
-  const skillMatch = content.match(/(?:🎯 New Skill Request|Skill Name|Skill):\s*([^\n]+)/i);
-  if (skillMatch) result.skillName = skillMatch[1].trim();
+  // If embed is provided, parse fields from it (Pawgrammer-Skills-Reporter format)
+  if (embed && embed.fields && embed.fields.length > 0) {
+    for (const field of embed.fields) {
+      const name = field.name || '';
+      const value = field.value || '';
 
-  const descMatch = content.match(/Description:\s*([^\n]+)/i);
-  if (descMatch) result.description = descMatch[1].trim();
-
-  const useCaseMatch = content.match(/Use Case:\s*([^\n]+)/i);
-  if (useCaseMatch) result.useCase = useCaseMatch[1].trim();
-
-  const emailMatch = content.match(/Email:\s*([^\s\n]+)/i);
-  if (emailMatch) result.email = emailMatch[1].trim();
-
-  // Fallback: if no structured format, use first line after the emoji header as skill name
-  if (!result.skillName) {
-    const lines = content.split('\n');
-    for (const line of lines) {
-      const trimmed = line.trim();
-      if (trimmed && !trimmed.includes('🎯') && !trimmed.includes('Email:')) {
-        result.skillName = trimmed;
-        break;
+      if (name.includes('Email') || name.includes('📧')) {
+        result.email = value.trim();
+      } else if (name.includes('Skill Name') || name.includes('🔧')) {
+        result.skillName = value.trim();
+      } else if (name.includes('What should') || name.includes('📋') || name.includes('Description')) {
+        result.description = value.trim();
+      } else if (name.includes('Use Case') || name.includes('💡') || name.includes('Example')) {
+        result.useCase = value.trim();
       }
     }
   }
 
-  // If still no description, use content after skill name
-  if (!result.description) {
-    result.description = content.replace(/🎯 New Skill Request/gi, '').trim();
+  // Fallback to content parsing if embed didn't provide enough data
+  if (!result.skillName && content) {
+    const skillMatch = content.match(/(?:🎯 New Skill Request|Skill Name|Skill):\s*([^\n]+)/i);
+    if (skillMatch) result.skillName = skillMatch[1].trim();
+  }
+
+  if (!result.description && content) {
+    const descMatch = content.match(/Description:\s*([^\n]+)/i);
+    if (descMatch) result.description = descMatch[1].trim();
+  }
+
+  if (!result.useCase && content) {
+    const useCaseMatch = content.match(/Use Case:\s*([^\n]+)/i);
+    if (useCaseMatch) result.useCase = useCaseMatch[1].trim();
+  }
+
+  if (!result.email && content) {
+    const emailMatch = content.match(/Email:\s*([^\s\n]+)/i);
+    if (emailMatch) result.email = emailMatch[1].trim();
   }
 
   return result;
@@ -149,27 +161,93 @@ Make it production-ready.`;
 }
 
 function securityCheck(skillPath) {
-  // Basic security check - ensure no dangerous patterns
   const content = fs.readFileSync(skillPath, 'utf8');
-
-  const dangerousPatterns = [
-    /rm\s+-rf/i,
-    /sudo\s+rm/i,
-    /eval\s*\(/i,
-    /exec\s*\(/i,
-    /system\s*\(/i,
-    /DROP\s+TABLE/i,
-    /DELETE\s+FROM/i,
-  ];
-
+  const dangerousPatterns = [/rm\s+-rf/i, /sudo\s+rm/i, /eval\s*\(/i, /exec\s*\(/i, /system\s*\(/i, /DROP\s+TABLE/i, /DELETE\s+FROM/i];
   for (const pattern of dangerousPatterns) {
     if (pattern.test(content)) {
       console.error(`  Security check failed: dangerous pattern ${pattern}`);
       return false;
     }
   }
-
   console.log(`  Security check passed`);
+  return true;
+}
+
+function sendEmail(to, subject, body) {
+  return new Promise((resolve, reject) => {
+    if (!AGENTMAIL_API_KEY) {
+      console.error('  AGENTMAIL_API_KEY not set');
+      reject(new Error('API key missing'));
+      return;
+    }
+
+    const data = JSON.stringify({ from: FROM_EMAIL, to, subject, text: body });
+    const options = {
+      hostname: 'api.agentmail.to',
+      port: 80,
+      path: '/v1/send',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': data.length,
+        'Authorization': `Bearer ${AGENTMAIL_API_KEY}`
+      }
+    };
+
+    const req = http.request(options, (res) => {
+      let responseData = '';
+      res.on('data', (chunk) => responseData += chunk);
+      res.on('end', () => {
+        if (res.statusCode === 200) {
+          console.log(`  ✓ Email sent to ${to}`);
+          resolve({ success: true });
+        } else {
+          console.error(`  Email failed: ${res.statusCode} ${responseData}`);
+          reject(new Error(`HTTP ${res.statusCode}: ${responseData}`));
+        }
+      });
+    });
+
+    req.on('error', (e) => {
+      console.error(`  Email error: ${e.message}`);
+      reject(e);
+    });
+
+    req.write(data);
+    req.end();
+  });
+}
+
+function gitPush(skillName, slug) {
+  console.log(`  Committing ${skillName} to claude-skills repo...`);
+
+  const status = spawnSync('git', ['-C', SKILLS_REPO, 'status', '--porcelain'], { encoding: 'utf8' });
+  if (!status.stdout.includes(`${slug}.md`)) {
+    console.log(`  No changes for ${slug}.md`);
+    return false;
+  }
+
+  spawnSync('git', ['-C', SKILLS_REPO, 'add', `content/skills/${slug}.md`], { encoding: 'utf8' });
+
+  const commitResult = spawnSync('git', ['-C', SKILLS_REPO, 'commit', '-m', `Add ${skillName} skill from user request`], { encoding: 'utf8' });
+  if (commitResult.status !== 0) {
+    console.error(`  Commit failed: ${commitResult.stderr}`);
+    return false;
+  }
+
+  const pullResult = spawnSync('git', ['-C', SKILLS_REPO, 'pull', '--rebase', 'origin', 'main'], { encoding: 'utf8' });
+  if (pullResult.status !== 0) {
+    console.error(`  Pull failed: ${pullResult.stderr}`);
+    return false;
+  }
+
+  const pushResult = spawnSync('git', ['-C', SKILLS_REPO, 'push', 'origin', 'main'], { encoding: 'utf8' });
+  if (pushResult.status !== 0) {
+    console.error(`  Push failed: ${pushResult.stderr}`);
+    return false;
+  }
+
+  console.log(`  ✓ Pushed to origin/main`);
   return true;
 }
 
@@ -199,21 +277,12 @@ async function main() {
 
     try {
       const channel = await client.channels.fetch(CHANNEL_ID);
-
-      if (!channel) {
-        console.error(`Channel ${CHANNEL_ID} not found`);
-        client.destroy();
-        return;
-      }
+      if (!channel) { console.error(`Channel ${CHANNEL_ID} not found`); client.destroy(); return; }
 
       console.log(`Monitoring channel: ${CHANNEL_ID}`);
-
-      // Fetch last 100 messages
       const messages = await channel.messages.fetch({ limit: 100 });
 
-      let newRequests = 0;
-      let skipped = 0;
-      let alreadyExists = 0;
+      let newRequests = 0, skipped = 0, alreadyExists = 0;
 
       for (const [msgId, msg] of messages) {
         // Skip if already processed
@@ -223,19 +292,24 @@ async function main() {
         }
 
         const content = msg.content.trim();
-        if (!content) continue;
-
-        // Only process messages with the skill request format marker
-        // Pawgrammer-Skills-Reporter bot forwards form submissions with this format
-        if (!content.includes('🎯 New Skill Request')) {
+        
+        // Check for embed with skill request marker (Pawgrammer-Skills-Reporter format)
+        const embed = msg.embeds && msg.embeds.length > 0 ? msg.embeds[0] : null;
+        const hasMarker = embed && embed.title && embed.title.includes('🎯 New Skill Request');
+        
+        if (!hasMarker) {
           skipped++;
           continue;
         }
 
         console.log(`\nProcessing request from ${msg.author.tag}:`);
-        console.log(`  Content: ${content.slice(0, 80)}...`);
+        if (content) {
+          console.log(`  Content: ${content.slice(0, 80)}...`);
+        } else {
+          console.log(`  Embed title: ${embed.title}`);
+        }
 
-        const request = parseRequest(content);
+        const request = parseRequest(content, embed);
 
         if (!request.skillName) {
           console.log(`  Skipping: could not parse skill name`);
@@ -268,22 +342,44 @@ async function main() {
           continue;
         }
 
-        // Log requester email if provided
+        // Git commit and push immediately
+        const pushed = gitPush(request.skillName, slugify(request.skillName));
+        if (!pushed) {
+          console.log(`  ⚠ Git push failed - skill generated but not committed`);
+        }
+
+        // Send confirmation email immediately
         if (request.email) {
-          requesterLog.emails.push({
-            email: request.email,
-            skill: request.skillName,
-            messageId: msgId,
-            requestedAt: new Date().toISOString(),
-            status: 'generated'
-          });
+          const subject = 'Your skill request is live on Pawgrammer';
+          const body = `Hey!\n\nYour ${request.skillName} skill is live at skills.pawgrammer.com/skills/${slugify(request.skillName)}.\n\nThanks for contributing to Pawgrammer!\n\n— Pawgrammer Team\n`;
+
+          try {
+            await sendEmail(request.email, subject, body);
+            requesterLog.emails.push({
+              email: request.email,
+              skill: request.skillName,
+              messageId: msgId,
+              requestedAt: new Date().toISOString(),
+              status: 'published',
+              publishedAt: new Date().toISOString()
+            });
+          } catch (e) {
+            console.error(`  Email failed: ${e.message}`);
+            requesterLog.emails.push({
+              email: request.email,
+              skill: request.skillName,
+              messageId: msgId,
+              requestedAt: new Date().toISOString(),
+              status: 'error_email'
+            });
+          }
           saveRequesterLog(requesterLog);
-          console.log(`  Logged email: ${request.email} (for MAK-111)`);
         }
 
         // Mark as processed
         tracker.processedMessageIds.push(msgId);
         tracker.processedAt[msgId] = new Date().toISOString();
+        saveTracker(tracker);
 
         newRequests++;
         console.log(`  ✓ Processed: ${request.skillName}`);
