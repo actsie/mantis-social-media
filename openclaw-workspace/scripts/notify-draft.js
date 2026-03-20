@@ -82,20 +82,33 @@ async function main() {
     process.exit(1);
   }
 
-  const urgency  = draft.urgency || 'standard';
-  const label    = urgency === 'breaking' ? '[BREAKING]' : '[DRAFT]';
-  const type     = draft.type || 'original';
-  const context  = draft.context || '(no context)';
-  const platform = draft.platform || 'twitter';
+  const urgency    = draft.urgency || 'standard';
+  const label      = urgency === 'breaking' ? '[BREAKING]' : '[DRAFT]';
+  const type       = draft.type || 'original';
+  const context    = draft.context || '';
+  const platform   = draft.platform || 'twitter';
   const approvalUrl = 'http://localhost:8901/tweets';
+  const footer     = `Approve: ${approvalUrl}\nReply with: approve / edit: [new text] / reject: [reason]`;
+
+  // Build message body based on type
+  let msgBody;
+  if (type === 'reply') {
+    const sourceText = draft.source_post_text ? draft.source_post_text.substring(0, 100) + (draft.source_post_text.length > 100 ? '...' : '') : '';
+    const sourceUrl  = draft.source_post_url || '';
+    msgBody = `🔔 ${label} New reply ready for approval\n\nReplying to: ${sourceText}\n${sourceUrl}\n\nDraft:\n${draft.text || ''}\n\n${footer}`;
+  } else if (type === 'thread') {
+    const tweets = draft.thread || [draft.text || ''];
+    const threadText = tweets.map((t, i) => `${i + 1}/ ${t}`).join('\n\n');
+    msgBody = `🔔 ${label} New thread ready for approval\n\nDraft:\n${threadText}${context ? '\n\nContext: ' + context : ''}\n\n${footer}`;
+  } else {
+    // original
+    msgBody = `🔔 ${label} New post ready for approval\n\nDraft:\n${draft.text || ''}${context ? '\n\nContext: ' + context : ''}\n\n${footer}`;
+  }
 
   // ── Discord ──
   if (DISCORD_WEBHOOK) {
     try {
-      const discordBody = {
-        content: `${label} New draft ready for approval\n**Type:** ${type} (${platform})\n**Context:** ${context}\n**Approve:** ${approvalUrl}`,
-        username: 'MantisCAW',
-      };
+      const discordBody = { content: msgBody, username: 'MantisCAW' };
       const res = await post(DISCORD_WEBHOOK, discordBody);
       console.log(`Discord: ${res.status}`);
     } catch (e) {
@@ -106,8 +119,7 @@ async function main() {
   }
 
   // ── Telegram ──
-  const tgText = `${label} Agent Card draft ready\nType: ${type} | ${platform}\nContext: ${context}\nApprove: ${approvalUrl}`;
-  const tgOk = sendTelegram(tgText);
+  const tgOk = sendTelegram(msgBody);
   console.log(`Telegram: ${tgOk ? 'sent' : 'failed'}`);
 
   // ── Slack ──
