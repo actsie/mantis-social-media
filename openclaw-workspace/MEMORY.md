@@ -37,10 +37,24 @@ Currently sends inline during active sessions only. Does not fire from crons.
 ---
 
 ## About Agent Card
-- Agentic payment solution — enables AI agents to autonomously handle payments and credit.
-- Major traction signal: PolyMarket retweet → 400k views.
-- Target audience: builders and founders shipping agentic systems who hit payment/checkout friction.
-- Competitors in-market: Stripe/Tempo MPP, Coinbase x402, Visa agent CLI, Google AP2, OpenAI/Stripe ACP.
+
+A payment card for AI agents. Live today, open to all — not just businesses.
+
+**What agents can do with it:**
+- Pay for inference and APIs
+- Order from consumer platforms (DoorDash, Amazon, Uber)
+- Run marketing spend
+- Trade on Polymarket 24/7
+
+**Key words:** Instant. Private. Reusable.
+
+**Major traction signal:** PolyMarket retweet → 400k views.
+
+**Current audience bias:** Heavily crypto/Polymarket due to launch partners. Actively expanding to broader use cases — elder care, accessibility, bulk purchasing, price monitoring.
+
+**Target audience:** Builders and founders shipping agentic systems who hit payment/checkout friction. Also: anyone whose agent needs to buy things autonomously.
+
+**Competitors in-market:** Stripe/Tempo MPP, Coinbase x402, Visa agent CLI, Google AP2, OpenAI/Stripe ACP, True Link Financial (elder/disability incumbent).
 
 ---
 
