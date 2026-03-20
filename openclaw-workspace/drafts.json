@@ -37,17 +37,18 @@
     "id": "20260319-kirilltalai-reply",
     "platform": "twitter",
     "type": "reply",
-    "status": "approved",
+    "status": "posted",
     "source_post_url": "https://x.com/KirillTalai/status/2034756899153776758",
     "source_post_text": "The redundancy argument is underrated. Visa just launched AI agent payments on crypto rails. Once agents are transacting autonomously 15 hours straight, a single chain going down isn't an inconvenience. It's a systemic risk. Multiple networks isn't tribalism. It's basic...",
     "text": "the redundancy piece is right but there's a compounding failure mode worth naming: when the chain comes back, the agent doesn't know what it already spent.\n\nautonomous spend + network interruption + no state reconciliation = double-charging or missed settlements at scale.\n\nthe reliability problem and the spending controls problem are actually the same problem.",
     "context": "KirillTalai is making the systemic risk argument for multi-chain redundancy in agent payments (302 views, 4 likes, 6 replies — active thread). Reply extends the argument to the spending controls angle: network reliability and spending controls are the same underlying problem, which is Agent Card's core positioning.",
     "created_at": "2026-03-20T05:45:19.665Z",
     "reviewed_at": "2026-03-19T23:18:58.299638",
-    "posted_at": null,
-    "scheduled_for": null,
+    "posted_at": "2026-03-20T17:01:18.345Z",
+    "scheduled_for": "2026-03-20T17:00:00.000Z",
     "account": "brand",
-    "error": null
+    "error": null,
+    "cron_run_id": "agentcard-post-1774026073560"
   },
   {
     "id": "20260320-breaking-agentpay-wlfi-mmyoagj4",
