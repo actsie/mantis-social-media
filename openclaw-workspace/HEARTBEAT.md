@@ -8,6 +8,10 @@ Run this on each scheduled heartbeat. Keep it fast.
 2. Check Reddit: r/LLMDevs, r/singularity, r/OpenAI for payment/checkout pain point threads
 3. Check HN via Algolia API: `https://hn.algolia.com/api/v1/search?query=agentic+payments&tags=story,comment` — also run for "agent credit card", "agent wallet", "AI agent payments"
 4. Scan followed accounts for breaking news (see MEMORY.md for account list)
+5. Scan these news pages for anything new since yesterday:
+   - https://aibusiness.com/generative-ai/agentic-ai
+   - https://www.forbes.com/topics/agentic-ai/
+   - TechCrunch, The Verge, Bloomberg Tech, The Information — search: "agentic payments", "agent payment", "AI checkout"
 
 ## Part 2 — Non-obvious use case monitoring
 
