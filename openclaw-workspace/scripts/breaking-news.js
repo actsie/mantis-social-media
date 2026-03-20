@@ -78,10 +78,18 @@ STEP 1 — TWITTER SWEEP (fast)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Use browser (profile="openclaw") to search these on x.com/search?f=live:
+
+**Primary (Priority 1 — direct agentic payments news):**
 - "agentic payments"
 - "agent payment"  
 - "AI agent checkout"
 - "machine payments"
+
+**Secondary signals (draft only if genuine announcement/event, not commentary):**
+- "AI agent" wallet OR budget OR spending
+- "agent" "MCP" payment OR checkout OR purchase
+- autonomous spending OR procurement
+- KYC "AI agent"
 
 Filter: only posts from the last 30 minutes.
 Also check latest post from: @brian_armstrong, @stripe, @OpenAI, @Google, @Visa, @Mastercard, @coinbase, @arcanexis
@@ -91,7 +99,10 @@ STEP 2 — NEWS SCAN (fast)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Use web_fetch to check each of these for articles published in the last 30 minutes.
-Look for: agentic payments, agent payment, AI agent checkout, AI checkout, machine payments, agent credit card.
+
+**Primary:** agentic payments, agent payment, AI agent checkout, AI checkout, machine payments, agent credit card.
+
+**Secondary (draft only if genuine announcement/event):** AI agent wallet, AI agent budget, AI agent spending, MCP payment, MCP checkout, autonomous spending, autonomous procurement, KYC AI agent.
 
 Direct sources (fetch headlines only — don't read full articles):
 - https://aibusiness.com/generative-ai/agentic-ai
