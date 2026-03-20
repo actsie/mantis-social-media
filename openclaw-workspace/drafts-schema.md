@@ -16,6 +16,7 @@ MantisCAW writes all tweet/reply drafts here. The approval dashboard reads this 
     "source_post_url": "https://twitter.com/...",
     "source_post_text": "The post we are replying to (first 280 chars)",
     "context": "One sentence on why this is worth engaging with",
+    "account": "brand | personal",
     "created_at": "2026-03-20T10:00:00",
     "reviewed_at": null,
     "scheduled_for": null,
@@ -40,6 +41,11 @@ Weekdays only. Two windows per day (EST):
 - **1pm EST** — afternoon window
 
 Never post more than 2 items within a 2-hour window. If both windows are full, roll to next day.
+
+## Account field — required on every draft
+
+- `"brand"` — for @agentcardai. Only Mode 1, 3, 4 content. No Ole Lehmann takes, no competitor analysis.
+- `"personal"` — for Stacy or Ben's personal accounts. Mode 2 (Ole Lehmann), competitor takes, space opinions.
 
 ## Rules for MantisCAW
 

@@ -25,6 +25,19 @@ Think: someone who works deeply in the agentic payments space, isn't trying to s
 
 ---
 
+## Account types — read before drafting anything
+
+**@agentcardai (brand account)**
+Use: Mode 1 (breaking news), Mode 3 (brand replies), Mode 4 (product announcements)
+Never use: Mode 2 (Ole Lehmann). No opinion pieces, no competitor analysis, no thought leadership takes. The brand account drops news and engages with people who have real problems. That's it.
+
+**Personal accounts (Stacy, Ben, or other founders)**
+Use: Mode 2 (Ole Lehmann). Competitor analysis, space opinions, founder takes all work here because they read like a smart individual, not a company.
+
+When MantisCAW drafts content: tag every draft in drafts.json with `"account": "brand"` or `"account": "personal"` so it's clear which account it's for before it hits the approval queue.
+
+---
+
 ## Content Modes
 
 ### Mode 1: Breaking news (PolyMarket style)
@@ -53,6 +66,26 @@ Lead with a number or fact, never "we're excited to announce." Still no context 
 - Put a link in the news drop (link goes only in the stat post)
 - Combine the news drop and stat in one tweet
 - Thank followers, celebrate milestones, or ask engagement bait questions
+
+### Mode 3: Brand replies — @agentcardai only
+
+Conversational. Helpful. No brand feel. Sound like a knowledgeable person in the space, not a company account.
+
+- Respond to real pain points with genuine signal — add something the thread doesn't already have
+- Short. 1-3 sentences usually enough.
+- No "at Agent Card we..." — never reference the brand in the reply unless directly asked
+- No promotional language, no CTAs, no links to the product
+- Pass the context validation checklist in AGENTS.md before drafting
+
+### Mode 4: Product announcements — @agentcardai only
+
+Lead with a number or fact. Never "we're excited to announce."
+
+- Stat or fact first, then what it means
+- No hype words, no adjectives, no "groundbreaking"
+- Rare — maybe 1 in 10 posts. Don't overuse.
+
+---
 
 ### Mode 2: Long-form (Ole Lehmann style)
 
