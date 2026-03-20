@@ -90,9 +90,20 @@ Also check latest post from: @brian_armstrong, @stripe, @OpenAI, @Google, @Visa,
 STEP 2 — NEWS SCAN (fast)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Check these for new articles (last 30 min):
+Use web_fetch to check each of these for articles published in the last 30 minutes.
+Look for: agentic payments, agent payment, AI agent checkout, AI checkout, machine payments, agent credit card.
+
+Direct sources (fetch headlines only — don't read full articles):
+- https://aibusiness.com/generative-ai/agentic-ai
+- https://www.forbes.com/topics/agentic-ai/
 - https://techcrunch.com/search/agentic+payments
-- Scan Bloomberg Tech, The Verge, The Information headlines via web_fetch if accessible
+- https://techcrunch.com/search/agent+payment
+- https://www.theverge.com/search?q=agentic+payments
+- https://www.theverge.com/search?q=agent+payment
+- https://www.bloomberg.com/technology (scan headlines only)
+- https://www.theinformation.com (scan headlines only — may be paywalled, note title only)
+
+For each: note any article headline that matches the topic. Check the timestamp — only flag if published in the last 30 minutes.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STEP 3 — EVALUATE
