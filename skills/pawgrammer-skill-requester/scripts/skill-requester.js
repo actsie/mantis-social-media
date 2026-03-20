@@ -8,7 +8,6 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const http = require('http');
 
 // ─── Config ────────────────────────────────────────────────────────────────
 
@@ -17,8 +16,8 @@ const SKILLS_DIR = path.join(process.env.HOME, 'claude-skills', 'content', 'skil
 const SKILLS_REPO = path.join(process.env.HOME, 'claude-skills');
 const TRACKER_FILE = path.join(process.env.HOME, '.openclaw', 'workspace', 'skill-requests-processed.json');
 const REQUESTER_LOG = path.join(process.env.HOME, '.openclaw', 'workspace', 'skill-requester-emails.json');
-const AGENTMAIL_API_KEY = process.env.AGENTMAIL_API_KEY;
-const FROM_EMAIL = 'skills-pawgrammer-request@agentmail.to';
+const WORKSPACE_ROOT = path.join(process.env.HOME, '.openclaw', 'workspace');
+const SEND_EMAIL_SCRIPT = path.join(WORKSPACE_ROOT, 'outreach', 'skills', 'send-email.py');
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -173,49 +172,27 @@ function securityCheck(skillPath) {
   return true;
 }
 
-function sendEmail(to, subject, body) {
-  return new Promise((resolve, reject) => {
-    if (!AGENTMAIL_API_KEY) {
-      console.error('  AGENTMAIL_API_KEY not set');
-      reject(new Error('API key missing'));
-      return;
-    }
-
-    const data = JSON.stringify({ from: FROM_EMAIL, to, subject, text: body });
-    const options = {
-      hostname: 'api.agentmail.to',
-      port: 80,
-      path: '/v1/send',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Content-Length': data.length,
-        'Authorization': `Bearer ${AGENTMAIL_API_KEY}`
-      }
-    };
-
-    const req = http.request(options, (res) => {
-      let responseData = '';
-      res.on('data', (chunk) => responseData += chunk);
-      res.on('end', () => {
-        if (res.statusCode === 200) {
-          console.log(`  ✓ Email sent to ${to}`);
-          resolve({ success: true });
-        } else {
-          console.error(`  Email failed: ${res.statusCode} ${responseData}`);
-          reject(new Error(`HTTP ${res.statusCode}: ${responseData}`));
-        }
-      });
-    });
-
-    req.on('error', (e) => {
-      console.error(`  Email error: ${e.message}`);
-      reject(e);
-    });
-
-    req.write(data);
-    req.end();
+function sendEmailViaPython(toEmail, skillName, slug, description) {
+  console.log(`  Sending email via AgentMail Python SDK...`);
+  
+  const result = spawnSync('python3', [
+    SEND_EMAIL_SCRIPT,
+    toEmail,
+    skillName,
+    slug,
+    description || 'N/A'
+  ], {
+    encoding: 'utf8',
+    env: { ...process.env }
   });
+  
+  if (result.status === 0) {
+    console.log(`  ✓ Email sent: ${result.stdout.trim()}`);
+    return { success: true };
+  } else {
+    console.error(`  Email failed: ${result.stderr || result.stdout}`);
+    return { success: false, error: result.stderr || result.stdout };
+  }
 }
 
 function gitPush(skillName, slug) {
@@ -360,27 +337,11 @@ async function main() {
           console.error(`  Discord post failed: ${e.message}`);
         }
 
-        // 3. Send AgentMail confirmation email
+        // 3. Send AgentMail confirmation email via Python SDK
         if (request.email) {
-          const subject = 'Your skill request is live on Pawgrammer 🎉';
-          const body = `Hey!
-
-Great news — your skill request has been approved and is now live on Pawgrammer.
-
-🔗 View your skill: ${skillUrl}
-
-Here's what was built:
-• Skill: ${request.skillName}
-• Description: ${request.description || 'N/A'}
-
-Thanks for contributing to the Pawgrammer skills directory. Your skill is now available for everyone to use!
-
-— Pawgrammer Team
-skills.pawgrammer.com
-`;
-
-          try {
-            await sendEmail(request.email, subject, body);
+          const emailResult = sendEmailViaPython(request.email, request.skillName, slug, request.description);
+          
+          if (emailResult.success) {
             requesterLog.emails.push({
               email: request.email,
               skill: request.skillName,
@@ -389,9 +350,7 @@ skills.pawgrammer.com
               status: 'published',
               publishedAt: new Date().toISOString()
             });
-            console.log(`  ✓ Email sent to ${request.email}`);
-          } catch (e) {
-            console.error(`  Email failed: ${e.message}`);
+          } else {
             requesterLog.emails.push({
               email: request.email,
               skill: request.skillName,
