@@ -13,7 +13,7 @@
     "posted_at": null,
     "scheduled_for": "2026-03-20T13:00:00.000Z",
     "account": "brand",
-    "error": "error: unknown option '--run-now'\n"
+    "error": "Error: Choose exactly one schedule: --at, --every, or --cron\n"
   },
   {
     "id": "20260319-llmdevs-reddit-comment",
@@ -29,7 +29,7 @@
     "posted_at": null,
     "scheduled_for": "2026-03-20T13:00:00.000Z",
     "account": "brand",
-    "error": "error: unknown option '--run-now'\n"
+    "error": "Error: Choose exactly one schedule: --at, --every, or --cron\n"
   },
   {
     "id": "20260319-kirilltalai-reply",
@@ -45,7 +45,7 @@
     "posted_at": null,
     "scheduled_for": "2026-03-20T13:00:00.000Z",
     "account": "brand",
-    "error": "error: unknown option '--run-now'\n"
+    "error": "Error: Choose exactly one schedule: --at, --every, or --cron\n"
   },
   {
     "id": "20260320-breaking-agentpay-wlfi-mmyoagj4",
