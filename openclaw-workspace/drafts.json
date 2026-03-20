@@ -11,9 +11,9 @@
     "created_at": "2026-03-20T05:45:19.665Z",
     "reviewed_at": "2026-03-19T23:02:40.522973",
     "posted_at": null,
-    "scheduled_for": "2026-03-20T13:00:00.000Z",
+    "scheduled_for": null,
     "account": "brand",
-    "error": "Error: Choose exactly one schedule: --at, --every, or --cron\n"
+    "error": "Error: Invalid --at; use ISO time or duration like 20m\n"
   },
   {
     "id": "20260319-llmdevs-reddit-comment",
@@ -27,9 +27,9 @@
     "created_at": "2026-03-20T05:45:19.665Z",
     "reviewed_at": "2026-03-19T23:17:41.112160",
     "posted_at": null,
-    "scheduled_for": "2026-03-20T13:00:00.000Z",
+    "scheduled_for": null,
     "account": "brand",
-    "error": "Error: Choose exactly one schedule: --at, --every, or --cron\n"
+    "error": "Error: Invalid --at; use ISO time or duration like 20m\n"
   },
   {
     "id": "20260319-kirilltalai-reply",
@@ -43,9 +43,9 @@
     "created_at": "2026-03-20T05:45:19.665Z",
     "reviewed_at": "2026-03-19T23:18:58.299638",
     "posted_at": null,
-    "scheduled_for": "2026-03-20T13:00:00.000Z",
+    "scheduled_for": null,
     "account": "brand",
-    "error": "Error: Choose exactly one schedule: --at, --every, or --cron\n"
+    "error": "Error: Invalid --at; use ISO time or duration like 20m\n"
   },
   {
     "id": "20260320-breaking-agentpay-wlfi-mmyoagj4",

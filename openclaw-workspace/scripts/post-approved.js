@@ -178,13 +178,14 @@ function postToX(draft) {
 
   // Fire a cron that runs immediately in the main session
   const runId = `agentcard-post-${Date.now()}`;
+  const runAt = new Date(Date.now() + 60000).toISOString(); // 1 minute from now
   const result = spawnSync('openclaw', [
     'cron', 'add',
     '--name', runId,
     '--system-event', prompt,
     '--delete-after-run',
     '--session', 'main',
-    '--at', '+1m',
+    '--at', runAt,
   ], { encoding: 'utf8' });
 
   if (result.status !== 0) {
