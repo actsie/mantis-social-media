@@ -1,0 +1,12 @@
+{
+  "name": "pawgrammer-skill-requester",
+  "version": "1.0.0",
+  "description": "Discord bot for processing pawgrammer skill requests",
+  "main": "scripts/skill-requester.js",
+  "scripts": {
+    "start": "node scripts/skill-requester.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  }
+}

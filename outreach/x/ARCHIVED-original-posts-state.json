@@ -1,0 +1,5 @@
+{
+  "lastMode": 3,
+  "lastPostDate": "2026-03-12",
+  "note": "lastMode prevents repeating the same mode two days in a row. Weighted random: Mode 1=Leads(w2), Mode 2=Authority(w3), Mode 3=BuildInPublic(w3), Mode 4=ThinkOutLoud(w2)."
+}

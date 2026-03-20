@@ -1,143 +1,222 @@
-# X Original Posts — Draft Bank
-Account: @stacydonna0x
-1 original post per day. Mode picked via weighted random. Every post must serve at least one pillar.
+# X Original Posts Guide — Indie Hacker Focus
+
+**Account:** @stacydonna0x  
+**ICP:** SaaS founders, indie hackers, bootstrapped builders, solo founders  
+**Goal:** Build authority by sharing patterns noticed from real engagement
 
 ---
 
-📎 **Source bank for data-backed posts:** `outreach/x/sources.md`
-For Mode 1 + Mode 2 posts — check sources.md for a relevant link to pair with the draft. Not every post needs one. Authority comes from the take, not the citation.
+## 4-Pillar Framework
 
-📝 **Reddit lead insights:** `outreach/x/reddit-lead-insights.md`
-Real pain points from r/smallbusiness leads. Use for Mode 2 (Authority) and Mode 3 (Build in Public). These are validated problems from actual business owners — highest resonance.
+Every post must serve at least one pillar:
 
----
+| Mode | Name | Weight | Purpose |
+|------|------|--------|---------|
+| **Mode 1** | Leads (ICP-aware) | 2 | Patterns noticed from founder struggles |
+| **Mode 2** | Authority (Strong Takes) | 3 | Sharp POV about what's broken |
+| **Mode 3** | Build in Public (Messy Middle) | 3 | Real observations from research |
+| **Mode 4** | Think Out Loud (Personality) | 2 | Fan energy, personality, exploration |
 
-## The 4 Pillars (run every post through this filter)
-
-**Pillar 1 — Leads**
-Talking directly to your ICP (salon/spa/beauty business owners). Their problems. Your solution.
-What keeps them up: clients can't find them, website doesn't reflect the quality of their work, losing bookings they don't even know about, paying for good service and getting generic pages.
-
-**Pillar 2 — Authority**
-Strong stances. Sharp POV. Insights others don't share. You're vocal about what's broken.
-No vanilla takes. No hedging. This is how you get associated with a point of view.
-
-**Pillar 3 — Build in Public**
-The messy middle. Real observations from real research. What you're working on, what you found, what surprised you. Attracts builders, collaborators, potential clients who are paying attention.
-
-**Pillar 4 — Think Out Loud / Personality**
-Exploring ideas. Nail girl energy. The human layer. This is the glue. Doesn't need traction — it needs to be real.
+**Rule:** Never post same mode two days in a row.
 
 ---
 
-## Mode → Pillar Map
+## STEP 0 — ⚡ HUMANIZER SKILL (MANDATORY):
 
-| Mode | Pillar | Weight | Vibe |
-|------|--------|--------|------|
-| 1 | Pillar 1 — Leads | 2 | ICP-aware, problem/solution, direct |
-| 2 | Pillar 2 — Authority | 3 | Strong take, sharp POV, no hedging |
-| 3 | Pillar 3 — Build in Public | 3 | Real work, messy middle, observations |
-| 4 | Pillar 4 — Think Out Loud | 2 | Fan energy, personality, exploration |
-
-Mode 2 (authority) and Mode 3 (build in public) appear most. Mode 1 (leads) is direct ICP content — use it but don't overdo it. Mode 4 is the glue — keeps it human.
-
-**No same mode two days in a row.**
-
----
-
-## Tone Rules (all modes)
-- No hyphens `-` or em dashes `—` — use a period instead
-- No quotation marks around words — rephrase
-- No banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, read/reads (e.g. "reads clearly", "reads as")
-- Lowercase fine. Direct over polished.
-- 1-3 sentences max. No corporate voice. No hedging.
-- Rewrite if any rule is violated before posting.
+**Before writing ANY post:**
+1. Read: `/Users/mantisclaw/.openclaw/workspace/skills/humanizer/SKILL.md`
+2. Apply ALL rules WHILE writing (not after)
+3. Your draft MUST already follow these rules:
+   - No AI vocabulary: genuinely, actually, amazing, stunning, weird, resonate, vibe, plot twist, lands, stick, click, read/reads, clean, bingo card
+   - No em dashes (—) → use period
+   - No quotation marks → rephrase
+   - No parallelisms ("not X but Y")
+   - No promotional language
+   - 1-3 sentences max
+   - Casual, conversational tone
 
 ---
 
-## Mode 1: Leads — Talking to the ICP
-Salon owners, nail techs, beauty business owners. Their problem: the work is great, the page doesn't show it.
-Tone: warm, direct, like someone who gets their world and has a specific thing to say about it.
-NOT: salesy, pushy, promotional. Just clear.
+## Pre-Post Research (Required)
 
-DRAFTS:
-1. if your salon has 200 five star reviews and a booking page that doesn't load on mobile you are losing clients every single day and probably don't know it
-2. the most talented nail techs i follow on instagram have the weakest booking pages. the work deserves better than that
-3. there's a version of your business that shows up online exactly as good as the work you do in person. most aren't there yet. that gap is fixable
-4. a lot of beauty business owners are doing everything right inside the salon and nothing is working online. usually it's one or two specific things. not the whole page
-5. the clients who would pay your highest prices are also the ones most likely to leave your site if the booking flow is confusing. they have options
-6. you spent years learning your craft. your google listing took 10 minutes to set up and hasn't been touched since. that math doesn't work
-7. if someone finds your salon through a hashtag and can't figure out how to book in 30 seconds they are gone. not annoyed. just gone
-8. a lot of beauty businesses are one well-placed booking link away from a completely different month
+**Before drafting, read:**
+1. `outreach/x/engagement-log.json` — Last 7 days of replies + engagements
+2. `outreach/x/indie-hacker-tracker.json` — Follows + profile notes
+3. `outreach/x/indie-hacker-query-success.json` — What queries worked
 
----
+**Look for patterns like:**
+- Multiple founders stuck at same stage ($0, no users, burnout)
+- Repeated problems (distribution, positioning, landing page issues)
+- Common questions or doubts
+- Similar struggles across different accounts
 
-## Mode 2: Authority — Strong Takes, Sharp POV
-Vocal about what's broken. No softening. This is how you become associated with a specific point of view.
-Tone: confident, direct, not mean. You've seen the data. You have the take.
+**DO NOT:**
+- Name specific accounts in your post
+- Say "talked to" or "had a call with" (we're commenting, not calling)
+- Call anyone out or make them feel exposed
+- Share identifiable details
 
-DRAFTS:
-1. a pdf menu is not a service page. google can't read it. your phone clients can't open it. it helps no one. put the services on the actual website
-2. "call us to schedule" with no phone number linked is not a policy. it's a broken page
-3. a salon without prices listed is not creating mystery. it's creating friction. put the prices up
-4. booking software is not your problem. no one seeing your booking link is your problem
-5. having a website that just says "we offer hair color, cuts, and more" is the same as not having a website
-6. if a new client has to click 4 times to find your hours you will lose them before they get there
-7. the nail tech with 80k followers and a dead link in bio is doing unpaid marketing for everyone who comes up next in the search results
-8. most beauty businesses don't have a visibility problem. they have a conversion problem. traffic is fine. the page loses them
-9. an outdated yelp listing with the wrong address is not a minor issue. it is actively sending people to the wrong place
-10. "we'll be in touch" as a booking confirmation is not a booking confirmation. clients will assume nothing is scheduled
-11. a lot of businesses are still doing lead follow-up from memory. too much ends up riding on whether the reply happens at all.
-12. field service owners are juggling 30+ messages a day across apps while running crews. the ones who get it under control pull everything into one place.
-13. if it takes 4 to 5 hours to get 8 posts out, the workflow is carrying too much friction.
-14. a lot of the stress around clients leaving gets worse when new leads are inconsistent.
+**DO:**
+- Notice patterns across multiple engagements
+- Write about the pattern, not the people
+- Keep it relatable and observational
+- Sound like someone who's been there
 
 ---
 
-## Mode 3: Build in Public — Messy Middle, Real Work
-What you actually found. What surprised you. What you're working on. Real observations from research.
-Tone: candid, specific, not performative. Share the actual thing, not a polished version of it.
+## Mode 1: Leads (ICP-aware)
 
-DRAFTS:
-1. went down a rabbit hole looking at salon booking pages today and found the same 3 problems on almost every one. the fix is usually fast but nobody told them
-2. been tracking which beauty businesses actually respond to comments on instagram vs which ones don't. the ones who do are not the biggest accounts. interesting
-3. looked at 40 salon websites this week. about half had a booking button that went somewhere broken or outdated. half.
-4. starting to document what it actually looks like to fix a beauty business's online presence from the ground up. the before is always more interesting than the after
-5. found a nail salon today with 312 google reviews and a 4.9 star rating. their website loads blank on mobile. they have no idea how many people that loses them
-6. been researching beauty businesses in specific cities and the pattern is so consistent it's almost boring. incredible skill. page that doesn't reflect it. same story everywhere
-7. had a realization today: the salons doing the most creative work are often the ones with the least visible presence. i don't think that's a coincidence
-8. the gap between how good a service is in person and how it shows up online is the most consistent thing i've found doing this research. it's the thing worth fixing
-9. spent time today on a salon's google listing where the phone number was disconnected. reviews still coming in. people still trying to reach them. no one picking up
-10. something i keep noticing: the beauty businesses that care the most about their craft are often the last to care about how they show up to someone who hasn't been in yet
-11. looked at 20 small business owners this month. the ones growing usually had fewer things living in their head.
-12. a lot of missed jobs start with a message that got buried.
-13. posting whenever i remember, which means twice a month, is the most relatable small business marketing system i have seen.
-14. service business owners sleep better when next month is not starting from zero.
+**What to write about:**
+- Struggles you noticed across multiple founders
+- The gap between building and getting users
+- Distribution problems, not product problems
+- Things founders keep asking about
 
----
+**Example patterns from engagement:**
+- Multiple founders at $0 MRR with working products
+- People spending months on features nobody knows about
+- Founders who built something real but can't get traction
+- Distribution anxiety, launch fear, silence after shipping
 
-## Mode 4: Think Out Loud — Fan Energy, Personality, Exploration
-This is the glue. Nail girl thoughts. Genuine curiosity. Real feelings about beauty. No agenda.
-Tone: rambly, lowercase, first-person but don't start with "I". Doesn't have to be smart.
+**Example posts (tone reference, NOT to copy):**
 
-DRAFTS:
-1. just swatched 6 opi shades on my hand during lunch and i have zero regrets. this is normal behavior
-2. the way i rearrange my polish collection every few weeks like it's going to look different this time
-3. there are two types of people. people who pick a nail color in 2 minutes and people who take 45 and then get the same one they always get. i am both depending on the day
-4. found a shade i forgot i owned and it might be the one. sometimes the collection surprises you
-5. the smell of a nail salon is one of my comfort smells. i know. i know
-6. found an old photo and the nails i had that day were so good. no memory of what shade that was. lost forever
-7. got a compliment on my nails and said thank you instead of explaining all the reasons they're not perfect. growth
-8. something about a fresh set when you haven't had one in too long. nothing else compares
-9. chrome nails have been coming back for like 3 years. at this point they never left. they live here now
-10. the nail color you pick says a lot about where you are mentally. dark red = composed and slightly dangerous. pastel blue = you are healing
+> "working product but zero revenue hits hard. that gap between shipping something real and someone paying for it is where most founders lose months."
+
+> "spent the week reading founder threads. same story every time. built something real. zero traction. the silence after launch is louder than you expect."
+
+> "distribution is 10x harder than building. you can have the best product in the world but if nobody knows it exists you're just talking to yourself."
 
 ---
 
-## Posting Rules
-- Pick a draft that hasn't been used in the last 14 days (check original-posts-log.json)
-- If all drafts for the assigned mode are recently used, pick the oldest used one and vary the wording slightly
-- Small natural variations to the draft are fine — don't post the exact same text twice
-- Post between 9am and 9pm PST
-- Log every post to original-posts-log.json
-- Every post must serve at least one pillar — if it doesn't, pick a different draft
+## Mode 2: Authority (Strong Takes)
+
+**What to write about:**
+- What's broken in indie hacker world
+- Uncomfortable truths about startup life
+- Common mistakes you keep seeing
+- Why certain advice doesn't work
+
+**Example patterns from engagement:**
+- Landing pages full of features, no problem statement
+- "Coming soon" pages that stay forever
+- Founders who say "I don't do marketing"
+- Optimization theater instead of actual outreach
+
+**Example posts (tone reference, NOT to copy):**
+
+> "most indie hackers don't have a product problem. they have a distribution problem. built something great. nobody knows it exists."
+
+> "a landing page full of features is not a sales page. visitors don't care what it does. they care what it solves."
+
+> "if your entire growth strategy is post on twitter and hope you don't have a strategy. you have a prayer."
+
+---
+
+## Mode 3: Build in Public (Messy Middle)
+
+**What to write about:**
+- Real observations from actual research
+- Patterns noticed across websites/profiles you reviewed
+- Things learned while helping founders
+- The messy parts nobody posts about
+
+**Example patterns from engagement:**
+- 40+ landing pages reviewed, same mistakes repeated
+- Booking buttons going nowhere
+- PDFs instead of service pages
+- Founders hiding behind "building in public" without showing work
+
+**Example posts (tone reference, NOT to copy):**
+
+> "looked at 40 indie hacker landing pages this week. about half had a CTA that went somewhere broken. the other half had no CTA at all. just a coming soon page."
+
+> "found 12 businesses with launching soon pages that have been there for over a year. at some point soon becomes never."
+
+> "spent 4 hours watching users navigate client websites. everything they struggled with was obvious in hindsight. nothing is obvious until you watch someone fail at it."
+
+---
+
+## Mode 4: Think Out Loud (Personality)
+
+**What to write about:**
+- Observations about founder life
+- Questions you're genuinely curious about
+- Moments of doubt or realization
+- Things that made you think
+
+**Example patterns from engagement:**
+- The isolation of building something nobody knows about
+- Alternating between confidence and doubt
+- The moment you realize "perfect launch" is procrastination
+- How hard it is to admit something isn't working
+
+**Example posts (tone reference, NOT to copy):**
+
+> "there are two types of founders. founders who ship every day and founders who plan to ship someday. guess which group actually ships."
+
+> "the moment you realize your perfect launch plan is just procrastination with a spreadsheet is both freeing and terrifying."
+
+> "sometimes i wonder how many great products died because the founder was too embarrassed to post about them on twitter."
+
+---
+
+## Posting Flow
+
+**For each original post:**
+
+1. **Read engagement logs** (last 7 days)
+2. **Identify a pattern** (what keeps showing up?)
+3. **Pick a mode** (which pillar does this serve?)
+4. **Write the post** (following Step 0 humanizer rules)
+5. **Post on X** (standalone or QRT if relevant hook found)
+6. **Log the post** (mode, text, URL, timestamp)
+
+---
+
+## Hard Rules
+
+1. **Never name specific accounts** — Write about patterns, not people
+2. **Never say "talked to" or "had a call"** — We engage via comments, not calls
+3. **Never call anyone out** — Observational, not accusatory
+4. **Always apply humanizer skill** (Step 0) — Before posting, not after
+5. **1-3 sentences max** — Short and punchy
+6. **No hashtags** — Unless completely natural
+7. **No em dashes** — Use period or comma
+8. **No quotation marks** — Rephrase if needed
+9. **Lowercase, casual** — Not polished, not corporate
+10. **Never repeat same mode twice** — Rotate through all 4 modes
+
+---
+
+## What To Avoid
+
+**DON'T write:**
+- "I talked to a founder who..." (we didn't talk, we commented)
+- "Had a call with someone building..." (no calls happened)
+- "@accountname is struggling with..." (never name accounts)
+- "You should do X" (preachy, not observational)
+- "The best founders do Y" (generalization without data)
+
+**DO write:**
+- "noticed a pattern this week..." (observational)
+- "same story keeps showing up..." (pattern-based)
+- "the gap between X and Y is where..." (insightful)
+- "sometimes i wonder..." (personality)
+- "there are two types of..." (framework thinking)
+
+---
+
+## Humanizer Checklist (Before Posting)
+
+Scan your draft for:
+- [ ] No "genuinely", "actually", "amazing", "stunning", "weird", "resonate", "vibe"
+- [ ] No "plot twist", "lands", "stick", "click", "read/reads", "clean", "bingo card"
+- [ ] No em dashes (—) → replaced with period
+- [ ] No quotation marks → rephrased
+- [ ] No "not X but Y" parallelisms
+- [ ] 1-3 sentences max
+- [ ] Sounds casual, not corporate
+- [ ] Doesn't name specific accounts
+- [ ] Doesn't say "talked to" or "had a call"
+
+**If any box is unchecked, rewrite before posting.**

@@ -1,0 +1,36 @@
+{
+  "entries": [
+    {
+      "id": "test-x-001",
+      "session": 1,
+      "platform": "x",
+      "type": "reply",
+      "status": "posted",
+      "content": "Zero MRR but a great pilot and enough outreach to get flagged. that's great momentum even if it doesn't look like it yet.",
+      "parent": {
+        "url": "https://x.com/BusDownBolette/status/123456789",
+        "text": "Day 82. LinkedIn throttling my outreach while I'm grinding cold emails to quality managers. Zero MRR but the pilot meeting went well.",
+        "author": "BusDownBolette"
+      },
+      "draft_file": "outreach/x/drafts/test-session-1-humanized.txt",
+      "created_at": "2026-03-18T06:00:00-08:00",
+      "posted_at": "2026-03-18T11:32:59.937Z",
+      "approved_at": "2026-03-18T03:44:32.945614",
+      "edited": true,
+      "original_content": "six months solo and LinkedIn flags you as a bot. the grind is invisible until the platform decides it isn't."
+    },
+    {
+      "id": "x-post-20260319",
+      "platform": "x",
+      "type": "original_post",
+      "status": "pending",
+      "content": "the silence between shipping something and getting your first user is its own kind of test. not of the product. of you.",
+      "mode": 4,
+      "modeName": "Think Out Loud — Personality",
+      "draft_file": "outreach/x/drafts/x-post-20260319-humanized.txt",
+      "created_at": "2026-03-20T03:58:47.296Z",
+      "approved_at": null,
+      "posted_at": null
+    }
+  ]
+}

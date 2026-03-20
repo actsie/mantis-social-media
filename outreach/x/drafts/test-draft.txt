@@ -1,0 +1,1 @@
+3 days on what should be a simple setup is rough. Database installs have a way of becoming unexpectedly complicated. What specific error are you hitting? Sometimes a fresh pair of eyes helps.

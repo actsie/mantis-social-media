@@ -1,0 +1,252 @@
+{
+  "generated_at": "2026-03-18T23:15:00-08:00",
+  "source": "GitHub search + ComposioHQ/awesome-claude-skills",
+  "total_candidates": 25,
+  "already_installed": [
+    "artifacts-builder",
+    "content-research-writer",
+    "docx",
+    "file-organizer",
+    "internal-comms",
+    "invoice-organizer",
+    "meeting-insights-analyzer",
+    "pdf",
+    "pptx",
+    "skill-creator",
+    "template-skill",
+    "webapp-testing",
+    "xlsx",
+    "youtube-transcript",
+    "antigravity-awesome-skills",
+    "awesome-claude-code",
+    "claude-scientific-skills",
+    "planning-with-files"
+  ],
+  "candidates": [
+    {
+      "name": "changelog-generator",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/changelog-generator",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, actively maintained (53 commits), auto-creates changelogs from git commits",
+      "category": "development"
+    },
+    {
+      "name": "competitive-ads-extractor",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/competitive-ads-extractor",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, extracts competitor ads from ad libraries",
+      "category": "business"
+    },
+    {
+      "name": "domain-name-brainstormer",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/domain-name-brainstormer",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, generates domain ideas with availability check",
+      "category": "business"
+    },
+    {
+      "name": "lead-research-assistant",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/lead-research-assistant",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, identifies and qualifies leads",
+      "category": "business"
+    },
+    {
+      "name": "image-enhancer",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/image-enhancer",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, enhances image/screenshot quality",
+      "category": "creative"
+    },
+    {
+      "name": "slack-gif-creator",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/slack-gif-creator",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, creates animated GIFs optimized for Slack",
+      "category": "creative"
+    },
+    {
+      "name": "theme-factory",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/theme-factory",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, 10 preset themes for artifacts (slides, docs, HTML)",
+      "category": "creative"
+    },
+    {
+      "name": "video-downloader",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/video-downloader",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, downloads YouTube videos for offline use",
+      "category": "productivity"
+    },
+    {
+      "name": "twitter-algorithm-optimizer",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/twitter-algorithm-optimizer",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, optimizes tweets for engagement using algo insights",
+      "category": "business"
+    },
+    {
+      "name": "raffle-winner-picker",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/raffle-winner-picker",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, random winner selection for giveaways",
+      "category": "productivity"
+    },
+    {
+      "name": "connect-apps",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/connect-apps",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, 500+ app integrations via MCP (email, Slack, GitHub, Notion)",
+      "category": "development"
+    },
+    {
+      "name": "langsmith-fetch",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/langsmith-fetch",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio, first AI observability skill - debugs LangChain/LangGraph agents",
+      "category": "development"
+    },
+    {
+      "name": "mcp-builder",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/mcp-builder",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, guides MCP server creation for API integrations",
+      "category": "development"
+    },
+    {
+      "name": "tailored-resume-generator",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/tailored-resume-generator",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, customizes resumes for specific job postings",
+      "category": "productivity"
+    },
+    {
+      "name": "developer-growth-analysis",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/developer-growth-analysis",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, analyzes coding patterns and growth areas",
+      "category": "development"
+    },
+    {
+      "name": "canvas-design",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/canvas-design",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, creates visual art/designs in PNG/PDF",
+      "category": "creative"
+    },
+    {
+      "name": "brand-guidelines",
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/brand-guidelines",
+      "stars": 45800,
+      "trust": "High",
+      "reason": "Official Composio collection, applies Anthropic brand colors/typography to artifacts",
+      "category": "design"
+    },
+    {
+      "name": "aws-skills",
+      "repo": "zxkane/aws-skills",
+      "url": "https://github.com/zxkane/aws-skills",
+      "stars": 2900,
+      "trust": "Medium",
+      "reason": "AWS CDK best practices, cost optimization MCP servers, serverless/event-driven patterns",
+      "category": "devops"
+    },
+    {
+      "name": "claude-code-terminal-title",
+      "repo": "bluzername/claude-code-terminal-title",
+      "url": "https://github.com/bluzername/claude-code-terminal-title",
+      "stars": 1200,
+      "trust": "Medium",
+      "reason": "Dynamic terminal window titles describing current Claude Code work",
+      "category": "productivity"
+    },
+    {
+      "name": "d3js-skill",
+      "repo": "chrisvoncsefalvay/claude-d3js-skill",
+      "url": "https://github.com/chrisvoncsefalvay/claude-d3js-skill",
+      "stars": 890,
+      "trust": "Medium",
+      "reason": "D3.js chart/interactive visualization generation, by @chrisvoncsefalvay",
+      "category": "development"
+    },
+    {
+      "name": "ffuf-claude-skill",
+      "repo": "jthack/ffuf_claude_skill",
+      "url": "https://github.com/jthack/ffuf_claude_skill",
+      "stars": 650,
+      "trust": "Medium",
+      "reason": "Web security fuzzing with ffuf tool for vulnerability discovery",
+      "category": "security"
+    },
+    {
+      "name": "ios-simulator-skill",
+      "repo": "conorluddy/ios-simulator-skill",
+      "url": "https://github.com/conorluddy/ios-simulator-skill",
+      "stars": 520,
+      "trust": "Medium",
+      "reason": "iOS Simulator interaction for app testing/debugging",
+      "category": "development"
+    },
+    {
+      "name": "playwright-skill",
+      "repo": "lackeyjb/playwright-skill",
+      "url": "https://github.com/lackeyjb/playwright-skill",
+      "stars": 480,
+      "trust": "Medium",
+      "reason": "Playwright browser automation for web app testing",
+      "category": "development"
+    },
+    {
+      "name": "skill-seekers",
+      "repo": "yusufkaraaslan/Skill_Seekers",
+      "url": "https://github.com/yusufkaraaslan/Skill_Seekers",
+      "stars": 340,
+      "trust": "Medium",
+      "reason": "Auto-converts documentation websites into Claude skills",
+      "category": "development"
+    },
+    {
+      "name": "notebooklm-skill",
+      "repo": "PleasePrompto/notebooklm-skill",
+      "url": "https://github.com/PleasePrompto/notebooklm-skill",
+      "stars": 280,
+      "trust": "Medium",
+      "reason": "NotebookLM integration for source-grounded Q&A on uploaded docs",
+      "category": "productivity"
+    }
+  ]
+}

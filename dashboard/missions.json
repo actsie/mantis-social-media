@@ -1,0 +1,62 @@
+[
+  {
+    "id": "mission-001",
+    "title": "Dashboard V1 MVP",
+    "status": "active",
+    "agent": "dashboard-agent",
+    "priority": "high",
+    "sprint": "Dashboard Phase 2",
+    "updatedAt": "2026-03-17T02:30:00Z",
+    "description": "Complete dashboard foundation with overview, files, cron, content review, and agents tabs"
+  },
+  {
+    "id": "mission-002",
+    "title": "Outreach Automation — Instagram",
+    "status": "active",
+    "agent": "ig-planner",
+    "priority": "high",
+    "sprint": "Outreach Q1",
+    "updatedAt": "2026-03-17T06:00:00Z",
+    "description": "10 comments/day on nail salon posts, Phase 1 hashtag engagement"
+  },
+  {
+    "id": "mission-003",
+    "title": "Outreach Automation — X/Twitter",
+    "status": "active",
+    "agent": "x-planner",
+    "priority": "high",
+    "sprint": "Outreach Q1",
+    "updatedAt": "2026-03-17T06:00:00Z",
+    "description": "4-5 replies/day + 1 original post/day to beauty/salon accounts"
+  },
+  {
+    "id": "mission-004",
+    "title": "Outreach Automation — Reddit",
+    "status": "active",
+    "agent": "reddit-planner",
+    "priority": "medium",
+    "sprint": "Outreach Q1",
+    "updatedAt": "2026-03-17T06:01:00Z",
+    "description": "3-4 comments/day in r/Nails, r/beauty + 2 posts/week"
+  },
+  {
+    "id": "mission-005",
+    "title": "Humanizer Integration",
+    "status": "completed",
+    "agent": "dashboard-agent",
+    "priority": "high",
+    "sprint": "Outreach Q1",
+    "updatedAt": "2026-03-14T10:00:00Z",
+    "description": "All outbound content runs through humanizer skill before posting"
+  },
+  {
+    "id": "mission-006",
+    "title": "Feedback Loop — Content Review",
+    "status": "active",
+    "agent": "dashboard-agent",
+    "priority": "medium",
+    "sprint": "Dashboard Phase 2",
+    "updatedAt": "2026-03-17T03:00:00Z",
+    "description": "Track approval/rejection feedback to improve draft quality over time"
+  }
+]

@@ -1,0 +1,54 @@
+# pawgrammer-skill-requester
+
+Discord bot that monitors the skill requests channel, parses incoming requests, and generates skill .md files via Claude Code.
+
+## What it does
+
+1. Connects to Discord using `DISCORD_BOT_TOKEN` env var
+2. Polls channel `1429050423976919082` for new skill request messages
+3. For each new request:
+   - Parses message to extract: skill name, description, use case, email
+   - Checks if skill already exists in `~/claude-skills/content/skills/`
+   - Spawns Claude Code to research and generate the skill .md file
+   - Runs security check on generated file
+   - Logs requester email for future AgentMail followup (MAK-111)
+   - Marks message as processed in tracker
+4. Passes completed skills to `mantisclaw-pawgrammer-skill-publisher` for commit/push
+
+## Files
+
+- `scripts/skill-requester.js` — main Discord bot script
+- `skills/pawgrammer-skill-requester/` — this skill directory
+
+## Setup
+
+1. Ensure `DISCORD_BOT_TOKEN` is set in `~/.openclaw/openclaw.json` env section
+2. Bot must have `Read Messages`, `Send Messages`, `Read Message History` permissions in channel 1429050423976919082
+3. Tracker file auto-created at `~/.openclaw/workspace/skill-requests-processed.json`
+
+## Running
+
+```bash
+node ~/.openclaw/workspace/skills/pawgrammer-skill-requester/scripts/skill-requester.js
+```
+
+Or via cron in OpenClaw for scheduled runs.
+
+## Message format expected
+
+Skill requests should follow this format in Discord:
+
+```
+Skill: [skill name]
+Description: [what it does]
+Use case: [who needs it and why]
+Email: [requester email for followup]
+```
+
+Flexible parsing — extracts what it can even if format varies.
+
+## Security
+
+- All generated skills run through security check before being passed to publisher
+- No external API calls except Discord and Claude Code
+- Processed message IDs tracked to prevent duplicates

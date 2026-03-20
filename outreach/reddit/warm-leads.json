@@ -75,6 +75,72 @@
       "dmStatus": null,
       "repliedAt": null,
       "notes": "Service business owner, stability anxiety. Could relate to how consistent booking/communication reduces churn."
+    },
+    {
+      "id": "lead-005",
+      "source": "reddit",
+      "subreddit": "r/smallbusiness",
+      "postTitle": "7 years doing web dev, 2 years trying to scale an agency...",
+      "postUrl": "https://old.reddit.com/r/smallbusiness/search/?q=author%3ACurrencyReasonable36",
+      "author": "CurrencyReasonable36",
+      "foundAt": "2026-03-17T18:59:29.737400",
+      "postAge": "8 hours",
+      "tier": "warm",
+      "painType": "chaos/no-systems",
+      "painSignals": [
+        "Constant client chasing",
+        "Admin exhaustion",
+        "Delivery exhaustion"
+      ],
+      "actionTaken": "logged",
+      "status": "ready-to-comment",
+      "responseDraft": "The leap from building to running is tough. You've launched the product, but now you're swamped by everything that comes next. Chasing clients and handling admin tasks will consume every hour if you don't put systems in place.",
+      "notes": "Web dev agency owner. 8hrs old - still fresh. Pain: scaling chaos, admin overload.",
+      "editedAt": "2026-03-17T19:15:03.633524"
+    },
+    {
+      "id": "lead-006",
+      "source": "reddit",
+      "subreddit": "r/smallbusiness",
+      "postTitle": "working nights for my small business is killing me",
+      "postUrl": "https://old.reddit.com/r/smallbusiness/search/?q=author%3AEven-Surroundeeed",
+      "author": "Even-Surroundeeed",
+      "foundAt": "2026-03-17T18:59:29.737407",
+      "postAge": "29 hours",
+      "tier": "warm",
+      "painType": "burnout/overwhelm",
+      "painSignals": [
+        "Late night cleaning/restocking",
+        "Permanently exhausted",
+        "No recovery time"
+      ],
+      "actionTaken": "logged",
+      "status": "commented",
+      "responseDraft": "working nights to keep up with the day work is a trap. the cleaning and restocking after close eats into recovery time and then you're running on empty the next day. what would happen if you closed one day a week to actually catch up.",
+      "notes": "Coffee shop owner. 29hrs old - still fresh. Pain: night work exhaustion, no work-life balance. | Commented yesterday - removed from queue.",
+      "commentedAt": "2026-03-17T19:15:03.633532"
+    },
+    {
+      "id": "lead-007",
+      "source": "reddit",
+      "subreddit": "r/smallbusiness",
+      "postTitle": "The isolation of being the only decision maker...",
+      "postUrl": "https://old.reddit.com/r/smallbusiness/search/?q=author%3AAcceptableSwing4704",
+      "author": "AcceptableSwing4704",
+      "foundAt": "2026-03-17T18:59:29.737410",
+      "postAge": "53 hours",
+      "tier": "warm",
+      "painType": "isolation/decision-fatigue",
+      "painSignals": [
+        "Decision fatigue",
+        "No one to bounce ideas off",
+        "Every choice lands on you"
+      ],
+      "actionTaken": "logged",
+      "status": "ready-to-comment",
+      "responseDraft": "Decision fatigue is real when you have no one to run things by. Every choice falls on your shoulders, and that weight just keeps piling up. Even having one other person to bounce ideas off can completely change the dynamic.",
+      "notes": "Solo business owner. 53hrs old - still fresh. Pain: isolation, decision fatigue.",
+      "editedAt": "2026-03-17T19:15:03.633535"
     }
   ],
   "statusFlow": {

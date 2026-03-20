@@ -1,34 +1,29 @@
 {
-  "date": "2026-03-13",
-  "sessionCount": 4,
+  "date": "2026-03-19",
   "sessions": [
     {
       "n": 1,
-      "time": "07:49",
-      "sub": "Nails",
-      "type": "nail",
-      "done": false
+      "time": "11:52",
+      "sub": "advancedentrepreneur",
+      "done": true
     },
     {
       "n": 2,
-      "time": "09:06",
-      "sub": "Nailtechs",
-      "type": "pro-nail",
-      "done": false
+      "time": "17:30",
+      "sub": "femalehairadvice",
+      "done": true
     },
     {
       "n": 3,
-      "time": "15:40",
-      "sub": "Nails",
-      "type": "nail",
-      "done": false
+      "time": "19:00",
+      "sub": "SkincareAddicts",
+      "done": true
     },
     {
       "n": 4,
-      "time": "17:07",
-      "sub": "30PlusSkinCare",
-      "type": "skincare",
-      "done": false
+      "time": "21:36",
+      "sub": "smallbusiness",
+      "done": true
     }
   ]
 }

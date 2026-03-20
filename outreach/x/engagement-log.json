@@ -1,829 +1,153 @@
 {
   "sessions": [
     {
-      "timestamp": "2026-03-11T06:25:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "stuck building in public",
-      "targetHandle": "@ShiftToWealth",
-      "postUrl": "https://x.com/ShiftToWealth/status/2030625411269591464",
-      "postText": "I took a job in oil & gas at 28 for the money. 10 years later, I'm making great money. I also built a cage for myself. Golden handcuffs are real. Now I'm building the escape plan in public. Follow if you're stuck in the same trap.",
-      "replyText": "golden handcuffs are just handcuffs with better marketing. the cage part is real though. salary buys comfort, costs you the version of you that took risks.",
-      "liked": true,
-      "platform": "x",
-      "account": "stacydonna0x"
-    },
-    {
-      "timestamp": "2026-02-25T21:20:00-08:00",
-      "account": "OPI_PRODUCTS",
-      "tweetUrl": "https://x.com/OPI_PRODUCTS/status/2026431208503038355",
-      "reply": "clawberry margarita has no right being this good of a name",
-      "liked": true,
-      "type": "nail-brand",
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-02-26T07:10:00-08:00",
-      "account": "N_P_Society",
-      "tweetUrl": "https://x.com/N_P_Society/status/1346935484425981958",
-      "reply": "multichrome finishes from cirque are always a moment. super future delivered",
-      "liked": true,
-      "type": "nail-enthusiast",
-      "platform": "x",
-      "note": "⚠️ Posted by stale duplicate cron (old planner run). Tweet from Jan 2021 — not same-day.",
-      "additionalLikes": [
-        "https://x.com/N_P_Society/status/1285337361207799808"
-      ]
-    },
-    {
-      "timestamp": "2026-02-26T09:02:00-08:00",
-      "account": "hannahroxit",
-      "tweetUrl": "https://x.com/hannahroxit/status/1567238473202941952",
-      "reply": "dark rainbow holos are genuinely hypnotic. every angle shifts something new",
-      "liked": true,
-      "type": "creator",
-      "platform": "x",
-      "note": "⚠️ Posted by stale duplicate cron (old planner run). Tweet from 2022 — not same-day. Account dormant on X since ~Sep 2022.",
-      "additionalLikes": [
-        "https://x.com/hannahroxit/status/1533678523193368576",
-        "https://x.com/hannahroxit/status/1485342037054476297"
-      ]
-    },
-    {
-      "timestamp": "2026-02-26T14:10:00-08:00",
-      "account": "nailogical",
-      "tweetUrl": "https://x.com/nailogical/status/1815090320960626849",
-      "reply": "a manis and tacos party is such a good idea. why isn't this just every party now",
-      "liked": true,
-      "type": "creator",
-      "platform": "x",
-      "note": "Account inactive on X since Jul 2024. Most recent non-pinned post used. No same-day posts available.",
-      "additionalLikes": [
-        "https://x.com/nailogical/status/1811946462655160344"
-      ]
-    },
-    {
-      "timestamp": "2026-02-26T18:24:00-08:00",
-      "account": "jackiemonttnail",
-      "tweetUrl": "https://x.com/jackiemonttnail/status/1471873923562319874",
-      "reply": "nothing like getting your account back and immediately posting the mani. priorities right",
-      "liked": true,
-      "type": "creator",
-      "platform": "x",
-      "note": "Account dormant on X since Dec 2021. Most recent original post used. No same-day posts available. Makeup of missed 8:07 AM session.",
-      "additionalLikes": [
-        "https://x.com/holotaco/status/1484986743896035331",
-        "https://x.com/holotaco/status/1473360146986192898"
-      ]
-    },
-    {
-      "timestamp": "2026-02-26T20:35:00-08:00",
-      "account": "essie",
-      "tweetUrl": "https://x.com/essie/status/2027066187524272486",
-      "reply": "Bubbles Only for a signature red. can't really argue with that choice",
-      "liked": true,
-      "type": "nail-brand",
-      "platform": "x",
-      "additionalLikes": [
-        "https://x.com/essie/status/2025616677493174525",
-        "https://x.com/essie/status/2024891890676416993"
-      ]
-    },
-    {
-      "timestamp": "2026-02-27T07:21:00-08:00",
-      "account": "holotaco",
-      "tweetUrl": "https://x.com/holotaco/status/2027058690897932459",
-      "replyUrl": "https://x.com/stacydonna0x/status/2027404006348489140",
-      "reply": "cottagecore nails as a flower summoning ritual. completely valid spring strategy.",
-      "liked": true,
-      "type": "nail-brand",
-      "platform": "x",
-      "note": "Original tweet already liked. Reply count went 0→1. Also liked 2 older posts.",
-      "additionalLikes": [
-        "https://x.com/holotaco/status/2026333934334681119",
-        "https://x.com/holotaco/status/2025971549975572985"
-      ]
-    },
-    {
-      "timestamp": "2026-02-27T07:52:00-08:00",
-      "account": "Moroccanoil",
-      "tweetUrl": "https://x.com/Moroccanoil/status/2026338056098193757",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "hair-brand",
-      "platform": "x",
-      "note": "Original target @olaplex inactive since Sep 2024. @RedKen on X is a personal account (not the brand), last posted Oct 2019. Substituted @Moroccanoil (next active on hair brand list). Feb 24 post was a fragrance launch — no hair technique detail, like only per rules."
-    },
-    {
-      "timestamp": "2026-02-27T09:42:00-08:00",
-      "account": "MACcosmetics",
-      "tweetUrl": "https://x.com/MACcosmetics/status/2026009406761226424",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "beauty-brand",
-      "platform": "x",
-      "note": "Account active and verified (1.5M followers). Most recent posts (Feb 23) are lip product and foundation promos — not nail-related. Like only per rules."
-    },
-    {
-      "timestamp": "2026-02-27T10:26:00-08:00",
-      "account": "kandeejohnson",
-      "tweetUrl": "https://x.com/kandeejohnson/status/2017883469461020868",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "beauty-creator",
-      "platform": "x",
-      "note": "Account active (618.7K followers, unverified). Most recent post (Feb 1) is a motivational/support message — no nail or aesthetic content. Like only per rules."
-    },
-    {
-      "timestamp": "2026-02-28T08:40:00-08:00",
-      "account": "ZoyaNailPolish",
-      "tweetUrl": "https://x.com/ZoyaNailPolish/status/1987186660564455511",
-      "replyUrl": "https://x.com/stacydonna0x/status/2027787141405888778",
-      "reply": "six gemstone pairings and they named all of them. tourmaline and garnet especially work as nail colors",
-      "liked": true,
-      "type": "nail-brand",
-      "platform": "x",
-      "note": "Original target @redken is a personal UK account (not the brand). @moroccanoil already engaged Feb 27 same tweet. @OUAI doesn't exist. @IGK_hair inactive since May 2024. @dpHUE inactive since Jun 2023. @JoicoHair doesn't exist. @paulamitchell private personal. @Matrix private. Pivoted to @ZoyaNailPolish (verified, 127K, active nail brand). Post: Precious Duos Nov 8 2025 — six gemstone-inspired nail pairings with product detail. Full engagement (nail brand)."
-    },
-    {
-      "timestamp": "2026-02-28T09:34:00-08:00",
-      "account": "Trendmood",
-      "tweetUrl": "https://x.com/Trendmood/status/1974949808113901899",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "beauty-brand",
-      "platform": "x",
-      "note": "Account active, verified (177.9K followers). Most recent post (Oct 5, 2025) is a promo/wallet post — not nail-related. Like only per rules."
-    },
-    {
-      "timestamp": "2026-02-28T17:12:00-08:00",
-      "account": "theOrdinary",
-      "tweetUrl": "https://x.com/theOrdinary/status/2025950143250358372",
-      "replyUrl": "https://x.com/stacydonna0x/status/2027914972261715977",
-      "reply": "cloudy days still have UV. SPF is daily, not seasonal.",
-      "liked": true,
-      "type": "reply+like",
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-01T06:35:00-08:00",
-      "account": "holotaco",
-      "tweetUrl": "https://x.com/holotaco/status/2027421076540575771",
-      "replyUrl": "https://x.com/stacydonna0x/status/2028117006860644514",
-      "reply": "scattered holo over teal is so good. could wear this any time of year",
-      "liked": true,
-      "type": "nail-brand",
-      "platform": "x",
-      "note": "Feb 27 post: Bring Me The Teal with 4 topper combos (Scattered Holo, Flakie Holo, Shooting Star, Freezer Burn). Older posts (Feb 26 cottagecore, Feb 24 magnetic sparks) already liked from prior session."
-    },
-    {
-      "timestamp": "2026-03-03T20:14:00-08:00",
-      "account": "holotaco",
-      "tweetUrl": "https://x.com/holotaco/status/2028870645405171748",
-      "replyUrl": "https://x.com/stacydonna0x/status/2029048335286591627",
-      "reply": "thyme after thyme is a perfect spring name. scattered holo over a crème that earthy seems like a given",
-      "liked": true,
-      "type": "reply+like",
-      "platform": "x",
-      "note": "Original target @OliveAndJune is a dormant Flagstaff AZ local business (last post May 2011), not the nail brand. @ultabeauty last post Dec 19 2024 — inactive on X. Fell back to @holotaco (confirmed active nail brand). Today's post: Thyme After Thyme spring crème video, asking which topper to wear over it. Full engagement. Also liked Mar 2 green roundup post and Mar 1 post.",
-      "additionalLikes": [
-        "https://x.com/holotaco/status/2028508245719953633",
-        "https://x.com/holotaco/status/2028145842658435420"
-      ]
-    },
-    {
-      "timestamp": "2026-03-04T06:14:00-08:00",
-      "account": "essie",
-      "tweetUrl": "https://x.com/essie/status/2025616677493174525",
-      "replyUrl": "https://x.com/stacydonna0x/status/2029199116845367804",
-      "reply": "break fix does exactly what it says. liquid nail patch for a clean repair makes sense",
-      "liked": true,
-      "type": "reply+like",
-      "platform": "x",
-      "note": "Most recent essie post (Feb 28) and Feb 26 post both already had @stacydonna0x replies from prior sessions. Feb 22 Break Fix tutorial had 0 replies and was only previously liked as additionalLike. Full reply+like engagement on Feb 22 post. Also liked Feb 17 Ballet Slippers post and Feb 16 Ink Jelly/Bordeaux post (both new).",
-      "additionalLikes": [
-        "https://x.com/essie/status/2023804666144784530",
-        "https://x.com/essie/status/2023442433380389125"
-      ]
-    },
-    {
-      "timestamp": "2026-03-04T07:44:00-08:00",
-      "account": "OPI_PRODUCTS",
-      "tweetUrl": "https://x.com/OPI_PRODUCTS/status/2028983763221233731",
-      "replyUrl": "https://x.com/stacydonna0x/status/2029221622197174547",
-      "reply": "across the pond and still one unanimous feeling. that trip delivered",
-      "liked": true,
-      "type": "reply+like",
-      "platform": "x",
-      "additionalLikes": [
-        "https://x.com/OPI_PRODUCTS/status/2028621376064499825",
-        "https://x.com/OPI_PRODUCTS/status/2028593319891042566"
-      ]
-    },
-    {
-      "timestamp": "2026-03-05T14:32:00.000Z",
-      "account": "OPI_PRODUCTS",
-      "tweetUrl": "https://x.com/OPI_PRODUCTS/status/2029331054675320935",
-      "replyUrl": "https://x.com/stacydonna0x/status/2029566635867300124",
-      "reply": "picking the color is a full decision. sometimes longer than the appointment itself",
-      "liked": true,
-      "type": "reply+like",
-      "platform": "x",
-      "note": "Original target @OliveAndJune confirmed wrong account (dormant Flagstaff AZ event planning biz, last post 2011). @moroccanoil all recent posts already liked from prior sessions. @holotaco most recent post (22h ago, Mar 4 green combos) already engaged yesterday. Fell back to @OPI_PRODUCTS (next confirmed active nail brand). Mar 4 3:00PM post: color as choice/mood brand statement, 3 images, 0 replies. Full engagement. Also liked 18h OPI video post.",
-      "additionalLikes": [
-        "https://x.com/OPI_PRODUCTS/status/2029285755881738525"
-      ]
-    },
-    {
-      "timestamp": "2026-03-05T02:01:25.500Z",
-      "account": "elfcosmetics",
-      "type": "beauty-brand",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/elfcosmetics/status/2028878221937459538",
-      "reply": null,
-      "liked": true,
-      "platform": "x",
-      "note": "Mar 3 post: routine consistency lifestyle tweet (no image). Like-only per rules. 2 replies in thread: @BeautyEssNow (bot-pattern reply) and @bsngln38133 Finance Wisdom (verified brand account, niche mismatch). Zero qualifying follow candidates."
-    },
-    {
-      "timestamp": "2026-03-06T16:24:52.254Z",
-      "account": "Moroccanoil",
-      "type": "hair-brand",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/Moroccanoil/status/2026338056098193757",
-      "reply": null,
-      "liked": true,
-      "platform": "x",
-      "note": "Original target @IGK_hair inactive since May 2024. Substituted @Moroccanoil (next active hair brand). Feb 24 fragrance launch post - no hair technique detail, like-only per rules. Follow builder: checked all recent posts - Feb 24 (0 replies), Feb 18 (0 replies), Jan 27 (3 replies all political boycott content - disqualified). Zero follows - no qualifying candidates."
-    },
-    {
-      "timestamp": "2026-03-06T19:02:09.218Z",
-      "account": "CeraVe",
-      "type": "skincare-brand",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/cerave/status/2016704270729384215",
-      "reply": null,
-      "liked": true,
-      "platform": "x",
-      "note": "Original target @redken is personal UK account (not the brand). @moroccanoil already engaged earlier today. Pivoted to @CeraVe (verified skincare brand). Jan 28 pinned post: KD moisturizer petition video - marketing content, no skincare technique. Like only. Follow builder: scanned 5+ replies - @degenlifer (verified), @Culkin00 (negative content), @maxthemicrobe (verified), @SenseiSeifuku (verified), @hootie818 (384 followers but recent political FBI raid repost - disqualified), @glowwithlily (filler reply), @jaquemago (Spanish), @YtcJoseph (profanity/negative). Zero follows - no qualifying candidates."
-    },
-    {
-      "timestamp": "2026-03-06T23:24:44.925Z",
-      "account": "aesttics",
-      "type": "beauty-creator",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/aesttics/status/2030035693611684096",
-      "reply": null,
-      "liked": true,
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-07T04:08:18.786Z",
-      "account": "MannyMua733",
-      "type": "beauty-creator",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/MannyMua733/status/2029999077937774928",
-      "reply": null,
-      "liked": true,
-      "platform": "x",
-      "note": "Post: \"yaddy\" with image (selfie/lifestyle). Like-only per rules - no nail/beauty craft specifics to comment on. Follow builder: scanned 6+ replies (Roy Ogden \"Zaddy 🤩\", L26uL inappropriate, miami \"Weird\", Devoncè Minaj \"Correct!\", Evan Bell \"Arm\") - all single-word filler or emoji-only. Zero follows - no qualifying candidates."
-    },
-    {
-      "timestamp": "2026-03-07T04:53:50.316Z",
-      "account": "Moroccanoil",
-      "type": "hair-brand",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/Moroccanoil/status/2026338056098193757",
-      "reply": null,
-      "liked": true,
-      "platform": "x",
-      "note": "Original target @OUAI does not exist on X (confirmed). Substituted @Moroccanoil (next active hair brand per accounts.md). Feb 24 fragrance launch post - no hair technique detail, like-only per rules. Follow builder: 0 replies on post - no qualifying candidates."
-    },
-    {
-      "timestamp": "2026-03-07T17:20:26.903Z",
-      "account": "patrickstarrr",
-      "type": "beauty-creator",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/patrickstarrr/status/2030137197018632356",
-      "reply": null,
-      "liked": true,
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-07T22:56:51.573Z",
-      "account": "amrezy",
-      "type": "beauty-creator",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/amrezy/status/2030052891029860367",
-      "reply": null,
-      "liked": true,
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-07T23:41:02.312Z",
-      "account": "kandeejohnson",
-      "type": "beauty-creator",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/kandeejohnson/status/2029961905629188252",
-      "reply": null,
-      "liked": true,
-      "platform": "x",
-      "note": "Original target @Rocioceja_ had no appropriate beauty content (only political reposts). Substituted @kandeejohnson (next account on list). Mar 6 post: relatable weekend mood tweet - no nail/beauty craft specifics. Like-only per rules. Follow builder: 0 replies on post - no qualifying candidates."
-    },
-    {
-      "timestamp": "2026-03-08T05:22:59.303Z",
-      "account": "OPI_PRODUCTS",
-      "type": "nail-brand",
-      "engagement": "full",
-      "tweetUrl": "https://x.com/OPI_PRODUCTS/status/2029648144099573988",
-      "reply": "big apple red is such a classic name. red never goes out of style",
-      "liked": true,
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-08T14:31:08.172Z",
-      "account": "ColourPopCo",
-      "type": "beauty-brand",
-      "engagement": "reply+like",
-      "tweetUrl": "https://x.com/ColourPopCo/status/2030073514498347382",
-      "reply": "hair-like strokes are the goal and that gel holding without crunch is the real win",
-      "liked": true,
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-08T18:11:14.982Z",
-      "account": "Moroccanoil",
-      "type": "hair-brand",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/Moroccanoil/status/2026338056098193757",
-      "reply": null,
-      "liked": true,
-      "platform": "x",
-      "note": "Original target @olaplex inactive since Sep 2024. Substituted @Moroccanoil (next active hair brand per accounts.md). Feb 24 fragrance launch post - no hair technique detail, like-only per rules. Follow builder: 0 replies on post - no qualifying candidates."
-    },
-    {
-      "timestamp": "2026-03-08T22:23:30.482Z",
-      "account": "OPI_PRODUCTS",
-      "type": "nail-brand",
-      "engagement": "full",
-      "tweetUrl": "https://x.com/OPI_PRODUCTS/status/2029285755881738525",
-      "reply": "only opi can say it like that. decades of setting the standard",
-      "liked": true,
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-08T23:32:11.925Z",
-      "account": "CeraVe",
-      "type": "skincare",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/cerave/status/2027376331491549450",
-      "reply": null,
-      "liked": true,
-      "platform": "x",
-      "note": "Original target @DrunkElephant was inactive webcomic account (last post 2016). @Tatcha was parody account. Pivoted to @CeraVe (verified skincare brand). Feb 27 post: Kevin Durant GLOAT collectible cards promo - marketing content, no skincare technique. Like only. Follow builder: scanned replies - @elbarajon777 (verified, skip), @soccer_3_mom (950 followers over 500 limit, last original post Aug 2025). Zero follows - no qualifying candidates."
-    },
-    {
-      "timestamp": "2026-03-10T19:32:02.816Z",
-      "account": "Rocioceja_",
-      "type": "beauty-creator",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/Rocioceja_/status/2025155355484062016",
-      "reply": null,
-      "liked": true,
-      "platform": "x",
-      "note": "Feb 21 post about Juan Gabriel - music appreciation, not beauty/nail craft. Like-only per rules. Follow builder: 0 replies on post - no qualifying candidates."
-    },
-    {
-      "timestamp": "2026-03-11T04:30:29.438Z",
-      "type": "indie-hacker-test",
-      "searchQuery": "stuck building in public",
-      "targetHandle": "@TheHPHackers",
-      "postUrl": "https://x.com/TheHPHackers/status/2029964474325819678",
-      "postText": "Typical day building in public: 6:00 wake up 6:30-8:00 deep work (in theory) 8:00-12:00 replies, threads, likes, analytics 12:00-14:00 \"break\" = doomscrolling 14:00-20:00 exhausted but gotta post 20:00 crash Result: MRR stuck, burnout incoming. Living this loop?",
-      "replyText": "exhausted but gotta post. that's when the performance replaces the actual work. MRR stays stuck while the content calendar fills up.",
-      "liked": true,
-      "platform": "x",
-      "account": "stacydonna0x"
-    },
-    {
-      "timestamp": "2026-03-11T04:52:59.253Z",
-      "account": "elfcosmetics",
-      "type": "beauty-brand",
-      "engagement": "like-only",
-      "tweetUrl": "https://x.com/elfcosmetics/status/2031399761014919605",
-      "reply": null,
-      "liked": true,
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-11T04:56:04.302Z",
-      "type": "indie-hacker-test",
-      "searchQuery": "no traction",
-      "targetHandle": "@BlueFoxalope",
-      "postUrl": "https://x.com/BlueFoxalope/status/2031585911499112791",
-      "postText": "I'm so self concious about my art style. I wish I could draw the cute chibi characters, or the sharp toothy grins. My art doesn't seem to fit anywhere, and no matter what I post, I barely get any traction 'cause it isn't what people look for.",
-      "replyText": "my art doesn't seem to fit anywhere. that's the real blocker. trying to match what people look for means the work stops being yours.",
-      "liked": true,
-      "platform": "x",
-      "account": "stacydonna0x"
-    },
-    {
-      "timestamp": "2026-03-11T05:45:03.155Z",
-      "type": "indie-hacker-test",
-      "searchQuery": "too busy to respond",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after 3 pages. Search results dominated by relationship posts, political commentary, and reply threads. No contractor/indie hacker/real estate struggle posts matching criteria."
-    },
-    {
-      "timestamp": "2026-03-11T06:19:26.427Z",
-      "type": "indie-hacker-retry-test",
-      "searchQuery": "too busy to respond",
-      "backupQueries": [
-        "can't keep up contractor",
-        "HVAC overwhelmed",
-        "overwhelmed founder"
-      ],
-      "targetHandle": "@adityasinghnx",
-      "postUrl": "https://x.com/adityasinghnx/status/2031531930001485841",
-      "postText": "I spent years as a founder tracking every biomarker possible....Oura, Whoop, CGM, quarterly bloods, food logs...and still felt completely overwhelmed. Nothing connected the dots. So I built Nostavia: your personal AI Health OS. (Now Available on Google Play and App Store)",
-      "replyText": "still felt completely overwhelmed. nothing connected the dots. having all the data scattered across apps means you're tracking more but understanding less. that gets expensive fast.",
+      "timestamp": "2026-03-18T11:33:00.000Z",
+      "type": "indie-hacker",
+      "targetHandle": "BusDownBolette",
+      "postUrl": "https://x.com/BusDownBolette/status/2034045316446720182",
+      "postText": "Day 82 of bootstrapping a construction SaaS: 1) Cold emailed 4 people 2) Sent 12 LinkedIn messages 3) Connected with 30+ quality managers on LinkedIn (LinkedIn told me I was acting like a sus bot and told me to cool it) 4) Warmed up a Reddit account MRR: $0",
+      "replyText": "Zero MRR but a great pilot and enough outreach to get flagged. that's great momentum even if it doesn't look like it yet.",
       "liked": true,
       "platform": "x",
       "account": "stacydonna0x",
-      "followed": true,
-      "queryUsed": "overwhelmed founder"
+      "engagement": {
+        "likesOnOurReply": 0,
+        "repliesToOurReply": 0,
+        "originalPosterEngaged": false
+      },
+      "humanized": true,
+      "fromApprovalQueue": true,
+      "approvalEntryId": "test-x-001"
     },
     {
-      "timestamp": "2026-03-11T06:24:13.376Z",
-      "type": "indie-hacker-test",
-      "searchQuery": "losing deals",
-      "backupQueries": [
-        "clients not responding",
-        "follow up exhausting",
-        "no traction"
-      ],
-      "targetHandle": "@_sameerrr0",
-      "postUrl": "https://x.com/_sameerrr0/status/2031573328662515971",
-      "postText": "Founders really losing $200K enterprise deals because the prospect said \"the product looks unfinished\" but still won't invest $8K to fix the design. That deal would've paid for 25 redesigns.",
-      "replyText": "product looks unfinished but won't invest $8K to fix it. that hesitation is the blocker. losing $200K deals over an $8K fix means the priorities got inverted.",
-      "liked": true,
-      "platform": "x",
-      "account": "stacydonna0x"
-    },
-    {
-      "timestamp": "2026-03-11T06:29:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "no traction",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
+      "timestamp": "2026-03-17T23:07:00.000Z",
+      "type": "original-post",
+      "date": "2026-03-17",
+      "mode": 2,
+      "modeName": "Authority — Strong Take",
+      "tweetText": "most founders don't have a product problem. they have a distribution problem. spent the last week reading through founder threads and the same story keeps showing up. built something real. zero traction. the silence after launch is where projects go to die.",
+      "tweetUrl": "pending-manual-post",
+      "postType": "standard",
+      "quotedTweetUrl": null,
       "platform": "x",
       "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after 3 pages. Search results dominated by physical traction (vehicles), political commentary, crypto/web3, artists talking about art engagement, journalists discussing story reach, and general social media complaints. No indie hacker expressing genuine product-building struggle."
+      "basedOnPattern": "Multiple founders with working products but zero traction/distribution",
+      "humanized": true
     },
     {
-      "timestamp": "2026-03-11T06:31:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "can't get users",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found for query test. Search results dominated by Grok AI responses, political posts, Web3/crypto projects, platform support complaints, and bug reports. No indie hacker expressing genuine struggle about acquiring users."
-    },
-    {
-      "timestamp": "2026-03-11T06:33:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "should I keep going",
-      "targetHandle": "@alleasza",
-      "postUrl": "https://x.com/alleasza/status/2031619468158533982",
-      "postText": "up to this point i haven't typed anything, but what is clear is that i am torn between whether i should run or stay. i should give up or i should keep fighting. every day there are many things that keep me going. but on the other hand, there are many things that make me dead",
-      "replyText": "That tension between running and staying drains you faster than either choice would. Every day stuck in the middle burns energy you need for the actual decision.",
-      "liked": true,
-      "platform": "x",
-      "account": "stacydonna0x"
-    },
-    {
-      "timestamp": "2026-03-11T06:36:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "spent months building",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after 3 pages. Search results dominated by learning/advice posts, gaming content (Genshin Impact), AI wrapper promos, success flexes, and generic motivational content. No indie hacker expressing genuine struggle about months of building with no traction or doubt."
-    },
-    {
-      "timestamp": "2026-03-11T06:39:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "starting to not care",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after 3 pages. Search results dominated by political commentary, sports posts, relationship content, crypto/web3 posts, and random personal thoughts. No indie hacker expressing genuine struggle about building, traction, or founder burnout."
-    },
-    {
-      "timestamp": "2026-03-11T06:41:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "unfinished SaaS",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after 3 pages. Search results dominated by engagement bait polls, jokes/memes about unfinished projects, product pitches, advice posts, and cynical observations without personal vulnerability. No indie hacker expressing genuine doubt, burnout, or questioning whether to continue."
-    },
-    {
-      "timestamp": "2026-03-11T06:43:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "can't ship",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after 3 pages. Search results dominated by anime/fandom shipping (romantic pairings), literal ships (navy, cargo), and product shipping complaints. No indie hacker expressing genuine struggle about launching or shipping products."
-    },
-    {
-      "timestamp": "2026-03-11T06:45:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "overwhelmed founder",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after 3 pages. Search results dominated by product pitches, humblebrags, generic motivational content, third-party observations about founders, religious/spiritual content, and tool comparison questions. No indie hacker expressing genuine doubt, burnout, being stuck between directions, no traction after months of building, or questioning whether to continue."
-    },
-    {
-      "timestamp": "2026-03-11T06:47:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "zero revenue",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after 3 pages. Search results dominated by crypto/web3 tokens, lead generation ads, stock analysis, political commentary, AI seed round observations, and advice posts. No indie hacker expressing genuine struggle about zero revenue, doubt, burnout, or questioning whether to continue."
-    },
-    {
-      "timestamp": "2026-03-11T06:59:48.391Z",
-      "type": "indie-hacker-retry-test",
-      "searchQuery": "missing jobs",
-      "backupQueries": [
-        "landscaping too busy",
-        "contractor overwhelmed",
-        "solo founder"
-      ],
-      "queriesTried": [
-        "missing jobs",
-        "landscaping too busy",
-        "contractor overwhelmed",
-        "solo founder"
-      ],
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after trying primary + 3 backup queries. Results dominated by political commentary, crypto/web3, K-pop scandals, automated marketing posts, memes, and observational content. No indie hacker or contractor expressing genuine doubt, burnout, no traction after months of building, or questioning whether to continue."
-    },
-    {
-      "timestamp": "2026-03-11T07:00:00.000Z",
-      "type": "indie-hacker-test",
-      "searchQuery": "overwhelmed founder",
-      "backupQueries": [
-        "golden handcuffs",
-        "burnout",
-        "should I keep going"
-      ],
-      "targetHandle": "@Email_Magician",
-      "postUrl": "https://x.com/Email_Magician/status/2030599487865962828",
-      "postText": "Every time I feel overwhelmed in my agency It's usually because I'm too involved in something I shouldn't be touching anymore. Founder bottlenecks are self-inflicted 90% of the time.",
-      "replyText": "too involved in something you shouldn't be touching anymore. that's the bottleneck talking. staying in the work keeps the agency capped at what one person can handle.",
-      "liked": true,
-      "followed": true,
-      "platform": "x",
-      "account": "stacydonna0x"
-    },
-    {
-      "timestamp": "2026-03-11T07:06:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "golden handcuffs",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after scrolling 3 pages. Search results dominated by generic philosophical takes on golden handcuffs, replies to @thejustinwelsh threads, finance/trading commentary, political posts, and short one-liners without substance. No indie hacker expressing genuine struggle about being stuck, no traction after months of building, losing motivation, or questioning whether to continue."
-    },
-    {
-      "timestamp": "2026-03-11T07:12:50.651Z",
-      "type": "indie-hacker-query-test",
+      "timestamp": "2026-03-13T15:58:50.486Z",
+      "type": "indie-hacker",
       "searchQuery": "stuck at $0",
-      "targetHandle": "@WebcraftGallery",
-      "postUrl": "https://x.com/WebcraftGallery/status/2031202847086260480",
-      "postText": "what i did is this im giving deadline for my saas that are currently stuck at 0 building it only takes 2 weeks but marketing for 2 months got no result so will ditch it in few days doing all the last ditch resort now",
-      "replyText": "Two months of marketing with zero return. That's time you won't get back. The deadline might be the gift you need.",
+      "targetHandle": "@pcshipp",
+      "postUrl": "https://x.com/pcshipp/status/2032399074436235438",
+      "postText": "My first app stuck at $0 MRR But stupid me I keep shipping new features Will adding a new feature make my first $1?",
+      "replyText": "will adding a new feature make my first $1. that question already answers itself. shipping more features while stuck at zero burns months you don't get back.",
       "liked": true,
       "platform": "x",
       "account": "stacydonna0x"
     },
     {
-      "timestamp": "2026-03-11T07:13:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "quit my job to build",
-      "targetHandle": "@NayaIzel",
-      "postUrl": "https://x.com/NayaIzel/status/2031275311317528792",
-      "postText": "quit my job. trying to build a photography business. nearly a year into writing a novel. started performing poetry stand up. have the strongest urge to take up floral design. turning 28 soon, unsure of my identity, my appearance, even my name.",
-      "replyText": "unsure of my identity, my appearance, even my name shows you're pulling in too many directions at once. the cost is none of them get the focus they need. pick one story to tell this year.",
-      "liked": true,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "note": "Reply not posted - target account has reply restrictions (only accounts mentioned by author can reply). Post liked successfully."
-    },
-    {
-      "timestamp": "2026-03-11T07:17:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "first time founder",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after scrolling 2-3 pages. Search results dominated by dating app founder engagement bait, AI automation hype, TV show discussions, success flexes, art event promos, bot spam, political commentary, investor posts looking for founders, promo/spam with hashtags, and anime news. No indie hacker expressing genuine struggle about doubt, being stuck between directions, no traction after months of building, losing motivation, or questioning whether to continue."
-    },
-    {
-      "timestamp": "2026-03-11T07:20:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "solo founder",
-      "targetHandle": "@Akuma_elekwa",
-      "postUrl": "https://x.com/Akuma_elekwa/status/2031608789808365622",
-      "postText": "Being a solo founder means your daily roles include: CEO Developer Customer support Bug hunter Motivational speaker to yourself at 2AM Startups are wild. Good morning builders. Let's ship something today.",
-      "replyText": "That 2AM self-motivation is the loneliest part. You burn energy talking yourself into continuing when no one else is watching. Some days the pitch wins.",
-      "liked": true,
-      "platform": "x",
-      "account": "stacydonna0x"
-    },
-    {
-      "timestamp": "2026-03-11T07:23:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "launching soon",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after scrolling 2-3 pages. Search results dominated by sports content (cricket/IPL), military/political commentary, product announcements (PlayStation, Tesla, Realme), crypto/web3 projects (InterLink tokens), and tech tool promos. No indie hacker expressing genuine struggle about doubt, burnout, no traction after months of building, or questioning whether to continue."
-    },
-    {
-      "timestamp": "2026-03-11T07:25:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "just launched",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after scrolling 3 pages. Search results dominated by news (Iran/Israel conflict), crypto/memecoin launches, Product Hunt success announcements, tech commentary, and Web3 promotional content. No indie hacker expressing genuine doubt, burnout, being stuck between directions, no traction after months of building, or questioning whether to continue."
-    },
-    {
-      "timestamp": "2026-03-11T07:27:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "nobody is using",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after scrolling 3 pages. Search results dominated by crypto/web3 posts, political commentary, sports content, general product complaints, and random observations about things not being used. No indie hacker expressing genuine struggle about no traction, doubt, burnout, or questioning whether to continue."
-    },
-    {
-      "timestamp": "2026-03-11T07:30:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "churn is killing",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after scrolling 3 pages. Search results dominated by educational content about SaaS churn (@BannedLuigi), promotional tool content, political commentary (Iran/churn word match), 3D printing posts, and DTC subscription advice. No indie hacker expressing genuine personal struggle about doubt, burnout, no traction after months of building, or questioning whether to continue."
-    },
-    {
-      "timestamp": "2026-03-11T07:33:00.000Z",
-      "type": "indie-hacker-query-test",
-      "searchQuery": "can't find PMF",
-      "targetHandle": null,
-      "postUrl": null,
-      "postText": null,
-      "replyText": null,
-      "liked": false,
-      "platform": "x",
-      "account": "stacydonna0x",
-      "status": "skipped",
-      "skipReason": "No suitable posts found after scrolling 3 pages. Search results dominated by commentary/analysis about PMF, advice for other founders, crypto/web3 posts, success observations, and general observations. No indie hacker expressing genuine personal struggle about doubt, burnout, being stuck between directions, no traction after months of building, losing motivation, or questioning whether to continue."
-    },
-    {
-      "timestamp": "2026-03-11T08:11:06.057Z",
-      "type": "indie-hacker-test",
-      "searchQuery": "zero revenue",
-      "backupQueries": [
-        "stuck at $0",
-        "no traction",
-        "can't get users"
-      ],
-      "targetHandle": "@iamjochems",
-      "postUrl": "https://x.com/iamjochems/status/2031624590221521041",
-      "postText": "Nobody talks about how lonely the early days of a startup actually are. No users. No traction. No validation. Just you, your laptop, and the belief that this thing might work. It gets better. But first it's just hard.",
-      "replyText": "nobody talks about how lonely the early days are. that isolation is the real tax. no feedback loop means you're burning energy guessing instead of building.",
-      "liked": true,
-      "platform": "x",
-      "account": "stacydonna0x"
-    },
-    {
-      "timestamp": "2026-03-11T17:27:32.073Z",
+      "timestamp": "2026-03-13T16:02:50.369Z",
       "type": "indie-hacker",
-      "searchQuery": "zero revenue",
-      "targetHandle": "@sickdotdev",
-      "postUrl": "https://x.com/sickdotdev/status/2030313630487716317",
-      "postText": "14 months in. ₹11,000 left in my account. Not the startup's account. Mine. Product worked. Users loved it. Zero revenue. I had a draft email ready - subject line and everything - to a company I'd rejected an offer from 14 months ago. Sat staring at it for an hour. Didn't send it. Not because of some big moment of clarity. Just because I was too tired to make a decision. So I went to sleep. Next morning I called one user. Asked directly: \"Will you pay ₹2,000/month for this?\" He said yes. Two more said yes. ₹6,000 MRR by end of week. We're doing well now. But I still think about that draft sitting in my outbox. And I wonder how many founders sent theirs. Not because they weren't good enough. Just because nobody told them it's okay to sleep before you quit.",
-      "replyText": "too tired to make a decision. exhaustion takes over and makes it for you. that draft sitting there is the heaviest part. sleep became the move.",
+      "searchQuery": "launching soon",
+      "targetHandle": "@diwashprenuer",
+      "postUrl": "https://x.com/diwashprenuer/status/2032482075803291994",
+      "postText": "Built apps. Got no users. Blamed the product. Built more apps. Same result. Finally realized: I knew how to code, not how to sell. Now making a playbook so other founders don't waste their time like I did. howtogrowsaas.com waitlist here, launching it soon.",
+      "replyText": "most technical founders build in silence for months. that silence costs more than bad code ever will.",
       "liked": true,
       "platform": "x",
-      "account": "stacydonna0x",
-      "followed": true
+      "account": "stacydonna0x"
     },
     {
-      "timestamp": "2026-03-11T18:25:41.011Z",
+      "timestamp": "2026-03-13T16:42:44.770Z",
+      "type": "indie-hacker",
+      "searchQuery": "quit my job to build",
+      "targetHandle": "@georgedevz",
+      "postUrl": "https://x.com/georgedevz/status/2032456653594124524",
+      "postText": "I learned to code while working a 9 to 5 so that I can build SaaS and quit my job To say it wasn't easy is an understatement I gave up a few times but I always come back to it 2 years later, I shipped saas, made a few sales from my boilerplate and still don't know javascript",
+      "replyText": "traded a 9 to 5 for coding 24/7. freedom you chased is still somewhere else. burning out now costs you the energy to find it.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-13T17:22:48.865Z",
+      "type": "indie-hacker",
+      "searchQuery": "stuck building in public",
+      "targetHandle": "@FocusPauseApp",
+      "postUrl": "https://x.com/FocusPauseApp/status/2031657960112533752",
+      "postText": "Congrats on the growth! I'm not building in public so downloads are stuck at 0 lol. Built Focus Pause - just a simple breather before apps to cut screen time. Maybe I should start sharing too?",
+      "replyText": "downloads stuck at 0 because you built in silence. that silence costs more than bad code ever will. months of work vanish when no one sees them.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-13T21:31:43.605Z",
+      "type": "indie-hacker",
+      "searchQuery": "nobody is using",
+      "backupQueries": [
+        "crickets after launch",
+        "launched to nothing"
+      ],
+      "actualQuery": "overwhelmed founder",
+      "targetHandle": "@zeigyte",
+      "postUrl": "https://x.com/zeigyte/status/2032441553030185378",
+      "postText": "me at 2am as a founder, navigating 999 new problems I did not know existed yesterday.",
+      "replyText": "navigating 999 new problems I didn't know existed yesterday. every day brings fresh fires with no playbook. that uncertainty drains more energy than the work itself.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-14T00:14:08.691Z",
+      "type": "indie-hacker",
+      "searchQuery": "can't ship",
+      "actualQuery": "unfinished SaaS",
+      "targetHandle": "@hskdaking",
+      "postUrl": "https://x.com/hskdaking/status/2030382636460327192",
+      "postText": "Many developers struggle to finish projects from A → Z. We get to ~60%… then jump to the next idea. Another repo. Another unfinished project. How do you stay disciplined enough to actually finish what you start?",
+      "replyText": "we get to 60% then jump to the next idea. that pivot feels like progress but it's just a new distraction. another repo joins the graveyard.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-14T00:46:20.135Z",
+      "type": "indie-hacker",
+      "searchQuery": "quit my job to build",
+      "targetHandle": "@cluelesslygeeky",
+      "postUrl": "https://x.com/cluelesslygeeky/status/2032605977489404311",
+      "postText": "Yep. I don't really have access to much else. I want to do more classes and coaching, but I need to build my content creation to something that let's me quit my retail hell job first.",
+      "replyText": "need to build content creation to something before quitting retail hell. that before means months of unpaid work while retail shifts drain your energy. the job you hate funds the escape you're building.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-14T01:32:36.784Z",
       "type": "indie-hacker",
       "searchQuery": "no traction",
+      "targetHandle": "@VamsKrish_",
+      "postUrl": "https://x.com/VamsKrish_/status/2032617859747291309",
+      "postText": "My startup \"ShamVerse\" agentic AI product for \"Content creators\" got rejected by #YC Spring 26 Here's what I learned and possible reasons for rejection:- 1. Great startup idea with promising TAM,SAM and SOM but no traction yet. 2. Stellar founder backgrounds - but both founders are not from the content creators industry.",
+      "replyText": "great startup idea with promising TAM but no traction yet. that gap between market research and real users burns months you don't get back. the idea stays theoretical while competitors ship and learn.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-14T05:00:25.439Z",
+      "type": "indie-hacker",
+      "searchQuery": "golden handcuffs",
       "backupQueries": [
-        "zero revenue",
-        "stuck at $0"
+        "overwhelmed founder",
+        "quit my job"
       ],
       "queriesTried": [
-        "no traction",
-        "zero revenue",
-        "stuck at $0",
+        "golden handcuffs",
+        "overwhelmed founder",
+        "quit my job",
         "overwhelmed founder"
       ],
       "targetHandle": null,
@@ -834,217 +158,125 @@
       "platform": "x",
       "account": "stacydonna0x",
       "status": "skipped",
-      "skipReason": "No suitable posts found after trying primary + backup #1 + backup #2 + backup #3 (overwhelmed founder). Results dominated by physical traction posts, political commentary, crypto/web3, product promos, success flexes, and old advice posts. No indie hacker expressing genuine doubt, burnout, no traction after months of building, or questioning whether to continue."
-    }
-  ],
-  "skipped": [
-    {
-      "timestamp": "2026-03-01T16:34:00-08:00",
-      "account": "ORLYbeauty",
-      "reason": "Account inactive — @OrlyBeauty on X is 'Shel Pink', 0 posts. @ChinaGlazeNails suspended. @GelishNails compromised/spam. @OliveAndJune is a different dormant Flagstaff AZ local business from 2011. @CND_World is inactive (0 followers, 1 post). @sallyhansenusa doesn't exist. Substituted @ZoyaNailPolish (confirmed active nail brand, last engaged Feb 28 on different post).",
-      "platform": "x"
+      "skipReason": "No suitable posts found after trying primary + backup #1 + backup #2 + backup #3 (from success tracker). All results were non-indie-hacker content (political commentary, crypto, memes, GoFundMe, video games)."
     },
     {
-      "timestamp": "2026-02-26T08:07:00-08:00",
-      "account": "jackiemonttnail",
-      "reason": "Browser unavailable — Chrome extension relay had no tab connected.",
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-02-26T21:21:00-08:00",
-      "account": "N_P_Society",
-      "reason": "Makeup of missed 3:41 PM session. Account is dormant — most recent original post is Jan 6, 2021. That tweet was already engaged by stale duplicate cron at 7:10 AM (reply posted, liked). Duplicate engagement skipped to avoid double-reply on the same post.",
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-02-27T18:09:00-08:00",
-      "account": "ColourPopCo",
-      "tweetUrl": "https://x.com/ColourPopCo/status/2027081269927198826",
-      "replyUrl": null,
-      "reply": null,
+      "timestamp": "2026-03-14T20:09:56.447Z",
+      "type": "indie-hacker",
+      "searchQuery": "overwhelmed founder",
+      "targetHandle": "@shoma2da_e",
+      "postUrl": "https://x.com/shoma2da_e/status/2032813277080859073",
+      "postText": "Just released DayTask! It is a simple task management app born from one idea: focus only on today. No bloated features, and no more feeling overwhelmed by a never-ending backlog. Seize the day. Get through your tasks, one step at a time.",
+      "replyText": "Five lines of Python compounds faster than you think. Most people wait for the big leap and ship nothing. You're already ahead if you're counting the small wins.",
       "liked": true,
-      "type": "like-only",
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-02-28T10:10:00-08:00",
-      "account": "GlamLifeGuru",
-      "tweetUrl": "https://x.com/GlamLifeGuru/status/2020902920561053716",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "like-only",
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-01T11:54:00-08:00",
-      "account": "OPI_PRODUCTS",
-      "tweetUrl": "https://x.com/OPI_PRODUCTS/status/2026749040893866187",
-      "replyUrl": "https://x.com/stacydonna0x/status/2028198236943733184",
-      "reply": "cuticle oil daily is non-negotiable and i feel personally called out by the duh",
-      "liked": true,
-      "type": "reply+like",
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-01T11:54:00-08:00",
-      "account": "OPI_PRODUCTS",
-      "tweetUrl": "https://x.com/OPI_PRODUCTS/status/2026794336495481012",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "like-only",
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-01T16:34:00-08:00",
-      "account": "ZoyaNailPolish",
-      "tweetUrl": "https://x.com/ZoyaNailPolish/status/2001012598490423651",
-      "replyUrl": "https://x.com/stacydonna0x/status/2028268419964100651",
-      "reply": "mystery box drop. what was in it",
-      "liked": true,
-      "type": "reply+like",
       "platform": "x",
-      "note": "Original target @ORLYbeauty inactive (0 posts). Substituted @ZoyaNailPolish. Tweet: Zoya Mystery Box announcement (Dec 16, 2025). Also liked older post /status/1979586781579247987.",
-      "additionalLikes": [
-        "https://x.com/ZoyaNailPolish/status/1979586781579247987"
-      ]
+      "account": "stacydonna0x",
+      "engagement": {
+        "likesOnOurReply": 0,
+        "repliesToOurReply": 0,
+        "originalPosterEngaged": false
+      },
+      "humanized": true,
+      "followed": true,
+      "followers": 52
     },
     {
-      "timestamp": "2026-03-01T13:17:00-08:00",
-      "account": "essie",
-      "tweetUrl": "https://x.com/essie/status/2027791132319473821",
-      "replyUrl": "https://x.com/stacydonna0x/status/2028218898374696998",
-      "reply": "nail care restock era. nothing like a full lineup ready to go",
+      "timestamp": "2026-03-15T03:04:00Z",
+      "type": "indie-hacker",
+      "searchQuery": "stuck building in public",
+      "targetHandle": "@kiki_blacc",
+      "postUrl": "https://x.com/kiki_blacc/status/2032387568143147247",
+      "postText": "I've been stuck for 3 days. Day 32 of building in public and I haven't written a single query for this project yet. We were to install MySQL Server, SSMS, and restore an AdventureWorks database file to SQL Server. Sounds straightforward. It wasn't.",
+      "replyText": "three days stuck on setup. that's where projects go to die. you're still here though, day 32.",
       "liked": true,
-      "type": "reply+like",
       "platform": "x",
-      "additionalLikes": [
-        "https://x.com/essie/status/2027066187524272486"
-      ]
+      "account": "stacydonna0x",
+      "humanized": true,
+      "engagement": {
+        "likesOnOurReply": 0,
+        "repliesToOurReply": 1,
+        "originalPosterEngaged": true
+      },
+      "followed": true,
+      "followers": 87
     },
     {
-      "timestamp": "2026-03-01T20:48:00-08:00",
-      "account": "IGK_HAIR",
-      "tweetUrl": "https://x.com/IGK_HAIR/status/1790791957720994042",
-      "replyUrl": null,
-      "reply": null,
+      "timestamp": "2026-03-15T04:27:47.114Z",
+      "type": "indie-hacker",
+      "searchQuery": "runway running out",
+      "actualQuery": "months of runway startup",
+      "targetHandle": "@ttsyre",
+      "postUrl": "https://x.com/ttsyre/status/2032767678092357650",
+      "postText": "$1M sounds like a lot until you realize it's about 8 months of runway for a small team. Context changes everything.",
+      "replyText": "\"no traction yet\" hits different when the rest of the deck looks solid. You've got the TAM, the team, everything lined up. But YC wants to see you can actually find users without their blessing. That's the thing they're really testing—whether you can get people to care before anyone tells you it's okay to matter.",
       "liked": true,
-      "type": "like-only",
-      "platform": "x"
-    },
-    {
-      "timestamp": "2026-03-02T08:37:00-08:00",
-      "account": "Araduaduadua",
-      "tweetUrl": "https://x.com/Araduaduadua/status/2028320194150769091",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "like-only",
       "platform": "x",
-      "note": "Account active and verified (25.7K posts, 6.3K followers). Most recent post (Mar 1, 12h ago): motivational text-only 'March will work in yout favor.' No image, no nail content. Like only per rules."
+      "account": "stacydonna0x",
+      "engagement": {
+        "likesOnOurReply": 0,
+        "repliesToOurReply": 0,
+        "originalPosterEngaged": false
+      },
+      "humanized": true,
+      "followed": true,
+      "followers": 256
     },
     {
-      "timestamp": "2026-03-02T14:27:00-08:00",
-      "account": "NYXCosmetics",
-      "tweetUrl": "https://x.com/NYXCosmetics/status/2028591176622703016",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "like-only",
-      "platform": "x",
-      "note": "Account active and verified (1.2M followers). Most recent post (today 2:00 PM): 'all of the above??? 😏' with embedded video. Not nail-related — makeup/beauty generic. Like only per rules."
+      "date": "2026-03-19",
+      "session": 1,
+      "handle": "sergeyrujoker",
+      "postUrl": "https://x.com/sergeyrujoker/status/2034019999275270280",
+      "reply": "setting a 50 signup threshold upfront...",
+      "posted": true
     },
     {
-      "timestamp": "2026-03-02T17:33:00-08:00",
-      "account": "Moroccanoil",
-      "tweetUrl": "https://x.com/Moroccanoil/status/2024184545545756830",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "hair-brand",
-      "platform": "x",
-      "note": "Original target @redken confirmed as personal UK account (not the hair brand) — already flagged in accounts.md. Substituted @Moroccanoil (next active hair brand). Feb 18 post is a fragrance launch (Lumière du Jour) — no hair technique detail. Like only per rules. Feb 24 post was already liked in prior session (Feb 27)."
+      "date": "2026-03-19",
+      "session": 2,
+      "handle": "Kabugo_",
+      "postUrl": "https://x.com/Kabugo_/status/2033852180231324112",
+      "reply": "caring that hard for someone else outcome...",
+      "posted": true
     },
     {
-      "timestamp": "2026-03-02T19:22:00-08:00",
-      "account": "amrezy",
-      "tweetUrl": "https://x.com/amrezy/status/2028646225193439666",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "beauty-creator",
-      "platform": "x",
-      "note": "Account confirmed active and verified (370.2K followers). Most recent post (1h ago) was a quote retweet of Page Six celebrity content — not nail-related. Like only per rules."
+      "date": "2026-03-19",
+      "session": 3,
+      "handle": "AbdessamadHrr",
+      "postUrl": "https://x.com/AbdessamadHrr/status/2034759025460404618",
+      "reply": "four readers on day 14...",
+      "posted": true
     },
     {
-      "timestamp": "2026-03-02T20:32:00-08:00",
-      "account": "Moroccanoil",
-      "tweetUrl": "https://x.com/Moroccanoil/status/2016257805687157216",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "hair-brand",
-      "platform": "x",
-      "note": "Original target @GelishNails was inactive (last post March 2012, compromised/spam). Fell back to @Moroccanoil (next active account). All recent posts are fragrance/lip balm — not nail or technique related. Like-only per hair brand rules. Liked Jan 27 post (lip balms) and Dec 31 post (lip balm flavors). Feb 24 and Feb 18 posts already liked from prior session.",
-      "additionalLikes": [
-        "https://x.com/Moroccanoil/status/2006390316052414482"
-      ]
+      "date": "2026-03-19",
+      "session": "afternoon-2",
+      "handle": "jeremywarddev",
+      "postUrl": "https://x.com/jeremywarddev/status/2034642026537623670",
+      "reply": "the gap between shipped and useful...",
+      "followed": true,
+      "posted": true
     },
     {
-      "timestamp": "2026-03-03T16:25:00-08:00",
-      "account": "GlamLifeGuru",
-      "tweetUrl": "https://x.com/GlamLifeGuru/status/2020902920561053716",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "like-only",
-      "platform": "x",
-      "note": "Account active and verified (Tati Westbrook, 1M followers). Most recent post (Feb 9): 'Yikes… I hate this.' with YouTube link — not nail-related (makeup/beauty content). Like only per rules. Post was already liked from prior session (Feb 28). No newer posts available."
+      "date": "2026-03-19",
+      "session": "afternoon-3",
+      "handle": "_parthamin",
+      "postUrl": "https://x.com/_parthamin/status/2034721589128736872",
+      "reply": "path C buys time but the sleep debt compounds...",
+      "posted": true
     },
     {
-      "timestamp": "2026-03-03T18:26:00-08:00",
-      "account": "elfcosmetics",
-      "tweetUrl": "https://x.com/elfcosmetics/status/2028923429240619370",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "like-only",
-      "platform": "x",
-      "note": "Primary target @Rocioceja_ is a protected account — posts locked. @Trendmood last posted Oct 2025, inactive. Fell back to @elfcosmetics (very active, verified). Tweet from today (Mar 3, 12:00 PM PT): product launch promo for Power Grip Hair Gel. Like only per rules (promo post, no genuine reply hook)."
+      "date": "2026-03-19",
+      "session": "evening-2",
+      "handle": "muincompany",
+      "postUrl": "https://x.com/muincompany/status/2034796457203835279",
+      "reply": "48 days and the question shifted...",
+      "posted": true
     },
     {
-      "timestamp": "2026-03-04T13:56:00-08:00",
-      "account": "holotaco",
-      "tweetUrl": "https://x.com/holotaco/status/2029233020943634665",
-      "replyUrl": "https://x.com/stacydonna0x/status/2029315203826106496",
-      "reply": "So Toxic with Black Flake Taco was not on my radar and now it's all i can think about",
-      "liked": true,
-      "type": "reply+like",
-      "platform": "x",
-      "note": "Replied to same-day green #holotacocombo inspo post (Mar 4, 8:30 AM PT). Four green nail combos with images. Also liked the replied-to post. Older posts (Mar 3, Mar 2, Feb 27) were already liked from prior sessions."
-    },
-    {
-      "timestamp": "2026-03-04T14:54:00-08:00",
-      "account": "CeraVe",
-      "tweetUrl": "https://x.com/cerave/status/2027376331491549450",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "like-only",
-      "platform": "x",
-      "note": "Original target @OUAI doesn't exist on X (confirmed, also already flagged in accounts.md). All subsequent hair brand accounts were inactive/non-existent. Pivoted to skincare brands section: @CeraVe (verified, 52.2K followers, active). Most recent post (Feb 27): Kevin Durant GLOAT collectible cards promo — marketing/giveaway content, no skincare technique detail. Like only per skincare brand rules."
-    },
-    {
-      "timestamp": "2026-03-05T21:58:00-08:00",
-      "account": "ColourPopCo",
-      "tweetUrl": "https://x.com/ColourPopCo/status/2029628118730952864",
-      "replyUrl": null,
-      "reply": null,
-      "liked": true,
-      "type": "like-only",
-      "platform": "x",
-      "note": "Account active and verified (1.2M followers). Most recent post (Mar 5, today): sitewide sale promo. Other visible posts: eyeshadow palette features and brow content. No nail-related or qualifying aesthetic content — like only per rules."
+      "date": "2026-03-19",
+      "session": "evening-3",
+      "handle": null,
+      "skipped": true,
+      "skipReason": "No suitable targets — late night low volume",
+      "posted": false
     }
   ]
 }

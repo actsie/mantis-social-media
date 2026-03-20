@@ -1,40 +1,37 @@
 {
-  "date": "2026-03-11",
+  "date": "2026-03-20",
   "sessionCount": 3,
   "sessions": [
     {
       "n": 1,
-      "time": "10:24",
-      "query": "can't ship",
-      "type": "indie-hacker",
-      "label": "can't ship",
+      "time": "09:05",
+      "query": "indie hacker revenue",
+      "label": "revenue",
       "backup": [
-        "unfinished SaaS",
-        "stuck building"
+        "first paying customer",
+        "first dollar online"
       ],
       "done": false
     },
     {
       "n": 2,
-      "time": "11:22",
-      "query": "no traction",
-      "type": "indie-hacker",
-      "label": "no traction",
+      "time": "15:11",
+      "query": "side project to business",
+      "label": "side project",
       "backup": [
-        "zero revenue",
-        "stuck at $0"
+        "quit day job",
+        "going full time"
       ],
       "done": false
     },
     {
       "n": 3,
-      "time": "20:10",
-      "query": "stuck building in public",
-      "type": "indie-hacker",
-      "label": "stuck building",
+      "time": "16:17",
+      "query": "no traction",
+      "label": "no traction",
       "backup": [
-        "no traction",
-        "can't get users"
+        "zero revenue",
+        "stuck at $0"
       ],
       "done": false
     }

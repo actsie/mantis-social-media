@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mantis Claw Dashboard</title>
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --surface: #1a1a1a;
+      --surface-2: #252525;
+      --text: #e0e0e0;
+      --text-dim: #999;
+      --accent: #00dc82;
+      --accent-2: #36e4da;
+      --danger: #ff5555;
+      --warning: #ffaa00;
+      --border: #333;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+    
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    .subtitle {
+      color: var(--text-dim);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    
+    .refresh-btn {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    
+    .refresh-btn:hover {
+      background: var(--border);
+    }
+    
+    .tabs {
+      display: flex;
+      gap: 4px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+    
+    .tab {
+      padding: 10px 16px;
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      cursor: pointer;
+      font-size: 13px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+    
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .card-title {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .card-value {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    
+    .card-value.accent { color: var(--accent); }
+    .card-value.warning { color: var(--warning); }
+    .card-value.danger { color: var(--danger); }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    
+    /* Overview Masonry Layout */
+    .overview-grid {
+      columns: 3;
+      column-gap: 16px;
+    }
+    
+    .overview-widget {
+      break-inside: avoid;
+      margin-bottom: 16px;
+    }
+    
+    .as-of {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+    
+    .overview-changelog {
+      column-span: all;
+    }
+    
+    /* Responsive breakpoints */
+    @media (max-width: 1200px) {
+      .overview-grid { columns: 2; }
+    }
+    
+    @media (max-width: 768px) {
+      .overview-grid { columns: 1; }
+    }
+    
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    
+    @media (max-width: 1024px) {
+      .three-col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .three-col {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .list { list-style: none; }
+    
+    .list-item {
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .list-item:last-child { border-bottom: none; }
+    .list-item:hover { background: var(--surface-2); }
+    
+    .compact-list .list-item {
+      padding: 8px;
+      font-size: 12px;
+    }
+    
+    .item-main { flex: 1; }
+    .item-title { font-weight: 500; margin-bottom: 4px; }
+    .item-meta { font-size: 12px; color: var(--text-dim); }
+    .item-actions { display: flex; gap: 8px; }
+    
+    .btn {
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary { background: var(--accent); color: #000; }
+    .btn-primary:hover { background: var(--accent); opacity: 0.9; }
+    .btn-danger { background: var(--danger); color: #fff; }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn-outline:hover { background: var(--border); }
+    
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    
+    .badge-success { background: rgba(0, 220, 130, 0.2); color: var(--accent); }
+    .badge-warning { background: rgba(255, 170, 0, 0.2); color: var(--warning); }
+    .badge-danger { background: rgba(255, 85, 85, 0.2); color: var(--danger); }
+    .badge-neutral { background: var(--surface-2); color: var(--text-dim); }
+    .badge-new { background: rgba(0, 220, 130, 0.2); color: var(--accent); }
+    .badge-changed { background: rgba(0, 150, 255, 0.2); color: #36e4da; }
+    .badge-fixed { background: rgba(255, 170, 0, 0.2); color: var(--warning); }
+    .badge-archived { background: var(--surface-2); color: var(--text-dim); }
+    .badge-system { background: rgba(54, 228, 218, 0.2); color: #36e4da; }
+    .badge-experiment { background: rgba(138, 43, 226, 0.2); color: #da70d6; }
+    .badge-content { background: rgba(255, 170, 0, 0.2); color: var(--warning); }
+    .badge-keep { background: rgba(0, 220, 130, 0.2); color: var(--accent); }
+    .badge-shelved { background: var(--surface-2); color: var(--text-dim); }
+    
+    .draft-preview {
+      background: var(--surface-2);
+      padding: 12px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-size: 13px;
+      white-space: pre-wrap;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+    
+    .file-tree { font-family: monospace; font-size: 13px; }
+    .file-item { padding: 6px 0; border-bottom: 1px solid var(--border); }
+    .file-path { color: var(--text-dim); }
+    .file-time { color: var(--accent); font-size: 12px; }
+    
+    .loading { text-align: center; padding: 40px; color: var(--text-dim); }
+    .section-header { font-size: 16px; font-weight: 600; margin: 24px 0 12px; color: var(--text); }
+    
+    /* Diff view */
+    .diff-preview {
+      background: var(--surface-2);
+      padding: 12px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 12px;
+      max-height: 200px;
+      overflow-y: auto;
+      white-space: pre;
+    }
+    .diff-added { color: var(--accent); background: rgba(0, 220, 130, 0.1); }
+    .diff-removed { color: var(--danger); background: rgba(255, 85, 85, 0.1); }
+    
+    /* Task status */
+    .task-status {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    .task-todo { background: var(--text-dim); }
+    .task-in_progress { background: var(--warning); }
+    .task-blocked { background: var(--danger); }
+    .task-done { background: var(--accent); }
+    
+    /* Feedback form */
+    .feedback-form {
+      margin-top: 12px;
+      display: none;
+    }
+    .feedback-form.show { display: block; }
+    .feedback-form textarea {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 13px;
+      resize: vertical;
+      min-height: 60px;
+    }
+    .feedback-form input[type="text"] {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    
+    /* Stats grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .stat-card {
+      background: var(--surface-2);
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .stat-value { font-size: 24px; font-weight: 600; color: var(--text); }
+    .stat-label { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>🦀 Mantis Claw Dashboard</h1>
+        <div class="subtitle" id="lastUpdated">Loading...</div>
+      </div>
+      <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
+    </header>
+    
+    <nav class="tabs">
+      <button class="tab active" data-tab="overview">Overview</button>
+      <button class="tab" data-tab="files">Files</button>
+      <button class="tab" data-tab="cron">Cron</button>
+      <button class="tab" data-tab="content">Content</button>
+      <button class="tab" data-tab="missions">Missions</button>
+      <button class="tab" data-tab="sprint">Sprint</button>
+      <button class="tab" data-tab="memory">Memory</button>
+      <button class="tab" data-tab="agents">Agents</button>
+      <button class="tab" data-tab="learnings">Learnings</button>
+      <button class="tab" data-tab="docs">Docs</button>
+      <button class="tab" data-tab="changelog">Changelog</button>
+    </nav>
+    
+    <!-- Overview Tab -->
+    <div id="overview" class="tab-content active">
+      <div class="overview-grid">
+        <!-- Platform Stats -->
+        <div class="overview-widget card">
+          <div class="card-title">IG Followers</div>
+          <div class="card-value accent" id="igFollowers">-</div>
+          <div class="as-of" id="igAsOf"></div>
+        </div>
+        <div class="overview-widget card">
+          <div class="card-title">X Followers</div>
+          <div class="card-value accent" id="xFollowers">-</div>
+          <div class="as-of" id="xAsOf"></div>
+        </div>
+        <div class="overview-widget card">
+          <div class="card-title">Reddit Karma</div>
+          <div class="card-value accent" id="redditKarma">-</div>
+          <div class="as-of" id="redditAsOf"></div>
+        </div>
+        
+        <!-- Today's Activity -->
+        <div class="overview-widget card">
+          <div class="card-title">Sessions Run</div>
+          <div class="card-value" id="sessionsRun">-</div>
+        </div>
+        <div class="overview-widget card">
+          <div class="card-title">Comments Posted</div>
+          <div class="card-value" id="commentsPosted">-</div>
+        </div>
+        <div class="overview-widget card">
+          <div class="card-title">Posts Sent</div>
+          <div class="card-value" id="postsSent">-</div>
+        </div>
+        
+        <!-- System Health -->
+        <div class="overview-widget card">
+          <div class="card-title">Crons Active</div>
+          <div class="card-value" id="cronsActive">-</div>
+        </div>
+        <div class="overview-widget card">
+          <div class="card-title">Failures Today</div>
+          <div class="card-value danger" id="failuresToday">-</div>
+        </div>
+        <div class="overview-widget card">
+          <div class="card-title">Pending Approval</div>
+          <div class="card-value warning" id="pendingApproval">-</div>
+        </div>
+        
+        <!-- Recent Changelog -->
+        <div class="overview-widget card overview-changelog">
+          <div class="card-title" style="color:var(--accent);">Recent Changelog</div>
+          <div id="changelogList"></div>
+        </div>
+        
+        <!-- Alerts -->
+        <div class="overview-widget card">
+          <div class="card-title">Alerts</div>
+          <ul class="list" id="alertsList"></ul>
+        </div>
+        
+        <!-- Active Crons -->
+        <div class="overview-widget card">
+          <div class="card-title">Active Crons</div>
+          <ul class="list" id="cronList"></ul>
+        </div>
+        
+        <!-- Pending Approvals -->
+        <div class="overview-widget card">
+          <div class="card-title">Pending Approvals</div>
+          <ul class="list" id="pendingApprovals"></ul>
+        </div>
+        
+        <!-- Active Agents -->
+        <div class="overview-widget card">
+          <div class="card-title">Active Agents</div>
+          <ul class="list" id="overviewAgents"></ul>
+        </div>
+        
+        <!-- Recent Heartbeats -->
+        <div class="overview-widget card">
+          <div class="card-title">Recent Heartbeats</div>
+          <ul class="list" id="heartbeatList"></ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Files Tab -->
+    <div id="files" class="tab-content">
+      <div class="card">
+        <div class="card-title">Workspace Files (Last 24h)</div>
+        <ul class="list file-tree" id="allFiles"></ul>
+      </div>
+    </div>
+    
+    <!-- Cron Tab -->
+    <div id="cron" class="tab-content">
+      <div class="card">
+        <div class="card-title">Scheduled Jobs</div>
+        <ul class="list" id="cronList"></ul>
+      </div>
+    </div>
+    
+    <!-- Content Tab -->
+    <div id="content" class="tab-content">
+      <!-- Platform Sub-tabs -->
+      <div style="display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:12px;">
+        <button class="btn btn-outline" data-platform="x" onclick="filterContent('x')">X/Twitter</button>
+        <button class="btn btn-outline" data-platform="instagram" onclick="filterContent('instagram')">Instagram</button>
+        <button class="btn btn-outline" data-platform="reddit" onclick="filterContent('reddit')">Reddit</button>
+        <button class="btn btn-outline" data-platform="all" onclick="filterContent('all')">All</button>
+      </div>
+      
+      <h2 class="section-header">Draft Queue</h2>
+      <div id="draftQueue"></div>
+    </div>
+    
+    <!-- Missions Tab -->
+    <div id="missions" class="tab-content">
+      <h2 class="section-header">Active Missions</h2>
+      <div id="missionsList"></div>
+    </div>
+    
+    <!-- Sprint Tab -->
+    <div id="sprint" class="tab-content">
+      <h2 class="section-header">Active Sprint</h2>
+      <div id="sprintContent"></div>
+    </div>
+    
+    <!-- Memory Tab -->
+    <div id="memory" class="tab-content">
+      <div class="card">
+        <div class="card-title">MEMORY.md</div>
+        <div id="memoryMain" style="white-space: pre-wrap; font-size: 13px; max-height: 400px; overflow-y: auto;"></div>
+      </div>
+      <h2 class="section-header">Recent Daily Logs</h2>
+      <div id="dailyLogs"></div>
+    </div>
+    
+    <!-- Agents Tab -->
+    <div id="agents" class="tab-content">
+      <div class="card">
+        <div class="card-title">Active Agents</div>
+        <ul class="list" id="agentList"></ul>
+      </div>
+    </div>
+    
+    <!-- Learnings Tab -->
+    <div id="learnings" class="tab-content">
+      <div class="card" style="margin-bottom:16px;">
+        <div class="card-title">Add New Learning</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;">
+          <select id="learningType" style="background:var(--surface-2);border:1px solid var(--border);color:var(--text);padding:8px;border-radius:4px;">
+            <option value="system">System</option>
+            <option value="experiment">Experiment</option>
+          </select>
+          <select id="learningPlatform" style="background:var(--surface-2);border:1px solid var(--border);color:var(--text);padding:8px;border-radius:4px;">
+            <option value="general">General</option>
+            <option value="instagram">Instagram</option>
+            <option value="x">X/Twitter</option>
+            <option value="reddit">Reddit</option>
+            <option value="dashboard">Dashboard</option>
+          </select>
+          <select id="learningVerdict" style="background:var(--surface-2);border:1px solid var(--border);color:var(--text);padding:8px;border-radius:4px;">
+            <option value="keep">Keep</option>
+            <option value="archive">Archive</option>
+            <option value="retry">Retry</option>
+            <option value="shelved">Shelved</option>
+          </select>
+        </div>
+        <input type="text" id="learningTitle" placeholder="Title (e.g., 'IG Phase 2 DMs got account warned')" style="width:100%;background:var(--surface-2);border:1px solid var(--border);color:var(--text);padding:8px;border-radius:4px;margin-bottom:8px;">
+        <textarea id="learningDesc" placeholder="What happened / what was tried / outcome..." style="width:100%;background:var(--surface-2);border:1px solid var(--border);color:var(--text);padding:8px;border-radius:4px;min-height:60px;resize:vertical;margin-bottom:8px;"></textarea>
+        <button class="btn btn-primary" onclick="addLearning()">Add Learning</button>
+      </div>
+      
+      <div class="stats-grid" id="learningsStats"></div>
+      
+      <div style="display:flex;gap:8px;margin-bottom:12px;">
+        <button class="btn btn-outline" onclick="filterLearnings('all')">All</button>
+        <button class="btn btn-outline" onclick="filterLearnings('system')">System</button>
+        <button class="btn btn-outline" onclick="filterLearnings('experiment')">Experiment</button>
+        <button class="btn btn-outline" onclick="filterLearnings('content')">Content</button>
+      </div>
+      
+      <h2 class="section-header">Learnings</h2>
+      <div class="card">
+        <ul class="list" id="learningsList"></ul>
+      </div>
+    </div>
+    
+    <!-- Docs Tab -->
+    <div id="docs" class="tab-content">
+      <h2 class="section-header">Documentation</h2>
+      <div class="card">
+        <ul class="list" id="docsList"></ul>
+      </div>
+    </div>
+    
+    <!-- Changelog Tab -->
+    <div id="changelog" class="tab-content">
+      <div class="card" style="background:linear-gradient(135deg, rgba(0,220,130,0.1) 0%, rgba(54,228,218,0.05) 100%);border:1px solid rgba(0,220,130,0.3);">
+        <div class="card-title" style="color:var(--accent);">Today's Summary</div>
+        <div id="dailySummaryBar"></div>
+      </div>
+      
+      <h2 class="section-header" style="margin-top:20px;">Recent Changes</h2>
+      <div class="card">
+        <ul class="list" id="changelogTabList"></ul>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    let dashboardData = null;
+    
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+    
+    async function loadData() {
+      try {
+        const [dataRes, summariesRes] = await Promise.all([
+          fetch('data.json'),
+          fetch('/api/summaries/latest')
+        ]);
+        dashboardData = await dataRes.json();
+        dashboardData.summaries = await summariesRes.json();
+        renderDashboard();
+        document.getElementById('lastUpdated').textContent = 
+          'Last updated: ' + new Date(dashboardData.collectedAt).toLocaleString();
+      } catch (e) {
+        console.error('Failed to load data:', e);
+        document.getElementById('lastUpdated').textContent = 'Failed to load data';
+      }
+    }
+    
+    function renderDashboard() {
+      if (!dashboardData) return;
+      
+      const s = dashboardData.dailySummary || {};
+      const summaries = dashboardData.summaries || {};
+      
+      // ROW 1: Platform Stats (from summaries with fallbacks)
+      const xSum = summaries.x || null;
+      const igSum = summaries.instagram || null;
+      const rdSum = summaries.reddit || null;
+      const engSum = summaries.engagement || null;
+      
+      // X followers
+      const xFollowers = xSum?.followers?.current ?? s.platformStats?.xFollowers?.count ?? 0;
+      const xDelta = xSum?.followers?.delta ?? s.platformStats?.xFollowers?.delta ?? 0;
+      const xEl = document.getElementById('xFollowers');
+      if (xEl) xEl.textContent = `${xFollowers} (${xDelta >= 0 ? '+' : ''}${xDelta} today)`;
+      const xAsOfEl = document.getElementById('xAsOf');
+      if (xAsOfEl) xAsOfEl.textContent = xSum?.generated_at_pht ? `As of ${xSum.generated_at_pht}` : '';
+      
+      // IG followers
+      const igFollowers = igSum?.followers?.current ?? s.platformStats?.igFollowers?.count ?? 0;
+      const igDelta = igSum?.followers?.delta ?? s.platformStats?.igFollowers?.delta ?? 0;
+      const igEl = document.getElementById('igFollowers');
+      if (igEl) igEl.textContent = `${igFollowers} (${igDelta >= 0 ? '+' : ''}${igDelta} today)`;
+      const igAsOfEl = document.getElementById('igAsOf');
+      if (igAsOfEl) igAsOfEl.textContent = igSum?.generated_at_pht ? `As of ${igSum.generated_at_pht}` : '';
+      
+      // Reddit karma
+      const rdKarma = rdSum?.karma?.total ?? rdSum?.karma?.current ?? s.platformStats?.redditKarma?.total ?? 0;
+      const rdDelta = rdSum?.karma?.delta ?? s.platformStats?.redditKarma?.delta ?? 0;
+      const rdEl = document.getElementById('redditKarma');
+      if (rdEl) rdEl.textContent = `${rdKarma} (${rdDelta >= 0 ? '+' : ''}${rdDelta} today)`;
+      const rdAsOfEl = document.getElementById('redditAsOf');
+      if (rdAsOfEl) rdAsOfEl.textContent = rdSum?.generated_at_pht ? `As of ${rdSum.generated_at_pht}` : '';
+      
+      // Sessions today (from engagement summary)
+      const sessionsToday = engSum?.totals?.total_sessions ?? s.todayActivity?.sessionsRun ?? 0;
+      const srEl = document.getElementById('sessionsRun'); if (srEl) srEl.textContent = sessionsToday;
+      
+      // ROW 2: Today's Activity (remaining)
+      const ta = s.todayActivity || {};
+      const cpEl = document.getElementById('commentsPosted'); if (cpEl) cpEl.textContent = ta.commentsPosted || 0;
+      const psEl = document.getElementById('postsSent'); if (psEl) psEl.textContent = ta.postsSent || 0;
+      
+      // ROW 3: System Health
+      const sh = s.systemHealth || {};
+      const caEl = document.getElementById('cronsActive'); if (caEl) caEl.textContent = sh.cronsActive || 0;
+      const ftEl = document.getElementById('failuresToday'); if (ftEl) ftEl.textContent = sh.failuresToday || 0;
+      const paEl = document.getElementById('pendingApproval'); if (paEl) paEl.textContent = sh.pendingApproval || 0;
+      
+      // Drafts
+      const drafts = dashboardData.drafts || [];
+      const pending = drafts.filter(d => d.status === 'pending');
+      
+      // Agents
+      const agents = dashboardData.agents || [];
+      
+      // Memory
+      const memory = dashboardData.memory || { main: null, daily: [] };
+      
+      // Recent files
+      const fileChanges = dashboardData.fileChanges || [];
+      const rfEl = document.getElementById('recentFiles');
+      if (rfEl) rfEl.innerHTML = fileChanges.slice(0, 10).map(f => `
+        <li class="file-item">
+          <div class="file-path">${f.path}</div>
+          <div class="file-time">${new Date(f.modifiedAt).toLocaleString()}</div>
+        </li>
+      `).join('');
+      
+      // Cron list
+      const cronJobs = dashboardData.cronJobs || [];
+      const activeCrons = cronJobs.filter(c => c.enabled).slice(0, 10);
+      const clEl = document.getElementById('cronList');
+      if (clEl) clEl.innerHTML = activeCrons.length ?
+        activeCrons.map(c => `
+          <li class="list-item">
+            <div class="item-title">${c.name}</div>
+            <div class="item-subtitle">${c.schedule} · Next: ${c.nextRun}</div>
+          </li>
+        `).join('') : '<li class="list-item" style="justify-content:center;color:var(--text-dim);">No active crons</li>';
+      
+      // Files tab
+      const allFilesEl = document.getElementById('allFiles');
+      if (allFilesEl) allFilesEl.innerHTML = fileChanges.length ?
+        fileChanges.map(f => `
+          <li class="list-item">
+            <div class="item-main">
+              <div class="item-title">${f.path}</div>
+              <div class="item-meta">${new Date(f.modifiedAt).toLocaleString()}</div>
+            </div>
+            <span class="badge badge-neutral">${f.type}</span>
+          </li>
+        `).join('') : '<li class="list-item" style="justify-content:center;color:var(--text-dim);">No files changed in last 24h</li>';
+      
+      // Recent Changelog
+      const changelog = dashboardData.changelog || { entries: [] };
+      const entries = changelog.entries || [];
+      const recentEntries = entries.slice(0, 10);
+      
+      function getTimeAgo(date) {
+        const seconds = Math.floor((new Date() - date) / 1000);
+        if (seconds < 60) return 'just now';
+        const minutes = Math.floor(seconds / 60);
+        if (minutes < 60) return `${minutes}m ago`;
+        const hours = Math.floor(minutes / 60);
+        if (hours < 24) return `${hours}h ago`;
+        const days = Math.floor(hours / 24);
+        return `${days}d ago`;
+      }
+      
+      const changelogHTML = recentEntries.length ?
+        recentEntries.map(e => {
+          const typeBadge = e.type === 'new' ? 'badge-success' : e.type === 'changed' ? 'badge-warning' : 'badge-neutral';
+          const typeLabel = e.type === 'new' ? 'NEW' : e.type === 'changed' ? 'FIX' : 'INFO';
+          const timeAgo = getTimeAgo(new Date(e.timestamp));
+          return `
+            <div class="changelog-entry" style="padding:8px 0;border-bottom:1px solid var(--border);">
+              <span class="badge ${typeBadge}" style="margin-right:8px;">${typeLabel}</span>
+              <span style="color:var(--text);">${e.title}</span>
+              <span style="color:var(--text-dim);font-size:0.85em;margin-left:8px;">· ${timeAgo}</span>
+            </div>
+          `;
+        }).join('') :
+        '<div style="text-align:center;color:var(--text-dim);padding:16px;">No changelog entries yet</div>';
+      
+      const chEl = document.getElementById('changelogList');
+      if (chEl) chEl.innerHTML = changelogHTML;
+      
+      // Alerts widget
+      const alerts = [];
+      if (sh.failuresToday > 0) alerts.push({ type: 'danger', text: `${sh.failuresToday} cron failure(s) today` });
+      if (sh.pendingApproval > 10) alerts.push({ type: 'warning', text: `${sh.pendingApproval} drafts pending review` });
+      if (agents.length === 0) alerts.push({ type: 'neutral', text: 'No active agents' });
+      
+      const alEl = document.getElementById('alertsList');
+      if (alEl) alEl.innerHTML = alerts.length ?
+        alerts.map(a => `<li class="list-item"><span class="badge badge-${a.type}">${a.text}</span></li>`).join('') :
+        '<li class="list-item" style="justify-content:center;color:var(--text-dim);">No alerts</li>';
+      
+      // Pending approvals (Overview tab - compact)
+      const pendingOverview = pending.slice(0, 8);
+      const poEl = document.getElementById('pendingApprovals');
+      if (poEl) poEl.innerHTML = pendingOverview.length ?
+        pendingOverview.map(d => `
+          <li class="list-item compact-list">
+            <div class="item-main">
+              <div class="item-title">${d.platform.toUpperCase()} - ${d.id}</div>
+              <div class="item-meta">${new Date(d.createdAt).toLocaleTimeString()}</div>
+            </div>
+          </li>
+        `).join('') : '<li class="list-item" style="justify-content:center;color:var(--text-dim);">None</li>';
+      
+      // Overview agents
+      const oaEl = document.getElementById('overviewAgents');
+      if (oaEl) oaEl.innerHTML = agents.length ?
+        agents.slice(0, 5).map(a => `
+          <li class="list-item compact-list">
+            <div class="item-main">
+              <div class="item-title">${a.name}</div>
+              <div class="item-meta">${a.task?.substring(0, 40) || 'Idle'}</div>
+            </div>
+            <span class="badge badge-${a.status === 'active' ? 'success' : 'neutral'}">${a.status}</span>
+          </li>
+        `).join('') : '<li class="list-item" style="justify-content:center;color:var(--text-dim);">No active agents</li>';
+      
+      // Heartbeats (from memory files)
+      const heartbeats = [];
+      try {
+        const today = new Date().toISOString().split('T')[0];
+        const memoryDir = 'memory';
+        const files = [`${today}.md`, 'MEMORY.md'];
+        for (const f of files) {
+          const m = memory.daily.find(d => d.file === f) || (f === 'MEMORY.md' ? { content: memory.main } : null);
+          if (m && m.content) {
+            const matches = m.content.match(/HEARTBEAT.*$/gm) || [];
+            heartbeats.push(...matches.slice(0, 3));
+          }
+        }
+      } catch (e) {}
+      const hbEl = document.getElementById('heartbeatList');
+      if (hbEl) hbEl.innerHTML = heartbeats.length ?
+        heartbeats.map(h => `<li class="list-item compact-list" style="font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${h}</li>`).join('') :
+        '<li class="list-item" style="justify-content:center;color:var(--text-dim);">No heartbeats today</li>';
+      
+      // Content tab - platform filtering
+      window.currentContentPlatform = 'all';
+      renderDraftQueue(pending);
+    }
+    
+    function filterContent(platform) {
+      window.currentContentPlatform = platform;
+      document.querySelectorAll('[data-platform]').forEach(btn => {
+        btn.classList.remove('btn-primary');
+        if (btn.dataset.platform === platform) btn.classList.add('btn-primary');
+      });
+      
+      // For X platform, read from approval queue
+      if (platform === 'x' && dashboardData.approvalQueue) {
+        const queue = dashboardData.approvalQueue.entries || [];
+        renderDraftQueue(queue);
+        return;
+      }
+      
+      // For other platforms, use existing drafts logic
+      const drafts = dashboardData.drafts || [];
+      const pending = drafts.filter(d => d.status === 'pending');
+      renderDraftQueue(platform === 'all' ? pending : pending.filter(d => d.platform === platform));
+    }
+    
+    function renderDraftQueue(entries) {
+      const dqEl = document.getElementById('draftQueue');
+      if (!dqEl) return;
+      
+      if (!entries || entries.length === 0) {
+        dqEl.innerHTML = '<div class="card" style="text-align:center;color:var(--text-dim);">No drafts pending</div>';
+        return;
+      }
+      
+      dqEl.innerHTML = entries.map(e => {
+        const created = new Date(e.created_at);
+        const hoursAgo = Math.floor((Date.now() - created.getTime()) / (1000 * 60 * 60));
+        const nowPHT = new Date(created.getTime() + (8 * 60 * 60 * 1000));
+        const nowPT = new Date(created.getTime() - (7 * 60 * 60 * 1000));
+        const phtStr = nowPHT.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+        const ptStr = nowPT.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+        
+        // Status badge
+        const statusColors = { pending: 'warning', approved: 'success', posted: 'neutral', rejected: 'danger' };
+        const statusBadge = `<span class="badge badge-${statusColors[e.status] || 'neutral'}">${e.status.toUpperCase()}</span>`;
+        
+        // Parent info for replies
+        const parentHtml = e.parent ? `
+          <div style="background:var(--surface-2);padding:12px;border-radius:6px;margin-bottom:12px;">
+            <div class="card-title" style="margin-bottom:8px;">Replying to</div>
+            <div style="font-size:13px;margin-bottom:8px;">
+              <strong>@${e.parent.author || 'unknown'}</strong>
+              <span style="color:var(--text-dim);">: "${(e.parent.text || '').substring(0, 150)}${(e.parent.text || '').length > 150 ? '...' : ''}"</span>
+            </div>
+            ${e.parent.url ? `
+              <a href="${e.parent.url}" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:4px;">
+                Open post ↗️
+              </a>
+            ` : ''}
+          </div>
+        ` : '';
+        
+        // Original post mode badge
+        const modeBadge = e.type === 'original_post' ? `<span class="badge badge-neutral">Mode ${e.mode}: ${e.modeName || ''}</span>` : '';
+        
+        // Actions (only for pending)
+        const actionsHtml = e.status === 'pending' ? `
+          <div class="item-actions" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="approveDraft('${e.id}', 'x')">Approve</button>
+            <button class="btn btn-outline" onclick="showEditForm('${e.id}')">Edit</button>
+            <button class="btn btn-danger" onclick="showRejectForm('${e.id}', 'x')">Reject</button>
+          </div>
+          <div class="feedback-form" id="reject-${e.id}" style="display:none;margin-top:8px;">
+            <input type="text" id="reject-reason-${e.id}" placeholder="Rejection reason..." style="width:100%;margin-bottom:8px;">
+            <div class="item-actions" style="display:flex;gap:8px;">
+              <button class="btn btn-danger" onclick="submitReject('${e.id}', 'x')">Submit</button>
+              <button class="btn btn-outline" onclick="hideRejectForm('${e.id}')">Cancel</button>
+            </div>
+          </div>
+          <div class="edit-form" id="edit-${e.id}" style="display:none;margin-top:8px;">
+            <textarea id="edit-content-${e.id}" rows="4" style="width:100%;margin-bottom:8px;background:var(--surface-2);border:1px solid var(--border);color:var(--text);padding:8px;border-radius:4px;resize:vertical;">${(e.content || '').replace(/"/g, '&quot;')}</textarea>
+            <div class="item-actions" style="display:flex;gap:8px;">
+              <button class="btn btn-primary" onclick="submitEdit('${e.id}', 'x')">Save & Approve</button>
+              <button class="btn btn-outline" onclick="hideEditForm('${e.id}')">Cancel</button>
+            </div>
+          </div>
+        ` : `<div style="margin-top:12px;color:var(--text-dim);font-size:12px;">${e.status === 'posted' ? 'Posted at: ' + new Date(e.posted_at).toLocaleString() : e.status === 'rejected' ? 'Rejected' : 'Approved at: ' + new Date(e.approved_at).toLocaleString()}</div>`;
+        
+        // Clean content preview
+        const preview = (e.content || '').substring(0, 300) + (e.content.length > 300 ? '...' : '');
+        
+        return `
+          <div class="card">
+            ${parentHtml}
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <div class="card-title" style="margin:0;">${e.platform.toUpperCase()} - ${e.type === 'original_post' ? 'Original Post' : 'Reply'}</div>
+              <div style="display:flex;gap:8px;">${statusBadge} ${modeBadge}</div>
+            </div>
+            <div class="draft-preview" style="white-space:pre-wrap;">${preview}</div>
+            <div class="item-meta" style="color:var(--text-dim);font-size:11px;margin-top:8px;">
+              Created ${hoursAgo}h ago · ${phtStr} PHT / ${ptStr}
+            </div>
+            ${actionsHtml}
+          </div>
+        `;
+      }).join('');
+      
+      // Cron list
+      const cronJobs = dashboardData.cronJobs || [];
+      const cl2El = document.getElementById('cronList');
+      if (cl2El) cl2El.innerHTML = cronJobs.length ? 
+        cronJobs.map(j => `
+          <li class="list-item">
+            <div class="item-main">
+              <div class="item-title">${j.name}</div>
+              <div class="item-meta">Schedule: ${j.schedule} | Next: ${j.nextRun} | Last: ${j.lastRun}</div>
+            </div>
+            <div class="item-actions">
+              <button class="btn btn-outline" onclick="cronAction('${j.id}', 'run')">↻ Run</button>
+              <button class="btn btn-outline" onclick="cronAction('${j.id}', '${j.enabled ? 'disable' : 'enable'}")">${j.enabled ? '⏸ Disable' : '▶ Enable'}</button>
+              <span class="badge ${j.status === 'enabled' ? 'badge-success' : 'badge-danger'}">${j.status}</span>
+            </div>
+          </li>
+        `).join('') : '<li class="list-item" style="justify-content:center;color:var(--text-dim);">No cron jobs</li>';
+      
+      // Sprint
+      const sprints = dashboardData.sprints || [];
+      const activeSprint = sprints.find(s => s.status === 'active') || sprints[0];
+      const scEl = document.getElementById('sprintContent');
+      if (scEl) {
+        if (activeSprint) {
+          scEl.innerHTML = `
+            <div class="card">
+              <div class="card-title">${activeSprint.name}</div>
+              <div class="item-meta">${activeSprint.startDate} → ${activeSprint.endDate}</div>
+              ${activeSprint.goals?.map(g => `<div style="margin:8px 0;">• ${g}</div>`).join('') || ''}
+            </div>
+            <h3 class="section-header">Tasks</h3>
+            <div class="card">
+              <ul class="list">
+                ${(activeSprint.tasks || []).map(t => `
+                  <li class="list-item">
+                    <div class="item-main">
+                      <div class="item-title"><span class="task-status task-${t.status}"></span>${t.title}</div>
+                      <div class="item-meta">Priority: ${t.priority} ${t.assignee ? `| ${t.assignee}` : ''}</div>
+                    </div>
+                    <span class="badge badge-neutral">${t.status.replace('_', ' ')}</span>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+          `;
+        } else {
+          scEl.innerHTML = '<div class="card" style="text-align:center;color:var(--text-dim);">No sprints configured. Create sprints.json</div>';
+        }
+      }
+      
+      // Memory
+      const memory = dashboardData.memory || { main: null, daily: [] };
+      const mmEl = document.getElementById('memoryMain'); if (mmEl) mmEl.textContent = memory.main || 'No MEMORY.md found';
+      const dlEl = document.getElementById('dailyLogs');
+      if (dlEl) dlEl.innerHTML = (memory.daily || []).map(d => `
+        <div class="card">
+          <div class="card-title">${d.file}</div>
+          <div style="white-space:pre-wrap;font-size:13px;max-height:200px;overflow-y:auto;">${d.content.substring(0, 500)}${d.content.length > 500 ? '...' : ''}</div>
+        </div>
+      `).join('');
+      
+      // Agents tab
+      const al2El = document.getElementById('agentList');
+      if (al2El) al2El.innerHTML = agents.length ?
+        agents.map(a => `
+          <li class="list-item">
+            <div class="item-main">
+              <div class="item-title">${a.name}</div>
+              <div class="item-meta">${a.task || 'No active task'}</div>
+            </div>
+            <span class="badge ${a.status === 'active' ? 'badge-success' : 'badge-neutral'}">${a.status}</span>
+          </li>
+        `).join('') : '<li class="list-item" style="justify-content:center;color:var(--text-dim);">No active agents</li>';
+      
+      // Missions
+      const missions = dashboardData.missions || [];
+      const activeMissions = missions.filter(m => m.status === 'active' || m.status === 'blocked');
+      const mlEl = document.getElementById('missionsList');
+      if (mlEl) mlEl.innerHTML = activeMissions.length ?
+        activeMissions.map(m => `
+          <div class="card">
+            <div class="item-title">${m.title}</div>
+            <div class="item-meta">
+              <span class="badge badge-${m.status === 'active' ? 'success' : 'danger'}">${m.status}</span>
+              <span class="badge badge-neutral">${m.priority}</span>
+              ${m.agent ? `<span>→ ${m.agent}</span>` : ''}
+              ${m.sprint ? `<span>• ${m.sprint}</span>` : ''}
+            </div>
+          </div>
+        `).join('') : '<div class="card" style="text-align:center;color:var(--text-dim);">No active missions</div>';
+      
+      // Learnings - show all types
+      const learnings = dashboardData.learnings || { all: [], stats: {} };
+      const allLearnings = learnings.all || [];
+      
+      // Stats
+      const byType = { content: 0, system: 0, experiment: 0 };
+      allLearnings.forEach(l => { if (byType[l.type] !== undefined) byType[l.type]++ });
+      
+      const lsEl = document.getElementById('learningsStats');
+      if (lsEl) lsEl.innerHTML = `
+        <div class="stat-card">
+          <div class="stat-value">${byType.content}</div>
+          <div class="stat-label">Content</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${byType.system}</div>
+          <div class="stat-label">System</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${byType.experiment}</div>
+          <div class="stat-label">Experiment</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${allLearnings.length}</div>
+          <div class="stat-label">Total</div>
+        </div>
+      `;
+      
+      // Store all learnings for filtering
+      window.allLearningsData = allLearnings;
+      window.currentLearningFilter = 'all';
+      renderLearningsList(allLearnings);
+      
+      // Changelog
+      const changelog = dashboardData.changelog || { entries: [], today_summary: null };
+      const changelogEntries = changelog.entries || [];
+      
+      // Daily Summary Bar
+      const summary = changelog.today_summary;
+      const dsbEl = document.getElementById('dailySummaryBar');
+      if (dsbEl) {
+        if (summary) {
+          const datePHT = new Date(summary.date_pht);
+          const datePT = new Date(summary.date_pt);
+          const phtStr = datePHT.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+          const ptStr = datePT.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+          const latestTime = summary.latest ? timeAgo(new Date(summary.generated_at)) : 'N/A';
+          
+          dsbEl.innerHTML = `
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+              <div style="font-size:15px;font-weight:600;">
+                ${phtStr} PHT <span style="color:var(--text-dim);">|</span> ${ptStr} PT
+              </div>
+              <div style="display:flex;gap:16px;align-items:center;">
+                <div style="font-size:14px;">
+                  <span style="color:var(--text-dim);">${summary.total} changes</span>
+                  ${summary.counts.new ? `• <span class="badge badge-new">${summary.counts.new} new</span>` : ''}
+                  ${summary.counts.changed ? `• <span class="badge badge-changed">${summary.counts.changed} changed</span>` : ''}
+                  ${summary.counts.fixed ? `• <span class="badge badge-fixed">${summary.counts.fixed} fixed</span>` : ''}
+                  ${summary.counts.archived ? `• <span class="badge badge-archived">${summary.counts.archived} archived</span>` : ''}
+                </div>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);">
+                Latest: ${summary.latest || 'No entries'} • ${latestTime}
+              </div>
+            </div>
+          `;
+        } else {
+          dsbEl.innerHTML = '<div style="text-align:center;color:var(--text-dim);">No summary available</div>';
+        }
+      }
+      
+      // Overview tab changelog (already rendered above)
+      
+      // Changelog tab list
+      const ctlEl = document.getElementById('changelogTabList');
+      if (ctlEl) ctlEl.innerHTML = changelogEntries.length ?
+        changelogEntries.map(e => {
+          const badgeClass = `badge-${e.type}`;
+          const date = new Date(e.date);
+          const relative = timeAgo(date);
+          const fullDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+          
+          return `
+            <li class="list-item" style="display:block;">
+              <div class="item-title">
+                <span class="badge ${badgeClass}">${e.type.toUpperCase()}</span>
+                ${e.title}
+              </div>
+              <div class="item-meta">
+                ${e.description}
+                ${e.file ? `• <span style="color:var(--text-dim);font-family:monospace;">${e.file}</span>` : ''}
+                • <span title="${fullDate}">${relative}</span>
+              </div>
+            </li>
+          `;
+        }).join('') : '<li class="list-item" style="justify-content:center;color:var(--text-dim);">No changes yet</li>';
+      
+      // Docs tab
+      const docs = dashboardData.docs || { docs: [] };
+      document.getElementById('docsList').innerHTML = docs.docs.length ?
+        docs.docs.map(d => `
+          <li class="list-item" style="display:block;">
+            <div class="item-title">
+              <span class="badge badge-${d.type || 'system'}">${(d.type || 'system').toUpperCase()}</span>
+              ${d.title}
+            </div>
+            <div class="item-meta">
+              ${d.content?.substring(0, 200) || ''}${d.content?.length > 200 ? '...' : ''}
+              ${d.platform ? `• <span style="color:var(--text-dim);">${d.platform}</span>` : ''}
+              • ${timeAgo(new Date(d.createdAt))}
+              ${d.sourceLearning ? `• <span style="color:var(--text-dim);">From learning</span>` : ''}
+            </div>
+          </li>
+        `).join('') : '<li class="list-item" style="justify-content:center;color:var(--text-dim);">No docs yet</li>';
+    }
+    
+    function timeAgo(date) {
+      const seconds = Math.floor((new Date() - date) / 1000);
+      const intervals = [
+        { label: 'year', seconds: 31536000 },
+        { label: 'month', seconds: 2592000 },
+        { label: 'day', seconds: 86400 },
+        { label: 'hour', seconds: 3600 },
+        { label: 'minute', seconds: 60 }
+      ];
+      
+      for (const interval of intervals) {
+        const count = Math.floor(seconds / interval.seconds);
+        if (count >= 1) {
+          return `${count} ${interval.label}${count > 1 ? 's' : ''} ago`;
+        }
+      }
+      return 'Just now';
+    }
+    
+    function renderLearningsList(learnings) {
+      document.getElementById('learningsList').innerHTML = learnings.length ?
+        learnings.map(l => {
+          const typeBadge = l.type ? `badge-${l.type}` : 'badge-content';
+          const typeLabel = l.type ? l.type.toUpperCase() : 'CONTENT';
+          const verdictBadge = l.verdict ? `badge-${l.verdict}` : '';
+          
+          return `
+            <li class="list-item" style="display:block;">
+              <div class="item-title">
+                <span class="badge ${typeBadge}">${typeLabel}</span>
+                ${l.title || l.note || 'Untitled'}
+                ${verdictBadge ? `<span class="badge ${verdictBadge}" style="margin-left:8px;">${l.verdict.toUpperCase()}</span>` : ''}
+              </div>
+              <div class="item-meta">
+                ${l.description || l.note || ''}
+                ${l.platform ? `• <span style="color:var(--text-dim);">${l.platform}</span>` : ''}
+                ${l.category ? `• <span class="badge badge-neutral">${l.category}</span>` : ''}
+                • ${timeAgo(new Date(l.createdAt))}
+                ${l.promotedToDoc ? `• <span class="badge badge-success">Promoted to Doc</span>` : ''}
+                ${l.type === 'system' || l.type === 'experiment' ? `<button class="btn btn-outline" style="margin-left:8px;" onclick="promoteLearning('${l.id}')">Promote to Doc</button>` : ''}
+              </div>
+            </li>
+          `;
+        }).join('') : '<li class="list-item" style="justify-content:center;color:var(--text-dim);">No learnings yet</li>';
+    }
+    
+    function filterLearnings(type) {
+      window.currentLearningFilter = type;
+      const filtered = type === 'all' 
+        ? window.allLearningsData 
+        : window.allLearningsData.filter(l => l.type === type);
+      renderLearningsList(filtered);
+    }
+    
+    function addLearning() {
+      const type = document.getElementById('learningType').value;
+      const platform = document.getElementById('learningPlatform').value;
+      const verdict = document.getElementById('learningVerdict').value;
+      const title = document.getElementById('learningTitle').value;
+      const description = document.getElementById('learningDesc').value;
+      
+      if (!title || !description) {
+        alert('Please fill in title and description');
+        return;
+      }
+      
+      fetch('/api/learning', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type, platform, verdict, title, description, outcome: 'success' })
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (data.success) {
+          alert('Learning added!');
+          document.getElementById('learningTitle').value = '';
+          document.getElementById('learningDesc').value = '';
+          loadData();
+        } else {
+          alert('Failed: ' + data.error);
+        }
+      })
+      .catch(e => alert('Failed: ' + e.message));
+    }
+    
+    function promoteLearning(learningId) {
+      fetch(`/api/learning/${learningId}/promote`, { method: 'POST' })
+        .then(r => r.json())
+        .then(data => {
+          if (data.success) {
+            alert('Promoted to Docs!');
+            loadData();
+          } else {
+            alert('Failed: ' + data.error);
+          }
+        })
+        .catch(e => alert('Failed: ' + e.message));
+    }
+    
+    function approveDraft(id, platform) {
+      fetch(`/feedback?draftId=${id}&platform=${platform}&approved=true`, { method: 'POST' })
+        .then(() => {
+          alert('Draft approved!');
+          loadData();
+        })
+        .catch(e => alert('Failed to record approval: ' + e.message));
+    }
+    
+    function cronAction(id, action) {
+      if (!confirm(`Cron ${action}: confirm?`)) return;
+      
+      fetch(`/cron/${id}/${action}`, { method: 'POST' })
+        .then(r => r.json())
+        .then(data => {
+          if (data.success) {
+            alert(`Cron ${action} triggered!`);
+            loadData();
+          } else {
+            alert('Failed: ' + (data.error || 'Unknown error'));
+          }
+        })
+        .catch(e => alert('Failed: ' + e.message));
+    }
+    
+    function showRejectForm(id, platform) {
+      document.getElementById(`reject-${id}`).classList.add('show');
+    }
+    
+    function hideRejectForm(id) {
+      document.getElementById(`reject-${id}`).classList.remove('show');
+    }
+    
+    function submitReject(id, platform) {
+      const reason = document.getElementById(`reject-reason-${id}`).value;
+      if (!reason) {
+        alert('Please provide a rejection reason');
+        return;
+      }
+      
+      fetch(`/feedback?draftId=${id}&platform=${platform}&approved=false&reason=${encodeURIComponent(reason)}`, { method: 'POST' })
+        .then(() => {
+          alert('Draft rejected. Feedback saved.');
+          hideRejectForm(id);
+          loadData();
+        })
+        .catch(e => alert('Failed to record rejection: ' + e.message));
+    }
+    
+    function showEditForm(id) {
+      document.getElementById(`edit-${id}`).style.display = 'block';
+    }
+    
+    function hideEditForm(id) {
+      document.getElementById(`edit-${id}`).style.display = 'none';
+    }
+    
+    function submitEdit(id, platform) {
+      const editedContent = document.getElementById(`edit-content-${id}`).value;
+      if (!editedContent || editedContent.trim() === '') {
+        alert('Please provide edited content');
+        return;
+      }
+      
+      fetch('/edit-draft', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ draftId: id, platform, editedContent })
+      })
+        .then(r => r.json())
+        .then(data => {
+          if (data.success) {
+            alert('Draft edited and approved!');
+            hideEditForm(id);
+            loadData();
+          } else {
+            alert('Failed: ' + (data.error || 'Unknown error'));
+          }
+        })
+        .catch(e => alert('Failed to save edit: ' + e.message));
+    }
+    
+    loadData();
+  </script>
+</body>
+</html>

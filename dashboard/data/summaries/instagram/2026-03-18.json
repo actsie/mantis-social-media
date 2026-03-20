@@ -1,0 +1,22 @@
+{
+  "date": "2026-03-18",
+  "generated_at": "2026-03-19T06:15:09.310Z",
+  "generated_at_pht": "3/19/2026, 2:15:09 PM",
+  "platform": "instagram",
+  "account": "@stacyd0nna",
+  "sessions_completed": 8,
+  "sessions_scheduled": 10,
+  "sessions_incomplete": 2,
+  "comments_posted": 6,
+  "likes_only": 0,
+  "likes_sent": 24,
+  "follows_added": 0,
+  "follows_added_details": [],
+  "followers": {
+    "current": 5,
+    "delta": 0
+  },
+  "follow_backs_needed": 0,
+  "follow_backs_details": [],
+  "raw_summary": "📸 *Instagram Daily Summary — Wednesday, Mar 18*\n\n*Account:* @stacyd0nna\n\n*Sessions:*\n├ Completed: 8\n├ Scheduled: 10\n├ Incomplete: 2\n├ Comments posted: 6\n└ Likes only: 0\n\n*Engagement:*\n└ Total likes sent: 24\n\n*Followers:* 5 (+0 today)\n\n*Incomplete Sessions:* 2\nCheck today-schedule.json for sessions with done: false\n\n"
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-03-19",
+    "type": "tone",
+    "rule": "Vary openers — never start two replies the same way",
+    "example_bad": "Six months in and...",
+    "example_good": "Rotate: lead with a question, an observation, a reframe"
+  },
+  {
+    "date": "2026-03-19",
+    "type": "tone",
+    "rule": "No advice endings — don't close with suggestions or next steps",
+    "example_bad": "Maybe try narrowing your ICP first.",
+    "example_good": "End with acknowledgment or a short reframe, not a prescription"
+  }
+]

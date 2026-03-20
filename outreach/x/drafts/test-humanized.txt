@@ -1,0 +1,1 @@
+Ugh, 3 days on a MySQL install? That's brutal. These "simple" setups always find a way to bite you. What error keeps popping up? Happy to take a look if you want to share it.

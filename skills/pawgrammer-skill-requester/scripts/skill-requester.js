@@ -1,0 +1,305 @@
+#!/usr/bin/env node
+/**
+ * pawgrammer-skill-requester — Discord bot for processing skill requests
+ * Monitors channel 1429050423976919082, parses requests, generates skills via Claude Code
+ */
+
+const { Client, GatewayIntentBits } = require('discord.js');
+const fs = require('fs');
+const path = require('path');
+const { spawnSync } = require('child_process');
+
+// ─── Config ────────────────────────────────────────────────────────────────
+
+const CHANNEL_ID = '1429050423976919082';
+const SKILLS_DIR = path.join(process.env.HOME, 'claude-skills', 'content', 'skills');
+const TRACKER_FILE = path.join(process.env.HOME, '.openclaw', 'workspace', 'skill-requests-processed.json');
+const REQUESTER_LOG = path.join(process.env.HOME, '.openclaw', 'workspace', 'skill-requester-emails.json');
+
+// ─── Helpers ────────────────────────────────────────────────────────────────
+
+function loadTracker() {
+  try {
+    return JSON.parse(fs.readFileSync(TRACKER_FILE, 'utf8'));
+  } catch {
+    return { processedMessageIds: [], processedAt: {} };
+  }
+}
+
+function saveTracker(tracker) {
+  fs.mkdirSync(path.dirname(TRACKER_FILE), { recursive: true });
+  fs.writeFileSync(TRACKER_FILE, JSON.stringify(tracker, null, 2));
+}
+
+function loadRequesterLog() {
+  try {
+    return JSON.parse(fs.readFileSync(REQUESTER_LOG, 'utf8'));
+  } catch {
+    return { emails: [] };
+  }
+}
+
+function saveRequesterLog(log) {
+  fs.mkdirSync(path.dirname(REQUESTER_LOG), { recursive: true });
+  fs.writeFileSync(REQUESTER_LOG, JSON.stringify(log, null, 2));
+}
+
+function slugify(name) {
+  return name.toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 50);
+}
+
+function parseRequest(content) {
+  const result = {
+    skillName: null,
+    description: null,
+    useCase: null,
+    email: null,
+    rawContent: content
+  };
+
+  // Try structured format first
+  const skillMatch = content.match(/Skill:\s*(.+)/i);
+  if (skillMatch) result.skillName = skillMatch[1].trim();
+
+  const descMatch = content.match(/Description:\s*(.+)/i);
+  if (descMatch) result.description = descMatch[1].trim();
+
+  const useCaseMatch = content.match(/Use case:\s*(.+)/i);
+  if (useCaseMatch) result.useCase = useCaseMatch[1].trim();
+
+  const emailMatch = content.match(/Email:\s*([^\s\n]+)/i);
+  if (emailMatch) result.email = emailMatch[1].trim();
+
+  // Fallback: if no structured format, use first line as skill name
+  if (!result.skillName) {
+    const firstLine = content.split('\n')[0].trim();
+    if (firstLine) result.skillName = firstLine;
+  }
+
+  // If still no description, use entire content
+  if (!result.description) {
+    result.description = content;
+  }
+
+  return result;
+}
+
+function skillExists(skillName) {
+  const slug = slugify(skillName);
+  const skillPath = path.join(SKILLS_DIR, `${slug}.md`);
+  return fs.existsSync(skillPath);
+}
+
+function generateSkill(request) {
+  const slug = slugify(request.skillName);
+  const skillPath = path.join(SKILLS_DIR, `${slug}.md`);
+
+  const prompt = `Research ${request.skillName} and generate a complete skill .md file based on this request:
+
+- Skill: ${request.skillName}
+- What it should do: ${request.description}
+- Use case: ${request.useCase || 'General use'}
+
+Write to ${skillPath}
+
+Follow the AgentSkills spec format:
+- Clear description of what the skill does
+- When to use it (triggers)
+- Step-by-step instructions
+- Any tools or APIs needed
+- Examples if relevant
+
+Make it production-ready.`;
+
+  console.log(`  Spawning Claude Code for: ${request.skillName}`);
+
+  const result = spawnSync('claude', [
+    '--print',
+    '--permission-mode', 'bypassPermissions',
+    prompt
+  ], {
+    encoding: 'utf8',
+    timeout: 120000, // 2 min timeout
+    cwd: path.dirname(SKILLS_DIR)
+  });
+
+  if (result.status !== 0) {
+    console.error(`  Claude Code failed: ${result.stderr}`);
+    return null;
+  }
+
+  // Check if file was created
+  if (fs.existsSync(skillPath)) {
+    console.log(`  Generated: ${skillPath}`);
+    return skillPath;
+  }
+
+  console.error(`  File not created at ${skillPath}`);
+  return null;
+}
+
+function securityCheck(skillPath) {
+  // Basic security check - ensure no dangerous patterns
+  const content = fs.readFileSync(skillPath, 'utf8');
+
+  const dangerousPatterns = [
+    /rm\s+-rf/i,
+    /sudo\s+rm/i,
+    /eval\s*\(/i,
+    /exec\s*\(/i,
+    /system\s*\(/i,
+    /DROP\s+TABLE/i,
+    /DELETE\s+FROM/i,
+  ];
+
+  for (const pattern of dangerousPatterns) {
+    if (pattern.test(content)) {
+      console.error(`  Security check failed: dangerous pattern ${pattern}`);
+      return false;
+    }
+  }
+
+  console.log(`  Security check passed`);
+  return true;
+}
+
+// ─── Main ────────────────────────────────────────────────────────────────
+
+async function main() {
+  const token = process.env.DISCORD_BOT_TOKEN;
+
+  if (!token) {
+    console.error('DISCORD_BOT_TOKEN not set in environment');
+    process.exit(1);
+  }
+
+  const tracker = loadTracker();
+  const requesterLog = loadRequesterLog();
+
+  const client = new Client({
+    intents: [
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.MessageContent
+    ]
+  });
+
+  client.once('ready', async () => {
+    console.log(`[skill-requester] Connected as ${client.user.tag}`);
+
+    try {
+      const channel = await client.channels.fetch(CHANNEL_ID);
+
+      if (!channel) {
+        console.error(`Channel ${CHANNEL_ID} not found`);
+        client.destroy();
+        return;
+      }
+
+      console.log(`Monitoring channel: ${CHANNEL_ID}`);
+
+      // Fetch last 100 messages
+      const messages = await channel.messages.fetch({ limit: 100 });
+
+      let newRequests = 0;
+      let skipped = 0;
+      let alreadyExists = 0;
+
+      for (const [msgId, msg] of messages) {
+        // Skip if already processed
+        if (tracker.processedMessageIds.includes(msgId)) {
+          skipped++;
+          continue;
+        }
+
+        // Skip bot messages
+        if (msg.author.bot) {
+          continue;
+        }
+
+        const content = msg.content.trim();
+        if (!content) continue;
+
+        console.log(`\nProcessing request from ${msg.author.tag}:`);
+        console.log(`  Content: ${content.slice(0, 80)}...`);
+
+        const request = parseRequest(content);
+
+        if (!request.skillName) {
+          console.log(`  Skipping: could not parse skill name`);
+          tracker.processedMessageIds.push(msgId);
+          tracker.processedAt[msgId] = new Date().toISOString();
+          continue;
+        }
+
+        // Check if skill already exists
+        if (skillExists(request.skillName)) {
+          console.log(`  Skill already exists: ${request.skillName}`);
+          alreadyExists++;
+          tracker.processedMessageIds.push(msgId);
+          tracker.processedAt[msgId] = new Date().toISOString();
+          continue;
+        }
+
+        // Generate skill
+        const skillPath = generateSkill(request);
+
+        if (!skillPath) {
+          console.log(`  Generation failed for: ${request.skillName}`);
+          continue;
+        }
+
+        // Security check
+        if (!securityCheck(skillPath)) {
+          console.log(`  Security check failed, removing: ${skillPath}`);
+          fs.unlinkSync(skillPath);
+          continue;
+        }
+
+        // Log requester email if provided
+        if (request.email) {
+          requesterLog.emails.push({
+            email: request.email,
+            skill: request.skillName,
+            messageId: msgId,
+            requestedAt: new Date().toISOString(),
+            status: 'generated'
+          });
+          saveRequesterLog(requesterLog);
+          console.log(`  Logged email: ${request.email} (for MAK-111)`);
+        }
+
+        // Mark as processed
+        tracker.processedMessageIds.push(msgId);
+        tracker.processedAt[msgId] = new Date().toISOString();
+
+        newRequests++;
+        console.log(`  ✓ Processed: ${request.skillName}`);
+      }
+
+      saveTracker(tracker);
+
+      console.log(`\n--- Summary ---`);
+      console.log(`New requests processed: ${newRequests}`);
+      console.log(`Already existed: ${alreadyExists}`);
+      console.log(`Skipped (previously processed): ${skipped}`);
+
+    } catch (error) {
+      console.error('Error processing channel:', error);
+    } finally {
+      client.destroy();
+      console.log('\n[skill-requester] Done');
+    }
+  });
+
+  client.on('error', (error) => {
+    console.error('Discord client error:', error);
+  });
+
+  await client.login(token);
+}
+
+main().catch(console.error);

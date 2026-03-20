@@ -1,34 +1,24 @@
 {
-  "date": "2026-03-12",
+  "date": "2026-03-19",
   "sessionCount": 3,
   "sessions": [
     {
       "n": 1,
-      "time": "20:28",
-      "query": "no traction",
+      "time": "20:00",
+      "query": "bootstrapping",
       "type": "indie-hacker",
-      "label": "no traction",
+      "label": "bootstrapping",
       "backup": [
-        "zero revenue",
-        "stuck at $0"
+        "self funded",
+        "no VC"
       ],
-      "done": false
+      "done": true,
+      "skipped": true,
+      "skipReason": "X search returning 0 results across all queries (platform issue)"
     },
     {
       "n": 2,
-      "time": "21:45",
-      "query": "quit my job to build",
-      "type": "indie-hacker",
-      "label": "quit job",
-      "backup": [
-        "first time founder",
-        "solo founder"
-      ],
-      "done": false
-    },
-    {
-      "n": 3,
-      "time": "22:33",
+      "time": "21:09",
       "query": "starting to not care",
       "type": "indie-hacker",
       "label": "losing interest",
@@ -36,7 +26,21 @@
         "should I keep going",
         "doubt"
       ],
-      "done": false
+      "done": true
+    },
+    {
+      "n": 3,
+      "time": "21:58",
+      "query": "can't get users",
+      "type": "indie-hacker",
+      "label": "no users",
+      "backup": [
+        "no traction",
+        "should I keep going"
+      ],
+      "done": true,
+      "skipped": true,
+      "skipReason": "No suitable targets found across all 4 queries (can't get users, no traction, should I keep going, zero revenue) — late Thu night, low volume"
     }
   ],
   "track": "indie-hacker-evening"

@@ -1,0 +1,48 @@
+{
+  "account": "Alive_Kick7098",
+  "checkedAt": "2026-03-19T03:48:00Z",
+  "postKarma": 1,
+  "commentKarma": 208,
+  "totalKarma": 209,
+  "history": [
+    {
+      "timestamp": "2026-03-19T07:06:39.472Z",
+      "postKarma": 1,
+      "commentKarma": 208,
+      "totalKarma": 209
+    },
+    {
+      "timestamp": "2026-03-20T06:59:24.505Z",
+      "postKarma": 1,
+      "commentKarma": 208,
+      "totalKarma": 209
+    }
+  ],
+  "checks": [
+    {
+      "timestamp": "2026-03-19T18:56:13.991Z",
+      "post_karma": 1,
+      "comment_karma": 208,
+      "total_karma": 209,
+      "account": "Alive_Kick7098"
+    },
+    {
+      "timestamp": "2026-03-20T00:44:13.602Z",
+      "post_karma": 1,
+      "comment_karma": 208,
+      "total_karma": 209,
+      "account": "Alive_Kick7098"
+    },
+    {
+      "timestamp": "2026-03-20T02:03:57.103Z",
+      "post_karma": 1,
+      "comment_karma": 209,
+      "total_karma": 210,
+      "account": "Alive_Kick7098"
+    }
+  ],
+  "lastCheck": "2026-03-20T04:41:23.318Z",
+  "post_karma": 1,
+  "comment_karma": 209,
+  "total_karma": 210
+}

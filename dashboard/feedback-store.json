@@ -1,0 +1,86 @@
+{
+  "learnings": [
+    {
+      "id": "learn-1773724324296",
+      "type": "experiment",
+      "title": "Reddit 9am posting got flagged",
+      "description": "Posted at 9am PST, account got flagged for spam. Moved to 2pm PST, works better.",
+      "outcome": "success",
+      "verdict": "keep",
+      "platform": "reddit",
+      "createdAt": "2026-03-17T05:12:04.296Z",
+      "applied": false,
+      "promotedToDoc": null
+    },
+    {
+      "id": "learn-1773724386974",
+      "outcome": null,
+      "verdict": null,
+      "platform": "general",
+      "createdAt": "2026-03-17T05:13:06.974Z",
+      "applied": false,
+      "promotedToDoc": null
+    },
+    {
+      "id": "learn-1773724466627",
+      "type": "system",
+      "title": "IG Phase 2 DMs got account warned",
+      "description": "Started Phase 2 DM outreach on March 1. Account received warning from Instagram after 50 DMs. Shelved indefinitely - need to warm up account first.",
+      "outcome": "failure",
+      "verdict": "shelved",
+      "platform": "instagram",
+      "createdAt": "2026-03-17T05:14:26.627Z",
+      "applied": false,
+      "promotedToDoc": "doc-1773724471998"
+    },
+    {
+      "id": "learn-1773729350457",
+      "type": "system",
+      "title": "No Fake Identity Anchors on Reddit",
+      "description": "Got muted in r/Nails. In r/smallbusiness, claimed to be a coffee shop owner to match the post. New rule: NEVER claim to own or work in a specific business type. Instead: speak from general operational experience OR remove identity anchor entirely. Lead with insight, not credentials. Wrong: As a coffee shop owner I get it. Right: The closing checklist piece is huge.",
+      "outcome": "failure",
+      "verdict": "keep",
+      "platform": "reddit",
+      "createdAt": "2026-03-17T06:35:50.457Z",
+      "applied": false,
+      "promotedToDoc": null
+    },
+    {
+      "id": "learn-1773730099183",
+      "type": "system",
+      "title": "Fixed Engagement Summary Bugs \u2014 Sessions + Delta Calculation",
+      "description": "Bug 1: Sessions showing 0 due to timezone mismatch (UTC vs PST). Fixed with getTodayPST() and toPSTDate() helpers. Bug 2: +0 today on karma/followers due to missing history array. Fixed by adding history to karma-state.json and creating daily-snapshots.js cron at 11:59pm PHT. Test results: Instagram 0\u21922 sessions, Reddit 0\u21921 session, Reddit karma +0\u2192+18.",
+      "outcome": "success",
+      "verdict": "keep",
+      "platform": "dashboard",
+      "createdAt": "2026-03-17T06:48:19.183Z",
+      "applied": false,
+      "promotedToDoc": null
+    },
+    {
+      "id": "learn-1773800103633",
+      "type": "system",
+      "title": "Draft edit \u2014 tone and phrasing (Lead 1)",
+      "original": "the gap between building and running is brutal. you shipped the product but now you're drowning in everything that comes after. client chasing and admin will eat every hour you don't systemize.",
+      "edited": "The leap from building to running is tough. You've launched the product, but now you're swamped by everything that comes next. Chasing clients and handling admin tasks will consume every hour if you don't put systems in place.",
+      "reason": "Original was too direct and prescriptive. Edited version is warmer, less lecture-y, flows more naturally.",
+      "platform": "reddit",
+      "createdAt": "2026-03-17T19:15:03.633529Z",
+      "applied": false,
+      "promotedToDoc": null
+    },
+    {
+      "id": "learn-1773800103634",
+      "type": "system",
+      "title": "Draft edit \u2014 tone and phrasing (Lead 3)",
+      "original": "decision fatigue is real when there's no one to run things by. every choice lands on you and that weight builds up. even having one other person to bounce ideas off changes the whole dynamic.",
+      "edited": "Decision fatigue is real when you have no one to run things by. Every choice falls on your shoulders, and that weight just keeps piling up. Even having one other person to bounce ideas off can completely change the dynamic.",
+      "reason": "Original was too direct and prescriptive. Edited version is warmer, less lecture-y, flows more naturally.",
+      "platform": "reddit",
+      "createdAt": "2026-03-17T19:15:03.633534Z",
+      "applied": false,
+      "promotedToDoc": null
+    }
+  ],
+  "feedback": []
+}

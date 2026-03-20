@@ -1,6 +1,32 @@
 {
   "posts": [
     {
+      "timestamp": "2026-03-16T04:24:00.000Z",
+      "date": "2026-03-15",
+      "mode": 3,
+      "modeName": "Build in Public — Research Observation",
+      "tweetText": "this week saw a dozen founders with shipped products at zero revenue. the silence after deploy is heavier than the work before it. building is the easy part.",
+      "tweetUrl": "https://x.com/stacydonna0x/status/2033398629151752682",
+      "postType": "standard",
+      "quotedTweetUrl": null,
+      "platform": "x",
+      "account": "stacydonna0x",
+      "basedOnPattern": "Multiple founders with shipped products at $0, no users, silence after deploy"
+    },
+    {
+      "timestamp": "2026-03-14T20:19:00.000Z",
+      "date": "2026-03-14",
+      "mode": 4,
+      "modeName": "Think Out Loud — Personality",
+      "tweetText": "building something nobody knows about hits different at 2am. you keep shipping into the void hoping someone will notice. most days they don't.",
+      "tweetUrl": "PENDING_MANUAL_POST",
+      "postType": "standard",
+      "quotedTweetUrl": null,
+      "platform": "x",
+      "account": "stacydonna0x",
+      "basedOnPattern": "Multiple founders isolated building in silence, no users, stuck at $0"
+    },
+    {
       "timestamp": "2026-03-02T21:19:15.803Z",
       "date": "2026-03-02",
       "mode": 2,
@@ -63,7 +89,6 @@
       "tweetUrl": "https://x.com/stacydonna0x/status/2030054120544239789",
       "postType": "standard",
       "quotedTweetUrl": null,
-      "replyUrl": null,
       "sourceHuntSnapshots": 0,
       "platform": "x",
       "account": "stacydonna0x"
@@ -137,6 +162,61 @@
       "sourceHuntSnapshots": 0,
       "platform": "x",
       "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-13T20:45:00.000Z",
+      "date": "2026-03-13",
+      "mode": 2,
+      "modeName": "Authority — Strong Take",
+      "draftIndex": 1,
+      "tweetText": "a pdf menu is not a service page. google can't read it. your phone clients can't open it. it helps no one. put the services on the actual website",
+      "tweetUrl": "https://x.com/stacydonna0x/status/2032558562208264531",
+      "postType": "standard",
+      "quotedTweetUrl": null,
+      "sourceHuntSnapshots": 3,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-13T22:34:56.676Z",
+      "date": "2026-03-13",
+      "mode": 1,
+      "modeName": "Leads — Talking to ICP",
+      "draftIndex": 4,
+      "tweetText": "a lot of beauty business owners are doing everything right inside the salon and nothing is working online. usually it is one or two specific things. not the whole page",
+      "tweetUrl": "https://x.com/stacydonna0x/status/2032586142730825784",
+      "postType": "qrt",
+      "quotedTweetUrl": "https://x.com/Jagadeeswarrrr/status/2032370180828061710",
+      "sourceHuntSnapshots": 2,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-14T00:25:01.396Z",
+      "date": "2026-03-13",
+      "mode": 4,
+      "modeName": "Think Out Loud — Personality",
+      "draftIndex": 3,
+      "tweetText": "there are two types of people. people who pick a nail color in 2 minutes and people who take 45 and then get the same one they always get. i am both depending on the day",
+      "tweetUrl": "https://x.com/stacydonna0x/status/2032613872490917966",
+      "postType": "standard",
+      "quotedTweetUrl": null,
+      "sourceHuntSnapshots": 0,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-15T01:43:13.975Z",
+      "date": "2026-03-14",
+      "mode": 4,
+      "modeName": "Think Out Loud — Personality",
+      "tweetText": "the silence after you ship something real is heavier than you expect. months of work, zero users, and you're just talking to yourself. sometimes i wonder how many good ideas died in that quiet.",
+      "tweetUrl": "https://x.com/stacydonna0x/status/2032995935513620861",
+      "postType": "standard",
+      "quotedTweetUrl": null,
+      "platform": "x",
+      "account": "stacydonna0x",
+      "basedOnPattern": "Multiple founders building in silence with zero users/traction - isolation of shipping into the void"
     }
   ]
 }

@@ -1,0 +1,65 @@
+BEFORE HUMANIZER (AI-sounding draft):
+
+Many indie hackers are genuinely struggling with distribution today. It's actually a crucial problem that reflects broader challenges in the startup ecosystem. The silence after launch is a testament to how difficult it truly is. This represents a pivotal moment for founders who are building in public.
+
+AFTER HUMANIZER (following SKILL.md rules):
+
+working product but zero revenue hits hard. that gap between shipping something real and someone paying for it is where most founders lose months.
+
+═══════════════════════════════════════════════════
+HUMANIZER SKILL APPLICATION — STEP BY STEP
+═══════════════════════════════════════════════════
+
+1. REMOVED AI VOCABULARY (Section 7):
+   - "genuinely" → deleted
+   - "actually" → deleted
+   - "crucial" → deleted
+   - "truly" → deleted
+   - "pivotal" → deleted
+
+2. REMOVED SIGNIFICANCE INFLATION (Section 1):
+   - "reflects broader challenges in the startup ecosystem" → deleted
+   - "testament to how difficult" → deleted
+   - "represents a pivotal moment" → deleted
+
+3. REMOVED EM DASHES (Section 13):
+   - None in this draft
+
+4. REMOVED QUOTATION MARKS (Section 18):
+   - None in this draft
+
+5. ADDED PERSONALITY (Personality & Soul section):
+   - Changed from passive observation to direct statement
+   - Short punchy sentences instead of long explanatory ones
+   - Added conversational rhythm
+
+6. ANTI-AI AUDIT:
+   What makes the BEFORE obviously AI generated?
+   - "genuinely struggling" — AI hedge word
+   - "actually a crucial problem" — AI emphasis pattern
+   - "reflects broader challenges" — AI significance inflation
+   - "testament to" — AI phrase
+   - "represents a pivotal moment" — AI significance inflation
+   - Long sentences with multiple clauses
+   - No personality, no edge
+
+   AFTER fixes all of these:
+   - Direct, no hedging
+   - No significance inflation
+   - Short sentences
+   - Conversational tone
+   - Sounds like someone who's been there
+
+═══════════════════════════════════════════════════
+FINAL OUTPUT (READY TO POST):
+═══════════════════════════════════════════════════
+
+working product but zero revenue hits hard. that gap between shipping something real and someone paying for it is where most founders lose months.
+
+✅ All Step 0 humanizer rules followed
+✅ No AI vocabulary
+✅ No em dashes
+✅ No quotation marks
+✅ 2 sentences (1-3 rule)
+✅ Casual, conversational tone
+✅ Sounds human, not sterile

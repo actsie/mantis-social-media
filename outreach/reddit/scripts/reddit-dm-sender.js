@@ -165,7 +165,31 @@ const result = spawnSync('openclaw', [
 
 if (result.status === 0) {
   console.log(`✓ Session created: ${name}`);
-  console.log(`\n✅ Reddit DM sender done.\n`);
+  
+  // FIX: Direct write-back — don't rely on session to update warm-leads.json
+  console.log(`\n📝 Updating warm-leads.json directly...`);
+  try {
+    const warmLeads = JSON.parse(fs.readFileSync(WARM_LEADS, 'utf8'));
+    let updated = 0;
+    
+    toSend.forEach(lead => {
+      const matchingLead = warmLeads.leads.find(l => l.author === lead.author);
+      if (matchingLead && !matchingLead.dmSentAt) {
+        matchingLead.status = 'dm-sent';
+        matchingLead.dmSentAt = new Date().toISOString();
+        matchingLead.dmStatus = 'sent';
+        updated++;
+        console.log(`   ✓ ${lead.author} → dm-sent`);
+      }
+    });
+    
+    fs.writeFileSync(WARM_LEADS, JSON.stringify(warmLeads, null, 2));
+    console.log(`   Updated ${updated} lead(s)\n`);
+  } catch (e) {
+    console.error(`   ✗ Failed to update warm-leads.json: ${e.message}\n`);
+  }
+  
+  console.log(`✅ Reddit DM sender done.\n`);
 } else {
   console.error(`✗ Failed: ${name}\n${result.stderr}`);
   console.error(`  stdout: ${result.stdout}`);

@@ -1,0 +1,682 @@
+{
+  "sessions": [
+    {
+      "timestamp": "2026-03-13T20:32:00-08:00",
+      "account": "vickynailsit",
+      "postUrl": "https://www.instagram.com/vickynailsit/reel/DVzFVtzkdhs/",
+      "comment": "this glassy effect is wild. the way it catches light makes it look almost 3d. went straight to @xindystudios after seeing this",
+      "likes": [],
+      "type": "comment",
+      "hashtag": "nailart",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "notes": "Session 8/10. Comment posted successfully after manual intervention. Browser redirect issue resolved. Liked main post + 2 older posts."
+    },
+    {
+      "timestamp": "2026-03-14T14:23:52.969Z",
+      "account": "__mknails",
+      "postUrl": "https://www.instagram.com/p/DVtxQfFjMku/",
+      "comment": "The spacing on these gives such a natural feathery look. That piecey texture is exactly what I keep trying to describe to my tech.",
+      "likes": [
+        "DVtxQfFjMku"
+      ],
+      "type": "comment",
+      "hashtag": "nailslove",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Comment text entered but Post button remained disabled - UI issue. Post was liked."
+    },
+    {
+      "timestamp": "2026-03-14T17:06:54.403Z",
+      "account": "nailsbyharry_",
+      "postUrl": "https://www.instagram.com/p/DTeT-NejiyB/",
+      "comment": "Stained glass nails done right. Those color transitions are flawless.",
+      "likes": [
+        "DTeT-NejiyB",
+        "DUhJIn4EemF",
+        "DUcReEWjkvO"
+      ],
+      "type": "comment",
+      "hashtag": "nailart",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 2/10. Comment posted. Liked main post + 2 older posts from @nailsbyharry_."
+    },
+    {
+      "timestamp": "2026-03-14T20:15:06.457Z",
+      "account": "nbnailart",
+      "postUrl": "https://www.instagram.com/p/DV3oSLhjFz7/",
+      "comment": "The matte top coat on that white glitter base works. Makes the stamped bunny and lamb stand out instead of getting lost in shimmer.",
+      "likes": [
+        "DV3oSLhjFz7",
+        "DVyawIDjBgK",
+        "DVwBxptDLiB"
+      ],
+      "type": "comment",
+      "hashtag": "nailsofig",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 3/10. Comment posted successfully. Liked main post + 2 older posts from @nbnailart (March 12 floral post and March 11 St Patricks post)."
+    },
+    {
+      "timestamp": "2026-03-14T23:49:19.260Z",
+      "account": "_rockstarstudio",
+      "postUrl": "https://www.instagram.com/p/DVE1_NnD2ed/",
+      "comment": "Green done right. The tone sits right between forest and mint without going neon.",
+      "likes": [
+        "DVE1_NnD2ed",
+        "DV4f2EoD1DI",
+        "DV1vlZxj9Wa"
+      ],
+      "type": "comment",
+      "hashtag": "naildesigner",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 5/10. Comment posted. Liked main post + 2 older posts from @_rockstarstudio."
+    },
+    {
+      "timestamp": "2026-03-15T01:15:35.947Z",
+      "account": "nails_beauty_danielacademy",
+      "postUrl": "https://www.instagram.com/p/DV3PK0TDHZg/",
+      "comment": "That gloss level is something else. You can tell the top coat went on smooth with no streaks.",
+      "likes": [
+        "DV3PK0TDHZg",
+        "DVtS6O-jChw",
+        "Crqi6JdsABU"
+      ],
+      "type": "comment",
+      "hashtag": "nailsalon",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 6/10. Comment posted successfully. Liked main post + 2 older posts from @nails_beauty_danielacademy (March 10 post from 4d ago and April 2023 post). Follow builder: 0 qualifying accounts (commenters were nail tech businesses, not individual users)."
+    },
+    {
+      "timestamp": "2026-03-15T01:54:56.537Z",
+      "account": "nail_art_by_cintia",
+      "postUrl": "https://www.instagram.com/p/DV36NkcDHzB/",
+      "comment": "These spring florals have such careful brush work. You can see the detail on each petal - no shortcuts taken.",
+      "likes": [
+        "DV36NkcDHzB",
+        "DVtnBBvjEME",
+        "DVl5xS_DG8e"
+      ],
+      "type": "comment",
+      "hashtag": "nailslove",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 7/10. Comment text entered but Post button remained disabled - UI issue (same as Session 4/10). Post was liked + 2 older posts from @nail_art_by_cintia."
+    },
+    {
+      "timestamp": "2026-03-15T04:08:53.550Z",
+      "account": "_nailsby.elizabeth_",
+      "postUrl": "https://www.instagram.com/p/DVOuPeQiW4S/",
+      "comment": "The nail box option is a smart touch. Lets clients take the design home without worrying about damage.",
+      "likes": [
+        "DVOuPeQiW4S",
+        "DV3-gDjCXKr",
+        "DVv5iTpDvQR"
+      ],
+      "type": "comment",
+      "hashtag": "nailart",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 8/10. Comment posted successfully. Liked main post + 2 older posts from @_nailsby.elizabeth_ (9h post and 3d spring post). Follow builder: skipped - commenters were nail businesses/accounts, not individual users."
+    },
+    {
+      "timestamp": "2026-03-15T04:57:26.657Z",
+      "account": "hanibeauty.hn98",
+      "postUrl": "https://www.instagram.com/p/DV46WrqDBWJ/",
+      "comment": "Putting the HTK location in the caption saves the DMs asking where you're based.",
+      "likes": [
+        "DV46WrqDBWJ",
+        "DV2cXabAMTG",
+        "DVz67vhiWRQ"
+      ],
+      "type": "comment",
+      "hashtag": "nailsofig",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 9/10. Comment posted successfully. Liked main post + 2 older posts from @hanibeauty.hn98 (March 13 pink/brown post and March 12 kitty nails post). Follow builder: 0 qualifying accounts (no other comments on post)."
+    },
+    {
+      "timestamp": "2026-03-15T05:34:57.504Z",
+      "account": "thenailbabeuk",
+      "postUrl": "https://www.instagram.com/p/DV3keRYgieO/",
+      "comment": "Those yellow petals have a nice gradient that keeps them from looking flat. The color shift gives the flowers real dimension.",
+      "likes": [
+        "DV3keRYgieO",
+        "DRXLWv-DVVm",
+        "DVv1_AeAmsH"
+      ],
+      "type": "comment",
+      "hashtag": "nailinspiration",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 10/10. Comment posted successfully. Liked main post + 2 older posts from @thenailbabeuk (purple nails from Nov 2025 and gold nails from 3d ago). Follow builder: skipped - only 1 comment on post from verified account pressdbyannece."
+    },
+    {
+      "timestamp": "2026-03-16T00:51:19.307Z",
+      "account": "malibuclubart",
+      "postUrl": "https://www.instagram.com/p/DVsf1rxCVz1/",
+      "comment": "Love the Easter egg colors on these nails! Perfect spring energy. The pastel blend nails the holiday look without going overboard.",
+      "likes": [
+        "DVsf1rxCVz1",
+        "DUAavyViYZW",
+        "DUAchu6CX9x"
+      ],
+      "type": "comment",
+      "hashtag": "nailslove",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-16T04:21:06.939Z",
+      "account": "ariana.nailbeauty",
+      "postUrl": "https://www.instagram.com/p/DV6oykWjCP1/",
+      "comment": "Light hits these nicely. The shimmer's there without taking over.",
+      "likes": [
+        "DV6oykWjCP1",
+        "DV6oEHCjLer",
+        "DV6mw06DI5X"
+      ],
+      "type": "comment",
+      "hashtag": "nailinspiration",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 10/10. Comment posted successfully. Liked main post + 2 older posts from @ariana.nailbeauty (9h refill post and 9h photo post). Follow builder: skipped - no qualifying individual users in comments."
+    },
+    {
+      "timestamp": "2026-03-16T13:09:35.482Z",
+      "account": "nail.urban_",
+      "postUrl": "https://www.instagram.com/p/DV8MgsFEW4R/",
+      "comment": "Chrome Hearts mold is a bold pick. That chunky texture gives it presence without going overboard.",
+      "likes": [
+        "DV8MgsFEW4R"
+      ],
+      "type": "comment-attempted-ui-issue",
+      "hashtag": "nailslove",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Comment text entered but Post button not accessible in DOM. Main post liked."
+    },
+    {
+      "timestamp": "2026-03-16T22:44:49.019Z",
+      "account": "mutzu_studio",
+      "postUrl": "https://www.instagram.com/p/DV3aCUeDz5U/",
+      "comment": "These nails have a really soft cloud effect. I love how the colors melt into each other—gives it that dreamy look without going overboard.",
+      "likes": [
+        "DV3aCUeDz5U",
+        "DVtLYZXj541",
+        "DVlldmFj61y"
+      ],
+      "type": "comment-attempted-ui-issue",
+      "hashtag": "nailart",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Comment text entered but Post button not accessible in DOM. Main post + 2 older posts liked."
+    },
+    {
+      "timestamp": "2026-03-17T17:10:18.609Z",
+      "account": "veno_nails",
+      "postUrl": "https://www.instagram.com/p/DV9Ph_pEg86/",
+      "comment": "1-week warranty? That's the stuff. Makes actually booking feel way less sketchy as a new client.",
+      "likes": [
+        "DV9Ph_pEg86",
+        "DPgs1oDkkUp",
+        "C2-PGu_PcSm"
+      ],
+      "type": "comment",
+      "hashtag": "nailart",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-17T18:30:46.555Z",
+      "account": "labellenailsboston",
+      "postUrl": "https://www.instagram.com/p/DV_pq14jrrD/",
+      "comment": "That butterfly emoji gets it right. Light and airy without trying too hard.",
+      "likes": [
+        "DV_pq14jrrD",
+        "DV9CXEgDvoJ",
+        "CoctyuOunHB"
+      ],
+      "type": "comment",
+      "hashtag": "nailsofig",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-17T19:59:27.466Z",
+      "account": "nailtechamber",
+      "postUrl": "https://www.instagram.com/nailtechamber/p/DV4Sj9jEipr/",
+      "comment": "That green has real depth. Not too bright or muted - right in the sweet spot.",
+      "likes": [
+        "DV4Sj9jEipr"
+      ],
+      "type": "comment",
+      "hashtag": "nailinspiration",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-17T20:34:34.835Z",
+      "account": "lovelyyfaces",
+      "postUrl": "https://www.instagram.com/lovelyyfaces/reel/DV0xiCWDqxk/",
+      "comment": "The wispy volume here works. Each cluster's got that feathery separation without looking sparse.",
+      "likes": [
+        "DV0xiCWDqxk"
+      ],
+      "type": "comment-attempted-ui-issue",
+      "hashtag": "naildesigner",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 5/10. Comment text entered but Post button not accessible in DOM. Main post liked."
+    },
+    {
+      "timestamp": "2026-03-17T22:31:18.333Z",
+      "account": "bykarawright",
+      "postUrl": "https://www.instagram.com/p/DV0KTqujb4n/",
+      "comment": "These pastels play well together. Each shade complements the others without fighting for attention.",
+      "likes": [
+        "DV0KTqujb4n",
+        "DVngwUDDVAh",
+        "DVfid1gDbfz"
+      ],
+      "type": "comment",
+      "hashtag": "nailsalon",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-18T00:29:14.656Z",
+      "account": "naturalnail_spa",
+      "postUrl": "https://www.instagram.com/p/DV7RxA-D5cj/",
+      "comment": "The organic product angle works. People pick up on it when you go clean without cutting corners on quality.",
+      "likes": [
+        "DV7RxA-D5cj",
+        "DV9HkJxj0_u",
+        "DV9HZlngGct"
+      ],
+      "type": "comment",
+      "hashtag": "nailart",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-18T06:00:00-08:00",
+      "account": "saltmaranails",
+      "postUrl": "https://www.instagram.com/p/DV9PLKsicQU/",
+      "comment": "Putting the Pinterest credit upfront is smart. Clients spot the styles faster when they know where the inspo comes from.",
+      "likes": [
+        "DV9PLKsicQU",
+        "DVZc912jt_N",
+        "DL78U4dsasP"
+      ],
+      "type": "comment",
+      "hashtag": "nailslove",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-18T13:49:08.611Z",
+      "account": "palettejoan",
+      "postUrl": "https://www.instagram.com/p/DV-D0gXk1vf/",
+      "comment": "The blush wave effect works. Pink melts into the base nicely - gets that soft watercolor look without going muddy.",
+      "likes": [
+        "https://www.instagram.com/p/DV-D0gXk1vf/",
+        "https://www.instagram.com/p/DVqQKZdk8FV/",
+        "https://www.instagram.com/p/DVYIvtVkvQ6/"
+      ],
+      "type": "comment",
+      "hashtag": "nailart",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-18T15:34:58.440Z",
+      "account": "tthatpinkiepunkk",
+      "postUrl": "https://www.instagram.com/p/DWBm7Rrjjlf/",
+      "comment": "Tooth fairy press-ons is such a clever concept. The tooth emojis in the caption do most of the work - you get the playful vibe without it feeling try-hard.",
+      "likes": [
+        "https://www.instagram.com/p/DWBm7Rrjjlf/",
+        "https://www.instagram.com/p/DV4Xr_tCUdM/",
+        "https://www.instagram.com/p/DVgYsRvkady/"
+      ],
+      "type": "comment",
+      "hashtag": "nailsofig",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-18T17:22:45.878Z",
+      "account": "hellobirdielab",
+      "postUrl": "https://www.instagram.com/p/DVwtGCSEXmu/",
+      "comment": "Destiny's color pick here hits. The translucent layers add depth without feeling heavy.",
+      "likes": [
+        "https://www.instagram.com/p/DVwtGCSEXmu/",
+        "https://www.instagram.com/p/DVhBY3Ukq25/",
+        "https://www.instagram.com/p/DVedpSaEiKu/"
+      ],
+      "type": "comment",
+      "hashtag": "nailinspiration",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-18T19:07:38.186Z",
+      "account": "soukarolineramos",
+      "postUrl": "https://www.instagram.com/p/DWCVk6nkQYQ/",
+      "comment": "The gel finish on these almond nails is everything. Application looks so smooth—zero bulk. Love how it keeps that natural look but you know it'll last.",
+      "likes": [
+        "https://www.instagram.com/p/DWCVk6nkQYQ/",
+        "https://www.instagram.com/p/DQuLqncEZPJ/",
+        "https://www.instagram.com/p/DAEV2MLpahW/"
+      ],
+      "type": "comment",
+      "hashtag": "naildesigner",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-18T20:23:08.079Z",
+      "account": "lovelyyfaces",
+      "postUrl": "https://www.instagram.com/lovelyyfaces/reel/DV0xiCWDqxk/",
+      "comment": "That soft gradient from short to long is what makes wispy volume so wearable. Takes you from natural to noticeable without any harsh lines.",
+      "likes": [
+        "https://www.instagram.com/lovelyyfaces/reel/DV0xiCWDqxk/",
+        "https://www.instagram.com/lovelyyfaces/reel/DVj5iDfktjd/",
+        "https://www.instagram.com/lovelyyfaces/p/DVi18djjVe5/"
+      ],
+      "type": "comment-attempted-ui-issue",
+      "hashtag": "nailsalon",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 6/10. Comment text entered but Post button not accessible in DOM. Main post + 2 older posts from @lovelyyfaces already liked from previous engagements."
+    },
+    {
+      "timestamp": "2026-03-18T23:04:38.946Z",
+      "account": "nailsbykevin716",
+      "postUrl": "https://www.instagram.com/nailsbykevin716/p/DV9vgSbFPw7/",
+      "comment": "You can tell Lindsey's got the technique down. Everything's clean and precise.",
+      "likes": [
+        "https://www.instagram.com/nailsbykevin716/p/DV9vgSbFPw7/",
+        "https://www.instagram.com/nailsbykevin716/p/DV4EONZlua7/",
+        "https://www.instagram.com/nailsbykevin716/p/DV4CxZMlkQn/"
+      ],
+      "type": "comment-attempted-ui-issue",
+      "hashtag": "nailslove",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 7/10. Comment text entered but Post button not accessible in DOM. Main post + 2 older posts from @nailsbykevin716 liked."
+    },
+    {
+      "timestamp": "2026-03-19T05:08:48.343Z",
+      "account": "curestudios",
+      "postUrl": "https://www.instagram.com/p/DV1yBU7mD0g/",
+      "comment": "This St. Patty's set gets the festive look right without going overboard.",
+      "likes": [
+        "https://www.instagram.com/p/DV1yBU7mD0g/",
+        "https://www.instagram.com/p/DVuJjIYmGid/",
+        "https://www.instagram.com/p/DVrZKLumC7x/"
+      ],
+      "type": "comment",
+      "hashtag": "nailinspiration",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-19T14:11:56.961Z",
+      "account": "miniluxebrookline",
+      "postUrl": "https://www.instagram.com/miniluxebrookline/p/DV_WZLFj4bg/",
+      "comment": "Those 3D florals have real height to them. The way the petals catch light you can actually see the shadow underneath — flat art can't do that.",
+      "likes": [
+        "https://www.instagram.com/miniluxebrookline/p/DV_WZLFj4bg/",
+        "https://www.instagram.com/miniluxebrookline/p/DVnxBvsj1jP/",
+        "https://www.instagram.com/miniluxebrookline/p/DVj89s1D2wz/"
+      ],
+      "type": "comment",
+      "hashtag": "nailslove",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 1/10. Comment posted successfully. Liked main post + 2 older posts. Follow builder: 0 qualifying (minelineskin=brand, evelynlnails=nail educator/brand)."
+    },
+    {
+      "timestamp": "2026-03-19T16:32:18.252Z",
+      "account": "cebi.nailbox",
+      "postUrl": "https://www.instagram.com/p/DWBxS3gkmsC/",
+      "comment": "Cat-eye on almond is a solid pick. That magnetic line lands clean across every nail, you can trace exactly where it breaks.",
+      "likes": [
+        "https://www.instagram.com/p/DWBxS3gkmsC/",
+        "https://www.instagram.com/cebi.nailbox/p/DV_GwdGEpc6/",
+        "https://www.instagram.com/cebi.nailbox/p/DV8rNTikhuG/"
+      ],
+      "type": "comment",
+      "hashtag": "nailart",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 2/10. Comment posted successfully. Liked main post + 2 older posts from @cebi.nailbox (March 17 Y2k post and March 16 pink nails post). Follow builder: 0 qualifying (only commenter was hsm.nail.factory, a nail supplier brand)."
+    },
+    {
+      "timestamp": "2026-03-19T20:01:27.400Z",
+      "account": "glue_nd_glam",
+      "postUrl": "https://www.instagram.com/p/DWE7R-Vic-C/",
+      "comment": "Those black outlines on the florals are clean. Getting that kind of control on every single nail is no joke.",
+      "likes": [
+        "https://www.instagram.com/p/DWE7R-Vic-C/",
+        "https://www.instagram.com/glue_nd_glam/p/DWBANC9jZjM/",
+        "https://www.instagram.com/glue_nd_glam/p/DV6HZOBDfTD/"
+      ],
+      "type": "comment",
+      "hashtag": "nailsofig",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 3/10. Comment posted successfully. Liked main post + 2 older posts from @glue_nd_glam (March 17 humor post and March 15 styling post). Follow builder: 0 qualifying (nimra_.14=private account/0 posts, itx_me_mahnoor925=fan commenter)."
+    },
+    {
+      "timestamp": "2026-03-19T22:07:32.383Z",
+      "account": "nailzxsadie",
+      "postUrl": "https://www.instagram.com/nailzxsadie/reel/DWE3ni_keAg/",
+      "comment": "That shade sits right on the edge of purple without crossing it. So hard to get that blue to stay put.",
+      "likes": [
+        "https://www.instagram.com/nailzxsadie/reel/DWE3ni_keAg/",
+        "https://www.instagram.com/nailzxsadie/p/DV8mQ28kXp-/",
+        "https://www.instagram.com/nailzxsadie/reel/DV_sO2EkZcx/"
+      ],
+      "type": "comment",
+      "hashtag": "nailinspiration",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 4/10. Comment posted successfully. Liked main post + 2 older posts from @nailzxsadie (3d birthday freestyle and 2d polygel reel). Follow builder: 0 qualifying (metallicabrown=1900 followers private, bynicolemv=112K nail brand)."
+    },
+    {
+      "timestamp": "2026-03-19T23:31:17.734Z",
+      "account": "studio.pammymesquita",
+      "postUrl": "https://www.instagram.com/studio.pammymesquita/p/DWFUx6oEdTs/",
+      "comment": "Nail shielding is the kind of service that sells itself. Once someone's naturals stay intact for three weeks, extensions are suddenly a lot less appealing.",
+      "likes": [
+        "https://www.instagram.com/studio.pammymesquita/p/DWFUx6oEdTs/",
+        "https://www.instagram.com/studio.pammymesquita/p/DV1s3PPkSP5/",
+        "https://www.instagram.com/studio.pammymesquita/reel/DWDXR6OsRdf/"
+      ],
+      "type": "comment",
+      "hashtag": "naildesigner",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 5/10. Comment posted successfully. Liked main post + 2 older posts (6d studio photo and 19h pink nail reel). Follow builder: 0 qualifying (only commenter on post was @stacyd0nna)."
+    },
+    {
+      "timestamp": "2026-03-20T00:28:02.571Z",
+      "account": "redbrickcommons",
+      "postUrl": "https://www.instagram.com/p/DWEU_1KESbA/",
+      "comment": "Phase 3 opening up is kind of the sign people wait for. Established plaza, built-in traffic. The hardest part of picking a new location is already solved.",
+      "likes": [
+        "https://www.instagram.com/p/DWEU_1KESbA/",
+        "https://www.instagram.com/redbrickcommons/p/DV_Zu1pEZa2/",
+        "https://www.instagram.com/redbrickcommons/reel/DV89ntbgMlO/"
+      ],
+      "type": "comment",
+      "hashtag": "nailsalon",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 6/10. Comment posted successfully. Liked main post + 2 older posts from @redbrickcommons (2d St Patricks post and 3d Phase 3 reel). Follow builder: 0 qualifying (glowhausmd=beauty business brand)."
+    },
+    {
+      "timestamp": "2026-03-20T01:13:21.060Z",
+      "account": "espace_manwella",
+      "postUrl": "https://www.instagram.com/p/DWE8PEgjtsf/",
+      "comment": "That red has a wet paint finish that goes all the way to the tip. Clean application, nothing pulling.",
+      "likes": [
+        "https://www.instagram.com/p/DWE8PEgjtsf/",
+        "https://www.instagram.com/espace_manwella/p/DSP_oe-DAhQ/",
+        "https://www.instagram.com/espace_manwella/p/DT3WMYpDC_d/"
+      ],
+      "type": "comment",
+      "hashtag": "nailslove",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 7/10. Comment posted successfully. Liked main post + 2 older posts from @espace_manwella (glamour nails Dec 2025 and client nails Jan 2026). Follow builder: 0 qualifying (_nada_hammami has 1137 followers > 500)."
+    },
+    {
+      "timestamp": "2026-03-20T03:37:15.940Z",
+      "account": "rainnail_studio_",
+      "postUrl": "https://www.instagram.com/rainnail_studio_/p/DWEjyM-kdq9/",
+      "comment": "The character faces are tiny and the linework still holds. Something about keeping that detail crisp on a short nail without it going muddy.",
+      "likes": [
+        "https://www.instagram.com/rainnail_studio_/p/DWEjyM-kdq9/",
+        "https://www.instagram.com/rainnail_studio_/p/DWEjuVJEa0T/",
+        "https://www.instagram.com/rainnail_studio_/p/DWEjrFikcYI/"
+      ],
+      "type": "comment",
+      "hashtag": "nailart",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 8/10. Comment posted successfully. Liked main post + 2 older posts from @rainnail_studio_ (both March 19 posts). Follow builder: 0 qualifying (no other commenters on post)."
+    },
+    {
+      "timestamp": "2026-03-20T04:33:00.218Z",
+      "account": "amynguyen1087",
+      "postUrl": "https://www.instagram.com/p/DWE5rY4mXzS/",
+      "comment": "The gem placement along the tips is so precise. Nothing random about how they're sitting there.",
+      "likes": [
+        "https://www.instagram.com/p/DWE5rY4mXzS/",
+        "https://www.instagram.com/amynguyen1087/p/DViwsRYlowY/",
+        "https://www.instagram.com/amynguyen1087/p/DVgQaWFFm8a/"
+      ],
+      "type": "comment",
+      "hashtag": "nailsofig",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 9/10. Comment posted successfully. Liked main post + 2 older posts from @amynguyen1087 (Flower nails March 6 and March 5 posts). Follow builder: 0 qualifying (only comments from Facebook, no IG individual users)."
+    }
+  ]
+}

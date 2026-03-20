@@ -1,0 +1,50 @@
+{
+  "docs": [
+    {
+      "id": "doc-000",
+      "title": "Learnings System — Design Decision",
+      "content": "Design doc explaining the three learning types (content, system, experiment), the flow from Learning → Doc, and the rule of thumb for what goes where (Changelog vs Docs vs Learnings). Three tabs, one flow — nothing falls through. Changelog answers what changed and when. Docs answers why we built it this way. Learnings answers what we learned from trying it.",
+      "type": "system",
+      "sourceLearning": null,
+      "platform": "dashboard",
+      "createdAt": "2026-03-17T05:15:00.000Z",
+      "file": "docs/learnings-system.md"
+    },
+    {
+      "id": "doc-1773724471998",
+      "title": "IG Phase 2 DMs got account warned",
+      "content": "Started Phase 2 DM outreach on March 1. Account received warning from Instagram after 50 DMs. Shelved indefinitely - need to warm up account first.",
+      "type": "system",
+      "sourceLearning": "learn-1773724466627",
+      "platform": "instagram",
+      "createdAt": "2026-03-17T05:14:31.998Z"
+    },
+    {
+      "id": "doc-001",
+      "title": "Humanizer Gate — Mandatory for All Outbound Content",
+      "content": "All outbound content (X replies, Reddit comments, Instagram comments, DMs) must run through the humanizer skill before posting. Discovered Mar 13: skipping humanizer means AI-pattern drafts go live, hurting account credibility.\n\nFlow:\n1. Draft comment/reply/post\n2. Say: /humanize [draft]\n3. Post humanized output only\n4. Verify no banned words remain\n\nBanned: genuinely, actually, amazing, stunning, weird, resonate, nightmare, quiet, vibe/vibes, plot twist, lands, sticks, clicks, reads as, em dashes",
+      "type": "system",
+      "sourceLearning": "learn-humanizer-gate",
+      "platform": "general",
+      "createdAt": "2026-03-13T00:00:00.000Z"
+    },
+    {
+      "id": "doc-002",
+      "title": "Reddit Posting — Always Use old.reddit.com",
+      "content": "New Reddit UI (faceplate custom elements + Shadow DOM) blocks ALL JS text injection. Nothing works.\n\nUse old.reddit.com — plain textarea, execCommand works fine.\n\nFlow:\n1. Navigate to old.reddit.com post\n2. textarea[name=\"text\"] → focus + execCommand\n3. .arrow.up to upvote\n4. .save button to submit\n5. Reload + confirm text in page",
+      "type": "system",
+      "sourceLearning": "learn-reddit-old-ui",
+      "platform": "reddit",
+      "createdAt": "2026-03-05T00:00:00.000Z"
+    },
+    {
+      "id": "doc-003",
+      "title": "Session Target — Use --session main for Skills Access",
+      "content": "Discovered Mar 14: Isolated sessions cannot access workspace skills.\n\nSolution: Use --session main flag for all outreach crons.\n\nBenefits:\n- Runs in main session (has access to humanizer skill)\n- 50% fewer API calls (single session per comment, not A/B split)\n- Direct skill invocation via /humanize [draft]\n- Cleaner flow, easier debugging\n\nUpdated planners:\n- outreach/instagram/scripts/daily-planner-oc.js\n- outreach/reddit/scripts/reddit-daily-planner-oc.js\n- outreach/x/scripts/x-indie-hacker-planner-oc.js",
+      "type": "system",
+      "sourceLearning": "learn-session-main",
+      "platform": "general",
+      "createdAt": "2026-03-14T00:00:00.000Z"
+    }
+  ]
+}

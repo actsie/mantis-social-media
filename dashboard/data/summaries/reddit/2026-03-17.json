@@ -1,0 +1,28 @@
+{
+  "date": "2026-03-17",
+  "generated_at": "2026-03-18T06:21:05.485Z",
+  "generated_at_pht": "3/18/2026, 2:21:05 PM",
+  "platform": "reddit",
+  "account": "u/Alive_Kick7098",
+  "sessions_completed": 1,
+  "sessions_scheduled": 4,
+  "sessions_incomplete": 3,
+  "comments_posted": 0,
+  "dms_sent": 0,
+  "posts_posted": 0,
+  "karma": {
+    "post": 1,
+    "comment": 209,
+    "total": 210,
+    "delta": 0
+  },
+  "warm_leads": {
+    "found": 3,
+    "commented": 1,
+    "dm_sent": 1,
+    "replied": 0
+  },
+  "dm_details": [],
+  "post_details": [],
+  "raw_summary": "📖 *Reddit Daily Summary — Tuesday, Mar 17*\n\n*Account:* u/Alive_Kick7098\n\n*Sessions:*\n├ Completed: 1\n├ Scheduled: 4\n├ Incomplete: 3\n├ Comments posted: 0\n├ DMs sent: 0\n└ Posts posted: 0\n\n*Karma:*\n├ Post: 1\n├ Comment: 209\n└ Total: 210 (+0 today)\n\n*Warm Leads:*\n├ Found: 3\n├ Commented: 1\n├ DM sent: 1\n└ Replied: 0\n\n*SUBREDDIT STATUS:*\n• r/Nails — MUTED ⛔️\n• r/beauty — cooling, available 2026-03-19\n• r/femalehairadvice — available ✅\n• r/SkincareAddicts — available ✅\n• r/30PlusSkinCare — available ✅\n• r/curlyhair — available ✅\n• r/longhair — available ✅\n\n*Incomplete Sessions:* 3\nCheck today-schedule.json for sessions with done: false\n\n"
+}

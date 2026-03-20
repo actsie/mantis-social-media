@@ -125,6 +125,23 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 - **Discord links:** Wrap multiple links in `<>` to suppress embeds: `<https://example.com>`
 - **WhatsApp:** No headers — use **bold** or CAPS for emphasis
 
+**⚡ Humanizer (MANDATORY for All Outbound Content):**
+
+Before posting ANY comment, reply, or post to social media (Instagram, X, Reddit):
+
+1. **Draft first** — Write your initial comment/reply/post (1-3 sentences)
+2. **Save draft to file** — `outreach/[platform]/drafts/session-N-draft.txt`
+3. **Say: "Humanize this: [paste draft]"** — This triggers the humanizer skill
+4. **Wait for humanized output** — The skill will return cleaned version
+5. **Save humanized version** — `outreach/[platform]/drafts/session-N-humanized.txt`
+6. **Post the humanized output** — NEVER post the draft directly
+7. **Verify** — Check for any remaining banned words: genuinely, actually, amazing, stunning, weird, resonate, nightmare, quiet, vibe/vibes, plot twist, lands, sticks, clicks, reads as
+8. **Check for em dashes** — Replace `—` with period or comma
+
+**Why:** AI writing has detectable patterns. Humanizer removes them. Posting without humanizing = AI slop that hurts account credibility.
+
+**Workflow:** Draft → "Humanize this:" → Post humanized version. Always.
+
 ## 💓 Heartbeats - Be Proactive!
 
 When you receive a heartbeat poll (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!

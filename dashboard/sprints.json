@@ -1,0 +1,75 @@
+[
+  {
+    "id": "sprint-001",
+    "name": "Dashboard Phase 2",
+    "startDate": "2026-03-17",
+    "endDate": "2026-03-24",
+    "status": "active",
+    "goals": [
+      "Approve/reject flow with feedback storage",
+      "Nightly self-review cron",
+      "Sprint tab with task tracking",
+      "Better agent integration",
+      "File diff preview"
+    ],
+    "tasks": [
+      {
+        "id": "task-001",
+        "title": "Build feedback store for approve/reject",
+        "status": "done",
+        "priority": "high",
+        "assignee": "dashboard-agent",
+        "completedAt": "2026-03-17T02:30:00Z"
+      },
+      {
+        "id": "task-002",
+        "title": "Add feedback UI with rejection form",
+        "status": "done",
+        "priority": "high",
+        "assignee": "dashboard-agent"
+      },
+      {
+        "id": "task-003",
+        "title": "Create nightly review cron job",
+        "status": "done",
+        "priority": "high",
+        "assignee": "dashboard-agent"
+      },
+      {
+        "id": "task-004",
+        "title": "Add Sprint tab with task tracking",
+        "status": "done",
+        "priority": "medium",
+        "assignee": "dashboard-agent"
+      },
+      {
+        "id": "task-005",
+        "title": "Add file diff preview (git)",
+        "status": "done",
+        "priority": "medium",
+        "assignee": "dashboard-agent"
+      },
+      {
+        "id": "task-006",
+        "title": "Integrate live agent status from sessions",
+        "status": "in_progress",
+        "priority": "medium",
+        "assignee": "dashboard-agent"
+      },
+      {
+        "id": "task-007",
+        "title": "Add Learnings tab with stats",
+        "status": "done",
+        "priority": "medium",
+        "assignee": "dashboard-agent"
+      },
+      {
+        "id": "task-008",
+        "title": "Register nightly review cron",
+        "status": "todo",
+        "priority": "high",
+        "assignee": "user"
+      }
+    ]
+  }
+]

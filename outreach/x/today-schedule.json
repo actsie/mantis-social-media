@@ -1,24 +1,49 @@
 {
   "date": "2026-03-13",
-  "sessionCount": 2,
   "sessions": [
     {
       "n": 1,
-      "time": "17:54",
-      "account": "essie",
-      "type": "nail-brand",
-      "engagement": "full",
-      "status": "confirmed",
-      "done": false
+      "time": "08:55",
+      "query": "can't find PMF",
+      "type": "indie-hacker",
+      "label": "PMF search",
+      "backup": [
+        "searching for PMF",
+        "product market fit"
+      ],
+      "done": true,
+      "actualQuery": "stuck at $0",
+      "target": "@pcshipp"
     },
     {
       "n": 2,
-      "time": "22:22",
-      "account": "holotaco",
-      "type": "creator",
-      "engagement": "full",
-      "status": "confirmed",
-      "done": false
+      "time": "09:40",
+      "query": "quit my job to build",
+      "type": "indie-hacker",
+      "label": "indie hacker",
+      "backup": [
+        "first time founder",
+        "solo founder"
+      ],
+      "done": true,
+      "actualQuery": "quit my job to build",
+      "target": "@georgedevz"
+    },
+    {
+      "n": 3,
+      "time": "14:29",
+      "query": "nobody is using",
+      "type": "indie-hacker",
+      "label": "indie hacker",
+      "backup": [
+        "crickets after launch",
+        "launched to nothing"
+      ],
+      "done": true,
+      "actualQuery": "no traction",
+      "target": "@VamsKrish_",
+      "status": "skipped",
+      "skipReason": "No suitable indie hacker posts found after trying 4 queries"
     }
   ]
 }

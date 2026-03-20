@@ -1,0 +1,47 @@
+{
+  "date": "2026-03-17",
+  "generated_at": "2026-03-18T06:30:14.717Z",
+  "generated_at_pht": "3/18/2026, 2:30:14 PM",
+  "platform": "combined",
+  "instagram": {
+    "sessions_completed": 6,
+    "sessions_with_engagement": 0,
+    "comments_posted": 6,
+    "total_likes_received": 0,
+    "total_replies_received": 0,
+    "avg_likes_per_comment": 0,
+    "avg_replies_per_comment": 0,
+    "followers": {
+      "current": 4,
+      "delta": 0
+    },
+    "best_post": null
+  },
+  "x": {
+    "sessions_completed": 1,
+    "sessions_with_engagement": 0,
+    "replies_posted": 1,
+    "total_likes_received": 0,
+    "total_replies_received": 0,
+    "avg_likes_per_reply": 0,
+    "avg_replies_per_reply": 0,
+    "followers": {
+      "current": 19,
+      "delta": 0
+    },
+    "best_post": null
+  },
+  "reddit": {
+    "sessions_completed": 1,
+    "comments_posted": 1,
+    "post_karma": 1,
+    "comment_karma": 209,
+    "total_karma": 210,
+    "karma_delta": 0
+  },
+  "totals": {
+    "total_sessions": 8,
+    "total_engagement_received": 0
+  },
+  "raw_summary": "📊 *Daily Engagement Summary — Tuesday, Mar 17*\n\n*INSTAGRAM (@stacyd0nna)*\n├ Sessions: 6\n├ Comments with engagement: 0/6\n├ Total likes on our comments: 0\n├ Total replies to our comments: 0\n├ Avg likes/comment: 0.0\n├ Avg replies/comment: 0.0\n└ Followers: 4 (+0 today)\n\n*X (@stacydonna0x)*\n├ Sessions: 1\n├ Replies with engagement: 0/1\n├ Total likes on our replies: 0\n├ Total replies to our replies: 0\n├ Avg likes/reply: 0.0\n├ Avg replies/reply: 0.0\n└ Followers: 19 (+0 today)\n\n*REDDIT (u/Alive_Kick7098)*\n├ Sessions: 1\n├ Comments posted: 1\n├ Post karma: 1\n├ Comment karma: 209\n└ Total karma: 210 (+0 today)\n\n*DAY TOTALS*\n├ Total sessions: 8\n├ Total engagement received: 0\n├ IG followers: 4\n├ X followers: 19\n└ Reddit karma: 210\n"
+}

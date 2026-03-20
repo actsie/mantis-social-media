@@ -141,4 +141,4 @@ Very different from consumer subs (r/Nails, r/beauty):
 - **Never comment twice in the same sub within 30 min**
 - **No links in comments** until Phase 3 and only when directly relevant
 - **Upvote posts you comment on** — builds community goodwill
-- **Current karma:** 60 (as of Mar 5, 2026) — Phase 2 active ✅ — check weekly at old.reddit.com/user/Alive_Kick7098
+- **Current karma:** 183 (as of Mar 15, 2026) — Phase 3 active ✅ — check weekly at old.reddit.com/user/Alive_Kick7098

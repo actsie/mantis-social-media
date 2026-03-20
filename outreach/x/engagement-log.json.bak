@@ -1,0 +1,170 @@
+{
+  "sessions": [
+    {
+      "timestamp": "2026-03-13T15:58:50.486Z",
+      "type": "indie-hacker",
+      "searchQuery": "stuck at $0",
+      "targetHandle": "@pcshipp",
+      "postUrl": "https://x.com/pcshipp/status/2032399074436235438",
+      "postText": "My first app stuck at $0 MRR But stupid me I keep shipping new features Will adding a new feature make my first $1?",
+      "replyText": "will adding a new feature make my first $1. that question already answers itself. shipping more features while stuck at zero burns months you don't get back.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-13T16:02:50.369Z",
+      "type": "indie-hacker",
+      "searchQuery": "launching soon",
+      "targetHandle": "@diwashprenuer",
+      "postUrl": "https://x.com/diwashprenuer/status/2032482075803291994",
+      "postText": "Built apps. Got no users. Blamed the product. Built more apps. Same result. Finally realized: I knew how to code, not how to sell. Now making a playbook so other founders don't waste their time like I did. howtogrowsaas.com waitlist here, launching it soon.",
+      "replyText": "most technical founders build in silence for months. that silence costs more than bad code ever will.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-13T16:42:44.770Z",
+      "type": "indie-hacker",
+      "searchQuery": "quit my job to build",
+      "targetHandle": "@georgedevz",
+      "postUrl": "https://x.com/georgedevz/status/2032456653594124524",
+      "postText": "I learned to code while working a 9 to 5 so that I can build SaaS and quit my job To say it wasn't easy is an understatement I gave up a few times but I always come back to it 2 years later, I shipped saas, made a few sales from my boilerplate and still don't know javascript",
+      "replyText": "traded a 9 to 5 for coding 24/7. freedom you chased is still somewhere else. burning out now costs you the energy to find it.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-13T17:22:48.865Z",
+      "type": "indie-hacker",
+      "searchQuery": "stuck building in public",
+      "targetHandle": "@FocusPauseApp",
+      "postUrl": "https://x.com/FocusPauseApp/status/2031657960112533752",
+      "postText": "Congrats on the growth! I'm not building in public so downloads are stuck at 0 lol. Built Focus Pause - just a simple breather before apps to cut screen time. Maybe I should start sharing too?",
+      "replyText": "downloads stuck at 0 because you built in silence. that silence costs more than bad code ever will. months of work vanish when no one sees them.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-13T21:31:43.605Z",
+      "type": "indie-hacker",
+      "searchQuery": "nobody is using",
+      "backupQueries": [
+        "crickets after launch",
+        "launched to nothing"
+      ],
+      "actualQuery": "overwhelmed founder",
+      "targetHandle": "@zeigyte",
+      "postUrl": "https://x.com/zeigyte/status/2032441553030185378",
+      "postText": "me at 2am as a founder, navigating 999 new problems I did not know existed yesterday.",
+      "replyText": "navigating 999 new problems I didn't know existed yesterday. every day brings fresh fires with no playbook. that uncertainty drains more energy than the work itself.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-14T00:14:08.691Z",
+      "type": "indie-hacker",
+      "searchQuery": "can't ship",
+      "actualQuery": "unfinished SaaS",
+      "targetHandle": "@hskdaking",
+      "postUrl": "https://x.com/hskdaking/status/2030382636460327192",
+      "postText": "Many developers struggle to finish projects from A → Z. We get to ~60%… then jump to the next idea. Another repo. Another unfinished project. How do you stay disciplined enough to actually finish what you start?",
+      "replyText": "we get to 60% then jump to the next idea. that pivot feels like progress but it's just a new distraction. another repo joins the graveyard.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-14T00:46:20.135Z",
+      "type": "indie-hacker",
+      "searchQuery": "quit my job to build",
+      "targetHandle": "@cluelesslygeeky",
+      "postUrl": "https://x.com/cluelesslygeeky/status/2032605977489404311",
+      "postText": "Yep. I don't really have access to much else. I want to do more classes and coaching, but I need to build my content creation to something that let's me quit my retail hell job first.",
+      "replyText": "need to build content creation to something before quitting retail hell. that before means months of unpaid work while retail shifts drain your energy. the job you hate funds the escape you're building.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-14T01:32:36.784Z",
+      "type": "indie-hacker",
+      "searchQuery": "no traction",
+      "targetHandle": "@VamsKrish_",
+      "postUrl": "https://x.com/VamsKrish_/status/2032617859747291309",
+      "postText": "My startup \"ShamVerse\" agentic AI product for \"Content creators\" got rejected by #YC Spring 26 Here's what I learned and possible reasons for rejection:- 1. Great startup idea with promising TAM,SAM and SOM but no traction yet. 2. Stellar founder backgrounds - but both founders are not from the content creators industry.",
+      "replyText": "great startup idea with promising TAM but no traction yet. that gap between market research and real users burns months you don't get back. the idea stays theoretical while competitors ship and learn.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x"
+    },
+    {
+      "timestamp": "2026-03-14T05:00:25.439Z",
+      "type": "indie-hacker",
+      "searchQuery": "golden handcuffs",
+      "backupQueries": [
+        "overwhelmed founder",
+        "quit my job"
+      ],
+      "queriesTried": [
+        "golden handcuffs",
+        "overwhelmed founder",
+        "quit my job",
+        "overwhelmed founder"
+      ],
+      "targetHandle": null,
+      "postUrl": null,
+      "postText": null,
+      "replyText": null,
+      "liked": false,
+      "platform": "x",
+      "account": "stacydonna0x",
+      "status": "skipped",
+      "skipReason": "No suitable posts found after trying primary + backup #1 + backup #2 + backup #3 (from success tracker). All results were non-indie-hacker content (political commentary, crypto, memes, GoFundMe, video games)."
+    },
+    {
+      "timestamp": "2026-03-14T20:09:56.447Z",
+      "type": "indie-hacker",
+      "searchQuery": "overwhelmed founder",
+      "targetHandle": "@shoma2da_e",
+      "postUrl": "https://x.com/shoma2da_e/status/2032813277080859073",
+      "postText": "Just released DayTask! It is a simple task management app born from one idea: focus only on today. No bloated features, and no more feeling overwhelmed by a never-ending backlog. Seize the day. Get through your tasks, one step at a time.",
+      "replyText": "Five lines of Python compounds faster than you think. Most people wait for the big leap and ship nothing. You're already ahead if you're counting the small wins.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x",
+      "engagement": {
+        "likesOnOurReply": 0,
+        "repliesToOurReply": 0,
+        "originalPosterEngaged": false
+      },
+      "humanized": true,
+      "followed": true,
+      "followers": 52
+    },
+    {
+      "timestamp": "2026-03-15T03:04:00Z",
+      "type": "indie-hacker",
+      "searchQuery": "stuck building in public",
+      "targetHandle": "@kiki_blacc",
+      "postUrl": "https://x.com/kiki_blacc/status/2032387568143147247",
+      "postText": "I've been stuck for 3 days. Day 32 of building in public and I haven't written a single query for this project yet. We were to install MySQL Server, SSMS, and restore an AdventureWorks database file to SQL Server. Sounds straightforward. It wasn't.",
+      "replyText": "three days stuck on setup. that's where projects go to die. you're still here though, day 32.",
+      "liked": true,
+      "platform": "x",
+      "account": "stacydonna0x",
+      "humanized": true,
+      "engagement": {
+        "likesOnOurReply": 0,
+        "repliesToOurReply": 1,
+        "originalPosterEngaged": true
+      },
+      "followed": true,
+      "followers": 87
+    }
+  ]
+}
