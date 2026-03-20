@@ -15,6 +15,7 @@ const https = require('https');
 const WORKSPACE = '/Users/mantisclaw/.openclaw/workspace';
 const QUEUE_FILE = path.join(WORKSPACE, 'skill-queue.json');
 const SKILLS_DIR = '/Users/mantisclaw/claude-skills/content/skills';
+const GIT_ROOT = '/Users/mantisclaw/claude-skills';
 const GITHUB_API = 'https://raw.githubusercontent.com';
 
 const MAX_SKILLS_PER_RUN = 10;
@@ -308,25 +309,25 @@ ${bodyContent}
     // Git commit and push
     console.log(`  🔄 Committing and pushing...`);
     
-    const addResult = runCmd(`git -C ${SKILLS_DIR} add content/skills/${slug}.md`);
+    const addResult = runCmd(`git -C ${GIT_ROOT} add content/skills/${slug}.md`);
     if (addResult.status !== 0) {
       console.log(`  ⚠ Git add failed: ${addResult.stderr}\n`);
       continue;
     }
     
-    const commitResult = runCmd(`git -C ${SKILLS_DIR} commit -m "Add ${skillName} skill from ${org}"`);
+    const commitResult = runCmd(`git -C ${GIT_ROOT} commit -m "Add ${skillName} skill from ${org}"`);
     if (commitResult.status !== 0) {
       console.log(`  ⚠ Git commit failed: ${commitResult.stderr}\n`);
       continue;
     }
     
-    const pullResult = runCmd(`git -C ${SKILLS_DIR} pull --rebase origin main`);
+    const pullResult = runCmd(`git -C ${GIT_ROOT} pull --rebase origin main`);
     if (pullResult.status !== 0) {
       console.log(`  ⚠ Git pull failed: ${pullResult.stderr}\n`);
       continue;
     }
     
-    const pushResult = runCmd(`git -C ${SKILLS_DIR} push origin main`);
+    const pushResult = runCmd(`git -C ${GIT_ROOT} push origin main`);
     if (pushResult.status !== 0) {
       console.log(`  ⚠ Git push failed: ${pushResult.stderr}\n`);
       continue;
