@@ -1,9 +1,9 @@
 # Feedback Patterns
 
-> Auto-generated from approval decisions. Read this every session before drafting.
+> Auto-generated from approval decisions. Read every session before drafting.
 
-Updated: 2026-03-19 23:18  
-Total decisions: 3 | Rejections: 0 | Edits on approval: 1
+Updated: 2026-03-20T09:51  
+Total decisions: 4 | Rejections: 0 | Edits on approval: 2
 
 ---
 
@@ -15,7 +15,34 @@ No rejections yet.
 
 ## Edit Patterns
 
-1 tweets edited before approval. Study the diffs:
+2 approved with edits:
+
+**Before:** translation: a new contender just entered the agent payment space
+
+WLFI shipped AgentPay SDK this week. open source, self-custodial, built on USD1 stablecoin.
+
+the pitch: agents hold their own keys, execute transactions without asking permission every time, stay within policy limits you set upfront.
+
+it solves the same problem everyone in this space is circling — agents that can reason but can't pay
+
+but it's crypto-native. that's both the feature and the constraint.
+
+enterprises and regulated businesses will need something that runs on fiat rails with audit trails finance can defend. USD1 doesn't get you there.
+
+that's still the open gap.
+**After:**  translation: a new contender just entered the agent payment space
+
+WLFI shipped AgentPay SDK this week. open source, self-custodial, built on USD1 stablecoin.
+
+the pitch: agents hold their own keys, execute transactions without asking permission every time, stay within policy limits you set upfront.
+
+it solves the same problem everyone in this space is circling. agents that can reason but can't pay.
+
+but it's crypto-native. that's the feature and the constraint.
+
+enterprises and regulated businesses will need something that runs on fiat rails with audit trails finance can defend. USD1 doesn't get you there.
+
+that's still the open gap.
 
 **Before:** good breakdown of the macro picture. a few things worth adding for builders trying to make sense of it right now:
 
@@ -31,7 +58,7 @@ the four protocols you're tracking (x402, MPP, AP2, ACP) are genuinely different
 
 the honest answer for builders: nobody knows which wins yet. the risk is that if you build tightly against one protocol and it loses, you're rebuilding your payment layer. the practical move right now is to abstract the payment interface early so you can swap the underlying protocol without rewriting your agent logic.
 
-the fragmentation is the problem more than the protocols themselves.  
+the fragmentation is the problem more than the protocols themselves.
 **After:**  good breakdown of the macro picture. a few things worth adding for builders trying to make sense of it right now:
 
 the four protocols you're tracking (x402, MPP, AP2, ACP) are genuinely different bets:
@@ -48,10 +75,8 @@ the fragmentation is the problem more than the protocols themselves.
 
 ---
 
-## Rules for MantisCAW
+## Rules
 
-1. Read rejection patterns above before every draft.
-2. Any category with 3+ rejections is a hard rule — do not violate it.
-3. Study edit diffs — they show exactly what needs to change.
-4. When in doubt, write shorter and more direct.
-5. After 10+ decisions, summarise the main pattern in one sentence at the top of this file.
+1. Any category with 3+ rejections = hard rule.
+2. Study edit diffs — they show what needs to change.
+3. When in doubt: shorter and more direct.
