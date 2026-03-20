@@ -4,6 +4,23 @@
 
 ---
 
+## Config — Notification Webhooks
+
+**Discord — #mantiscaw-queue**
+Webhook: `https://discord.com/api/webhooks/1484473424200863754/_dN2tqjeUiqE4OPpDqnVfq9_W2b3m4r-dCvqhfEDUpaWS_iMT0D0phduUu--8q68eS1W`
+Username: `MantisCAW`
+Use `[BREAKING]` label for urgency: breaking, `[DRAFT]` for urgency: standard.
+
+**Slack — placeholder**
+Webhook: not set yet. Skip silently if empty.
+
+**Telegram**
+Use native OpenClaw session message — no token needed.
+
+**Approval dashboard URL:** `http://localhost:8901/tweets`
+
+---
+
 ## About Agent Card
 - Agentic payment solution — enables AI agents to autonomously handle payments and credit.
 - Major traction signal: PolyMarket retweet → 400k views.
