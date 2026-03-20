@@ -8,7 +8,11 @@ Usage:
 
 import sys
 import os
+import requests
 from agentmail import AgentMail
+
+# Discord webhook for email confirmations
+DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1484083649342345288/vddvZ2_HrY3syCrS1wkRlWeVLSlnMTnkpq2FFVLqGch0jUxoOT8NiFbA1rxGJPqqwUfX"
 
 if len(sys.argv) != 5:
     print("Usage: python send-email.py <to_email> <skill_name> <slug> <description>")
@@ -53,6 +57,16 @@ skills.pawgrammer.com"""
     )
     print(f"Email sent to {to_email}")
     print(f"Message ID: {response.message_id}")
+    
+    # Post confirmation to Discord
+    try:
+        requests.post(DISCORD_WEBHOOK, json={
+            "content": f"📧 Email sent to {to_email} for skill: {skill_name}"
+        })
+        print(f"Discord notification sent")
+    except Exception as webhook_error:
+        print(f"Discord webhook failed: {webhook_error}")
+        
 except Exception as e:
     print(f"Error sending email: {e}")
     sys.exit(1)
