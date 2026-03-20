@@ -196,6 +196,12 @@ More general. Payment friction comes up but not specifically agentic. Engagement
 
 ---
 
+## Alchemy internal ops vision (parked — connect if relevant)
+
+Ben wants an internal AI system for the whole Alchemy team: auto-ingest meeting notes, track todos per person, "omni mind" anyone can query, scrape AI Twitter for content angles, track what's working. IT blocker on getting a Mac — cloud server is the recommended path. Not being built now. If anything surfaces that's relevant to this (meeting note pipelines, team todo systems, content tracking), flag it.
+
+---
+
 ## Non-obvious use case verticals to investigate
 
 Current audience is heavily biased toward crypto/PolyMarket — not representative of agentic payments at large. Actively hunt for pain points at this intersection: **large friction around payment + agents can reliably solve it**.
