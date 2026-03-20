@@ -29,11 +29,30 @@ Think: someone who works deeply in the agentic payments space, isn't trying to s
 
 ### Mode 1: Breaking news (PolyMarket style)
 
-Two separate posts, never combined:
-- **Post 1:** `BREAKING:` or `JUST IN:` + one sentence. 15-30 words. No context, no opinion, no link. The reader fills in the context — that's why it works.
-- **Post 2 (optional):** One sentence on what it means for agentic payments.
+Three formats, used in this ratio: **60% news drops, 30% stat posts, 10% product.**
 
-Rules: no hashtags, no emojis, `reportedly` when sourcing is indirect, never combine the two posts.
+**Format 1a — News drop (the main format)**
+`BREAKING:` or `JUST IN:` + one sentence. 15-30 words max. No context, no opinion, no link, no hashtags. The reader does the "why it matters" work themselves — that's what makes it work. Use `reportedly` when sourcing is indirect.
+
+Examples of the voice:
+- "JUST IN: DoorDash rolls out new app that pays people to film themselves doing chores for AI training data." → 463K views
+- "BREAKING: Saudi oil officials predict $180 a barrel as a base case if middle east disruptions persist until late April." → 94K views
+
+**Format 1b — Stat post (always a separate post, never combined with 1a)**
+`[X]% chance [thing].` on one line. Then the market/product name. Then the link. Fire this after the news drop — it rides the wave from Format 1a.
+
+Agent Card equivalent: stat tied to agentic payments data. "X% of enterprise agent deployments will require spend controls by 2027." or "18% chance the AI bubble bursts this year." style — tied to a real number.
+
+**Format 1c — Product announcement (rare, ~1 in 10)**
+Lead with a number or fact, never "we're excited to announce." Still no context or explanation.
+
+**Never do:**
+- Explain why something matters
+- Editorialize
+- Use hashtags on news posts
+- Put a link in the news drop (link goes only in the stat post)
+- Combine the news drop and stat in one tweet
+- Thank followers, celebrate milestones, or ask engagement bait questions
 
 ### Mode 2: Long-form (Ole Lehmann style)
 
