@@ -1,518 +1,350 @@
 #!/usr/bin/env node
 /**
- * reddit-daily-planner.js
- * Generates today's Reddit engagement schedule and creates OpenClaw cron jobs.
- * Run at 6:01am PST daily via master cron (staggered after IG + X).
+ * Reddit Daily Planner — SINGLE SESSION WITH HUMANIZER SKILL
+ * Run at 6:01am PST daily. Generates 4 sessions.
+ * Each session: Find post → Draft → Humanize (skill) → Post → Log
+ * Uses --session main to access workspace humanizer skill
  */
 
 const { spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const WORKSPACE  = '/Users/mantisclaw/.openclaw/workspace';
-const LOG_FILE   = path.join(WORKSPACE, 'outreach/reddit/engagement-log.json');
+const WORKSPACE = '/Users/mantisclaw/.openclaw/workspace';
+const LOG_FILE = path.join(WORKSPACE, 'outreach/reddit/engagement-log.json');
 const SCHED_FILE = path.join(WORKSPACE, 'outreach/reddit/today-schedule.json');
 
-const MIN_HOUR     = 7;    // 7:00 AM PST
-const MAX_HOUR     = 23;   // 11:00 PM PST
-const MIN_GAP      = 45;   // min minutes between sessions (Reddit is stricter)
-const CLUSTER_MAX  = 90;   // "close pair" threshold
-const LONG_GAP_MIN = 180;  // "long break" threshold
+const COMMENT_COUNT = 4;
+const MIN_HOUR = 7, MAX_HOUR = 23;
 
-// ── Target subreddits ─────────────────────────────────────────────────────────
-// phase 1 = warmup (karma building) | phase 2 = business subs (50+ karma) | phase 3 = later
-// Karma thresholds: phase2 unlocks at 50+, phase3 at 100+
-// Update CURRENT_KARMA below as account grows
-const CURRENT_KARMA = 91; // updated 2026-03-08
-
-const SUBREDDITS = [
-  // Phase 1 — warmup consumer subs
-  { sub: 'Nails',               type: 'nail',       phase: 1, weight: 5 },
-  { sub: 'beauty',              type: 'beauty',     phase: 1, weight: 3 },
-  { sub: 'femalehairadvice',    type: 'hair',       phase: 1, weight: 2 },
-  { sub: 'SkincareAddicts',     type: 'skincare',   phase: 1, weight: 2 },
-  { sub: '30PlusSkinCare',      type: 'skincare',   phase: 1, weight: 1 },
-  { sub: 'curlyhair',           type: 'hair',       phase: 1, weight: 1 },
-  { sub: 'longhair',            type: 'hair',       phase: 1, weight: 1 },
-  // Phase 2 — business/professional subs (OUR TARGET CUSTOMERS)
-  // Unlock at 50+ karma. These are nail techs / stylists / salon owners.
-  // Comment only on booking, client flow, website, getting new clients topics.
-  { sub: 'Nailtechs',           type: 'pro-nail',   phase: 2, weight: 5 },
-  { sub: 'hairstylist',         type: 'pro-hair',   phase: 2, weight: 4 },
-  { sub: 'EstheticianLife',     type: 'pro-beauty', phase: 2, weight: 3 },
-  { sub: 'smallbusiness',       type: 'biz',        phase: 99, weight: 2 }, // paused — manual approval required before posting
-  // Phase 3 — expand later
-  { sub: 'SkincareAddiction',   type: 'skincare',   phase: 3, weight: 2 },
-  { sub: 'RedditLaqueristas',   type: 'nail',       phase: 3, weight: 2 },
-  { sub: 'MassageTherapists',   type: 'pro-beauty', phase: 3, weight: 1 },
+// Muted subs — never select these (manual override)
+const MUTED = [
+  'Nails',  // Currently muted due to over-posting
 ];
 
-// ── Complaint keyword monitoring (inbound leads) ───────────────────────────────
-const COMPLAINT_REDDITS = ['smallbusiness', 'Entrepreneur', 'RestaurantOwners', 'salonowners'];
-const COMPLAINT_KEYWORDS = [
-  // Burnout/overwhelm
-  'exhausted', 'burned out', "can't keep up", 'working 80 hours', "can't eat",
-  'no work-life balance', 'thinking of closing', 'not worth it anymore',
-  // Communication overload
-  'phone won\'t stop', 'inbox is', 'DMs are', 'too busy to respond',
-  'overwhelmed with messages', 'constant stream', 'fall through the cracks',
-  // No-shows/cancellations
-  'no show', 'cancellation', 'didn\'t show up', 'last-minute cancel',
-  // Asking for help
-  'how do you handle', 'recommend software', 'recommend tool', 'what do you use',
-  // Staffing
-  'staff quit', 'hiring is', 'doing everything myself', 'can\'t find help',
-  // Customer pressure
-  'customers expect', 'people are so demanding', 'reviews are killing',
-  // Chaos/no systems
-  'leads not followed', 'winging it', 'chaotic', 'slipping through',
-  // Growth frustration
-  'too busy to market', 'stuck at same', 'can\'t grow', 'plateaued'
-];
-
-// Map complaint keywords to pain types for DM templates
-const PAIN_TYPE_MAP = {
-  'chaos/no-systems': ['leads not followed', 'winging it', 'chaotic', 'slipping through', 'doing everything manually', 'build a system'],
-  'communication-overload': ['phone won\'t stop', 'inbox is', 'DMs are', 'too busy to respond', 'overwhelmed with messages', 'constant stream', 'fall through the cracks', 'client requests', 'texts'],
-  'burnout/overwhelm': ['exhausted', 'burned out', "can't keep up", 'working 80 hours', "can't eat", 'no work-life balance', 'eating me alive', 'losing motivation', 'spending 4-5 hours'],
-  'instability/growth-frustration': ['thinking of closing', 'not worth it anymore', 'stuck at same', 'can\'t grow', 'plateaued', 'clients leaving', 'anxious about', 'revenue basically goes to zero'],
-  'no-shows': ['no show', 'cancellation', 'didn\'t show up', 'last-minute cancel'],
-  'staffing': ['staff quit', 'hiring is', 'doing everything myself', 'can\'t find help'],
-  'customer-pressure': ['customers expect', 'people are so demanding', 'reviews are killing']
+// Cooldown config: sub → days to wait before hitting again
+const COOLDOWNS = {
+  'Nails': 3,
+  'beauty': 2,
+  'smallbusiness': 3,
+  'advancedentrepreneur': 2,
+  'Bookkeeping': 2,
+  'business': 2,
+  'Entrepreneur': 2,
+  'Entrepreneurship': 2,
+  'EntrepreneurRideAlong': 2,
+  'growmybusiness': 2,
+  'indiebiz': 2,
 };
 
-function detectPainType(postTitle, postText = '') {
-  const combined = (postTitle + ' ' + postText).toLowerCase();
-  for (const [painType, keywords] of Object.entries(PAIN_TYPE_MAP)) {
-    if (keywords.some(kw => combined.includes(kw.toLowerCase()))) {
-      return painType;
-    }
+const SUBS = [
+  { sub: 'Nails', weight: 2 },
+  { sub: 'beauty', weight: 2 },
+  { sub: 'femalehairadvice', weight: 2 },
+  { sub: 'SkincareAddicts', weight: 2 },
+  { sub: '30PlusSkinCare', weight: 1 },
+  { sub: 'curlyhair', weight: 1 },
+  { sub: 'longhair', weight: 1 },
+  { sub: 'smallbusiness', weight: 2 },
+  { sub: 'advancedentrepreneur', weight: 2 },
+  { sub: 'Bookkeeping', weight: 2 },
+  { sub: 'business', weight: 2 },
+  { sub: 'Entrepreneur', weight: 2 },
+  { sub: 'Entrepreneurship', weight: 2 },
+  { sub: 'EntrepreneurRideAlong', weight: 2 },
+  { sub: 'growmybusiness', weight: 2 },
+  { sub: 'indiebiz', weight: 2 },
+];
+
+const COOLDOWN_FILE = path.join(WORKSPACE, 'outreach/reddit/subreddit-cooldowns.json');
+
+function loadCooldowns() {
+  try {
+    return JSON.parse(fs.readFileSync(COOLDOWN_FILE, 'utf8'));
+  } catch (e) {
+    return {};
   }
-  return 'general';
 }
 
-// Determine active phase based on karma
-const activePhase = CURRENT_KARMA >= 100 ? 3 : CURRENT_KARMA >= 50 ? 2 : 1;
-const activeSubs = SUBREDDITS.filter(s => s.phase <= activePhase);
+function saveCooldowns(cooldowns) {
+  fs.writeFileSync(COOLDOWN_FILE, JSON.stringify(cooldowns, null, 2));
+}
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+function isOnCooldown(sub, cooldowns) {
+  if (!cooldowns[sub]) return false;
+  const lastHit = new Date(cooldowns[sub]);
+  const today = new Date(todayPST());
+  const diffDays = Math.floor((today - lastHit) / (1000 * 60 * 60 * 24));
+  const cooldownDays = COOLDOWNS[sub] || 0;
+  return diffDays < cooldownDays;
+}
+
+function getAvailableSubs(cooldowns) {
+  return SUBS.filter(s => !MUTED.includes(s.sub) && !isOnCooldown(s.sub, cooldowns));
+}
+
+function getSubredditStatus(cooldowns) {
+  const lines = [];
+  SUBS.forEach(s => {
+    if (MUTED.includes(s.sub)) {
+      lines.push(`• r/${s.sub} — MUTED ⛔️`);
+    } else if (cooldowns[s.sub]) {
+      const lastHit = new Date(cooldowns[s.sub]);
+      const availableDate = new Date(lastHit.getTime() + (COOLDOWNS[s.sub] * 24 * 60 * 60 * 1000));
+      const availStr = availableDate.toISOString().split('T')[0];
+      const todayDate = new Date(todayPST());
+      if (availableDate <= todayDate) {
+        lines.push(`• r/${s.sub} — available ✅`);
+      } else {
+        lines.push(`• r/${s.sub} — cooling, available ${availStr}`);
+      }
+    } else {
+      lines.push(`• r/${s.sub} — available ✅`);
+    }
+  });
+  return lines.join('\n');
+}
+
 function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 function pad(n) { return n.toString().padStart(2, '0'); }
 function minsToHHMM(m) { return `${pad(Math.floor(m / 60))}:${pad(m % 60)}`; }
 
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+function weightedPick(availableSubs) {
+  if (availableSubs.length === 0) {
+    throw new Error('No subreddits available — all are muted or on cooldown');
   }
-  return a;
+  const total = availableSubs.reduce((sum, s) => sum + s.weight, 0);
+  let r = rand(1, total);
+  for (const s of availableSubs) {
+    if (r <= s.weight) return s.sub;
+    r -= s.weight;
+  }
+  return availableSubs[0].sub;
 }
 
-function weightedPick(items) {
-  const total = items.reduce((s, i) => s + i.weight, 0);
-  let r = Math.random() * total;
-  for (const item of items) {
-    r -= item.weight;
-    if (r <= 0) return item;
+function generateTimes() {
+  const lo = MIN_HOUR * 60, hi = MAX_HOUR * 60;
+  for (let i = 0; i < 10000; i++) {
+    const times = Array.from({ length: COMMENT_COUNT }, () => rand(lo, hi)).sort((a, b) => a - b);
+    const gaps = times.slice(1).map((t, j) => t - times[j]);
+    if (gaps.every(g => g >= 45) && gaps.some(g => g <= 90) && gaps.some(g => g >= 180)) return times;
   }
-  return items[items.length - 1];
-}
-
-function generateTimes(count) {
-  const lo = MIN_HOUR * 60;
-  const hi = MAX_HOUR * 60;
-  for (let attempt = 0; attempt < 10000; attempt++) {
-    const times = Array.from({ length: count }, () => rand(lo, hi)).sort((a, b) => a - b);
-    const gaps  = times.slice(1).map((t, i) => t - times[i]);
-    if (gaps.some(g => g < MIN_GAP))        continue;
-    if (!gaps.some(g => g <= CLUSTER_MAX))  continue;
-    if (!gaps.some(g => g >= LONG_GAP_MIN)) continue;
-    return times;
-  }
-  throw new Error('Could not generate valid schedule after 10000 attempts');
+  throw new Error('Could not generate schedule');
 }
 
 function todayPST() {
-  return new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'America/Los_Angeles',
-    year: 'numeric', month: '2-digit', day: '2-digit'
-  }).format(new Date());
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 }
 
 function getLAOffset() {
-  const tzDate  = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
-  const utcDate = new Date(new Date().toLocaleString('en-US', { timeZone: 'UTC' }));
-  const diffH   = Math.round((tzDate - utcDate) / 3600000);
-  const sign    = diffH >= 0 ? '+' : '-';
-  return `${sign}${Math.abs(diffH).toString().padStart(2, '0')}:00`;
+  const tz = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+  const utc = new Date(new Date().toLocaleString('en-US', { timeZone: 'UTC' }));
+  const diff = Math.round((tz - utc) / 3600000);
+  return `${diff >= 0 ? '+' : '-'}${Math.abs(diff).toString().padStart(2, '0')}:00`;
 }
 
-function targetDate() {
-  return process.env.DATE_OVERRIDE || todayPST();
-}
+const today = todayPST();
+const cooldowns = loadCooldowns();
+const availableSubs = getAvailableSubs(cooldowns);
 
-// ── Load log ──────────────────────────────────────────────────────────────────
-let log = { sessions: [] };
-if (fs.existsSync(LOG_FILE)) {
-  try { log = JSON.parse(fs.readFileSync(LOG_FILE, 'utf8')); } catch (_) {}
-}
+// Log muted subs
+MUTED.forEach(sub => console.log(`r/${sub} — muted, skipping`));
 
-// Posts commented on in last 7 days (avoid double-commenting same post)
-const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
-const recentPostUrls = new Set(
-  (log.sessions || [])
-    .filter(s => new Date(s.timestamp).getTime() > sevenDaysAgo)
-    .map(s => s.postUrl)
-);
-
-// Count comments today to avoid overdoing it
-const todayStr = targetDate();
-const todayCount = (log.sessions || []).filter(s => s.timestamp?.startsWith(todayStr)).length;
-
-// ── Generate schedule ─────────────────────────────────────────────────────────
-// Session count: 3-4 during warmup, scale up in phase 2+
-const SESSION_COUNT = activePhase >= 2 ? rand(4, 5) : rand(3, 4);
-const today   = targetDate();
-const times   = generateTimes(SESSION_COUNT);
-const gaps    = times.slice(1).map((t, i) => t - times[i]);
-
-// Mix: in phase 2+, ~40% business subs, 60% consumer subs
-const phase1Subs = activeSubs.filter(s => s.phase === 1);
-const phase2Subs = activeSubs.filter(s => s.phase === 2);
-
-const sessions = times.map((t, i) => {
-  // In phase 2+, every 3rd session targets a business sub
-  const pool = (activePhase >= 2 && i % 3 === 1 && phase2Subs.length > 0)
-    ? phase2Subs
-    : phase1Subs.length > 0 ? phase1Subs : activeSubs;
-  const sub = weightedPick(pool);
-  return {
-    n:    i + 1,
-    time: minsToHHMM(t),
-    sub:  sub.sub,
-    type: sub.type,
-    done: false
-  };
+console.log(`\n📅 Reddit schedule for ${today}`);
+console.log(`   Available subs: ${availableSubs.map(s => `r/${s.sub}`).join(', ')}`);
+const onCooldown = SUBS.filter(s => isOnCooldown(s.sub, cooldowns)).map(s => {
+  const lastHit = new Date(cooldowns[s.sub]);
+  const availableDate = new Date(lastHit.getTime() + (COOLDOWNS[s.sub] * 24 * 60 * 60 * 1000));
+  const availStr = availableDate.toISOString().split('T')[0];
+  return `r/${s.sub} (available ${availStr})`;
 });
+if (onCooldown.length > 0) console.log(`   On cooldown: ${onCooldown.join(', ')}\n`);
 
-console.log(`\n📅 Reddit schedule for ${today} (${SESSION_COUNT} sessions)`);
-sessions.forEach(s => console.log(`  ${s.n}. ${s.time}  r/${s.sub}  (${s.type})`));
-console.log(`  Gaps (min): ${gaps.join(', ')}`);
-console.log(`  Cluster ≤90min: ${gaps.some(g => g <= 90)}`);
-console.log(`  Long gap ≥3hrs: ${gaps.some(g => g >= 180)}`);
-console.log(`  Today already posted: ${todayCount}`);
-console.log(`  Recent post URLs (skip): ${recentPostUrls.size}`);
+const times = generateTimes();
+const sessions = times.map((t, i) => ({ n: i + 1, time: minsToHHMM(t), sub: weightedPick(availableSubs), done: false }));
 
-fs.writeFileSync(SCHED_FILE, JSON.stringify({ date: today, sessionCount: SESSION_COUNT, sessions }, null, 2));
-console.log(`\n✓ Written: today-schedule.json`);
-
-// ── Create session crons ───────────────────────────────────────────────────────
+// Update cooldowns for today's selections
 sessions.forEach(s => {
-  const isProSub = ['pro-nail','pro-hair','pro-beauty','biz'].includes(s.type);
-  const proNote = isProSub ? [
-    ``,
-    `⚠️ BUSINESS SUB — This is r/${s.sub}, a professional community. These are our TARGET CUSTOMERS (nail techs, stylists, salon owners).`,
-    ``,
-    `ONLY comment on posts about:`,
-    `  - Getting new clients / online visibility`,
-    `  - Booking issues (clients DM instead of booking, booking confusion)`,
-    `  - Website / social media presence questions`,
-    `  - Starting a private studio or going solo`,
-    `  - No-shows, last-minute cancellations (booking page transparency can help)`,
-    ``,
-    `SKIP posts about: technique questions, product questions, personal struggles, drama with clients (unless there's a booking angle).`,
-    ``,
-    `TONE: Peer-to-peer, direct, knowledgeable. Show you understand their world (Vagaro, Booksy, Acuity, StyleSeat, Square Appointments). No links, no promotion. Just drop value.`,
-    ``,
-    `EXAMPLE good comment on "clients always DM me pricing instead of booking online":`,
-    `  "usually means there's friction in the booking path — most common: booking button is below the fold on mobile, no prices visible on the service menu, or no calendar preview so they can't tell if you're even taking new clients. linking directly to your booking page instead of your homepage fixes most of it"`,
-    ``,
-    `Read strategy.md for more: /Users/mantisclaw/.openclaw/workspace/outreach/reddit/strategy.md`,
-  ].join('\n') : '';
+  if (COOLDOWNS[s.sub]) {
+    cooldowns[s.sub] = today;
+  }
+});
+saveCooldowns(cooldowns);
 
+console.log(`\nGenerated sessions:`);
+sessions.forEach(s => console.log(`  ${s.n}. ${s.time}  r/${s.sub}`));
+
+fs.writeFileSync(SCHED_FILE, JSON.stringify({ date: today, sessions }, null, 2));
+
+sessions.forEach(s => {
   const msg = [
-    `REDDIT SESSION ${s.n}/${SESSION_COUNT} for ${today} — post as u/Alive_Kick7098.`,
+    `Reddit Session ${s.n}/${COMMENT_COUNT} — FIND → DRAFT → HUMANIZE → POST`,
+    `Subreddit: r/${s.sub}`,
     ``,
-    `BROWSER: Use profile="openclaw" for ALL browser tool calls. This browser should be logged into Reddit as u/Alive_Kick7098. Do NOT use profile="chrome" or the Chrome extension relay.`,
+    `BROWSER: Use profile="openclaw". Logged into u/Alive_Kick7098.`,
     ``,
-    `Target subreddit: r/${s.sub} (${s.type})`,
-    proNote,
+    `0. READ AGENT CONTEXT (do this first, before all other steps):`,
+    `   - Read file: ~/.openclaw/agents/reddit-agent.md`,
+    `   - Prepend contents to session context — apply all rules from that file throughout this session`,
     ``,
-    `CRITICAL: Read these files first:`,
-    `  /Users/mantisclaw/.openclaw/workspace/outreach/reddit/tone-guide.md`,
-    `  /Users/mantisclaw/.openclaw/workspace/outreach/reddit/question-examples.md`,
-    `  /Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json`,
-    `  /Users/mantisclaw/.openclaw/workspace/outreach/inbound-leads.json`,
+    `1. KARMA CHECK:`,
+    `   - Go to old.reddit.com/user/Alive_Kick7098`,
+    `   - Note post karma, comment karma, total karma`,
+    `   - Log to outreach/reddit/karma-state.json`,
     ``,
-    `🎯 SESSION 1 ONLY — COMPLAINT MONITORING (do this FIRST before any engagement):`,
+    `2. OPEN SUB:`,
+    `   - Go to old.reddit.com/r/${s.sub}/new`,
+    `   - IMPORTANT: Use old.reddit.com (new UI blocks JS)`,
     ``,
-    `Search r/smallbusiness for complaint posts from the last 3 days (72 hours). These are potential inbound leads — business owners already describing the exact problems we solve.`,
+    `3. FIND POST:`,
+    `   - Look for posts "X minutes ago" or "just now" (under 1 hour old)`,
+    `   - Pick: positive show-and-tell, nail art, makeovers, styling`,
+    `   - SKIP: negative content, help posts, blurry photos, already commented`,
+    `   - Save: post URL, post title, post text`,
     ``,
-    `Search queries to run (one at a time, sort by "new"):`,
-    `  1. exhausted OR "burned out" OR "can't keep up" OR "working 80 hours"`,
-    `  2. "phone won't stop" OR "inbox is" OR "DMs are" OR "too busy to respond"`,
-    `  3. "no show" OR cancellation OR "didn't show up"`,
-    `  4. "how do you handle" OR "recommend software" OR "recommend tool"`,
-    `  5. "overwhelmed with" OR "can't eat" OR "no work-life balance"`,
+    `4. READ TOP COMMENTS:`,
+    `   - Sort by "top", read top 3 comments`,
+    `   - Note their length, tone, structure`,
+    `   - Match that energy`,
     ``,
-    `Filter results to show posts from the last 3 days only. Reddit search may show older results — skip anything older than 72hrs.`,
-    ``,
-    `For each complaint post found (under 72hrs old):`,
-    `  1. Read the post — is it an owner describing a real pain point?`,
-    `  2. Tier it:`,
-    `     - HOT: <2hrs old + specific complaint + owner posting → reply same day`,
-    `     - WARM: <72hrs old + general vent + owner → log for follow-up`,
-    `     - COLD: >72hrs or vague → log only, no outreach`,
-    `  3. Log to KameleonDB using the helper script:`,
-    `     `,
-    `     const { execSync } = require('child_process');`,
-    `     `,
-    `     // For HOT/WARM leads only (not COLD)`,
-    `     if (tier === 'hot' || tier === 'warm') {`,
-    `       const cmd = 'cd /Users/mantisclaw/.openclaw/workspace && node outreach/scripts/log-lead.js --platform reddit --account ' + postAuthor + ' --link https://old.reddit.com/user/' + postAuthor + ' --segment smallbusiness owner --fit 4 --reason \"' + postTitle + '\" --status ' + tier + ' --notes \"Pain type: ' + painType + '. Found via complaint search.\"';`,
-    `       execSync(cmd);`,
-    `     }`,
-    `     const leads = JSON.parse(fs.readFileSync(leadsPath, 'utf8'));`,
-    `     const warmLeads = JSON.parse(fs.readFileSync(warmLeadsPath, 'utf8'));`,
-    `     const leadId = 'lead-' + (warmLeads.leads.length + 1).toString().padStart(3, '0');`,
-    `     const now = new Date().toISOString();`,
-    `     `,
-    `     // Detect pain type from post title/text`,
-    `     const postText = (document.querySelector('article p')?.textContent || '').toLowerCase();`,
-    `     const postTitle = 'POST TITLE HERE'.toLowerCase();`,
-    `     const painTypeMap = {`,
-    `       'chaos/no-systems': ['leads not followed', 'winging it', 'chaotic', 'slipping through', 'doing everything manually', 'build a system'],`,
-    `       'communication-overload': ['phone won\\'t stop', 'inbox is', 'dms are', 'too busy to respond', 'overwhelmed with messages', 'constant stream', 'fall through the cracks', 'client requests', 'texts'],`,
-    `       'burnout/overwhelm': ['exhausted', 'burned out', 'can\\'t keep up', 'working 80 hours', 'can\\'t eat', 'no work-life balance', 'eating me alive', 'losing motivation'],`,
-    `       'instability/growth-frustration': ['thinking of closing', 'not worth it anymore', 'stuck at same', 'can\\'t grow', 'plateaued', 'clients leaving', 'anxious about', 'revenue basically goes to zero']`,
-    `     };`,
-    `     let painType = 'general';`,
-    `     for (const [type, keywords] of Object.entries(painTypeMap)) {`,
-    `       if (keywords.some(kw => (postTitle + ' ' + postText).includes(kw))) {`,
-    `         painType = type;`,
-    `         break;`,
-    `       }`,
-    `     }`,
-    `     `,
-    `     const newLead = {`,
-    `       id: leadId,`,
-    `       source: 'reddit',`,
-    `       subreddit: 'r/smallbusiness',`,
-    `       postTitle: 'POST TITLE HERE',`,
-    `       postUrl: 'FULL POST URL',`,
-    `       author: 'POST_AUTHOR',`,
-    `       foundAt: now,`,
-    `       postAge: 'X hours',`,
-    `       tier: 'hot|warm|cold',`,
-    `       painType: painType,`,
-    `       painSignals: ['signal1', 'signal2'],`,
-    `       status: 'found',`,
-    `       commentedAt: null,`,
-    `       commentUrl: null,`,
-    `       dmReadyAt: null,`,
-    `       dmSentAt: null,`,
-    `       dmStatus: null,`,
-    `       repliedAt: null,`,
-    `       notes: 'Brief note about fit and potential angle'`,
-    `     };`,
-    `     `,
-    `     leads.leads.push({ ...newLead, actionTaken: 'logged', responseDraft: null });`,
-    `     warmLeads.leads.push(newLead);`,
-    `     `,
-    `     fs.writeFileSync(leadsPath, JSON.stringify(leads, null, 2));`,
-    `     fs.writeFileSync(warmLeadsPath, JSON.stringify(warmLeads, null, 2));`,
-    ``,
-    `  4. For HOT tier leads only: Write a helpful comment (NOT a pitch).`,
+    `5. DRAFT COMMENT:`,
+    `   - Write a 2-3 sentence reply to THIS post.`,
+    `   - Anchor the reply on exactly ONE detail from the post.`,
+    `   - Do NOT quote, copy, or closely paraphrase that detail.`,
+    `   - Do NOT summarize the post.`,
+    `   - Do NOT mention multiple points.`,
+    `   - Check engagement-log.json and avoid repeating phrases used today.`,
+    `   - NO calling people out.`,
     `   `,
-    `   ⚡ HUMANIZER (MANDATORY): Run your draft through the humanizer skill before posting.`,
+    `   TONE RULES (mandatory):`,
+    `   - Warm opener — start with empathy, not observation ("That's tough" not "The problem is...")`,
+    `   - Not prescriptive — don't tell them what to do ("systems help" not "you need to systemize")`,
+    `   - Conversational — write like you're texting a friend`,
+    `   - Capitalization optional — match the vibe of the post`,
+    `   - No lecture-y endings — don't close with advice ("that weight builds up" not "here's what to do")`,
+    `   - 2-3 sentences max — leave room for them to respond`,
     `   `,
-    `   Example:`,
-    `   "saw your post about X. we work with salons on this exact thing — the chaos of [specific pain they mentioned] is real. one thing that's worked for others: [specific tactic, no link]. happy to share more if useful"`,
+    `   EXAMPLE (use as reference):`,
+    `   Good: "The leap from building to running is tough. You've launched the product but now you're swamped by everything that comes next."`,
+    `   Bad: "the gap between building and running is brutal. you shipped the product but now you're drowning. client chasing and admin will eat every hour you don't systemize."`,
+    `   `,
+    `   Save draft to: outreach/reddit/drafts/session-${s.n}-draft.txt`,
     ``,
-    `  5. After posting a comment on a warm/hot lead post, update warm-leads.json:`,
-    `     const fs = require('fs');`,
-    `     const warmLeadsPath = '/Users/mantisclaw/.openclaw/workspace/outreach/reddit/warm-leads.json';`,
+    `6. HUMANIZE (INVOKE SKILL):`,
+    `   - Run: /humanizer [paste draft content]`,
+    `   - Wait for humanizer skill output`,
+    `   - Save humanized output to: outreach/reddit/drafts/session-${s.n}-humanized.txt`,
+    `   - ⚠️ DO NOT proceed to Step 7 until humanized file exists`,
+    ``,
+    `7. POST:`,
+    `   - Navigate to the post`,
+    `   - Read humanized comment from session-${s.n}-humanized.txt`,
+    `   - Use ONLY the humanized version — do NOT post the original draft under any circumstances`,
+    `   - old.reddit.com method:`,
+    `   - textarea[name="text"] → focus → execCommand insertText with HUMANIZED text → click Save`,
+    `   - Upvote: .arrow.up → click`,
+    `   - Reload, confirm comment appears`,
+    ``,
+    `8. ENGAGEMENT CHECK (wait 60-90s):`,
+    `   - Go back to post`,
+    `   - Check upvotes/replies on our comment`,
+    `   - Log to engagement-log.json`,
+    ``,
+    `9. LOG (BULLETPROOF — with backup + validation):`,
+    `   const fs = require('fs');`,
+    `   const logPath = 'outreach/reddit/engagement-log.json';`,
+    `   const backupPath = 'outreach/reddit/engagement-log.json.bak';`,
+    `   `,
+    `   // Read existing log (or create if missing)`,
+    `   let log;`,
+    `   try {`,
+    `     log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
+    `     if (!log.sessions) log.sessions = [];`,
+    `     const oldCount = log.sessions.length;`,
+    `   } catch (e) {`,
+    `     log = { sessions: [] };`,
+    `   }`,
+    `   `,
+    `   // Backup before write`,
+    `   try { fs.copyFileSync(logPath, backupPath); } catch (e) {}`,
+    `   `,
+    `   // Read humanized comment`,
+    `   const humanized = fs.readFileSync('outreach/reddit/drafts/session-${s.n}-humanized.txt', 'utf8').trim();`,
+    `   `,
+    `   // Append new session`,
+    `   log.sessions.push({ timestamp: new Date().toISOString(), subreddit: 'r/${s.sub}', postUrl: 'URL', postTitle: 'TITLE', comment: humanized, upvoted: true, platform: 'reddit', account: 'Alive_Kick7098', engagement: { upvotesOnOurComment: X, repliesToOurComment: Y }, humanized: true });`,
+    `   `,
+    `   // Validate count increased`,
+    `   if (log.sessions.length <= oldCount) {`,
+    `     console.error('ERROR: Session count did not increase! Restoring backup...');`,
+    `     fs.copyFileSync(backupPath, logPath);`,
+    `     throw new Error('Logging failed - session count unchanged');`,
+    `   }`,
+    `   `,
+    `   // Atomic write (temp file then rename)`,
+    `   const tempPath = logPath + '.tmp';`,
+    `   fs.writeFileSync(tempPath, JSON.stringify(log, null, 2));`,
+    `   fs.renameSync(tempPath, logPath);`,
+    ``,
+    `9b. WARM LEADS WRITE-BACK (if applicable):`,
+    `   const warmLeadsPath = 'outreach/reddit/warm-leads.json';`,
+    `   if (fs.existsSync(warmLeadsPath)) {`,
     `     const warmLeads = JSON.parse(fs.readFileSync(warmLeadsPath, 'utf8'));`,
-    `     const lead = warmLeads.leads.find(l => l.postUrl === 'THE_POST_URL');`,
+    `     const lead = warmLeads.leads.find(l => l.postUrl === 'URL');`,
     `     if (lead) {`,
     `       lead.status = 'commented';`,
     `       lead.commentedAt = new Date().toISOString();`,
-    `       lead.commentUrl = 'THE_COMMENT_URL';`,
-    `       // Set dmReadyAt to 2-24 hours from now (randomized)`,
-    `       const delayHours = Math.floor(Math.random() * 22) + 2;`,
-    `       lead.dmReadyAt = new Date(Date.now() + delayHours * 60 * 60 * 1000).toISOString();`,
+    `       fs.writeFileSync(warmLeadsPath, JSON.stringify(warmLeads, null, 2));`,
+    `       console.log('✓ Warm lead updated: ' + lead.author);`,
     `     }`,
-    `     fs.writeFileSync(warmLeadsPath, JSON.stringify(warmLeads, null, 2));`,
+    `   }`,
     ``,
-    `After complaint search, proceed with normal engagement below.`,
+    `10. MARK DONE:`,
+    `   const sched = JSON.parse(fs.readFileSync('outreach/reddit/today-schedule.json', 'utf8'));`,
+    `   sched.sessions[${s.n - 1}].done = true;`,
+    `   fs.writeFileSync('outreach/reddit/today-schedule.json', JSON.stringify(sched, null, 2));`,
     ``,
-    `GOAL: Find a recent post (under 1 hour old, ideally under 30 min) and leave a genuine, specific comment.`,
+    `10b. LOG TO CHANGELOG:`,
+    `   const changelogPath = 'dashboard/changelog.json';`,
+    `   let changelog;`,
+    `   try {`,
+    `     changelog = JSON.parse(fs.readFileSync(changelogPath, 'utf8'));`,
+    `     if (!changelog.entries) changelog.entries = [];`,
+    `   } catch (e) {`,
+    `     changelog = { entries: [] };`,
+    `   }`,
+    `   const commentPreview = humanized.substring(0, 80).replace(/"/g, "'");`,
+    `   changelog.entries.unshift({`,
+    `     type: 'new',`,
+    `     title: 'Reddit reply posted — r/' + '${s.sub}',`,
+    `     description: commentPreview + (humanized.length > 80 ? '...' : ''),`,
+    `     date: '${today}',`,
+    `     timestamp: new Date().toISOString()`,
+    `   });`,
+    `   fs.writeFileSync(changelogPath, JSON.stringify(changelog, null, 2));`,
     ``,
-    `Steps:`,
+    `11. TELEGRAM (target="6241290513"):`,
+    `    Reddit Session ${s.n}/${COMMENT_COUNT} ✅`,
+    `    Subreddit: r/${s.sub}`,
+    `    Post: TITLE`,
+    `    Comment: "HUMANIZED TEXT"`,
+    `    Engagement: X upvotes, Y replies`,
+    `    Karma: COUNT (DELTA today)`,
     ``,
-    `1. ⚡ INBOX CHECK — session 1 ONLY. Do this FIRST before any new engagement.`,
-    `   a. Navigate to https://old.reddit.com/message/unread/`,
-    `      Read all unread messages. These are replies to our posts and comments.`,
-    `   b. For each unread message that is a reply to one of our posts or comments:`,
-    `      - Note the parent post URL and the commenter's text`,
-    `      - Skip: low effort replies ("nice", "same", emojis only), replies that don't need a response`,
-    `      - Always include the TOP VOTED comment on any post that has replies, even if not in inbox`,
-    `        (navigate to the post, sort by top, check if top commenter got a reply from us already)`,
-    `   c. Pick 2-3 worth replying to. Not everyone. Prioritize top-voted comment first.`,
-    `   d. For each reply you write:`,
-    `      - FIRST navigate to the original post and re-read our OP text carefully`,
-    `        Your reply must stay 100% consistent with what we said. If OP says "i tried X and it seemed to help",`,
-    `        don't reply as if you've never tried it. Never contradict the original post.`,
-    `      - Read ONLY the commenter's actual words. Identify the ONE specific thing you're reacting to.`,
-    `      - Write from scratch based on that one thing. No structure, no formula.`,
-    `        Not "great point + my experience" — just react directly to what they said.`,
-    `      - Short: 1-2 sentences max. Lowercase. No banned words. No hyphens or em dashes.`,
-    `      - Every reply must feel structurally different from every other reply — different length,`,
-    `        different opening, different type (question / observation / agreement with a twist / etc).`,
-    `        If two replies start the same way or follow the same pattern, rewrite one before posting.`,
-    `   e. Post each reply using the old.reddit.com method:`,
-    `      Navigate to the comment's parent post URL. Find the comment by author name.`,
-    `      Click reply → focus textarea → execCommand insertText → click Save button.`,
-    `      Add uneven gaps of 1-3 minutes between replies (not equally spaced).`,
-    `   f. Log each reply in engagement-log.json with type: "reply" and include replyTo: "their_username"`,
-    `      so we never accidentally reply twice to the same person on the same post.`,
-    `      Before posting any reply, check engagement-log.json for existing entries where`,
-    `      type === "reply" and replyTo === their username and postUrl matches. If found, skip.`,
-    `   g. After all replies posted: navigate to https://old.reddit.com/message/unread/`,
-    `      and mark inbox as read by clicking "mark all as read".`,
-    ``,
-    `2. Navigate to: https://old.reddit.com/r/${s.sub}/new/`,
-    `   IMPORTANT: Always use old.reddit.com — NOT www.reddit.com (new UI blocks JS text injection).`,
-    ``,
-    `2. Scan the post list. Look for posts submitted "X minutes ago" or "just now".`,
-    `   Skip anything with:`,
-    `   - Negative content (complaints, bad experiences, "help" posts about damage/problems)`,
-    `   - Already commented on (check engagement-log.json)`,
-    `   - Questions that require medical advice`,
-    `   - Low effort or blurry photos`,
-    ``,
-    `3. Click into the best candidate post (positive show-and-tell, nail art, makeover, styling).`,
-    ``,
-    `4. Read the post title and caption carefully. Look at the photo description if visible.`,
-    ``,
-    `2.5. BEFORE DRAFTING — Read the top 3 comments first:`,
-    `   Sort the post by "top" (not new). Read the top 3 comments.`,
-    `   Note their length, tone, and structure. Are they short reactions? Long advice? Questions?`,
-    `   Match that energy. If top comments are 3-4 sentences with specific details, don't post a 1-liner.`,
-    `   If they're asking questions, consider asking one too. Blend in with what's already working.`,
-    ``,
-    `3. Click into the best candidate post (positive show-and-tell, nail art, makeover, styling).`,
-    ``,
-    `4. Read the post title and caption carefully. Look at the photo description if visible.`,
-    ``,
-    `5. Draft a comment that is:`,
-    `   - Specific to what's in the post (NOT generic)`,
-    `   - Varies in length based on the post and top comments:`,
-    `     * Short reaction (1 sentence): for simple nail art posts, quick appreciation`,
-    `     * Medium (2-3 sentences): most posts — observation + specific detail`,
-    `     * Long (3-5 sentences): advice posts, skincare routines, detailed questions — show you read everything`,
-    `   - Includes a question roughly 1 out of every 3 comments (questions get replies, replies build account health)`,
-    `   - Natural, casual tone (see tone-guide.md)`,
-    `   - Don't start with "I"`,
-    `   - For hair/skincare posts: only comment if there's real content worth engaging with`,
-    `   HARD RULES — scan draft before posting:`,
-    `   - NO em dashes (—) or hyphens (-) — use a period instead`,
-    `   - NO quotation marks around words — rephrase`,
-    `   - NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially, vibe/vibes, genuinely, actually, bingo card, frame/framing`,
-    `   - CRITICAL: "actually" is banned. Search your draft for "actually" and remove it. Examples:`,
-    `     * "actually really even" → "really even"`,
-    `     * "actually look like them" → "look like them"`,
-    `     * "actually helping" → "helping"`,
-    `   - Rewrite if any rule is violated. No exceptions.`,
-    ``,
-    `5.5. ⚡ HUMANIZER (MANDATORY — DO NOT SKIP):`,
-    `   Before posting, run your draft through the humanizer skill.`,
-    `   Use the humanizer skill to rewrite the comment to sound more natural and human.`,
-    `   This is NON-NEGOTIABLE. Every comment must be humanized before posting.`,
-    `   `,
-    `   How to use:`,
-    `   - Call the humanizer skill with your draft comment`,
-    `   - Use the humanized output (not your original draft)`,
-    `   - If humanizer suggests changes, accept them`,
-    `   `,
-    `   Example:`,
-    `   Original: "the tip line is actually really even for a first go"`,
-    `   Humanized: "the tip line is really even for a first go"`,
-    `   `,
-    `   DO NOT post without running humanizer first.`,
-    ``,
-    `6. Post the comment using the old.reddit.com method:`,
-    `   JS: const ta = document.querySelector('textarea[name="text"]');`,
-    `       ta.focus(); document.execCommand('insertText', false, 'YOUR COMMENT HERE');`,
-    `   Then click the Save button: document.querySelector('.usertext-edit .save')?.click()`,
-    ``,
-    `7. Upvote the post:`,
-    `   JS: document.querySelector('.arrow.up')?.click()`,
-    `   (Do this BEFORE or AFTER commenting — just not both at the exact same time)`,
-    ``,
-    `8. Reload the page and confirm your comment appears (search for your username or comment text).`,
-    ``,
-    `8.5. ⚡ REPLY TO REPLIES (if any):`,
-    `   Wait 30-60 seconds, then check if anyone replied to your comment.`,
-    `   `,
-    `   If they replied:`,
-    `   - **They answered your question** (e.g., "I did them myself!") → Reply briefly: "nice! looks professional" or "you have a steady hand!"`,
-    `   - **They asked follow-up** (e.g., "what polish is that?") → Reply with helpful info if you know`,
-    `   - **They shared context** (e.g., "first time doing wedding nails!") → Acknowledge + encourage: "you nailed it! wedding-ready for sure"`,
-    `   - **They said thanks/emoji** (e.g., "thanks!" or "🥰") → Just upvote their reply, don't reply back`,
-    `   `,
-    `   Rules:`,
-    `   - Max 1-2 replies per thread (don't become a pen pal)`,
-    `   - Keep replies short (1 sentence is fine)`,
-    `   - NEVER pitch or promote — this is relationship building only`,
-    `   - Run replies through humanizer too before posting`,
-    `   `,
-    `   If no replies found after 60 seconds, move on.`,
-    ``,
-    `9. Append to the engagement log using this EXACT method (no other way):`,
-    `   const fs = require('fs');`,
-    `   const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json';`,
-    `   const log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
-    `   log.sessions.push({ timestamp: new Date().toISOString(), subreddit: "r/${s.sub}", postUrl, postTitle, commentUrl, comment, upvoted: true, platform: "reddit", account: "Alive_Kick7098" });`,
-    `   fs.writeFileSync(logPath, JSON.stringify(log, null, 2));`,
-    `   Run this as a single exec block. Do NOT write to any other key — only log.sessions.push().`,
-    ``,
-    `10. Mark this session done in today-schedule.json using this EXACT method:`,
-    `    const schedPath = '/Users/mantisclaw/.openclaw/workspace/outreach/reddit/today-schedule.json';`,
-    `    const sched = JSON.parse(fs.readFileSync(schedPath, 'utf8'));`,
-    `    sched.sessions[${s.n - 1}].done = true;`,
-    `    fs.writeFileSync(schedPath, JSON.stringify(sched, null, 2));`,
-    ``,
-    `11. Send a brief Telegram message using the message tool (channel="telegram", target="6241290513"): subreddit + post title + comment text + any replies posted to our own posts. ALWAYS include target="6241290513" — do NOT omit it.`,
-    ``,
-    `If no suitable post is found under 1hr old, try posts under 3hrs. If still nothing good, skip this session and log it as skipped with this EXACT method:`,
-    `   const fs = require('fs');`,
-    `   const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/reddit/engagement-log.json';`,
-    `   const log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
-    `   log.sessions.push({ timestamp: new Date().toISOString(), subreddit: "r/${s.sub}", postUrl: null, postTitle: null, commentUrl: null, comment: null, upvoted: false, platform: "reddit", account: "Alive_Kick7098", status: "skipped", skipReason: "YOUR REASON HERE" });`,
-    `   fs.writeFileSync(logPath, JSON.stringify(log, null, 2));`,
+    `12. CLEANUP:`,
+    `   - Delete draft files: session-${s.n}-draft.txt, session-${s.n}-humanized.txt`,
   ].join('\n');
 
   const name = `reddit-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
-  const at   = `${today}T${s.time}:00${getLAOffset()}`;
+  const at = `${today}T${s.time}:00${getLAOffset()}`;
 
-  const result = spawnSync('openclaw', [
-    'cron', 'add',
-    '--name', name,
-    '--at',   at,
-    '--message', msg,
-    '--announce',
-    '--delete-after-run',
-    '--tz', 'America/Los_Angeles'
-  ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
+  const result = spawnSync('openclaw', ['cron', 'add', '--name', name, '--at', at, '--message', msg, '--announce', '--delete-after-run', '--tz', 'America/Los_Angeles'], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
 
   if (result.status === 0) {
-    console.log(`✓ Cron: ${name} at ${s.time} → r/${s.sub}`);
+    console.log(`✓ Cron: ${name} at ${s.time}`);
   } else {
-    console.error(`✗ Failed: ${name}\n${result.stderr}`);
-    console.error(`  stdout: ${result.stdout}`);
+    console.error(`✗ Failed: ${name}`, result.stderr);
   }
 });
 
-console.log('\n✅ Reddit daily planner done.\n');
+console.log('\n✅ Reddit daily planner done (single-session with humanizer skill).\n');

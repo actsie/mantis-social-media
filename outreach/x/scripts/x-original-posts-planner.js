@@ -4,22 +4,24 @@
  * Generates one original tweet session per day for @stacydonna0x.
  * Picks mode from rotating cycle, schedules a random time between 9am–9pm PST.
  * Run at 6:04am PST daily (staggered after engagement planner).
+ * 
+ * Posts are based on patterns from engagement-log.json (last 7 days),
+ * not pre-written drafts.
+ * 
+ * Updated Mar 14: Single-session flow with humanizer skill invocation
  */
 
 const { spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const WORKSPACE    = '/Users/mantisclaw/.openclaw/workspace';
-const STATE_FILE   = path.join(WORKSPACE, 'outreach/x/original-posts-state.json');
-const LOG_FILE     = path.join(WORKSPACE, 'outreach/x/original-posts-log.json');
-const GUIDE_FILE   = path.join(WORKSPACE, 'outreach/x/original-posts-guide.md');
+const STATE_FILE   = 'outreach/x/original-posts-state.json';
+const LOG_FILE     = 'outreach/x/original-posts-log.json';
+const GUIDE_FILE   = 'outreach/x/original-posts-guide.md';
+const ENGAGEMENT_LOG = 'outreach/x/engagement-log.json';
+const TRACKER_FILE = 'outreach/x/indie-hacker-tracker.json';
 
 // Weighted mode pool — mapped to 4 brand pillars
-// Mode 1: Leads (ICP-aware, problem/solution)
-// Mode 2: Authority (strong takes, sharp POV)
-// Mode 3: Build in Public (messy middle, real observations)
-// Mode 4: Think Out Loud (personality, fan energy, exploration)
 const MODE_WEIGHTS = [
   { mode: 1, weight: 2 },
   { mode: 2, weight: 3 },
@@ -28,7 +30,6 @@ const MODE_WEIGHTS = [
 ];
 
 function pickMode(lastMode) {
-  // Exclude lastMode so we never repeat the same mode two days in a row
   const pool = lastMode ? MODE_WEIGHTS.filter(m => m.mode !== lastMode) : MODE_WEIGHTS;
   const total = pool.reduce((s, m) => s + m.weight, 0);
   let r = Math.random() * total;
@@ -39,10 +40,9 @@ function pickMode(lastMode) {
   return pool[pool.length - 1].mode;
 }
 
-const MIN_HOUR = 9;   // 9:00 AM PST
-const MAX_HOUR = 21;  // 9:00 PM PST
+const MIN_HOUR = 9;
+const MAX_HOUR = 21;
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
 function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 function pad(n) { return n.toString().padStart(2, '0'); }
 function minsToHHMM(m) { return `${pad(Math.floor(m / 60))}:${pad(m % 60)}`; }
@@ -66,127 +66,247 @@ function targetDate() {
   return process.env.DATE_OVERRIDE || todayPST();
 }
 
-// ── Load state ────────────────────────────────────────────────────────────────
+// Load state
 let state = { lastMode: null, lastPostDate: null };
 if (fs.existsSync(STATE_FILE)) {
   try { state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8')); } catch (_) {}
 }
 
-// ── Load log ──────────────────────────────────────────────────────────────────
+// Load log
 let log = { posts: [] };
 if (fs.existsSync(LOG_FILE)) {
   try { log = JSON.parse(fs.readFileSync(LOG_FILE, 'utf8')); } catch (_) {}
 }
 
-// ── Determine today's mode ────────────────────────────────────────────────────
+// Determine today's mode
 const today = targetDate();
 const mode  = pickMode(state.lastMode);
 
-// Mode names for readability
 const MODE_NAMES = {
-  1: 'Leads — Talking to ICP',
+  1: 'Leads — Pattern Noticed',
   2: 'Authority — Strong Take',
-  3: 'Build in Public — Messy Middle',
+  3: 'Build in Public — Research Observation',
   4: 'Think Out Loud — Personality'
 };
 
-// ── Determine recently used drafts (last 14 days) ─────────────────────────────
-const fourteenDaysAgo = Date.now() - 14 * 24 * 60 * 60 * 1000;
-const recentDrafts = new Set(
-  (log.posts || [])
-    .filter(p => new Date(p.timestamp).getTime() > fourteenDaysAgo)
-    .map(p => p.draftIndex)
-);
+// Analyze last 7 days of engagement for patterns
+const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+let recentEngagements = [];
 
-// ── Pick random time ──────────────────────────────────────────────────────────
+if (fs.existsSync(ENGAGEMENT_LOG)) {
+  try {
+    const engLog = JSON.parse(fs.readFileSync(ENGAGEMENT_LOG, 'utf8'));
+    recentEngagements = (engLog.sessions || [])
+      .filter(s => new Date(s.timestamp).getTime() > sevenDaysAgo && s.type === 'indie-hacker');
+  } catch (_) {}
+}
+
+// Extract patterns from engagements
+const postTexts = recentEngagements.map(s => s.postText || '').filter(t => t.length > 0);
+
+// Look for common themes in post texts
+const themeKeywords = {
+  'zero revenue': [/zero revenue/i, /\$0/i, /no revenue/i],
+  'no users': [/no users/i, /no traction/i, /nobody is using/i],
+  'distribution': [/distribution/i, /can't get users/i, /can't find users/i],
+  'burnout': [/burnout/i, /overwhelmed/i, /exhausted/i, /tired/i],
+  'stuck': [/stuck/i, /can't ship/i, /can't launch/i],
+  'silent launch': [/silence/i, /crickets/i, /nobody knows/i],
+  'building alone': [/solo/i, /alone/i, /no cofounder/i],
+  'golden handcuffs': [/golden handcuffs/i, /can't quit/i, /trapped/i],
+};
+
+const foundThemes = [];
+Object.entries(themeKeywords).forEach(([theme, patterns]) => {
+  const matches = postTexts.filter(text => patterns.some(p => p.test(text)));
+  if (matches.length >= 2) {
+    foundThemes.push({ theme, count: matches.length });
+  }
+});
+
+// Build research context for the session
+let researchContext = '';
+if (foundThemes.length > 0) {
+  researchContext = `Patterns noticed from last 7 days:\n`;
+  foundThemes.forEach(t => {
+    researchContext += `  - ${t.theme} (${t.count} founders)\n`;
+  });
+} else {
+  researchContext = `No strong patterns from last 7 days. Draw from general observations.`;
+}
+
+// Pick random time
 const lo   = MIN_HOUR * 60;
 const hi   = MAX_HOUR * 60;
 const time = minsToHHMM(rand(lo, hi));
 
-// ── Build session message ──────────────────────────────────────────────────────
+// Build session message
 const msg = [
   `X ORIGINAL POST SESSION for ${today} — post as @stacydonna0x.`,
   ``,
   `TODAY'S MODE: ${mode} — ${MODE_NAMES[mode]}`,
   `Last mode: ${state.lastMode ? state.lastMode + ' (' + MODE_NAMES[state.lastMode] + ')' : 'none'}`,
   ``,
-  `Steps:`,
+  `═══════════════════════════════════════════════════════════`,
+  `STEP 0 — READ AGENT CONTEXT (do this first, before all other steps):`,
+  `═══════════════════════════════════════════════════════════`,
   ``,
-  `1. Read the full draft bank:`,
-  `   ${GUIDE_FILE}`,
+  `- Read file: ~/.openclaw/agents/x-agent.md`,
+  `- Prepend contents to session context — apply all rules from that file throughout this session`,
   ``,
-  `2. Find all drafts listed under "## Mode ${mode}: ${MODE_NAMES[mode]}"`,
+  `═══════════════════════════════════════════════════════════`,
+  `STEP 1 — RESEARCH (Read Before Writing):`,
+  `═══════════════════════════════════════════════════════════`,
   ``,
-  `3. Check the original-posts-log.json for recently used drafts (last 14 days):`,
-  `   ${LOG_FILE}`,
-  `   Recently used draft indices to AVOID if possible: [check log]`,
+  `1. Read engagement log (last 7 days):`,
+  `   ${ENGAGEMENT_LOG}`,
   ``,
-  `4. Pick a draft that hasn't been used in the last 14 days.`,
-  `   If all drafts for mode ${mode} were used recently, pick the oldest one and vary the wording slightly.`,
-  `   Small natural variations are encouraged — don't post the exact same text twice.`,
+  `2. Read indie hacker tracker:`,
+  `   ${TRACKER_FILE}`,
   ``,
-  `5. Before posting, scan the draft for tone rule violations:`,
-  `   - NO hyphens (-) or em dashes (—) — use a period instead`,
-  `   - NO quotation marks around words — rephrase`,
-  `   - NO banned words: weird, resonate, nightmare, amazing, stunning, quiet, especially,`,
-  `     vibe/vibes, genuinely, actually, plot twist, lands, sticks, clicks, read/reads (e.g. "reads clearly", "reads as")`,
-  `   - Short: 1-3 sentences max`,
-  `   - No hashtags unless completely natural`,
-  `   - Rewrite if any rule is violated`,
+  `3. Notice patterns across engagements:`,
   ``,
-  `6. Post the tweet — choose the right flow based on mode:`,
+  `${researchContext}`,
   ``,
-  `   TOKEN BUDGET: Max 3 snapshots total for source hunting. If nothing found by then, post standalone.`,
+  `4. DO NOT:`,
+  `   - Name specific accounts in your post`,
+  `   - Say "talked to" or "had a call with" (we commented, didn't call)`,
+  `   - Call anyone out or make them feel exposed`,
+  `   - Share identifiable details`,
   ``,
-  `   MODE 1 (Leads) or MODE 2 (Authority) — try Explore page QRT flow:`,
-  `   a. Navigate to https://x.com/explore`,
-  `   b. Take snapshot #1 — scan for relevant posts (salon owners, beauty biz, small biz struggles)`,
-  `   c. If you see a relevant post: click into it, snapshot #2 to read full context`,
-  `   d. If it's a good hook: click Repost icon → Quote → type your take → Post`,
-  `   e. If nothing relevant after 2 snapshots: fall back to standard post (step f)`,
-  `   f. Max 1 more snapshot to verify — if still nothing, post standalone`,
+  `5. DO:`,
+  `   - Notice patterns across multiple engagements`,
+  `   - Write about the pattern, not the people`,
+  `   - Keep it relatable and observational`,
+  `   - Sound like someone who's been there`,
   ``,
-  `   MODE 3 (Build in Public) or MODE 4 (Think Out Loud) — standard post:`,
-  `   g. Navigate to https://x.com`,
-  `   h. Confirm profile is @stacydonna0x (check top-right avatar)`,
-  `   i. Click the compose box ("What is happening?!" placeholder)`,
-  `   j. Type the tweet text`,
-  `   k. Click the "Post" button (NOT Ctrl+Enter)`,
-  `   l. Take a snapshot to confirm it posted`,
+  `═══════════════════════════════════════════════════════════`,
+  `STEP 2 — WRITE POST (Following Mode Guidelines):`,
+  `═══════════════════════════════════════════════════════════`,
   ``,
-  `7. Update state after posting. Run in exec:`,
-  `   const fs = require('fs');`,
-  `   const stateFile = '${STATE_FILE}';`,
-  `   const s = JSON.parse(fs.readFileSync(stateFile, 'utf8'));`,
-  `   s.lastMode = ${mode};`,
-  `   s.lastPostDate = '${today}';`,
-  `   fs.writeFileSync(stateFile, JSON.stringify(s, null, 2));`,
+  `Read full guide: ${GUIDE_FILE}`,
   ``,
-  `8. Log the post to ${LOG_FILE}:`,
-  `   const logFile = '${LOG_FILE}';`,
-  `   const log = JSON.parse(fs.readFileSync(logFile, 'utf8'));`,
-  `   log.posts.push({`,
-  `     timestamp: new Date().toISOString(),`,
-  `     date: '${today}',`,
-  `     mode: ${mode},`,
-  `     modeName: '${MODE_NAMES[mode]}',`,
-  `     draftIndex: WHICH_DRAFT_NUMBER_YOU_USED,`,
-  `     tweetText: 'EXACT TEXT YOU POSTED',`,
-  `     tweetUrl: 'URL IF YOU CAN GET IT',`,
-  `     postType: 'qrt OR standard',`,
-  `     quotedTweetUrl: 'QUOTED TWEET URL OR null (for QRT)',`,
-  `     sourceHuntSnapshots: NUMBER_OF_SNAPSHOTS_USED_HUNTING,`,
-  `     platform: 'x',`,
-  `     account: 'stacydonna0x'`,
-  `   });`,
-  `   fs.writeFileSync(logFile, JSON.stringify(log, null, 2));`,
+];
+
+// Add mode-specific guidance
+if (mode === 1) {
+  msg.push(`MODE ${mode}: Leads (ICP-aware)`);
+  msg.push(`Write about: Struggles you noticed across multiple founders`);
+  msg.push(`Example pattern: Multiple founders at $0 MRR with working products`);
+  msg.push(``);
+} else if (mode === 2) {
+  msg.push(`MODE ${mode}: Authority (Strong Takes)`);
+  msg.push(`Write about: What's broken, uncomfortable truths, common mistakes`);
+  msg.push(`Example pattern: Landing pages full of features, no problem statement`);
+  msg.push(``);
+} else if (mode === 3) {
+  msg.push(`MODE ${mode}: Build in Public (Messy Middle)`);
+  msg.push(`Write about: Real observations from actual research`);
+  msg.push(`Example pattern: 40+ landing pages reviewed, same mistakes repeated`);
+  msg.push(``);
+} else {
+  msg.push(`MODE ${mode}: Think Out Loud (Personality)`);
+  msg.push(`Write about: Observations about founder life, questions, doubts`);
+  msg.push(`Example pattern: The isolation of building something nobody knows about`);
+  msg.push(``);
+}
+
+// Inject learned rules
+msg.push(`Recent learnings — apply these:`,
+  `const fs = require('fs');`,
+  `const learningsPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/content-learnings.json';`,
+  `let learnings = [];`,
+  `try { learnings = JSON.parse(fs.readFileSync(learningsPath, 'utf8')); } catch (e) {}`,
+  `if (learnings.length > 0) {`,
+  `  learnings.forEach(l => console.log('  • ' + l.rule));`,
+  `  console.log('');`,
+  `}`,
   ``,
-  `9. Send a brief Telegram notification (channel="telegram", target="6241290513"):`,
-  `   "✍️ X post published (mode ${mode}: ${MODE_NAMES[mode]}): [first few words of tweet]..."`,
-  `   ALWAYS include target="6241290513" — do NOT omit it.`,
+  `Write your post (1-3 sentences).`,
   ``,
-  `If X is down or login is broken: skip session, do NOT advance the cycle index, log as skipped.`,
-].join('\n');
+  `Save draft to: outreach/x/drafts/x-post-${today.replace(/-/g,'')}-draft.txt`,
+  ``
+);
+
+msg.push(`═══════════════════════════════════════════════════════════`,
+  `STEP 3 — HUMANIZE (INVOKE SKILL):`,
+  `═══════════════════════════════════════════════════════════`,
+  ``,
+  `- Run: /humanizer [paste draft content]`,
+  `- Wait for humanizer skill output`,
+  `- Save humanized output to: outreach/x/drafts/x-post-${today.replace(/-/g,'')}-humanized.txt`,
+  `- ⚠️ DO NOT proceed to Step 4 until humanized file exists`,
+  ``,
+  `POST STEP (Step 4 — immediately after humanize):`,
+  `- Post content from outreach/x/drafts/x-post-${today.replace(/-/g,'')}-humanized.txt ONLY`,
+  `- Do NOT post the original draft under any circumstances`,
+  ``
+);
+
+// Read humanized content for preview
+const humanizedFile = `outreach/x/drafts/x-post-${today.replace(/-/g, '')}-humanized.txt`;
+let humanized = '';
+let first100 = '';
+try {
+  humanized = fs.readFileSync(humanizedFile, 'utf8').trim();
+  first100 = humanized.substring(0, 100).replace(/\n/g, ' ');
+} catch (e) {
+  first100 = '[file not found]';
+}
+
+msg.push(`═══════════════════════════════════════════════════════════`,
+  `STEP 4 — SAVE TO APPROVAL QUEUE:`,
+  `═══════════════════════════════════════════════════════════`,
+  ``,
+  `const fs = require('fs');`,
+  `const queuePath = path.join('/Users/mantisclaw/.openclaw/workspace', 'outreach/x/approval-queue.json');`,
+  ``,
+  `// Read humanized content`,
+  `const humanized = fs.readFileSync('outreach/x/drafts/x-post-${today.replace(/-/g,'')}-humanized.txt', 'utf8').trim();`,
+  ``,
+  `// Read queue or create new`,
+  `let queue;`,
+  `try {`,
+  `  queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));`,
+  `  if (!queue.entries) queue.entries = [];`,
+  `} catch (e) {`,
+  `  queue = { entries: [] };`,
+  `}`,
+  ``,
+  `// Create entry (no parent for original posts)`,
+  `const entry = {`,
+  `  id: 'x-post-${today.replace(/-/g,'')}',`,
+  `  platform: 'x',`,
+  `  type: 'original_post',`,
+  `  status: 'pending',`,
+  `  content: humanized,`,
+  `  mode: ${mode},`,
+  `  modeName: '${MODE_NAMES[mode]}',`,
+  `  draft_file: 'outreach/x/drafts/x-post-${today.replace(/-/g,'')}-humanized.txt',`,
+  `  created_at: new Date().toISOString(),`,
+  `  approved_at: null,`,
+  `  posted_at: null`,
+  `};`,
+  ``,
+  `// Append and save`,
+  `queue.entries.push(entry);`,
+  `fs.writeFileSync(queuePath, JSON.stringify(queue, null, 2));`,
+  ``,
+  `⏳ X original post queued for approval`,
+  `Mode: ${mode} (${MODE_NAMES[mode]})`,
+  `Content: "${first100}..."`,
+  `Approve in dashboard → Content tab`,
+  ``,
+  `Update state (for tracking):`,
+  `  const s = JSON.parse(fs.readFileSync('${STATE_FILE}', 'utf8'));`,
+  `  s.lastMode = ${mode};`,
+  `  s.lastPostDate = '${today}';`,
+  `  fs.writeFileSync('${STATE_FILE}', JSON.stringify(s, null, 2));`,
+  ``,
+  `Cleanup:`,
+  `  - Do NOT delete draft files — keep until after posting`,
+  ``
+);
 
 const name = `x-post-${today.replace(/-/g, '')}`;
 const at   = `${today}T${time}:00${getLAOffset()}`;
@@ -195,15 +315,16 @@ console.log(`\n📝 X original post for ${today}`);
 console.log(`   Mode: ${mode} — ${MODE_NAMES[mode]}`);
 console.log(`   Last mode: ${state.lastMode || 'none'}`);
 console.log(`   Time: ${time}`);
-console.log(`   Recent drafts to avoid: ${[...recentDrafts].join(', ') || 'none'}`);
+console.log(`   Patterns noticed: ${foundThemes.length > 0 ? foundThemes.map(t => t.theme).join(', ') : 'none'}`);
 
 const result = spawnSync('openclaw', [
   'cron', 'add',
   '--name', name,
   '--at',   at,
-  '--message', msg,
+  '--system-event', msg.join('\n'),
   '--delete-after-run',
-  '--tz', 'America/Los_Angeles'
+  '--tz', 'America/Los_Angeles',
+  '--session', 'main'
 ], { encoding: 'utf8' });
 
 if (result.status === 0) {

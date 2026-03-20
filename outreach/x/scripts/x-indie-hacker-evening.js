@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 const WORKSPACE  = '/Users/mantisclaw/.openclaw/workspace';
-const LOG_FILE   = path.join(WORKSPACE, 'outreach/x/engagement-log.json');
+const LOG_FILE   = path.join(WORKSPACE, 'outreach/x/indie-hacker-log.json');
 const SCHED_FILE = path.join(WORKSPACE, 'outreach/x/indie-hacker-evening-schedule.json');
 const TRACKER_FILE = path.join(WORKSPACE, 'outreach/x/indie-hacker-tracker.json');
 
@@ -133,6 +133,22 @@ sessions.forEach(s => {
     `  - Backup #2: ${s.backup[1] || s.backup[0]}`,
     `  - Backup #3: Check indie-hacker-query-success.json for historically successful queries`,
     ``,
+    `0. READ AGENT CONTEXT (do this first, before all other steps):`,
+    `   - Read file: ~/.openclaw/agents/x-agent.md`,
+    `   - Prepend contents to session context — apply all rules from that file throughout this session`,
+    ``,
+    `0b. ⚡ HUMANIZE STEP (applies to Step 4 — draft first, then humanize):`,
+    `   - Draft your reply following tone-guide.md rules.`,
+    `   - Save draft to: outreach/x/drafts/evening-session-${s.n}-draft.txt`,
+    `   - Run: /humanizer [paste draft content]`,
+    `   - Wait for humanizer skill output.`,
+    `   - Save humanized output to: outreach/x/drafts/evening-session-${s.n}-humanized.txt`,
+    `   - ⚠️ DO NOT proceed to Step 5 (POST) until humanized file exists.`,
+    ``,
+    `POST STEP (Step 5 — immediately after humanize):`,
+    `   - Post content from outreach/x/drafts/evening-session-${s.n}-humanized.txt ONLY`,
+    `   - Do NOT post the original draft under any circumstances`,
+    ``,
     `CRITICAL: Read these files first:`,
     `  /Users/mantisclaw/.openclaw/workspace/outreach/x/tone-guide.md`,
     `  /Users/mantisclaw/.openclaw/workspace/outreach/x/indie-hacker-tracker.json`,
@@ -172,11 +188,25 @@ sessions.forEach(s => {
     `      If successfulQueries.length > 0, try: https://x.com/search?q=${encodeURIComponent('${s.backup[1] || s.backup[0]}')}&f=live`,
     `    Only skip if ALL 4 queries (primary + backup #1 + backup #2 + backup #3) return nothing.`,
     ``,
-    `4. Reply formula:`,
+    `4. Draft reply (following humanizer skill rules):`,
+    `   Recent learnings — apply these:`,
+    `   const fs = require('fs');`,
+    `   const learningsPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/content-learnings.json';`,
+    `   let learnings = [];`,
+    `   try { learnings = JSON.parse(fs.readFileSync(learningsPath, 'utf8')); } catch (e) {}`,
+    `   if (learnings.length > 0) {`,
+    `     learnings.forEach(l => console.log('  • ' + l.rule));`,
+    `     console.log('');`,
+    `   }`,
+    `   `,
     `   - Their line (the one with truth inside it)`,
     `   - What that probably means`,
     `   - One cost or consequence`,
     `   - Stop early`,
+    `   - MUST follow humanizer skill rules (Step 0) — no AI words, no em dashes, no quotes.`,
+    `   - Save draft to: outreach/x/drafts/evening-session-${s.n}-draft.txt`,
+    ``,
+    `5. POST reply:`,
     ``,
     `5. Like 1-3 relevant posts on their profile.`,
     ``,
@@ -201,6 +231,11 @@ sessions.forEach(s => {
     `    successData.lastUpdated = new Date().toISOString();`,
     `    fs.writeFileSync(successPath, JSON.stringify(successData, null, 2));`,
     ``,
+    `8. MARK DONE:`,
+    `   const sched = JSON.parse(fs.readFileSync('outreach/x/indie-hacker-evening-schedule.json', 'utf8'));`,
+    `   sched.sessions[${s.n - 1}].done = true;`,
+    `   fs.writeFileSync('outreach/x/indie-hacker-evening-schedule.json', JSON.stringify(sched, null, 2));`,
+    ``,
     `9. Telegram summary to 6241290513.`,
   ].join('\n');
 
@@ -211,10 +246,10 @@ sessions.forEach(s => {
     'cron', 'add',
     '--name', name,
     '--at',   at,
-    '--message', msg,
-    '--announce',
+    '--system-event', msg,
     '--delete-after-run',
-    '--tz', 'America/Los_Angeles'
+    '--tz', 'America/Los_Angeles',
+    '--session', 'main'
   ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
 
   if (result.status === 0) {

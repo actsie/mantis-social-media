@@ -1,359 +1,209 @@
 #!/usr/bin/env node
 /**
- * x-indie-hacker-planner.js
- * Generates daily X search-based outreach sessions for indie hackers / contractors / real estate.
- * Run at 6:02am PST daily via master cron (staggered after beauty track).
- * 
- * This is search-based discovery, not account-based.
- * We find people expressing real struggle and reply with grounded observations.
+ * X Indie Hacker Planner — SINGLE SESSION WITH HUMANIZER SKILL
+ * Run at 6:02am PST daily. Generates 3 sessions (morning wave).
+ * Each session: Find post → Draft → Humanize (skill) → Post → Log
+ * Uses --session main to access workspace humanizer skill
  */
 
 const { spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const WORKSPACE  = '/Users/mantisclaw/.openclaw/workspace';
-const LOG_FILE   = path.join(WORKSPACE, 'outreach/x/engagement-log.json');
+const WORKSPACE = '/Users/mantisclaw/.openclaw/workspace';
+const LOG_FILE = path.join(WORKSPACE, 'outreach/x/engagement-log.json');
 const SCHED_FILE = path.join(WORKSPACE, 'outreach/x/indie-hacker-morning-schedule.json');
 
-const MIN_HOUR      = 7;    // 7:00 AM PST
-const MAX_HOUR      = 22;   // 10:00 PM PST
-const MIN_GAP       = 45;   // min minutes between sessions
-const CLUSTER_MAX   = 90;   // "close pair" threshold
-const LONG_GAP_MIN  = 180;  // "long break" threshold
+const SESSION_COUNT = 3;
+const MIN_HOUR = 7, MAX_HOUR = 22;
 
-// ── Search queries ──────────────────────────────────────────────────────────
-// Focused on indie hackers / SaaS founders / solo builders
-// Each query has 2 backup queries for retry logic if primary returns no suitable posts
-const SEARCH_QUERIES = [
-  // Core indie hacker struggles (highest priority)
-  { query: 'stuck building in public', type: 'indie-hacker', label: 'stuck building', backup: ['no traction', 'can\'t get users'] },
-  { query: 'no traction', type: 'indie-hacker', label: 'no traction', backup: ['zero revenue', 'stuck at $0'] },
-  { query: 'can\'t get users', type: 'indie-hacker', label: 'no users', backup: ['no traction', 'should I keep going'] },
-  { query: 'should I keep going', type: 'indie-hacker', label: 'doubt', backup: ['starting to not care', 'losing interest'] },
-  { query: 'spent months building', type: 'indie-hacker', label: 'wasted time', backup: ['unfinished SaaS', 'can\'t ship'] },
-  { query: 'starting to not care', type: 'indie-hacker', label: 'losing interest', backup: ['should I keep going', 'doubt'] },
-  { query: 'unfinished SaaS', type: 'indie-hacker', label: 'unfinished', backup: ['spent months building', 'can\'t ship'] },
-  { query: 'can\'t ship', type: 'indie-hacker', label: 'can\'t ship', backup: ['unfinished SaaS', 'stuck building'] },
-  { query: 'overwhelmed founder', type: 'indie-hacker', label: 'overwhelmed', backup: ['golden handcuffs', 'burnout'] },
-  { query: 'zero revenue', type: 'indie-hacker', label: 'zero revenue', backup: ['stuck at $0', 'no traction'] },
-  { query: 'golden handcuffs', type: 'indie-hacker', label: 'golden handcuffs', backup: ['overwhelmed founder', 'quit my job'] },
-  { query: 'stuck at $0', type: 'indie-hacker', label: 'stuck at zero', backup: ['zero revenue', 'no users'] },
-  
-  // Extended indie hacker pain points
-  { query: 'quit my job to build', type: 'indie-hacker', label: 'quit job', backup: ['first time founder', 'solo founder'] },
-  { query: 'first time founder', type: 'indie-hacker', label: 'first founder', backup: ['learning to code', 'non technical founder'] },
-  { query: 'solo founder', type: 'indie-hacker', label: 'solo founder', backup: ['building alone', 'no cofounder'] },
-  { query: 'launching soon', type: 'indie-hacker', label: 'launching', backup: ['about to launch', 'shipping soon'] },
-  { query: 'just launched', type: 'indie-hacker', label: 'just launched', backup: ['launched yesterday', 'launch day'] },
-  { query: 'nobody is using', type: 'indie-hacker', label: 'nobody using', backup: ['crickets after launch', 'launched to nothing'] },
-  { query: 'churn is killing', type: 'indie-hacker', label: 'churn', backup: ['users leaving', 'retention problem'] },
-  { query: 'can\'t find PMF', type: 'indie-hacker', label: 'no PMF', backup: ['searching for PMF', 'product market fit'] },
-  { query: 'bootstrapping', type: 'indie-hacker', label: 'bootstrapping', backup: ['self funded', 'no VC'] },
-  { query: 'runway running out', type: 'indie-hacker', label: 'runout runway', backup: ['months left', 'need revenue'] },
+const QUERIES = [
+  { q: 'quit my job to build', label: 'quit job', backup: ['first time founder', 'solo founder'] },
+  { q: 'no traction', label: 'no traction', backup: ['zero revenue', 'stuck at $0'] },
+  { q: 'overwhelmed founder', label: 'overwhelmed', backup: ['golden handcuffs', 'burnout'] },
+  { q: 'just launched', label: 'just launched', backup: ['about to launch', 'shipping soon'] },
+  { q: 'nobody is using', label: 'nobody using', backup: ['crickets after launch', 'launched to nothing'] },
+  { q: 'building in public', label: 'building in public', backup: ['shipping in public', 'working in public'] },
+  { q: 'indie hacker revenue', label: 'revenue', backup: ['first paying customer', 'first dollar online'] },
+  { q: 'side project to business', label: 'side project', backup: ['quit day job', 'going full time'] },
 ];
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
 function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 function pad(n) { return n.toString().padStart(2, '0'); }
 function minsToHHMM(m) { return `${pad(Math.floor(m / 60))}:${pad(m % 60)}`; }
 
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
+function shuffle(arr) { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
 function generateTimes(count) {
-  const lo = MIN_HOUR * 60;
-  const hi = MAX_HOUR * 60;
-  for (let attempt = 0; attempt < 10000; attempt++) {
+  const lo = MIN_HOUR * 60, hi = MAX_HOUR * 60;
+  for (let i = 0; i < 10000; i++) {
     const times = Array.from({ length: count }, () => rand(lo, hi)).sort((a, b) => a - b);
-    const gaps  = times.slice(1).map((t, i) => t - times[i]);
-    if (gaps.some(g => g < MIN_GAP))        continue;
-    if (!gaps.some(g => g <= CLUSTER_MAX))  continue;
-    if (!gaps.some(g => g >= LONG_GAP_MIN)) continue;
-    return times;
+    const gaps = times.slice(1).map((t, j) => t - times[j]);
+    if (gaps.every(g => g >= 45) && gaps.some(g => g <= 90) && gaps.some(g => g >= 180)) return times;
   }
-  throw new Error('Could not generate valid schedule after 10000 attempts');
+  throw new Error('Could not generate schedule');
 }
 
 function todayPST() {
-  return new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'America/Los_Angeles',
-    year: 'numeric', month: '2-digit', day: '2-digit'
-  }).format(new Date());
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 }
 
 function getLAOffset() {
-  const tzDate  = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
-  const utcDate = new Date(new Date().toLocaleString('en-US', { timeZone: 'UTC' }));
-  const diffH   = Math.round((tzDate - utcDate) / 3600000);
-  const sign    = diffH >= 0 ? '+' : '-';
-  return `${sign}${Math.abs(diffH).toString().padStart(2, '0')}:00`;
+  const tz = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+  const utc = new Date(new Date().toLocaleString('en-US', { timeZone: 'UTC' }));
+  const diff = Math.round((tz - utc) / 3600000);
+  return `${diff >= 0 ? '+' : '-'}${Math.abs(diff).toString().padStart(2, '0')}:00`;
 }
 
-function targetDate() {
-  return process.env.DATE_OVERRIDE || todayPST();
-}
+const today = todayPST();
 
-// ── Load log ──────────────────────────────────────────────────────────────────
-let log = { sessions: [] };
-if (fs.existsSync(LOG_FILE)) {
-  try { log = JSON.parse(fs.readFileSync(LOG_FILE, 'utf8')); } catch (_) {}
-}
+// Load existing schedule to track used queries today
+let usedQueries = new Set();
+try {
+  const existingSched = JSON.parse(fs.readFileSync(SCHED_FILE, 'utf8'));
+  if (existingSched.date === today && existingSched.sessions) {
+    existingSched.sessions.forEach(s => { if (s.query) usedQueries.add(s.query); });
+  }
+} catch (e) { /* file doesn't exist yet */ }
 
-// Track who we've engaged with in last 7 days (avoid repeat replies to same person)
-const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
-const recentTargets = new Set(
-  (log.sessions || [])
-    .filter(s => s.type === 'indie-hacker' && new Date(s.timestamp).getTime() > sevenDaysAgo)
-    .map(s => s.targetHandle)
-);
+// Filter out used queries, fall back to all if we've used them all
+const availableQueries = QUERIES.filter(q => !usedQueries.has(q.q));
+const queryPool = availableQueries.length > 0 ? availableQueries : QUERIES;
 
-// ── Generate schedule ────────────────────────────────────────────────────────
-// Morning wave: 3 sessions (part of 7-8 total across all 3 waves)
-const SESSION_COUNT = 3;
-const today   = targetDate();
-const times   = generateTimes(SESSION_COUNT);
-const gaps    = times.slice(1).map((t, i) => t - times[i]);
+const times = generateTimes(SESSION_COUNT);
+const shuffled = shuffle([...queryPool]);
+const sessions = times.map((t, i) => ({ n: i + 1, time: minsToHHMM(t), query: shuffled[i % shuffled.length].q, label: shuffled[i % shuffled.length].label, backup: shuffled[i % shuffled.length].backup, done: false }));
 
-// Shuffle queries and assign to sessions
-const shuffledQueries = shuffle([...SEARCH_QUERIES]);
-
-const sessions = times.map((t, i) => {
-  const query = shuffledQueries[i % shuffledQueries.length];
-  return {
-    n:      i + 1,
-    time:   minsToHHMM(t),
-    query:  query.query,
-    type:   query.type,
-    label:  query.label,
-    backup: query.backup,
-    done:   false
-  };
-});
-
-console.log(`\n📅 X indie hacker schedule for ${today} (${SESSION_COUNT} sessions)\n`);
-sessions.forEach(s => console.log(`  ${s.n}. ${s.time}  Search: ${s.label} (${s.type})`));
-console.log(`\n  Gaps (min): ${gaps.join(', ')}`);
-console.log(`  Cluster ≤90min: ${gaps.some(g => g <= 90)}`);
-console.log(`  Long gap ≥3hrs: ${gaps.some(g => g >= 180)}`);
+console.log(`\n📅 X indie hacker schedule for ${today}\n`);
+sessions.forEach(s => console.log(`  ${s.n}. ${s.time}  Search: ${s.label}`));
 
 fs.writeFileSync(SCHED_FILE, JSON.stringify({ date: today, sessionCount: SESSION_COUNT, sessions, track: 'indie-hacker' }, null, 2));
-console.log(`\n✓ Written: today-schedule.json (indie-hacker track)\n`);
 
-// ── Create session crons ─────────────────────────────────────────────────────
 sessions.forEach(s => {
   const msg = [
-    `X INDIE HACKER SESSION ${s.n}/${SESSION_COUNT} for ${today} — post as @stacydonna0x.`,
+    `X IH Session ${s.n}/${SESSION_COUNT} — FIND → DRAFT → HUMANIZE → POST`,
+    `Search: ${s.query}`,
     ``,
-    `BROWSER: Use profile="openclaw" for ALL browser tool calls. This browser should be logged into X as @stacydonna0x. Do NOT use profile="chrome" or the Chrome extension relay.`,
+    `BROWSER: Use profile="openclaw". Logged into @stacydonna0x.`,
     ``,
-    `Search query: ${s.query}`,
-    `Target type: ${s.type}`,
-    `Backup queries (retry in order if previous returns nothing):`,
-    `  - Backup #1: ${s.backup[0]}`,
-    `  - Backup #2: ${s.backup[1] || s.backup[0]}`,
-    `  - Backup #3: Check indie-hacker-query-success.json for historically successful queries`,
+    `0. READ AGENT CONTEXT (do this first, before all other steps):`,
+    `   - Read file: ~/.openclaw/agents/x-agent.md`,
+    `   - Prepend contents to session context — apply all rules from that file throughout this session`,
     ``,
-    `CRITICAL: Read these files first:`,
-    `  /Users/mantisclaw/.openclaw/workspace/outreach/x/tone-guide.md`,
-    `  /Users/mantisclaw/.openclaw/workspace/outreach/x/accounts.md`,
-    `  /Users/mantisclaw/.openclaw/workspace/outreach/x/engagement-log.json`,
+    `1. FOLLOWER CHECK:`,
+    `   - Go to x.com/stacydonna0x`,
+    `   - Find the "Followers" link (URL contains /verified_followers)`,
+    `   - Read the number BEFORE "Followers" text (e.g., "21 Followers" → extract "21")`,
+    `   - Do NOT read the "Following" count — make sure you have the Followers link`,
+    `   - Log to outreach/x/follower-state.json`,
     ``,
-    `GOAL: Find 1 person expressing real struggle and leave a grounded, observational reply.`,
+    `2. SEARCH:`,
+    `   - Open x.com/search?q=${encodeURIComponent(s.query)}`,
+    `   - Click "Latest" tab`,
+    `   - Scroll 2-3 pages`,
+    `   - If nothing: try backup #1 (${s.backup[0]}), then backup #2 (${s.backup[1]})`,
     ``,
-    `STEPS:`,
+    `3. FIND POST:`,
+    `   - Look for: real struggle, doubt, stuck, no traction, overwhelmed`,
+    `   - SKIP: success flexes, design feedback requests, crypto/web3, generic engagement bait`,
+    `   - Check engagement-log.json — don't reply to same person twice in 7 days`,
+    `   - Save: post URL, handle, post text`,
     ``,
-    `1. Navigate to X search: https://x.com/search?q=${encodeURIComponent(s.query)}`,
+    `4. DRAFT REPLY:`,
+    `   Recent learnings — apply these:`,
+    `   const fs = require('fs');`,
+    `   const learningsPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/content-learnings.json';`,
+    `   let learnings = [];`,
+    `   try { learnings = JSON.parse(fs.readFileSync(learningsPath, 'utf8')); } catch (e) {}`,
+    `   if (learnings.length > 0) {`,
+    `     learnings.forEach(l => console.log('  • ' + l.rule));`,
+    `     console.log('');`,
+    `   }`,
+    `   `,
+    `   - Write a 2-3 sentence reply to THIS post.`,
+    `   - Anchor the reply on exactly ONE detail from the post.`,
+    `   - Do NOT quote, copy, or closely paraphrase that detail.`,
+    `   - Do NOT summarize the post.`,
+    `   - Do NOT mention multiple points.`,
+    `   - Check engagement-log.json and avoid repeating phrases used today.`,
+    `   - NO calling people out.`,
+    `   `,
+    `   TONE RULES:`,
+    `   - Vary your opening — do NOT always start with an observation about their situation. Mix it up:`,
+    `     sometimes ask a question, sometimes share a related experience, sometimes just name what you see`,
+    `   - Not prescriptive — don't tell them what to do`,
+    `   - Conversational — write like texting someone you respect`,
+    `   - No lecture-y endings — don't close with advice or a lesson`,
+    `   - 2-3 sentences max`,
+    `   `,
+    `   AVOID THESE PATTERNS (overused):`,
+    `   - "[thing they said]. that [noun] [verb]s more than [other thing]"`,
+    `   - "the [noun] you [verb]ed is [somewhere else]"`,
+    `   - Starting every reply with restating their situation back to them`,
+    `   `,
+    `   GOOD VARIETY EXAMPLES:`,
+    `   - Question opener: "six months solo — what does your week actually look like right now?"`,
+    `   - Experience: "the ops load after launch is the part nobody writes about"`,
+    `   - Simple acknowledgment: "that pivot feeling is real. not always wrong either"`,
+    `   `,
+    `   Save draft to: outreach/x/drafts/session-${s.n}-draft.txt`,
     ``,
-    `2. Filter to "Latest" tab if not already selected.`,
+    `5. HUMANIZE (INVOKE SKILL):`,
+    `   - Run: /humanizer [paste draft content]`,
+    `   - Wait for humanizer skill output`,
+    `   - Save humanized output to: outreach/x/drafts/session-${s.n}-humanized.txt`,
+    `   - ⚠️ DO NOT proceed to Step 6 until humanized file exists`,
     ``,
-    `3. Scan the results (scroll 2-3 pages). Look for posts that show:`,
-    `   - Real doubt or struggle (not humblebragging)`,
-    `   - Stuck between two directions`,
-    `   - No traction / no users after months of building`,
-    `   - Losing motivation, questioning whether to continue`,
-    `   - Overwhelmed founder, burnout, golden handcuffs`,
-    `   - Just launched to crickets, churn problems, can't find PMF`,
+    `6. POST REPLY:`,
+    `   - Navigate to the post URL saved in Step 3`,
+    `   - Click the reply button (ref from snapshot)`,
+    `   - Type the humanized reply from: outreach/x/drafts/session-${s.n}-humanized.txt`,
+    `   - Use ONLY the humanized version — do NOT post the original draft under any circumstances`,
+    `   - Click Reply/Post button (ref from snapshot)`,
+    `   - Wait for confirmation that reply is visible`,
+    `   - Console: "✅ Reply posted"`,
     ``,
-    `4. SKIP these:`,
-    `   - Design feedback requests ("rate my landing page")`,
-    `   - Success flexes ("just hit $10k MRR!")`,
-    `   - Generic engagement bait ("what are you building?")`,
-    `   - Crypto/web3/NFT projects`,
-    `   - Posts with no real substance`,
-    `   - People we've replied to in the last 7 days (check engagement-log.json)`,
+`7. LOG ENGAGEMENT:`,
+    `   const fs = require('fs');`,
+    `   const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/indie-hacker-log.json';`,
+    `   let log;`,
+    `   try {`,
+    `     log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
+    `   } catch (e) {`,
+    `     log = { sessions: [] };`,
+    `   }`,
+    `   log.sessions.push({`,
+    `     date: '${today}',`,
+    `     session: ${s.n},`,
+    `     query: '${s.query}',`,
+    `     handle: 'HANDLE_FROM_STEP3',`,
+    `     postUrl: 'POST_URL_FROM_STEP3',`,
+    `     reply: 'FIRST_50_CHARS_OF_HUMANIZED',`,
+    `     posted: true,`,
+    `     timestamp: new Date().toISOString()`,
+    `   });`,
+    `   fs.writeFileSync(logPath, JSON.stringify(log, null, 2));`,
+    `   console.log('✅ Engagement logged');`,
     ``,
-    `4b. RETRY LOGIC — If no suitable posts found after 2-3 pages:`,
-    `    Try backup #1: https://x.com/search?q=${encodeURIComponent(s.backup[0])}`,
-    `    Scroll 2-3 pages. Still nothing? Try backup #2: https://x.com/search?q=${encodeURIComponent(s.backup[1] || s.backup[0])}`,
-    `    Scroll 2-3 pages. Still nothing? Check indie-hacker-query-success.json for backup #3:`,
-    `      const fs = require('fs');`,
-    `      const successPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/indie-hacker-query-success.json';`,
-    `      const successData = JSON.parse(fs.readFileSync(successPath, 'utf8'));`,
-    `      const successfulQueries = Object.entries(successData.querySuccess)`,
-    `        .filter(([q, data]) => data.successCount > 0)`,
-    `        .sort((a, b) => b[1].successCount - a[1].successCount)`,
-    `        .map(([q]) => q);`,
-    `      If successfulQueries.length > 0, try: https://x.com/search?q=${encodeURIComponent('${s.backup[1] || s.backup[0]}')}`,
-    `    Only skip if ALL 4 queries (primary + backup #1 + backup #2 + backup #3) return nothing suitable.`,
+    `8. MARK DONE:`,
+    `   const sched = JSON.parse(fs.readFileSync(SCHED_FILE, 'utf8'));`,
+    `   sched.sessions[${s.n - 1}].done = true;`,
+    `   fs.writeFileSync(SCHED_FILE, JSON.stringify(sched, null, 2));`,
     ``,
-    `5. Read the full post + any context. Find the line that contains the truth.`,
-    ``,
-    `6. Draft a reply using this formula:`,
-    `   - Their line (the one with truth inside it)`,
-    `   - What that probably means`,
-    `   - One cost or consequence`,
-    `   - End — stop early, don't over-conclude`,
-    ``,
-    `7. Before posting, scan your draft:`,
-    `   - NO em dashes (—) or hyphens (-) → use period instead`,
-    `   - NO quotation marks → rephrase`,
-    `   - NO starting with "the" → rewrite the opening`,
-    `   - NO "you said" or "you asked" → remove`,
-    `   - NO banned words: weird, resonate, amazing, stunning, genuinely, actually, vibe, plot twist, lands, sticks, clicks, read/reads`,
-    `   - 1-3 sentences max → trim if longer`,
-    ``,
-    `8. Click Reply → type your reply → click Reply button to post.`,
-    ``,
-    `9. Like the post (click the heart icon).`,
-    ``,
-    `10. Log to engagement-log.json using this EXACT method:`,
-    `    const fs = require('fs');`,
-    `    const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/engagement-log.json';`,
-    `    const log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
-    `    log.sessions.push({`,
-    `      timestamp: new Date().toISOString(),`,
-    `      type: 'indie-hacker',`,
-    `      searchQuery: '${s.query}',`,
-    `      targetHandle: '@HANDLE',`,
-    `      postUrl: 'FULL_POST_URL',`,
-    `      postText: 'POST TEXT',`,
-    `      replyText: 'YOUR_REPLY',`,
-    `      liked: true,`,
-    `      platform: 'x',`,
-    `      account: 'stacydonna0x'`,
-    `    });`,
-    `    fs.writeFileSync(logPath, JSON.stringify(log, null, 2));`,
-    ``,
-    `11. Mark this session done in today-schedule.json:`,
-    `    const schedPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/today-schedule.json';`,
-    `    const sched = JSON.parse(fs.readFileSync(schedPath, 'utf8'));`,
-    `    sched.sessions[${s.n - 1}].done = true;`,
-    `    fs.writeFileSync(schedPath, JSON.stringify(sched, null, 2));`,
-    ``,
-    `12. Decide whether to follow:`,
-    `    FOLLOW if:`,
-    `    - They're actively building (not just talking about it)`,
-    `    - They post regularly about their journey`,
-    `    - They're in our ICP (indie hacker, contractor, real estate)`,
-    `    - Their content is genuine, not promo-heavy`,
-    `    `,
-    `    SKIP if:`,
-    `    - Mostly promo/spam`,
-    `    - Crypto/web3/NFT focused`,
-    `    - Already have 100K+ followers (can't build real relationship)`,
-    `    - You already followed them in the last 30 days`,
-    `    `,
-    `    If following: Click Follow button on their profile.`,
-    `    `,
-    `13. Log to indie-hacker-tracker.json:`,
-    `    const fs = require('fs');`,
-    `    const trackerPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/indie-hacker-tracker.json';`,
-    `    const tracker = JSON.parse(fs.readFileSync(trackerPath, 'utf8'));`,
-    `    tracker.engaged.push({`,
-    `      date: new Date().toISOString().split('T')[0],`,
-    `      handle: '@HANDLE',`,
-    `      postUrl: 'POST_URL',`,
-    `      replied: true,`,
-    `      followed: true/false,`,
-    `      liked: 1-3`,
-    `    });`,
-    `    if (followed) {`,
-    `      tracker.follows.push({`,
-    `        date: new Date().toISOString().split('T')[0],`,
-    `        handle: '@HANDLE',`,
-    `        profileUrl: 'https://x.com/HANDLE',`,
-    `        building: 'what they\\'re building',`,
-    `        notes: 'Posts regularly about X. X followers, X following. Not crypto/web3/NFT. Actively shipping/not shipping.',`,
-    `        reason: 'actively building, genuine, in ICP',`,
-    `        followBack: false // will update later if they follow back`,
-    `      });`,
-    `    }`,
-    `    fs.writeFileSync(trackerPath, JSON.stringify(tracker, null, 2));`,
-    ``,
-    `14. Send a brief Telegram to ${'6241290513'}:`,
-    `    - Target handle`,
-    `    - What they're building/struggling with`,
-    `    - Your reply text`,
-    `    - Followed: yes/no`,
-    ``,
-    `15. Log successful query to indie-hacker-query-success.json:`,
-    `    const fs = require('fs');`,
-    `    const successPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/indie-hacker-query-success.json';`,
-    `    const successData = JSON.parse(fs.readFileSync(successPath, 'utf8'));`,
-    `    const queryUsed = '${s.query}'; // or whichever backup query actually worked`,
-    `    if (!successData.querySuccess[queryUsed]) {`,
-    `      successData.querySuccess[queryUsed] = { successCount: 0, lastSuccess: null };`,
-    `    }`,
-    `    successData.querySuccess[queryUsed].successCount++;`,
-    `    successData.querySuccess[queryUsed].lastSuccess = new Date().toISOString();`,
-    `    successData.lastUpdated = new Date().toISOString();`,
-    `    fs.writeFileSync(successPath, JSON.stringify(successData, null, 2));`,
-    ``,
-    `If no suitable post found after trying primary + backup #1 + backup #2 + backup #3:`,
-    `Log as skipped with all queries tried:`,
-    `    const fs = require('fs');`,
-    `    const logPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/engagement-log.json';`,
-    `    const log = JSON.parse(fs.readFileSync(logPath, 'utf8'));`,
-    `    const successPath = '/Users/mantisclaw/.openclaw/workspace/outreach/x/indie-hacker-query-success.json';`,
-    `    const successData = JSON.parse(fs.readFileSync(successPath, 'utf8'));`,
-    `    const backup3 = Object.entries(successData.querySuccess)`,
-    `      .filter(([q, data]) => data.successCount > 0)`,
-    `      .sort((a, b) => b[1].successCount - a[1].successCount)[0];`,
-    `    log.sessions.push({`,
-    `      timestamp: new Date().toISOString(),`,
-    `      type: 'indie-hacker',`,
-    `      searchQuery: '${s.query}',`,
-    `      backupQueries: ${JSON.stringify(s.backup)},`,
-    `      queriesTried: ['${s.query}', '${s.backup[0]}', '${s.backup[1] || s.backup[0]}', backup3 ? backup3[0] : 'none (no historical successes)'],`,
-    `      targetHandle: null,`,
-    `      postUrl: null,`,
-    `      postText: null,`,
-    `      replyText: null,`,
-    `      liked: false,`,
-    `      platform: 'x',`,
-    `      account: 'stacydonna0x',`,
-    `      status: 'skipped',`,
-    `      skipReason: 'No suitable posts found after trying primary + backup #1 + backup #2 + backup #3 (from success tracker)'`,
-    `    });`,
-    `    fs.writeFileSync(logPath, JSON.stringify(log, null, 2));`,
+    `9. CLEANUP:`,
+    `   - Do NOT delete draft files — keep until after posting`,
   ].join('\n');
 
   const name = `x-ih-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
-  const at   = `${today}T${s.time}:00${getLAOffset()}`;
+  const at = `${today}T${s.time}:00${getLAOffset()}`;
 
-  const result = spawnSync('openclaw', [
-    'cron', 'add',
-    '--name', name,
-    '--at',   at,
-    '--message', msg,
-    '--announce',
-    '--delete-after-run',
-    '--tz', 'America/Los_Angeles'
-  ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
+  const result = spawnSync('openclaw', ['cron', 'add', '--name', name, '--at', at, '--system-event', msg, '--delete-after-run', '--tz', 'America/Los_Angeles', '--session', 'main'], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
 
   if (result.status === 0) {
-    console.log(`✓ Cron: ${name} at ${s.time} → ${s.label}`);
+    console.log(`✓ Cron: ${name} at ${s.time}`);
   } else {
-    console.error(`✗ Failed: ${name}\n${result.stderr}`);
-    console.error(`  stdout: ${result.stdout}`);
+    console.error(`✗ Failed: ${name}`, result.stderr);
   }
 });
 
-console.log('\n✅ X indie hacker daily planner done.\n');
+console.log('\n✅ X indie hacker daily planner done (single-session with humanizer skill).\n');
