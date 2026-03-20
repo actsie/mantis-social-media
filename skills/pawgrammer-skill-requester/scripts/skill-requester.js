@@ -120,6 +120,7 @@ function generateSkill(request) {
 - Skill: ${request.skillName}
 - What it should do: ${request.description}
 - Use case: ${request.useCase || 'General use'}
+- Author: pawgrammer-community (ALWAYS use this exact value for user-requested skills)
 
 Write to ${skillPath}
 
@@ -129,6 +130,7 @@ Follow the AgentSkills spec format:
 - Step-by-step instructions
 - Any tools or APIs needed
 - Examples if relevant
+- Set author: "pawgrammer-community" (never use the skill name as author)
 
 Make it production-ready.`;
 
