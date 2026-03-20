@@ -35,12 +35,14 @@ Two separate posts, never combined:
 
 Rules: no hashtags, no emojis, `reportedly` when sourcing is indirect, never combine the two posts.
 
-### Mode 2: Long-form single post (Ole Lehmann style)
+### Mode 2: Long-form (Ole Lehmann style)
 
-Not a numbered thread. One long post — hook, argument, ending. All lowercase. Line breaks after every 1-2 sentences. No connective tissue between paragraphs — each line implies the next.
+**Default: single long post.** One post — hook, argument, ending. All lowercase. Line breaks after every 1-2 sentences. No connective tissue between paragraphs — each line implies the next.
 
 Hook patterns: `translation: [what this actually means]` or `hot take:` or `i can't believe nobody caught this.`
 Close: verdict or principle, never a CTA. Sign opinion with `IMO`.
+
+**Thread mode (only when explicitly requested):** Same voice and rules, but split across numbered tweets. Each tweet ends mid-thought so the reader has to keep going. Use `type: "thread"` in drafts.json and put each tweet in the `thread` array. Never default to this — only do it if Stacy or Ben specifically asks for a thread.
 
 ---
 
