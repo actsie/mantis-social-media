@@ -11,9 +11,15 @@ Discord bot that monitors the skill requests channel, parses incoming requests, 
    - Checks if skill already exists in `~/claude-skills/content/skills/`
    - Spawns Claude Code to research and generate the skill .md file
    - Runs security check on generated file
-   - **Immediately commits and pushes to claude-skills repo** (origin/main)
-   - **Immediately sends confirmation email via AgentMail** to requester
-   - Marks message as processed in tracker
+   - **Immediately commits and pushes** to claude-skills repo (origin/main)
+   - **Posts confirmation to Discord channel**: "✅ [skill] is now live at skills.pawgrammer.com/skills/[slug]"
+   - **Sends AgentMail confirmation email** to requester
+
+## Environment
+
+Requires:
+- `DISCORD_BOT_TOKEN` — Discord bot authentication
+- `AGENTMAIL_API_KEY` — AgentMail API key (configured in `~/.openclaw/openclaw.json` under `skills.entries.agentmail.env`)
 
 ## Files
 

@@ -342,16 +342,28 @@ async function main() {
           continue;
         }
 
-        // Git commit and push immediately
-        const pushed = gitPush(request.skillName, slugify(request.skillName));
+        const slug = slugify(request.skillName);
+        const skillUrl = `skills.pawgrammer.com/skills/${slug}`;
+
+        // 1. Git commit and push immediately
+        const pushed = gitPush(request.skillName, slug);
         if (!pushed) {
           console.log(`  ⚠ Git push failed - skill generated but not committed`);
         }
 
-        // Send confirmation email immediately
+        // 2. Post confirmation to Discord channel
+        try {
+          const confirmMsg = `✅ ${request.skillName} skill is now live at ${skillUrl}`;
+          await channel.send(confirmMsg);
+          console.log(`  ✓ Posted confirmation to Discord`);
+        } catch (e) {
+          console.error(`  Discord post failed: ${e.message}`);
+        }
+
+        // 3. Send AgentMail confirmation email
         if (request.email) {
           const subject = 'Your skill request is live on Pawgrammer';
-          const body = `Hey!\n\nYour ${request.skillName} skill is live at skills.pawgrammer.com/skills/${slugify(request.skillName)}.\n\nThanks for contributing to Pawgrammer!\n\n— Pawgrammer Team\n`;
+          const body = `Hey!\n\nYour ${request.skillName} skill is live at ${skillUrl}.\n\nThanks for contributing to Pawgrammer!\n\n— Pawgrammer Team\n`;
 
           try {
             await sendEmail(request.email, subject, body);
@@ -363,6 +375,7 @@ async function main() {
               status: 'published',
               publishedAt: new Date().toISOString()
             });
+            console.log(`  ✓ Email sent to ${request.email}`);
           } catch (e) {
             console.error(`  Email failed: ${e.message}`);
             requesterLog.emails.push({
