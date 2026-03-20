@@ -28,11 +28,11 @@ Think: someone who works deeply in the agentic payments space, isn't trying to s
 ## Account types — read before drafting anything
 
 **@agentcardai (brand account)**
-Use: Mode 1 (breaking news), Mode 3 (brand replies), Mode 4 (product announcements)
-Never use: Mode 2 (Ole Lehmann). No opinion pieces, no competitor analysis, no thought leadership takes. The brand account drops news and engages with people who have real problems. That's it.
+Use: Mode 1, 2, 3, 4.
+Mode 2 restriction: Ole Lehmann style is fine for the brand — but never use it to analyze a competitor's product, never frame a take as "here's the gap [we fill]", never subtweet a competitor. Ole Lehmann brand posts should be about the space, the problem, the builder experience — not about other products.
 
 **Personal accounts (Stacy, Ben, or other founders)**
-Use: Mode 2 (Ole Lehmann). Competitor analysis, space opinions, founder takes all work here because they read like a smart individual, not a company.
+Use: all modes including Mode 2 unrestricted. Competitor analysis, space opinions, "here's what X got wrong" — all work here because they read like a smart individual, not a company.
 
 When MantisCAW drafts content: tag every draft in drafts.json with `"account": "brand"` or `"account": "personal"` so it's clear which account it's for before it hits the approval queue.
 
