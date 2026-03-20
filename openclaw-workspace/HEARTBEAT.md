@@ -8,10 +8,18 @@ Run this on each scheduled heartbeat. Keep it fast.
 2. Check Reddit: r/LLMDevs, r/singularity, r/OpenAI for payment/checkout pain point threads
 3. Check HN via Algolia API: `https://hn.algolia.com/api/v1/search?query=agentic+payments&tags=story,comment` — also run for "agent credit card", "agent wallet", "AI agent payments"
 4. Scan followed accounts for breaking news (see MEMORY.md for account list)
-5. Scan these news pages for anything new since yesterday:
+5. Scan news sources in priority order:
+
+   **Priority 1 — Agentic payments specifically (check every run)**
+   Search these for: `agentic payments`, `agent payment`, `AI checkout`, `agent credit card`, `machine payments`
    - https://aibusiness.com/generative-ai/agentic-ai
    - https://www.forbes.com/topics/agentic-ai/
-   - TechCrunch, The Verge, Bloomberg Tech, The Information — search: "agentic payments", "agent payment", "AI checkout"
+   - https://techcrunch.com/category/artificial-intelligence/
+   - https://www.bloomberg.com/ai
+   - The Verge, The Information
+
+   **Priority 2 — Broader agentic AI breaking news (check every run, flag only if genuinely breaking)**
+   Scan the same pages for anything breaking about autonomous agents, agentic systems, or AI agents taking actions — even if not payment-specific. Only flag if it's a major announcement (new product, major company, significant research). Do not flag general AI news.
 
 ## Part 2 — Non-obvious use case monitoring
 
