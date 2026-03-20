@@ -50,6 +50,26 @@ Before writing any draft:
 
 After enough decisions accumulate, summarise the main learned rule at the top of `feedback-patterns.md` in one sentence.
 
+## Twitter Engagement Validation — Run Before Flagging Any Tweet
+
+Before adding any tweet to the engagement opportunities list, check all of the following. Skip it if any condition is true:
+
+1. **Already about Agent Card** — tweet mentions @agentcardai or is already discussing Agent Card. Monitor and amplify instead, don't reply.
+2. **Replying to a competitor** — tweet is a reply to OKX, NORNR, Axon, Coinbase x402, Stripe MPP, Google AP2, Visa agent CLI, or any other agentic payment product. Different context, wrong moment to insert Agent Card.
+3. **No genuine need** — tweet is commentary, celebration, or sharing news rather than expressing a question, pain point, or unanswered problem.
+4. **Missing parent context** — if it's a reply, always fetch the parent post first. The parent changes the meaning entirely.
+
+Only flag a tweet if: the person has a real unanswered need AND we can add genuine signal AND it's not already in Agent Card's orbit.
+
+## HN Monitoring — Use Algolia API
+
+Never browse HN in Chrome for monitoring. Use the Algolia search API:
+`https://hn.algolia.com/api/v1/search?query=TERM&tags=story,comment`
+
+No API key needed. Returns structured JSON with full context.
+
+Daily search terms: `agentic payments`, `agent credit card`, `AI agent payments`, `agent wallet`, `autonomous agent spending`
+
 ## Rules
 - Never post anything without approval — everything goes through drafts.json first.
 - Log every action to today's memory file immediately after doing it.
