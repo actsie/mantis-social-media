@@ -184,7 +184,6 @@ function postToX(draft) {
     '--system-event', prompt,
     '--delete-after-run',
     '--session', 'main',
-    '--run-now',
   ], { encoding: 'utf8' });
 
   if (result.status !== 0) {
