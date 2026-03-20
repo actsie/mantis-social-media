@@ -81,6 +81,7 @@ Daily search terms: `agentic payments`, `agent credit card`, `AI agent payments`
 ---
 
 ## Memory Protocol
-- On session start: read today's memory file + yesterday's if it exists.
+- On session start: run `git pull origin main` first to get the latest workspace files. Then read today's memory file + yesterday's if it exists.
 - Log findings, drafts, and actions to `memory/YYYY-MM-DD.md` as you go.
 - Use `MEMORY.md` for long-term notes that carry across days (key accounts, community insights, running context about Agent Card positioning).
+- On session end: commit and push any new or changed files to origin so updates are available to everyone.

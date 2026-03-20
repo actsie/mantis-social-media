@@ -196,6 +196,45 @@ More general. Payment friction comes up but not specifically agentic. Engagement
 
 ---
 
+## Non-obvious use case verticals to investigate
+
+Current audience is heavily biased toward crypto/PolyMarket — not representative of agentic payments at large. Actively hunt for pain points at this intersection: **large friction around payment + agents can reliably solve it**.
+
+### Confirmed verticals with real signal
+
+**Price monitoring + auto-buy**
+- Real example: politician wanting to automate buying dog food/supplements when prices hit a 30-day low on Amazon
+- Pain: prices fluctuate constantly on staples; humans can't watch 24/7; savings compound over time
+- Agent solution: monitor price conditions, trigger purchase automatically when threshold met
+- Search: "price drop agent", "auto buy when price drops", "Amazon price monitoring agent"
+
+**Bulk / repetitive event booking**
+- Real example: therealroots.com (~$10M ARR women's community) books 1,000+ events/month (axe throwing, arts & crafts, etc.) — currently paying humans thousands of dollars to do it
+- Pain: same checkout flow repeated hundreds of times, across dozens of venues, every month
+- Agent solution: automate the entire booking flow end-to-end
+- Search: "automate event booking", "bulk reservation", "agent event checkout", "procurement automation"
+
+**Accessibility / chronic illness**
+- Real example: Claude interview series surfaced people with long COVID using AI to manage basic life logistics
+- Pain: for blind users, chronic fatigue, chronic illness — standard checkout isn't a minor inconvenience, it's genuinely difficult or impossible
+- Agent solution: agent handles the full checkout so the human never touches it
+- Angle: not a convenience story — a necessity story. Potential for real impact + feel-good press narrative
+- Search on Reddit: r/ChronicIllness, r/LongCovid, r/disability, r/blind — "AI helps me", "automate shopping", "too tired to"
+
+**Caregiving / proxy purchasing**
+- Pain: managing purchases for elderly parents, disabled family members, patients — same cognitive/logistical load as doing it for yourself but multiplied
+- Search: r/CaregiverSupport, r/AgingParents — "automate purchases", "buy on behalf", "AI assistant for"
+
+### What we're looking for in all of these
+Any demographic that:
+1. Has a recurring payment/checkout task that is genuinely painful for them
+2. Could hand it off to an agent with clear rules (price threshold, timing, venue type, etc.)
+3. Is NOT already in the crypto/builder conversation
+
+If you find a community that matches — log it. Even a single forum post counts as signal.
+
+---
+
 ## Top pain points showing up across platforms
 
 1. **No standard way for agents to authenticate and pay** — the protocol war (x402 vs MPP vs AP2 vs ACP) is creating fragmentation. Builders don't know which horse to back.
