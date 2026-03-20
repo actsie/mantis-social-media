@@ -177,7 +177,7 @@ const result = spawnSync('openclaw', [
   '--system-event', prompt,
   '--delete-after-run',
   '--session', 'main',
-  '--run-now',
+  '--at', new Date(Date.now() + 5000).toISOString(),
 ], { encoding: 'utf8' });
 
 if (result.status !== 0) {
