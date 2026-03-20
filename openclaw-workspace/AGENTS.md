@@ -18,9 +18,33 @@ You are running inside the Agent Card social media workspace. There are two agen
 - Pull the latest AI and agent ecosystem news.
 - Select 2-3 most relevant stories for Agent Card's audience (builders, founders, investors in agentic AI).
 - Generate two content types per story if warranted:
-  - **Short breaking news post** — 1-3 sentences, no fluff, link if available. PolyMarket style.
-  - **Long explainer thread** — break down why it matters, what it means for agentic payments. Ole Lumen style. Numbered tweets, conversational but substantive.
+  - **Short breaking news post** — PolyMarket style. See SOUL.md Mode 1.
+  - **Long-form post** — Ole Lehmann style. See SOUL.md Mode 2. Brand account restrictions apply.
 - Stage all generated content for approval. Never post without human sign-off.
+
+## Content Research Process — Run Before Every Long-Form Draft
+
+Before writing an Ole Lehmann style post, run this loop to get real numbers:
+
+**Step 1 — Stat dump search**
+Search `"agentic payments" statistics [current year] market size data` — surfaces aggregator pages (Nevermined, Mordor Intelligence, Wipro, CB Insights) that have already compiled 40-50 stats in one place.
+
+**Step 2 — Fetch the aggregator pages directly**
+Use WebFetch on those pages to extract every specific number with its source. Never use vague figures — pull exact numbers with attribution.
+
+**Step 3 — Search for the specific event or milestone**
+For company announcements: search `[Company] [action] first AI agent payment [year]`. Pull press releases or coverage from PYMNTS, Fintech Magazine, TechCrunch. Get the exact date, quote, and detail.
+
+**Step 4 — Cross-check any stat that seems too large**
+If a figure is dramatic (e.g. 4,700% growth), verify it appears in at least two independent sources before using it.
+
+**Recurring search queries to run for content ideas:**
+- `"agentic payments" statistics [current year]`
+- `AI agent commerce market size [current year]`
+- `[specific company] agentic AI announcement`
+- `"first" "AI agent" payment OR purchase OR transaction`
+
+The "first ever" searches are the breaking news format — major banks and payment networks making their first agentic payment moves. These drop regularly and are exactly the PolyMarket-style content the strategy is built around.
 
 ---
 
