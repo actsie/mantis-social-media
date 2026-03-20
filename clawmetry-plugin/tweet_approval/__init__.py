@@ -207,16 +207,32 @@ def _rebuild_feedback(decisions):
 
 
 # ---------------------------------------------------------------------------
-# Entry point called by ClawMetry extension system
+# Entry point — runs as standalone Flask app on port 8901
+# ClawMetry's extension system is event-based, not blueprint-based.
+# The approval UI runs independently at http://localhost:8901/tweets
 # ---------------------------------------------------------------------------
 
 def register_handlers():
-    try:
-        from clawmetry import app as clawmetry_app
-        clawmetry_app.register_blueprint(bp)
-        print("[tweet_approval] Loaded — approval UI at http://localhost:8900/tweets")
-    except Exception as e:
-        print(f"[tweet_approval] Failed to load: {e}")
+    """Called by ClawMetry extension system on startup — starts standalone server."""
+    import threading
+    from flask import Flask
+    standalone = Flask(__name__)
+    standalone.register_blueprint(bp)
+    t = threading.Thread(
+        target=lambda: standalone.run(host="127.0.0.1", port=8901, debug=False),
+        daemon=True
+    )
+    t.start()
+    print("[tweet_approval] Approval UI running at http://localhost:8901/tweets")
+
+
+def run_standalone():
+    """Run directly: python -m tweet_approval"""
+    from flask import Flask
+    standalone = Flask(__name__)
+    standalone.register_blueprint(bp)
+    print("[tweet_approval] Approval UI at http://localhost:8901/tweets")
+    standalone.run(host="127.0.0.1", port=8901, debug=False)
 
 
 # ---------------------------------------------------------------------------
