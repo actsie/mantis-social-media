@@ -98,6 +98,19 @@ function gitCommitPush(msg) {
   spawnSync('git', ['-C', '/Users/mantisclaw/agentcard-social', 'push', 'origin', 'main'], { encoding: 'utf8' });
 }
 
+function notifyDraft(draftId) {
+  spawnSync('node', [
+    '/Users/mantisclaw/agentcard-social/openclaw-workspace/scripts/notify-draft.js',
+    draftId,
+  ], {
+    encoding: 'utf8',
+    env: { ...process.env,
+      DISCORD_WEBHOOK_AGENTCARD: process.env.DISCORD_WEBHOOK_AGENTCARD || '',
+      SLACK_WEBHOOK_AGENTCARD: '',
+    },
+  });
+}
+
 function postToX(draft) {
   /**
    * Compose a session prompt for posting. The session agent (--session main)

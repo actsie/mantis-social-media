@@ -141,8 +141,11 @@ Write to ${DRAFTS}. Append to existing array. Format:
 }
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-STEP 6 — LOG + PUSH
+STEP 6 — NOTIFY + LOG + PUSH
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+After writing each draft to drafts.json, immediately run:
+  DISCORD_WEBHOOK_AGENTCARD="$DISCORD_WEBHOOK_AGENTCARD" SLACK_WEBHOOK_AGENTCARD="" node /Users/mantisclaw/agentcard-social/openclaw-workspace/scripts/notify-draft.js [draft-id]
 
 Append to ${MEMORY} under ## Breaking News:
 - Timestamp, headline, source URL, why it qualifies
