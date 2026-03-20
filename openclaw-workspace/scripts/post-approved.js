@@ -30,24 +30,21 @@ function isWeekday(d) {
 function inPostingWindow(d) {
   if (!isWeekday(d)) return false;
   const h = d.getHours(), m = d.getMinutes();
-  // 9:00–10:00 EST or 13:00–14:00 EST
+  // 9:00–10:00 EDT or 13:00–14:00 EDT
   return (h === 9) || (h === 13);
 }
 
 function nextWindow() {
   const now = nowEST();
   const h = now.getHours();
-  // If before 9am today (weekday) → next window is 9am today
-  // If between 10am and 1pm today → next window is 1pm today
-  // If after 2pm today (weekday) → next window is 9am next weekday
-  // Weekends → next weekday 9am
+  // Windows: 9am–10am EDT, 1pm–2pm EDT
   const trySlots = [];
   const base = new Date(now);
   base.setMinutes(0, 0, 0);
 
-  // Today 9am
+  // Today 9am EDT
   const today9 = new Date(base); today9.setHours(9);
-  // Today 1pm
+  // Today 1pm EDT
   const today13 = new Date(base); today13.setHours(13);
 
   if (now < today9 && isWeekday(now)) trySlots.push(today9);
