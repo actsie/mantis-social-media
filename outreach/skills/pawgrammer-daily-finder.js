@@ -28,10 +28,10 @@ const GITHUB_AUTH_HEADERS = GITHUB_TOKEN
 
 // GitHub search queries for finding Claude skills
 const SEARCH_QUERIES = [
-  'filename:SKILL.md',
+  'filename:SKILL.md path:.claude',
   'topic:claude-skill',
   'topic:claude-code',
-  'path:.claude/skills',
+  'filename:SKILL.md path:skills',
 ];
 
 // Trusted orgs to prioritize
