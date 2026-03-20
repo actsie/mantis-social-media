@@ -27,38 +27,46 @@ function isWeekday(d) {
   return day >= 1 && day <= 5;
 }
 
+// EDT = UTC-4. 9am EDT = 13:00 UTC, 1pm EDT = 17:00 UTC
+function edtHour() {
+  // Returns current hour in EDT (UTC-4), regardless of server timezone
+  return new Date().getUTCHours() - 4 < 0
+    ? new Date().getUTCHours() - 4 + 24
+    : new Date().getUTCHours() - 4;
+}
+
 function inPostingWindow(d) {
   if (!isWeekday(d)) return false;
-  const h = d.getHours(), m = d.getMinutes();
+  const h = edtHour();
   // 9:00–10:00 EDT or 13:00–14:00 EDT
   return (h === 9) || (h === 13);
 }
 
-function nextWindow() {
-  const now = nowEST();
-  const h = now.getHours();
-  // Windows: 9am–10am EDT, 1pm–2pm EDT
-  const trySlots = [];
-  const base = new Date(now);
-  base.setMinutes(0, 0, 0);
+function nextWindowUTC() {
+  // Returns UTC ISO string for next EDT posting window (9am or 1pm EDT)
+  const nowUTC = new Date();
+  const h = edtHour();
+  const isWkd = isWeekday(nowEST());
 
-  // Today 9am EDT
-  const today9 = new Date(base); today9.setHours(9);
-  // Today 1pm EDT
-  const today13 = new Date(base); today13.setHours(13);
+  // Today's 9am EDT = 13:00 UTC, 1pm EDT = 17:00 UTC
+  const todayDate = nowUTC.toISOString().slice(0, 10); // YYYY-MM-DD in UTC
+  const today9utc  = new Date(`${todayDate}T13:00:00.000Z`);
+  const today13utc = new Date(`${todayDate}T17:00:00.000Z`);
 
-  if (now < today9 && isWeekday(now)) trySlots.push(today9);
-  if (now < today13 && isWeekday(now)) trySlots.push(today13);
-
-  if (trySlots.length) return trySlots[0].toISOString();
+  if (isWkd && nowUTC < today9utc)  return today9utc.toISOString();
+  if (isWkd && nowUTC < today13utc) return today13utc.toISOString();
 
   // Find next weekday
-  let next = new Date(base);
-  next.setDate(next.getDate() + 1);
-  while (!isWeekday(next)) next.setDate(next.getDate() + 1);
-  next.setHours(9, 0, 0, 0);
-  return next.toISOString();
+  let next = new Date(nowUTC);
+  next.setUTCDate(next.getUTCDate() + 1);
+  while (!isWeekday(new Date(next.toLocaleString('en-US', { timeZone: 'America/New_York' })))) {
+    next.setUTCDate(next.getUTCDate() + 1);
+  }
+  const nextDate = next.toISOString().slice(0, 10);
+  return `${nextDate}T13:00:00.000Z`; // 9am EDT next weekday
 }
+
+function nextWindow() { return nextWindowUTC(); }
 
 function recentPostCount(drafts) {
   const cutoff = Date.now() - 2 * 60 * 60 * 1000;
@@ -222,8 +230,8 @@ for (const draft of approved) {
       continue;
     }
 
-    // Check posting window
-    if (!inPostingWindow(now)) {
+    // Check posting window (UTC-aware)
+    if (!inPostingWindow(new Date())) {
       const sched = nextWindow();
       draft.scheduled_for = sched;
       console.log(`  Outside window. Scheduled for: ${sched}`);
