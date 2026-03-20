@@ -17,7 +17,6 @@ MantisCAW writes all tweet/reply drafts here. The approval dashboard reads this 
     "source_post_url": "https://twitter.com/...",
     "source_post_text": "The post we are replying to (first 280 chars)",
     "context": "One sentence on why this is worth engaging with",
-    "account": "brand | personal",
     "created_at": "2026-03-20T10:00:00",
     "reviewed_at": null,
     "scheduled_for": null,
@@ -45,13 +44,8 @@ Never post more than 2 items within a 2-hour window. If both windows are full, r
 
 ## Account field — required on every draft
 
-- `"brand"` — for @agentcardai. Only Mode 1, 3, 4 content. No Ole Lehmann takes, no competitor analysis.
-- `"personal"` — for Stacy or Ben's personal accounts. Mode 2 (Ole Lehmann), competitor takes, space opinions.
-
-## Account field — required on every draft
-
-- `"brand"` → @agentcardai. Use for: Mode 1 (breaking news), Mode 3 (brand replies), Mode 4 (product announcements).
-- `"personal"` → Stacy, Ben, or other founders. Use for: Mode 2 (Ole Lehmann long-form). **Never draft a Mode 2 post for @agentcardai.** Hold personal drafts until Stacy or Ben confirm which account.
+- `"brand"` → @agentcardai. All modes allowed except: no competitor analysis, no "here's the gap we fill" framing in Mode 2.
+- `"personal"` → Stacy, Ben, or other founders. All modes unrestricted. Hold personal drafts until Stacy or Ben confirm which account to post from.
 
 ## Rules for MantisCAW
 
