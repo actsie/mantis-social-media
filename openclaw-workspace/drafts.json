@@ -72,5 +72,19 @@
     "posted_at": null,
     "account": "personal",
     "hold_reason": "Waiting for personal account confirmation from Stacy or Ben before posting."
+  },
+  {
+    "id": "20260320-longform-01",
+    "account": "brand",
+    "platform": "twitter",
+    "type": "original",
+    "status": "pending",
+    "urgency": "standard",
+    "text": "i can't believe nobody is saying this out loud.\n\nVisa, Mastercard, Stripe, PayPal, Google, and Coinbase all shipped AI agent payment infrastructure within 6 months of each other.\n\nthat has never happened in payments. not even close.\n\nbut read the fine print on every single one of them.\n\nVisa's Trusted Agent Protocol: a human account at the center, agents sign requests on behalf of that human.\n\nMastercard's Agentic Tokens: built on existing tokenization infrastructure, the card network still in the loop.\n\nPayPal in ChatGPT: a human wallet pays for what an agent recommends.\n\nStripe's Tempo chain: agents transact, but the compliance layer is Stripe's, not the agent's.\n\nevery major incumbent built the agent payment layer to keep a human in the authorization chain.\n\nbecause the second you remove the human, you lose the compliance moat. you lose KYC. you lose chargeback rights. you lose everything that keeps regulators and banks comfortable.\n\nso what happens when the agent has no human behind it?\n\nthat's the part nobody shipped yet.",
+    "context": "Visa, Mastercard, Stripe, PayPal all shipped agent payment infra in 2025-2026 but all require a human account at the core — sourced from Sideband.pub three-body problem analysis and PYMNTS Prompt Economy Visa collaboration report.",
+    "source_url": "https://www.sideband.pub/p/agent-payments-have-a-three-body",
+    "created_at": "2026-03-20T10:26:57.791Z",
+    "reviewed_at": null,
+    "posted_at": null
   }
 ]
