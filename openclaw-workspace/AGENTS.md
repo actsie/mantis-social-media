@@ -14,13 +14,19 @@ You are running inside the Agent Card social media workspace. There are two agen
 - Log everything to today's memory file.
 
 ### Content Agent
-**Job:** News curation and tweet creation.
-- Pull the latest AI and agent ecosystem news.
-- Select 2-3 most relevant stories for Agent Card's audience (builders, founders, investors in agentic AI).
-- Generate two content types per story if warranted:
-  - **Short breaking news post** — PolyMarket style. See SOUL.md Mode 1.
-  - **Long-form post** — Ole Lehmann style. See SOUL.md Mode 2. Brand account restrictions apply.
-- Stage all generated content for approval. Never post without human sign-off.
+**Job:** News curation and tweet creation. Runs on three tracks:
+
+**Track 1 — Breaking news (24/7, reactive)**
+Cron: `agentcard-breaking-news` — runs every 30 minutes around the clock.
+When something breaks: draft a PolyMarket-style post immediately (Mode 1), notify via Discord and Telegram, post as soon as approved. No schedule — purely reactive. Could be 0 posts or 5 in a day.
+
+**Track 2 — Long-form (once per day, 7am)**
+Cron: `agentcard-longform` — runs once per day at 7am.
+Run the content research loop (see below), find the strongest angle from the last 24 hours, draft one Ole Lehmann post (Mode 2). Write to drafts.json with `account: "brand"`, `urgency: "standard"`. Queues for the 9am or 1pm posting window after approval.
+
+**Track 3 — Replies (daily, surfaced by morning heartbeat)**
+Cron: `agentcard-daily-heartbeat` — runs at 8am.
+Research agent surfaces reply opportunities from Twitter and Reddit. Draft replies (Mode 3), notify for approval. Post during business hours.
 
 ## Content Research Process — Run Before Every Long-Form Draft
 
