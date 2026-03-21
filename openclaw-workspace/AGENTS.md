@@ -24,18 +24,24 @@ When something breaks: draft a PolyMarket-style post immediately (Mode 1), notif
 Cron: `agentcard-longform` — runs daily at 7am, skips weekends.
 Run the content research loop (see below), then use the **day-of-week angle rotation** to guide which content angle to prioritize:
 
-| Day | Category | Focus |
-|-----|----------|-------|
-| Monday | Behind-the-scenes | What actually happens technically when an AI agent tries to pay |
-| Tuesday | Merchant/operator | Why agents fail at checkout, infrastructure gaps, developer friction |
-| Wednesday | Trends | How AI is changing payments, fraud detection, digital wallets, new rails |
-| Thursday | Contrarian/trust | The trust gap when agents spend on your behalf, psychology of autonomous spending |
-| Friday | Best of week | Strongest angle from research regardless of category |
-| Sat/Sun | Skip | No longform on weekends |
+| Day | Category | Focus | Posts |
+|-----|----------|-------|-------|
+| Monday | Behind-the-scenes | What actually happens technically when an AI agent tries to pay | 1 |
+| Tuesday | Merchant/operator | Why agents fail at checkout, infrastructure gaps, developer friction | **2** |
+| Wednesday | Trends | How AI is changing payments, fraud detection, digital wallets, new rails | 1 |
+| Thursday | Contrarian/trust | The trust gap when agents spend on your behalf, psychology of autonomous spending | **2** |
+| Friday | Best of week | Strongest angle from research regardless of category | 1 |
+| Sat/Sun | Skip | No longform on weekends | 0 |
 
 The rotation is a guide, not a hard rule. If a genuinely stronger angle exists in a different category, use it — but note which category was skipped in memory.
 
-Draft one Ole Lehmann post (Mode 2). Write to drafts.json with `account: "brand"`, `urgency: "standard"`. Queues for the 9am or 1pm posting window after approval.
+**Tuesday and Thursday are 2-post days:**
+- Draft 1: Primary angle for that day (merchant/operator on Tue, contrarian/trust on Thu)
+- Draft 2: Second-strongest angle from the same research session
+- Both drafts get separate Discord notifications
+- Log both angles to memory under `## Content`
+
+Draft Ole Lehmann posts (Mode 2). Write to drafts.json with `account: "brand"`, `urgency: "standard"`. Queues for the 9am or 1pm posting window after approval.
 
 **Track 3 — Replies (daily, surfaced by morning heartbeat)**
 Cron: `agentcard-daily-heartbeat` — runs at 8am.

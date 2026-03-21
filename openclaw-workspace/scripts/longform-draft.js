@@ -178,10 +178,47 @@ STEP 8 — NOTIFY + PUSH
 After writing the draft, run:
   DISCORD_WEBHOOK_AGENTCARD="${process.env.DISCORD_WEBHOOK_AGENTCARD || ''}" SLACK_WEBHOOK_AGENTCARD="" node ${WORKSPACE}/scripts/notify-draft.js ${TODAY.replace(/-/g,'')+'-longform'}
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 9 — TUESDAY/THURSDAY: SECOND DRAFT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+${dayOfWeek === 2 || dayOfWeek === 4 ? `
+Today is ${dayOfWeek === 2 ? 'Tuesday' : 'Thursday'} — draft a SECOND longform post.
+
+Run the research loop again, this time looking for the SECOND strongest angle from your research (the one that didn't win the first round).
+
+Write to ${DRAFTS}:
+{
+  "id": "${TODAY.replace(/-/g,'')}-longform-2",
+  "account": "brand",
+  "platform": "twitter",
+  "type": "original",
+  "status": "pending",
+  "urgency": "standard",
+  "text": "[your second drafted post]",
+  "context": "[one sentence: the stat or event that anchors this post + source URL]",
+  "source_url": "[primary source URL]",
+  "created_at": "${new Date().toISOString()}",
+  "reviewed_at": null,
+  "posted_at": null
+}
+
+Then run:
+  DISCORD_WEBHOOK_AGENTCARD="${process.env.DISCORD_WEBHOOK_AGENTCARD || ''}" SLACK_WEBHOOK_AGENTCARD="" node ${WORKSPACE}/scripts/notify-draft.js ${TODAY.replace(/-/g,'')+'-longform-2'}
+
+Log both drafts to memory under ## Content:
+- First draft angle: [angle name]
+- Second draft angle: [angle name]
+` : '(Skip — not Tuesday or Thursday)'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 10 — GIT PUSH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Then:
   cd ${BASE}
   git add -A
-  git commit -m "Daily longform draft: ${TODAY}"
+  git commit -m "Daily longform draft${dayOfWeek === 2 || dayOfWeek === 4 ? 's' : ''}: ${TODAY}${dayOfWeek === 2 || dayOfWeek === 4 ? ' (2 posts)' : ''}"
   git pull --rebase origin main
   git push origin main
 
@@ -191,6 +228,7 @@ FINAL REPLY
 
 End with exactly:
 "DRAFT: [first 15 words of the post]"
+${dayOfWeek === 2 || dayOfWeek === 4 ? ' + "DRAFT 2: [first 15 words of second post]"' : ''}
 `.trim();
 
 // Pull first
