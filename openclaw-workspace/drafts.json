@@ -106,5 +106,19 @@
     "reviewed_at": null,
     "posted_at": null,
     "account": "brand"
+  },
+  {
+    "id": "20260320-breaking-cloudflare-mpp-004814",
+    "platform": "twitter",
+    "type": "original",
+    "status": "pending",
+    "urgency": "breaking",
+    "text": "JUST IN: Cloudflare's agentic team shipping MPP (Machine Payments Protocol). Backwards compatible with x402 but no facilitator needed \u2014 built into the chain natively. Sessions vs per-call auth. Big infra player making a bet.",
+    "context": "Cloudflare (Fortune 500) announced MPP integration for agentic payments \u2014 backwards compatible with x402 but removes facilitator requirement by building it natively into their chain.",
+    "source_url": "https://x.com/0xAvious/status/2035153395518943242",
+    "created_at": "2026-03-21T00:48:14.943751Z",
+    "reviewed_at": null,
+    "posted_at": null,
+    "account": "brand"
   }
 ]
