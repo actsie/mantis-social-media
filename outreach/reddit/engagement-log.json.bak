@@ -1005,6 +1005,69 @@
         "repliesToOurComment": 0
       },
       "humanized": true
+    },
+    {
+      "timestamp": "2026-03-20T04:41:10.198Z",
+      "subreddit": "r/smallbusiness",
+      "postUrl": "https://old.reddit.com/r/smallbusiness/comments/1rykg9n/starting_a_mobile_detailing_business_on_a/",
+      "postTitle": "Starting a Mobile Detailing Business on a Motorcycle – Seeking Feedback on my Lean Ops & Marketing Strategy",
+      "comment": "headlight restoration before/afters are the kind of content people can't scroll past. that contrast is too hard to ignore.",
+      "commentUrl": "https://old.reddit.com/r/smallbusiness/comments/1rykg9n/starting_a_mobile_detailing_business_on_a/obfl10x/",
+      "upvoted": true,
+      "platform": "reddit",
+      "account": "Alive_Kick7098",
+      "engagement": {
+        "upvotesOnOurComment": 1,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-20T07:21:00-08:00",
+      "subreddit": "r/SkincareAddicts",
+      "postUrl": "https://old.reddit.com/r/SkincareAddicts/comments/1rywlon/my_skin_therapy_rosemary_essential_oil/",
+      "postTitle": "MY SKIN THERAPY- ROSEMARY ESSENTIAL OIL",
+      "comment": "That cooling sensation you mentioned is usually the first tell it's working right. Rosemary oil for facial inflammation doesn't get enough credit. Mixing it with aloe vera gel was smart - keeps it gentle.",
+      "commentUrl": "https://old.reddit.com/r/SkincareAddicts/comments/1rywlon/my_skin_therapy_rosemary_essential_oil/obhq1kh/",
+      "upvoted": true,
+      "platform": "reddit",
+      "account": "Alive_Kick7098",
+      "engagement": {
+        "upvotesOnOurComment": 1,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-20T18:00:14.362Z",
+      "subreddit": "r/longhair",
+      "postUrl": "https://old.reddit.com/r/longhair/comments/1rz2vv2/do_yall_think_it_looks_decent/",
+      "postTitle": "Do yall think it looks decent?",
+      "comment": "those good curl days hit different when they're unpredictable. this is one of them for sure.",
+      "upvoted": true,
+      "platform": "reddit",
+      "account": "Alive_Kick7098",
+      "engagement": {
+        "upvotesOnOurComment": 1,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-20T18:49:24.996Z",
+      "subreddit": "r/femalehairadvice",
+      "postUrl": "https://old.reddit.com/r/femalehairadvice/comments/1rz489k/how_do_i_make_my_dry_frizzy_hair_look_healthier/",
+      "postTitle": "How do I make my dry, frizzy hair look healthier?",
+      "comment": "honestly the dye history is probably the bigger factor. five years of color leaves ends porous and thirsty, and layering products on top only goes so far. a bond builder like olaplex no 3 once a week plus a drop of lightweight oil on just the ends usually gets wavy hair feeling less straw-like without weighing it down",
+      "upvoted": true,
+      "platform": "reddit",
+      "account": "Alive_Kick7098",
+      "engagement": {
+        "upvotesOnOurComment": 1,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "commentUrl": "https://old.reddit.com/r/femalehairadvice/comments/1rz489k/how_do_i_make_my_dry_frizzy_hair_look_healthier/objadmi/"
     }
   ],
   "karma_checks": [
@@ -1041,6 +1104,13 @@
       "post_karma": 1,
       "comment_karma": 208,
       "total_karma": 209,
+      "account": "Alive_Kick7098"
+    },
+    {
+      "timestamp": "2026-03-20T04:41:10.198Z",
+      "post_karma": 1,
+      "comment_karma": 209,
+      "total_karma": 210,
       "account": "Alive_Kick7098"
     }
   ]

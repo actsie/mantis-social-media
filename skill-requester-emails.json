@@ -1,0 +1,28 @@
+{
+  "emails": [
+    {
+      "email": "stacydonnaj@gmail.com",
+      "skill": "Python Basics",
+      "messageId": "1484524856614588600",
+      "requestedAt": "2026-03-20T12:26:59.732Z",
+      "status": "published",
+      "publishedAt": "2026-03-20T13:20:00.000Z",
+      "emailSentAt": "2026-03-20T13:20:00.000Z",
+      "emailMessageId": "<0100019d0b658176-92c8e810-7507-4c26-b59d-65ec37a3ace0-000000@email.amazonses.com>"
+    },
+    {
+      "email": "agata3226@gmail.com",
+      "skill": "autor ksia\u017cek dla dzieci",
+      "messageId": "1481389021706846312",
+      "requestedAt": "2026-03-20T16:09:15.407Z",
+      "status": "error_git_push"
+    },
+    {
+      "email": "mira.abdulrahman@gmail.com",
+      "skill": "Pitch Deck",
+      "messageId": "1434481489961029692",
+      "requestedAt": "2026-03-20T16:10:37.655Z",
+      "status": "error_git_push"
+    }
+  ]
+}

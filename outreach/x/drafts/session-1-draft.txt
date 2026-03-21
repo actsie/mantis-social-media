@@ -1,1 +1,1 @@
-the 50-signup gate removes the "maybe it just needs more time" rationalization. hard to argue with a number.
+twenty-five days in and the bugs are still winning. what does your debugging loop look like right now?

@@ -677,6 +677,184 @@
       },
       "humanized": true,
       "notes": "Session 9/10. Comment posted successfully. Liked main post + 2 older posts from @amynguyen1087 (Flower nails March 6 and March 5 posts). Follow builder: 0 qualifying (only comments from Facebook, no IG individual users)."
+    },
+    {
+      "timestamp": "2026-03-20T05:23:50.309Z",
+      "account": "buffandfile",
+      "postUrl": "https://www.instagram.com/buffandfile/p/DV2FEihDVxI/",
+      "comment": "That OPI name is doing a lot of work. Picking a shade named after an actual neighborhood brunch spot makes the whole thing feel more intentional.",
+      "likes": [
+        "https://www.instagram.com/buffandfile/p/DV2FEihDVxI/",
+        "https://www.instagram.com/buffandfile/p/DVttpJvCRki/",
+        "https://www.instagram.com/buffandfile/p/DUtJ196jbzl/"
+      ],
+      "type": "comment",
+      "hashtag": "nailinspiration",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 10/10. Comment posted successfully. Liked main post + 2 older posts from @buffandfile (March 10 bright green post and Feb 13 Gel X extension post - already liked from prior session). Follow builder: 0 qualifying (no other commenters on post)."
+    },
+    {
+      "timestamp": "2026-03-20T13:42:24.602Z",
+      "account": "whitecocobeautybar",
+      "postUrl": "https://www.instagram.com/p/DWEDlYDCFr2/",
+      "comment": "this energy is everything. confidence like this stops the scroll 🔥",
+      "likes": [
+        "DWEDlYDCFr2",
+        "CreT1mBNmJa",
+        "DWEYoBJgqSb"
+      ],
+      "type": "comment",
+      "hashtag": "nailslove",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-20T15:34:00.922Z",
+      "account": "nailshitech",
+      "postUrl": "https://www.instagram.com/p/DWHExSbmMA8/",
+      "comment": "Those blossoms have such fine petal work. Each one's got that delicate edge without looking fragile. Do you freehand these or use a stamping plate?",
+      "likes": [
+        "DWHExSbmMA8",
+        "DWEf5qyjXcz",
+        "DWBmbxniaEs"
+      ],
+      "type": "comment",
+      "hashtag": "nailsofig",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-20T18:18:03.167Z",
+      "account": "smooch_nailsandtraining",
+      "postUrl": "https://www.instagram.com/p/DVzAqjXDHmh/",
+      "comment": "that white chrome has such a smooth glazed look. catches the light without going full mirror. how's the wear time on this finish?",
+      "likes": [
+        "https://www.instagram.com/p/DVzAqjXDHmh/",
+        "https://www.instagram.com/p/DV_3_T4DPH1/",
+        "https://www.instagram.com/p/DV64VVGjFZX/"
+      ],
+      "type": "comment-attempted-ui-issue",
+      "hashtag": "nailinspiration",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 4/10. Comment text entered but Post button not accessible in DOM. Main post + 2 older posts from @smooch_nailsandtraining liked."
+    },
+    {
+      "timestamp": "2026-03-20T21:22:00.000Z",
+      "account": "FAILED",
+      "postUrl": "N/A",
+      "comment": "Browser unavailable - timed out repeatedly",
+      "likes": [],
+      "type": "failed",
+      "hashtag": "naildesigner",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": false,
+      "notes": "Session 5/10. Browser connection failed after multiple retry attempts and gateway restart. Could not access Instagram to complete engagement."
+    },
+    {
+      "timestamp": "2026-03-20T21:33:47.926Z",
+      "account": "keylaalves_oficial",
+      "postUrl": "https://www.instagram.com/p/DWHJXCGgEk-/",
+      "comment": "the home studio to own space grind is real. 8 years and 50+ students shows you stuck with it. are most of your students local or from all over brazil?",
+      "likes": [
+        "https://www.instagram.com/p/DWHJXCGgEk-/",
+        "https://www.instagram.com/keylaalves_oficial/p/DKXceb8uZVz/",
+        "https://www.instagram.com/keylaalves_oficial/p/DWC_2UuEaRe/"
+      ],
+      "type": "comment",
+      "hashtag": "naildesigner",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-20T22:30:25.198Z",
+      "account": "bellarose_nails",
+      "postUrl": "https://www.instagram.com/p/DWDoLoGkmXy/",
+      "comment": "the pink barbie dream salon rebrand actually works. fresh space but the client love still comes through - most places lose that in a renovation",
+      "likes": [
+        "https://www.instagram.com/p/DWDoLoGkmXy/"
+      ],
+      "type": "comment-attempted-ui-issue",
+      "hashtag": "nailsalon",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true,
+      "notes": "Session 6/10. Comment text entered but Post button not accessible in DOM. Main post liked. Older posts from @bellarose_nails available for liking."
+    },
+    {
+      "timestamp": "2026-03-20T23:24:16.493Z",
+      "account": "vipnailssouthloop",
+      "postUrl": "https://www.instagram.com/p/DWH5daggrNw/",
+      "comment": "main character energy is loud here. sharp lines like this don't need an explanation - they just work",
+      "likes": [
+        "https://www.instagram.com/p/DWH5daggrNw/",
+        "https://www.instagram.com/p/DWFp_SDAfvf/",
+        "https://www.instagram.com/p/DWDifmugSat/"
+      ],
+      "type": "comment",
+      "hashtag": "nailslove",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-21T00:43:35.888Z",
+      "account": "shnailz",
+      "postUrl": "https://www.instagram.com/p/DVljFf7EWFJ/",
+      "comment": "that weather shift flips the mood. when your week's this packed, clients are definitely riding that spring energy",
+      "likes": [
+        "https://www.instagram.com/p/DVljFf7EWFJ/",
+        "https://www.instagram.com/shnailz/reel/DV16lZTiXl4/",
+        "https://www.instagram.com/shnailz/p/DVWGSvZkUO-/"
+      ],
+      "type": "comment",
+      "hashtag": "nailart",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
+    },
+    {
+      "timestamp": "2026-03-21T02:14:51.637Z",
+      "account": "nailedbydesirae",
+      "postUrl": "https://www.instagram.com/p/DWHdQeGjybL/",
+      "comment": "this abstract french take is cool. the wavy line keeps it from feeling stiff but it still reads french. do clients bring you inspo or let you freestyle?",
+      "likes": [
+        "https://www.instagram.com/p/DWHdQeGjybL/",
+        "https://www.instagram.com/p/DWEsaosjFtt/",
+        "https://www.instagram.com/p/DVrqb_qD3By/"
+      ],
+      "type": "comment",
+      "hashtag": "nailsofig",
+      "engagement": {
+        "likesOnOurComment": 0,
+        "repliesToOurComment": 0
+      },
+      "humanized": true
     }
   ]
 }

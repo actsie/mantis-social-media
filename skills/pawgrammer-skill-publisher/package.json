@@ -1,0 +1,9 @@
+{
+  "name": "pawgrammer-skill-publisher",
+  "version": "1.0.0",
+  "description": "Publishes pawgrammer skills and sends confirmation emails",
+  "main": "scripts/skill-publisher.js",
+  "scripts": {
+    "start": "node scripts/skill-publisher.js"
+  }
+}

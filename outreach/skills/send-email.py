@@ -36,7 +36,7 @@ client = AgentMail(api_key=api_key)
 inbox_id = "skills-pawgrammer-request@agentmail.to"
 
 try:
-    response = client.messages.send(
+    response = client.inboxes.messages.send(
         inbox_id=inbox_id,
         to=[to_email],
         subject=f"Your skill request is live on Pawgrammer 🎉",

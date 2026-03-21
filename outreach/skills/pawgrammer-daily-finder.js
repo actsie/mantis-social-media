@@ -186,6 +186,39 @@ function runCmd(cmd, cwd = null) {
   return { stdout: result.stdout, stderr: result.stderr, status: result.status };
 }
 
+// Utility: Security check for skill content
+function securityCheck(content, skillName) {
+  const dangerousPatterns = [
+    { pattern: /\beval\s*\(/gi, name: 'eval() call' },
+    { pattern: /\bexec\s*\(/gi, name: 'exec() call' },
+    { pattern: /\bFunction\s*\(/gi, name: 'Function() constructor' },
+    { pattern: /\bchild_process\b/gi, name: 'child_process import' },
+    { pattern: /\bspawn\s*\(/gi, name: 'spawn() call' },
+    { pattern: /\brequire\s*\(\s*['"]fs['"]\s*\)/gi, name: 'fs module import' },
+    { pattern: /API_KEY\s*[:=]\s*['"][A-Za-z0-9]{16,}['"]/gi, name: 'hardcoded API key' },
+    { pattern: /api[_-]?key\s*[:=]\s*['"][A-Za-z0-9]{16,}['"]/gi, name: 'hardcoded api_key' },
+    { pattern: /secret\s*[:=]\s*['"][A-Za-z0-9]{16,}['"]/gi, name: 'hardcoded secret' },
+    { pattern: /https?:\/\/(?!raw\.githubusercontent\.com|github\.com|api\.github\.com)[^\s'"]+/gi, name: 'request to unknown domain' },
+  ];
+  
+  const issues = [];
+  
+  for (const { pattern, name } of dangerousPatterns) {
+    const matches = content.match(pattern);
+    if (matches) {
+      issues.push(`${name} (${matches.length} occurrence${matches.length > 1 ? 's' : ''})`);
+    }
+  }
+  
+  if (issues.length > 0) {
+    console.log(`  ⚠ Security check failed: ${issues.join(', ')}`);
+    return false;
+  }
+  
+  console.log(`  ✓ Security check passed`);
+  return true;
+}
+
 // Main pipeline
 async function runPipeline() {
   // Step 1: Load existing queue
@@ -347,6 +380,14 @@ ${bodyContent}
     console.log(`  📝 Writing ${slug}.md...`);
     fs.writeFileSync(outputPath, output);
     console.log(`  ✓ File written\n`);
+    
+    // Security check before committing
+    console.log(`  🔒 Running security check...`);
+    if (!securityCheck(output, skillName)) {
+      console.log(`  ⚠ Security check failed, removing file and skipping\n`);
+      fs.unlinkSync(outputPath);
+      continue;
+    }
     
     // Git commit and push
     console.log(`  🔄 Committing and pushing...`);

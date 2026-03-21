@@ -379,9 +379,14 @@ async function main() {
       console.log(`New requests processed: ${newRequests}`);
       console.log(`Already existed: ${alreadyExists}`);
       console.log(`Skipped (previously processed): ${skipped}`);
+      console.log('\n[skill-requester] Success');
+      process.exit(0);
 
     } catch (error) {
       console.error('Error processing channel:', error);
+      client.destroy();
+      console.log('\n[skill-requester] Error exit');
+      process.exit(1);
     } finally {
       client.destroy();
       console.log('\n[skill-requester] Done');
@@ -392,7 +397,13 @@ async function main() {
     console.error('Discord client error:', error);
   });
 
-  await client.login(token);
+  await client.login(token).catch(err => {
+    console.error('Failed to login:', err);
+    process.exit(1);
+  });
 }
 
-main().catch(console.error);
+main().catch(err => {
+  console.error('Fatal error:', err);
+  process.exit(1);
+});

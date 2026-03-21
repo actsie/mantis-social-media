@@ -1,28 +1,28 @@
 {
-  "date": "2026-03-19",
+  "date": "2026-03-20",
   "sessions": [
     {
       "n": 1,
-      "time": "11:52",
-      "sub": "advancedentrepreneur",
-      "done": true
-    },
-    {
-      "n": 2,
-      "time": "17:30",
-      "sub": "femalehairadvice",
-      "done": true
-    },
-    {
-      "n": 3,
-      "time": "19:00",
+      "time": "07:21",
       "sub": "SkincareAddicts",
       "done": true
     },
     {
+      "n": 2,
+      "time": "10:56",
+      "sub": "longhair",
+      "done": true
+    },
+    {
+      "n": 3,
+      "time": "11:46",
+      "sub": "femalehairadvice",
+      "done": true
+    },
+    {
       "n": 4,
-      "time": "21:36",
-      "sub": "smallbusiness",
+      "time": "22:11",
+      "sub": "femalehairadvice",
       "done": true
     }
   ]
