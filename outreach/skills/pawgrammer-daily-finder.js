@@ -40,6 +40,34 @@ const SEARCH_QUERIES = [
 console.log('\n🔍 Pawgrammer Skill Finder — Daily Pipeline\n');
 console.log(`Max skills to process: ${MAX_SKILLS_PER_RUN}\n`);
 
+// Utility: Pre-validate SKILL.md exists before queuing
+// Returns the working URL if found, null otherwise
+function validateSkillMdExists(org, repo) {
+  const urlsToTry = [
+    `${GITHUB_API}/${org}/${repo}/main/SKILL.md`,
+    `${GITHUB_API}/${org}/${repo}/master/SKILL.md`,
+    `${GITHUB_API}/${org}/${repo}/main/.claude/skills/SKILL.md`,
+    `${GITHUB_API}/${org}/${repo}/master/.claude/skills/SKILL.md`,
+    `${GITHUB_API}/${org}/${repo}/main/skills/SKILL.md`,
+    `${GITHUB_API}/${org}/${repo}/master/skills/SKILL.md`,
+  ];
+  
+  for (const url of urlsToTry) {
+    const result = spawnSync('curl', [
+      '-s', '-L', '-o', '/dev/null', '-w', '%{http_code}',
+      '-H', 'Accept: application/vnd.github+json',
+      ...GITHUB_AUTH_HEADERS,
+      url
+    ], { encoding: 'utf8', timeout: 8000 });
+    
+    if (result.status === 0 && result.stdout.trim() === '200') {
+      return url;  // Return the working URL
+    }
+  }
+  
+  return null;
+}
+
 // Utility: Search GitHub for new skill candidates
 async function searchGitHubForSkills(installed) {
   const candidates = [];
@@ -78,6 +106,17 @@ async function searchGitHubForSkills(installed) {
         // Skip if already installed or seen
         if (seen.has(slug) || candidates.some(c => c.name === slug)) continue;
         
+        // PRE-VALIDATE: Check if SKILL.md actually exists before adding to queue
+        console.log(`    Validating ${slug}...`);
+        const skillMdUrl = validateSkillMdExists(org, repoName);
+        
+        if (!skillMdUrl) {
+          console.log(`    ⚠ No SKILL.md found, skipping\n`);
+          continue;
+        }
+        
+        console.log(`    ✓ SKILL.md confirmed at: ${skillMdUrl}\n`);
+        
         // Determine trust level
         const trust = repo.stargazers_count > 1000 ? 'High' : 'Medium';
         
@@ -104,7 +143,8 @@ async function searchGitHubForSkills(installed) {
           trust: trust,
           category: category,
           stars: repo.stargazers_count || 0,
-          reason: `Found via: ${query}`
+          reason: `Found via: ${query}`,
+          skillMdUrl: skillMdUrl  // Store the working URL for fetching
         });
         
         seen.add(slug);
@@ -242,17 +282,19 @@ async function runPipeline() {
     const org = urlParts[0];
     const repo = urlParts[1];
     
-    // Fetch SKILL.md
+    // Fetch SKILL.md using the pre-validated URL
     console.log(`\n  📥 Fetching SKILL.md...`);
     let skillContent = null;
     
-    // Try different URL patterns
-    const urlsToTry = [
-      `${GITHUB_API}/${org}/${repo}/master/${slug}/SKILL.md`,  // ComposioHQ structure
-      `${GITHUB_API}/${org}/${repo}/main/SKILL.md`,
-      `${GITHUB_API}/${org}/${repo}/master/SKILL.md`,
-      `${GITHUB_API}/${org}/${repo}/main/${slug}/SKILL.md`,
-    ];
+    // Use the stored skillMdUrl if available, otherwise try fallback patterns
+    const urlsToTry = skill.skillMdUrl 
+      ? [skill.skillMdUrl]
+      : [
+          `${GITHUB_API}/${org}/${repo}/master/${slug}/SKILL.md`,
+          `${GITHUB_API}/${org}/${repo}/main/SKILL.md`,
+          `${GITHUB_API}/${org}/${repo}/master/SKILL.md`,
+          `${GITHUB_API}/${org}/${repo}/main/${slug}/SKILL.md`,
+        ];
     
     for (const url of urlsToTry) {
       const content = fetchUrlSync(url);
