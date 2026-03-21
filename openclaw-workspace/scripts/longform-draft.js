@@ -29,13 +29,34 @@ function gitPush(msg) {
   spawnSync('git', ['push', 'origin', 'main'], opts);
 }
 
+// Day-of-week content angle rotation
+const dayOfWeek = new Date().getDay(); // 0=Sunday, 1=Monday, ..., 6=Saturday
+
+// Skip on weekends
+if (dayOfWeek === 0 || dayOfWeek === 6) {
+  console.log(`[agentcard-longform] ${new Date().toISOString()} — Weekend, skipping longform draft`);
+  process.exit(0);
+}
+
 // Build the full longform research + drafting prompt
 const memoryContent = fs.existsSync(MEMORY) ? fs.readFileSync(MEMORY, 'utf8').slice(0, 3000) : '(no memory file yet today)';
+
+const angleRotation = {
+  0: { category: 'skip', name: 'Weekend — No longform' },
+  1: { category: 'behind-the-scenes', name: 'Monday — Behind-the-scenes: technical internals of agent payments' },
+  2: { category: 'merchant-operator', name: 'Tuesday — Merchant/operator: infrastructure gaps, developer friction' },
+  3: { category: 'trends', name: 'Wednesday — Trends: AI changing payments, fraud detection, new rails' },
+  4: { category: 'contrarian-trust', name: 'Thursday — Contrarian/trust: psychology of autonomous spending' },
+  5: { category: 'best-of-week', name: 'Friday — Strongest angle from research (best of the week)' },
+  6: { category: 'skip', name: 'Weekend — No longform' }
+};
+const todaysAngle = angleRotation[dayOfWeek];
 
 const prompt = `
 AGENT CARD — DAILY LONG-FORM DRAFT
 
 Date: ${TODAY}
+Day of week: ${['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][dayOfWeek]}
 WORKSPACE: ${WORKSPACE}
 
 You are the Content Agent for Agent Card (agentic payments product).
@@ -49,6 +70,30 @@ Read AGENTS.md — content research loop (Steps 1-4) is mandatory before draftin
 
 Today's memory so far:
 ${memoryContent}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTENT ANGLE ROTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Today's prioritized angle: ${todaysAngle.name}
+
+**Monday — Behind-the-scenes:** What actually happens technically when an AI agent tries to pay. Focus on the infrastructure, protocols, handshakes, failure points.
+
+**Tuesday — Merchant/operator:** Why agents fail at checkout, infrastructure gaps, developer friction. Focus on the business/operator perspective.
+
+**Wednesday — Trends:** How AI is changing payments, fraud detection, digital wallets, new rails. Focus on industry shifts and emerging patterns.
+
+**Thursday — Contrarian/trust:** The trust gap when agents spend on your behalf, psychology of autonomous spending. Challenge assumptions about who/what we trust with money.
+
+**Friday — Best of week:** Strongest angle from research regardless of category. Pick the most compelling story from the week.
+
+**Saturday/Sunday — Skip:** No longform on weekends.
+
+The rotation is a guide, not a hard rule. If a genuinely stronger angle exists in a different category, use it — but note which category was skipped in memory.
+
+${dayOfWeek === 0 || dayOfWeek === 6 ? `
+⚠️ WEEKEND — This script should not have run on Saturday/Sunday. Exit gracefully without drafting.
+` : ''}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STEP 1 — STAT DUMP SEARCH

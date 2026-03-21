@@ -20,9 +20,22 @@ You are running inside the Agent Card social media workspace. There are two agen
 Cron: `agentcard-breaking-news` — runs every 30 minutes around the clock.
 When something breaks: draft a PolyMarket-style post immediately (Mode 1), notify via Discord and Telegram, post as soon as approved. No schedule — purely reactive. Could be 0 posts or 5 in a day.
 
-**Track 2 — Long-form (once per day, 7am)**
-Cron: `agentcard-longform` — runs once per day at 7am.
-Run the content research loop (see below), find the strongest angle from the last 24 hours, draft one Ole Lehmann post (Mode 2). Write to drafts.json with `account: "brand"`, `urgency: "standard"`. Queues for the 9am or 1pm posting window after approval.
+**Track 2 — Long-form (Mon-Fri, 7am)**
+Cron: `agentcard-longform` — runs daily at 7am, skips weekends.
+Run the content research loop (see below), then use the **day-of-week angle rotation** to guide which content angle to prioritize:
+
+| Day | Category | Focus |
+|-----|----------|-------|
+| Monday | Behind-the-scenes | What actually happens technically when an AI agent tries to pay |
+| Tuesday | Merchant/operator | Why agents fail at checkout, infrastructure gaps, developer friction |
+| Wednesday | Trends | How AI is changing payments, fraud detection, digital wallets, new rails |
+| Thursday | Contrarian/trust | The trust gap when agents spend on your behalf, psychology of autonomous spending |
+| Friday | Best of week | Strongest angle from research regardless of category |
+| Sat/Sun | Skip | No longform on weekends |
+
+The rotation is a guide, not a hard rule. If a genuinely stronger angle exists in a different category, use it — but note which category was skipped in memory.
+
+Draft one Ole Lehmann post (Mode 2). Write to drafts.json with `account: "brand"`, `urgency: "standard"`. Queues for the 9am or 1pm posting window after approval.
 
 **Track 3 — Replies (daily, surfaced by morning heartbeat)**
 Cron: `agentcard-daily-heartbeat` — runs at 8am.

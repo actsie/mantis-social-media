@@ -190,25 +190,11 @@ End your response with EXACTLY one of:
 No other text after this line.
 `.trim();
 
-// Write prompt to a temp file so we can fire it as a cron
-const runId = `agentcard-breaking-${Date.now()}`;
-
-const result = spawnSync('openclaw', [
-  'cron', 'add',
-  '--name', runId,
-  '--system-event', prompt,
-  '--delete-after-run',
-  '--session', 'main',
-  '--at', new Date(Date.now() + 5000).toISOString(),
-], { encoding: 'utf8' });
-
-if (result.status !== 0) {
-  console.error('Failed to queue sweep:', result.stderr);
-  process.exit(1);
-}
-
 // Update state
 state.lastRun = now;
 writeJSON(STATE, state);
 
-console.log(`[agentcard-breaking-news] ${now} — sweep queued (${runId})`);
+console.log(`[agentcard-breaking-news] ${now} — sweep complete (NO_SIGNAL)`);
+console.log('\nNote: This script is now a no-op placeholder.');
+console.log('The actual sweep runs via the agentcard-breaking-news cron (*/30 * * * *).');
+console.log('To avoid cron cascade, do NOT create session crons from this script.');
