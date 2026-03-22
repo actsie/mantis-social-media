@@ -231,7 +231,7 @@ Three hours pass with no sweep confirmations in Discord. The operator checks the
 
 - NFR4: A sweep failure must not prevent subsequent sweeps — outer script exits with appropriate code, cron continues on schedule
 - NFR5: Every run must produce a log entry (signal found, no signal, or error type) — silent completion is not acceptable
-- NFR6: Auth token expiry must produce an explicit logged error within the first 10 seconds of the run — not at timeout
+- NFR6: Auth token expiry must produce an explicit logged error — detected via stderr parsing after agent spawn completes (no pre-flight auth check available in openclaw CLI)
 
 ### Integration
 
