@@ -2,32 +2,59 @@
 /**
  * agentcard-breaking-news — runs every 30 min, 24/7
  * Fast sweep (~60s) for agentic payment breaking news.
- * Drafts PolyMarket-style posts on signal, then exits silently.
+ * 
+ * Phase 1 MVP — Spawns agent session for research + drafting.
+ * Does NOT implement: FR27, FR28, FR29 (Growth feedback loop features)
  */
 
 const { spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const WORKSPACE = '/Users/mantisclaw/agentcard-social/openclaw-workspace';
+// ─── CONFIG ─────────────────────────────────────────────────────────────────
+
+// P-1: Workspace root from env with fallback
+const WORKSPACE = process.env.AGENTCARD_WORKSPACE || path.join(__dirname, '..');
 const DRAFTS    = path.join(WORKSPACE, 'drafts.json');
 const STATE     = path.join(WORKSPACE, 'breaking-news-state.json');
+const SOUL      = path.join(WORKSPACE, 'SOUL.md');
+const MEMORY_MD = path.join(WORKSPACE, 'MEMORY.md');
 
 function today() {
   return new Date().toISOString().slice(0, 10);
 }
-const MEMORY = path.join(WORKSPACE, `memory/${today()}.md`);
+const TODAY  = today();
+const MEMORY = path.join(WORKSPACE, `memory/${TODAY}.md`);
 
-// ─── helpers ────────────────────────────────────────────────────────────────
+// ─── HELPERS ────────────────────────────────────────────────────────────────
 
-function readJSON(p, def) {
-  try { return JSON.parse(fs.readFileSync(p, 'utf8')); }
-  catch { return def; }
+// P-6: Helper that always trims seenIds before writing
+function saveState(state) {
+  state.seenIds = state.seenIds.slice(-100);
+  fs.mkdirSync(path.dirname(STATE), { recursive: true });
+  fs.writeFileSync(STATE, JSON.stringify(state, null, 2));
 }
 
-function writeJSON(p, d) {
-  fs.mkdirSync(path.dirname(p), { recursive: true });
-  fs.writeFileSync(p, JSON.stringify(d, null, 2));
+function readJSON(p, def) {
+  try {
+    if (!fs.existsSync(p)) {
+      fs.mkdirSync(path.dirname(p), { recursive: true });
+      fs.writeFileSync(p, JSON.stringify(def, null, 2));
+      return def;
+    }
+    return JSON.parse(fs.readFileSync(p, 'utf8'));
+  } catch (e) {
+    console.warn(`⚠️ Could not read ${p}: ${e.message}`);
+    return def;
+  }
+}
+
+function readFileSafe(p, fallback = '') {
+  try {
+    return fs.existsSync(p) ? fs.readFileSync(p, 'utf8').slice(0, 5000) : fallback;
+  } catch {
+    return fallback;
+  }
 }
 
 function appendMemory(text) {
@@ -36,165 +63,342 @@ function appendMemory(text) {
     let c = fs.existsSync(MEMORY) ? fs.readFileSync(MEMORY, 'utf8') : '';
     if (!c.includes('## Breaking News')) c += '\n\n## Breaking News\n';
     fs.writeFileSync(MEMORY, c + text);
-  } catch { /* non-fatal */ }
+  } catch (e) {
+    console.warn(`⚠️ Could not append to memory: ${e.message}`);
+  }
 }
 
-function gitPush(msg) {
-  const base = '/Users/mantisclaw/agentcard-social';
-  spawnSync('git', ['-C', base, 'add', '-A'], { encoding: 'utf8' });
-  spawnSync('git', ['-C', base, 'commit', '-m', msg], { encoding: 'utf8' });
-  spawnSync('git', ['-C', base, 'pull', '--rebase', 'origin', 'main'], { encoding: 'utf8' });
-  spawnSync('git', ['-C', base, 'push', 'origin', 'main'], { encoding: 'utf8' });
-}
+// ─── STATE INITIALIZATION ──────────────────────────────────────────────────
 
-function slugify(s) {
-  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40);
-}
-
-function draftId(label) {
-  return `${today().replace(/-/g,'')}-breaking-${slugify(label)}-${Date.now().toString(36)}`;
-}
-
-// ─── main prompt ─────────────────────────────────────────────────────────────
-
-const state = readJSON(STATE, { lastRun: null, seenIds: [] });
+const state = readJSON(STATE, { lastRun: null, seenIds: [], lastSignal: null });
 const now   = new Date().toISOString();
 
+// P-9: Removed orphaned readJSON(DRAFTS, []) call - file initialized in happy path
+
+// ─── BUILD AGENT PROMPT ────────────────────────────────────────────────────
+
+// P-2: Inject SOUL.md and MEMORY.md contents
+const soulContent = readFileSafe(SOUL);
+const memoryContent = readFileSafe(MEMORY_MD);
+
+// P-3: Pass seenIds (last 100) to prevent duplicate drafts
+const seenIdsList = state.seenIds.slice(-100).join(', ');
+
+// P-4: Secondary search terms included + JSON output format
 const prompt = `
 AGENT CARD — BREAKING NEWS SWEEP
 
 Run time: ${now}
 Last run: ${state.lastRun || 'first run'}
+Last signal: ${state.lastSignal || 'none'}
 
 You are the Research Agent for Agent Card (agentic payments product).
-This sweep must complete in under 60 seconds of context.
+This sweep must complete in under 60 seconds.
 
-WORKSPACE: /Users/mantisclaw/agentcard-social/openclaw-workspace
-SOUL: read SOUL.md for voice guidance
-MEMORY: read MEMORY.md for competitor list and Tier 1 accounts
+WORKSPACE: ${WORKSPACE}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-STEP 1 — TWITTER SWEEP (fast)
+CONTEXT FILES (INJECTED)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Use browser (profile="openclaw") to search these on x.com/search?f=live:
+**SOUL.md (writing rules):**
+${soulContent || '(no SOUL.md found)'}
 
-**Primary (Priority 1 — direct agentic payments news):**
+**MEMORY.md (competitors + Tier 1 accounts):**
+${memoryContent || '(no MEMORY.md found)'}
+
+**Previously seen draft IDs (do not duplicate):**
+${seenIdsList || '(none)'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 1 — TWITTER/X SWEEP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Use browser (profile="openclaw") to search x.com/search?f=live:
+
+**Primary queries:**
 - "agentic payments"
-- "agent payment"  
+- "agent payment"
 - "AI agent checkout"
 - "machine payments"
 
-**Secondary signals (draft only if genuine announcement/event, not commentary):**
+**Secondary queries:**
 - "AI agent" wallet OR budget OR spending
 - "agent" "MCP" payment OR checkout OR purchase
 - autonomous spending OR procurement
 - KYC "AI agent"
 
-Filter: only posts from the last 30 minutes.
-Also check latest post from: @brian_armstrong, @stripe, @OpenAI, @Google, @Visa, @Mastercard, @coinbase, @arcanexis
+**Check these accounts for new posts (last 30 min):**
+@brian_armstrong, @stripe, @OpenAI, @Google, @Visa, @Mastercard, @coinbase, @arcanexis
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-STEP 2 — NEWS SCAN (fast)
+STEP 2 — NEWS SOURCES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Use web_fetch to check each of these for articles published in the last 30 minutes.
+Use web_fetch on these (headlines only, check timestamps — last 30 min):
 
-**Primary:** agentic payments, agent payment, AI agent checkout, AI checkout, machine payments, agent credit card.
-
-**Secondary (draft only if genuine announcement/event):** AI agent wallet, AI agent budget, AI agent spending, MCP payment, MCP checkout, autonomous spending, autonomous procurement, KYC AI agent.
-
-Direct sources (fetch headlines only — don't read full articles):
-- https://aibusiness.com/generative-ai/agentic-ai
-- https://www.forbes.com/topics/agentic-ai/
+**Primary:**
 - https://techcrunch.com/search/agentic+payments
 - https://techcrunch.com/search/agent+payment
-- https://www.theverge.com/search?q=agentic+payments
-- https://www.theverge.com/search?q=agent+payment
-- https://www.bloomberg.com/technology (scan headlines only)
-- https://www.theinformation.com (scan headlines only — may be paywalled, note title only)
+- https://aibusiness.com/generative-ai/agentic-ai
+- https://www.forbes.com/topics/agentic-ai/
 
-For each: note any article headline that matches the topic. Check the timestamp — only flag if published in the last 30 minutes.
+**Additional sources:**
+- https://www.bloomberg.com/technology
+- https://www.theverge.com/search?q=agentic+payments
+- https://www.theinformation.com (headlines only, may be paywalled)
+- https://www.pymnts.com (search: agentic payments)
+- https://fintechmagazine.com (search: AI agent payments)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STEP 3 — EVALUATE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Breaking = TRUE if any of:
-a) Major company (Fortune 500 or Tier 1 account) announces something new in agentic payments
-b) 100K+ account post gaining 50+ likes within 2 hours on agentic payments topic
-c) Competitor from MEMORY.md ships or announces something new
-d) Regulatory/legal development touching AI + payments
-e) New article from TechCrunch / Bloomberg / The Information on this topic
+Breaking = TRUE if any:
+a) Fortune 500 / Tier 1 announces agentic payments news
+b) 100K+ follower account, 50+ likes in 2hrs, on-topic
+c) Competitor (from MEMORY.md) ships/announces
+d) Regulatory/legal AI+payments development
+e) TechCrunch / Bloomberg / Information / PYMNTS / Fintech Magazine article
 
-If NOTHING breaking: reply "NO_SIGNAL" and stop.
+If NOTHING breaking: Reply with JSON: {"signal": false}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STEP 4 — IF BREAKING: DRAFT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Draft 1 — PolyMarket style (see SOUL.md):
-- 1-3 sentences, fact first, no opinion padding, no hashtags
-- Format: "BREAKING: [fact]." or "JUST IN: [fact]."
+Draft PolyMarket style (Mode 1 from SOUL.md):
+- 1-3 sentences, fact first
+- "BREAKING: [fact]." or "JUST IN: [fact]."
 - Under 280 characters
-
-Draft 2 (if story warrants depth) — Ole Lehmann style:
-- Translation opener, human analogy, insight, verdict
-- Long-form single post, lowercase, conversational
+- No hashtags, no opinion padding
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-STEP 5 — WRITE DRAFTS
+STEP 5 — OUTPUT FORMAT (CRITICAL)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Write to ${DRAFTS}. Append to existing array. Format:
+If breaking news found, output EXACTLY this JSON (no other text):
+{"signal": true, "headline": "...", "draft_id": "...", "source_url": "...", "text": "..."}
 
-{
-  "id": "[YYYYMMDD]-breaking-[slug]-[timestamp]",
-  "platform": "twitter",
-  "type": "original",
-  "status": "pending",
-  "urgency": "breaking",
-  "text": "[draft text]",
-  "context": "[one sentence: why this is breaking + source URL]",
-  "source_url": "[article or tweet URL]",
-  "created_at": "[ISO timestamp]",
-  "reviewed_at": null,
-  "posted_at": null
-}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-STEP 6 — NOTIFY + LOG + PUSH
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-After writing each draft to drafts.json, immediately run:
-  DISCORD_WEBHOOK_AGENTCARD="$DISCORD_WEBHOOK_AGENTCARD" SLACK_WEBHOOK_AGENTCARD="" node /Users/mantisclaw/agentcard-social/openclaw-workspace/scripts/notify-draft.js [draft-id]
-
-Append to ${MEMORY} under ## Breaking News:
-- Timestamp, headline, source URL, why it qualifies
-
-Then run:
-  cd /Users/mantisclaw/agentcard-social
-  git add -A
-  git commit -m "Breaking: [short description]"
-  git pull --rebase origin main
-  git push origin main
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FINAL REPLY
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-End your response with EXACTLY one of:
-- "SIGNAL: [headline in 10 words]" — if breaking news found and drafted
-- "NO_SIGNAL" — if nothing qualifies
+If nothing breaking, output EXACTLY this JSON (no other text):
+{"signal": false}
 
 No other text after this line.
 `.trim();
 
-// Update state
-state.lastRun = now;
-writeJSON(STATE, state);
+// ─── SPAWN AGENT SESSION ───────────────────────────────────────────────────
 
-console.log(`[agentcard-breaking-news] ${now} — sweep complete (NO_SIGNAL)`);
-console.log('\nNote: This script is now a no-op placeholder.');
-console.log('The actual sweep runs via the agentcard-breaking-news cron (*/30 * * * *).');
-console.log('To avoid cron cascade, do NOT create session crons from this script.');
+console.log('\n🔍 Spawning breaking news agent session...\n');
+
+// P-5: Agent session params with 180s timeout
+// Outer timeout 210000ms (3.5 min)
+const result = spawnSync('openclaw', [
+  'agent',
+  '--session-id', 'main',
+  '--message', prompt,
+  '--thinking', 'minimal',
+  '--timeout', '180'
+], {
+  encoding: 'utf8',
+  env: { ...process.env },
+  cwd: WORKSPACE,
+  timeout: 210000
+});
+
+// ─── PARSE AND VALIDATE OUTPUT ─────────────────────────────────────────────
+
+const output = result.stdout || '';
+const stderr = result.stderr || '';
+const exitCode = result.status;
+const signal = result.signal;
+
+// P-6: Helper for consistent state saving
+function handleErrorAndExit(reason) {
+  console.log(`\n❌ ${reason}\n`);
+  saveState(state);
+  process.exit(1);
+}
+
+// P-5: Distinguish timeout / auth failure / binary not found / NO_SIGNAL
+if (signal === 'SIGTERM' || exitCode === null) {
+  handleErrorAndExit('Agent session timed out after 210 seconds');
+}
+
+// P-5: Lowercase stderr for case-insensitive auth check
+const stderrLower = stderr.toLowerCase();
+if (stderrLower.includes('authentication') || stderrLower.includes('auth') || stderrLower.includes('token') || stderrLower.includes('unauthorized')) {
+  handleErrorAndExit(`Authentication failure: ${stderr.slice(0, 200)}`);
+}
+
+// P-5: Exit 127 = binary not found (separate from auth)
+if (exitCode === 127) {
+  handleErrorAndExit(`Binary not found (exit 127): ${stderr.slice(0, 200)}`);
+}
+
+if (exitCode !== 0) {
+  console.log(`\n⚠️ Agent exited with code ${exitCode}\n`);
+  console.log('Output:', output.slice(0, 500));
+  saveState(state);
+  process.exit(1);
+}
+
+// P-3: Parse JSON output (not pipe-delimited)
+let parsed;
+try {
+  // P-3: Try to find JSON in output
+  const jsonMatch = output.match(/\{[\s\S]*\}/);
+  if (!jsonMatch) {
+    throw new Error('No JSON found in output');
+  }
+  parsed = JSON.parse(jsonMatch[0]);
+} catch (e) {
+  console.log('\n❌ Malformed agent output — invalid JSON\n');
+  console.log('Output:', output.slice(0, 500));
+  saveState(state);
+  process.exit(1);
+}
+
+// P-3: Check signal: true first, then signal: false
+if (parsed.signal === false) {
+  console.log('\n✅ No breaking news in this sweep.\n');
+  state.lastRun = now;
+  saveState(state);
+  process.exit(0);
+}
+
+if (parsed.signal !== true) {
+  console.log('\n❌ Malformed output — missing signal field\n');
+  console.log('Output:', output.slice(0, 500));
+  saveState(state);
+  process.exit(1);
+}
+
+// ─── EXTRACT DRAFT DATA ────────────────────────────────────────────────────
+
+const { headline, draft_id: draftId, source_url: sourceUrl, text: draftText } = parsed;
+
+// P-8: Reject if no source URL
+if (!sourceUrl || sourceUrl.trim() === '' || sourceUrl.trim() === 'N/A') {
+  console.log('\n❌ Malformed output: missing source URL — draft rejected\n');
+  saveState(state);
+  process.exit(1);
+}
+
+console.log(`\n🚨 SIGNAL DETECTED: ${headline}\n`);
+
+// ─── DEDUP CHECK (BEFORE WRITE) ────────────────────────────────────────────
+
+// P-2: Check seenIds BEFORE writing draft
+if (state.seenIds.includes(draftId)) {
+  console.log(`\n⚠️ Draft ${draftId} already seen — skipping duplicate\n`);
+  state.lastRun = now;
+  saveState(state);
+  process.exit(0);
+}
+
+// ─── WRITE DRAFT ───────────────────────────────────────────────────────────
+
+// Initialize drafts.json if missing (moved to here, after validation)
+if (!fs.existsSync(DRAFTS)) {
+  fs.mkdirSync(path.dirname(DRAFTS), { recursive: true });
+  fs.writeFileSync(DRAFTS, '[]');
+}
+
+const drafts = readJSON(DRAFTS, []);
+
+const draft = {
+  id: draftId.trim(),
+  platform: 'twitter',
+  type: 'original',
+  status: 'pending',
+  urgency: 'breaking',
+  text: draftText.trim(),
+  context: `Breaking: ${headline} — ${sourceUrl.trim()}`,
+  source_url: sourceUrl.trim(),
+  created_at: now,
+  reviewed_at: null,
+  posted_at: null,
+  account: 'brand'
+};
+
+drafts.push(draft);
+fs.writeFileSync(DRAFTS, JSON.stringify(drafts, null, 2));
+
+console.log(`  ✓ Draft written: ${draft.id}`);
+console.log(`  ✓ Source URL: ${sourceUrl.trim()}`);
+
+// ─── NOTIFY (DISCORD + TELEGRAM) ───────────────────────────────────────────
+
+// P-1: Discord notification
+console.log('  🔔 Sending Discord notification...');
+const notifyResult = spawnSync('node', [
+  path.join(WORKSPACE, 'scripts/notify-draft.js'),
+  draft.id
+], {
+  encoding: 'utf8',
+  env: { ...process.env },
+  timeout: 10000  // P-8: 10s timeout
+});
+
+// P-7: Check both status and error
+if (notifyResult.status === 0 && !notifyResult.error) {
+  console.log('  ✓ Discord notification sent');
+} else {
+  const errorMsg = notifyResult.error?.message || notifyResult.stderr?.slice(0, 100) || 'unknown error';
+  console.warn(`  ⚠ Discord notification failed: ${errorMsg}`);
+}
+
+// P-1: Telegram notification (FR20)
+console.log('  📱 Sending Telegram notification...');
+const telegramResult = spawnSync('openclaw', [
+  'message',
+  'send',
+  '--channel', 'telegram',
+  '--to', '6241290513',
+  '--message', `🚨 Breaking News Draft\n\n${draftText.trim()}\n\nSource: ${sourceUrl.trim()}\n\nID: ${draft.id}`
+], {
+  encoding: 'utf8',
+  env: { ...process.env },
+  timeout: 10000  // P-8: 10s timeout
+});
+
+// P-7: Check both status and error for Telegram
+if (telegramResult.status === 0 && !telegramResult.error) {
+  console.log('  ✓ Telegram notification sent');
+} else {
+  const errorMsg = telegramResult.error?.message || telegramResult.stderr?.slice(0, 100) || 'unknown error';
+  console.warn(`  ⚠ Telegram notification failed: ${errorMsg}`);
+}
+
+// ─── LOG TO MEMORY ────────────────────────────────────────────────────────
+
+// P-14: Append to memory/YYYY-MM-DD.md
+appendMemory(`- **${now}** — ${headline}
+  - Draft ID: ${draftId}
+  - Text: ${draftText.trim()}
+  - Source: ${sourceUrl.trim()}
+  - Status: pending review
+
+`);
+
+console.log('  ✓ Logged to memory file');
+
+// ─── UPDATE STATE ──────────────────────────────────────────────────────────
+
+state.lastRun = now;
+state.lastSignal = now;
+
+// P-2: Add to seenIds (dedup already checked above)
+if (!state.seenIds.includes(draftId)) {
+  state.seenIds.push(draftId);
+}
+
+// P-6: saveState() always trims to last 100
+saveState(state);
+
+console.log('\n✅ Sweep complete — 1 draft created\n');
+console.log(`Draft ID: ${draftId}`);
+console.log(`Headline: ${headline}`);
+console.log(`Status: pending review\n`);
+
+process.exit(0);
