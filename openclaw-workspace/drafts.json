@@ -218,5 +218,33 @@
     "reviewed_at": null,
     "posted_at": null,
     "account": "brand"
+  },
+  {
+    "id": "20260320-breaking-openai-checkout-pivot",
+    "platform": "twitter",
+    "type": "original",
+    "status": "pending",
+    "urgency": "breaking",
+    "text": "JUST IN: OpenAI is ending Instant Checkout in ChatGPT, shifting to product discovery after real-time inventory and pricing proved unreliable.",
+    "context": "OpenAI confirmed ending Instant Checkout in ChatGPT — agents couldn't reliably fulfill purchases due to real-time inventory and pricing data issues. Pivoting to discovery and handoff to retailer apps.",
+    "source_url": "https://www.cnbc.com/2026/03/20/open-ai-agentic-shopping-etsy-shopify-walmart-amazon.html",
+    "created_at": "2026-03-22T22:00:00.000Z",
+    "reviewed_at": null,
+    "posted_at": null,
+    "account": "brand"
+  },
+  {
+    "id": "20260320-longform-openai-checkout-pivot",
+    "platform": "twitter",
+    "type": "original",
+    "status": "pending",
+    "urgency": "breaking",
+    "text": "translation: OpenAI just proved that direct agent checkout is harder than it looks\n\nthey built Instant Checkout into ChatGPT. agents could buy things directly.\n\nthen they pulled it.\n\nthe problem: real-time inventory didn't work. pricing wasn't reliable. the agent would commit to a purchase the retailer couldn't actually fulfill.\n\nso they're pivoting to discovery. let the agent find the product, then hand off to the retailer's native checkout.\n\nauthorization is solved. settlement rails exist.\n\nthe hard part is the data layer. does the agent actually know what's in stock, at what price, with what shipping terms, right now?",
+    "context": "OpenAI ending Instant Checkout — real-world friction in agentic commerce surfaces the data layer problem. Personal account take.",
+    "source_url": "https://www.cnbc.com/2026/03/20/open-ai-agentic-shopping-etsy-shopify-walmart-amazon.html",
+    "created_at": "2026-03-22T22:00:00.000Z",
+    "reviewed_at": null,
+    "posted_at": null,
+    "account": "personal"
   }
 ]
