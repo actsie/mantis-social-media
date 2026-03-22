@@ -127,9 +127,12 @@ Use browser (profile="openclaw") to search x.com/search?f=live:
 - "agent" "MCP" payment OR checkout OR purchase
 - autonomous spending OR procurement
 - KYC "AI agent"
+- "shared payment token" OR "SPT"
+- "verifiable intent" agentic
+- "agentic ready" payments
 
 **Check these accounts for new posts (last 30 min):**
-@brian_armstrong, @stripe, @OpenAI, @Google, @Visa, @Mastercard, @coinbase, @arcanexis
+@brian_armstrong, @stripe, @OpenAI, @Google, @Visa, @Mastercard, @coinbase, @arcanexis, @klarna, @Affirm, @razorpay
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STEP 2 — NEWS SOURCES
@@ -149,6 +152,7 @@ Use web_fetch on these (headlines only, check timestamps — last 30 min):
 - https://www.theinformation.com (headlines only, may be paywalled)
 - https://www.pymnts.com (search: agentic payments)
 - https://fintechmagazine.com (search: AI agent payments)
+- https://thepaypers.com (search: agentic payments)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STEP 3 — EVALUATE
