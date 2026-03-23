@@ -114,45 +114,23 @@ ${seenIdsList || '(none)'}
 STEP 1 — TWITTER/X SWEEP
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Use browser (profile="openclaw") to search x.com/search?f=live:
-
-**Primary queries:**
+Use web_search (not browser) for speed. Search these queries:
 - "agentic payments"
-- "agent payment"
+- "agent payment" site:twitter.com OR site:x.com
 - "AI agent checkout"
-- "machine payments"
 
-**Secondary queries:**
-- "AI agent" wallet OR budget OR spending
-- "agent" "MCP" payment OR checkout OR purchase
-- autonomous spending OR procurement
-- KYC "AI agent"
-- "shared payment token" OR "SPT"
-- "verifiable intent" agentic
-- "agentic ready" payments
-
-**Check these accounts for new posts (last 30 min):**
-@brian_armstrong, @stripe, @OpenAI, @Google, @Visa, @Mastercard, @coinbase, @arcanexis, @klarna, @Affirm, @razorpay
+**Check these 5 accounts for new posts (last 30 min) using web_search:**
+@stripe, @OpenAI, @Visa, @Mastercard, @brian_armstrong
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STEP 2 — NEWS SOURCES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Use web_fetch on these (headlines only, check timestamps — last 30 min):
-
-**Primary:**
+Use web_fetch on these only (headlines only, last 30 min):
 - https://techcrunch.com/search/agentic+payments
-- https://techcrunch.com/search/agent+payment
+- https://www.pymnts.com/category/artificial-intelligence/
 - https://aibusiness.com/generative-ai/agentic-ai
 - https://www.forbes.com/topics/agentic-ai/
-
-**Additional sources:**
-- https://www.bloomberg.com/technology
-- https://www.theverge.com/search?q=agentic+payments
-- https://www.theinformation.com (headlines only, may be paywalled)
-- https://www.pymnts.com (search: agentic payments)
-- https://fintechmagazine.com (search: AI agent payments)
-- https://thepaypers.com (search: agentic payments)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STEP 3 — EVALUATE
@@ -194,19 +172,19 @@ No other text after this line.
 
 console.log('\n🔍 Spawning breaking news agent session...\n');
 
-// P-5: Agent session params with 180s timeout
-// Outer timeout 210000ms (3.5 min)
+// P-5: Agent session params with 240s timeout
+// Outer timeout 270000ms (4.5 min)
 const result = spawnSync('openclaw', [
   'agent',
   '--session-id', 'main',
   '--message', prompt,
   '--thinking', 'minimal',
-  '--timeout', '180'
+  '--timeout', '240'
 ], {
   encoding: 'utf8',
   env: { ...process.env },
   cwd: WORKSPACE,
-  timeout: 210000
+  timeout: 270000
 });
 
 // ─── PARSE AND VALIDATE OUTPUT ─────────────────────────────────────────────
