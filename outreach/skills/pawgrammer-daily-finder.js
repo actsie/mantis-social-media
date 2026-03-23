@@ -371,7 +371,13 @@ function fetchUrlSync(url) {
 
 // Utility: Run shell command
 function runCmd(cmd, cwd = null) {
-  const result = spawnSync(cmd, { shell: true, cwd, encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
+  const result = spawnSync(cmd, { 
+    shell: true, 
+    cwd, 
+    encoding: 'utf8', 
+    maxBuffer: 10 * 1024 * 1024,
+    env: { ...process.env, PATH: `/Users/mantisclaw/.nvm/versions/node/v24.13.1/bin:${process.env.PATH || ''}` }
+  });
   return { stdout: result.stdout, stderr: result.stderr, status: result.status };
 }
 
@@ -648,7 +654,7 @@ ${bodyContent}
     if (discordResult.status === 0) {
       console.log(`  ✓ Discord notification sent\n`);
     } else {
-      console.log(`  ⚠ Discord notification failed: ${discordResult.stderr?.slice(0, 100) || 'unknown error'}\n`);
+      console.log(`  ⚠ Discord notification failed: ${discordResult.stderr?.slice(0, 200) || discordResult.stdout?.slice(0, 200) || 'unknown error'}\n`);
     }
     
     console.log(`  ✅ Complete: ${skill.name}\n`);
