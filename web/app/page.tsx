@@ -102,7 +102,13 @@ export default function HomePage() {
           <DraftCard
             key={draft.id}
             draft={draft}
-            onAction={fetchDrafts}
+            onAction={(id) => {
+              if (filter === 'pending') {
+                setDrafts(prev => prev.filter(d => d.id !== id))
+              } else {
+                fetchDrafts()
+              }
+            }}
           />
         ))}
       </div>

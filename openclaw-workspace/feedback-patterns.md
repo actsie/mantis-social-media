@@ -99,6 +99,22 @@ the fragmentation is the problem more than the protocols themselves.
 **Final:** JUST IN: OpenAI is ending Instant Checkout in ChatGPT, shifting to product discovery after real-time inventory and pricing proved unreliable.
 **Diff:** no changes
 
+
+**Decision:** approved — 20260303-breaking-klarna-stripe-spt
+**Date:** 2026-03-23T10:58:23.604Z
+**Platform:** twitter
+**Original:** BREAKING: Klarna's flexible payment options are now available to AI agents via Stripe Shared Payment Tokens.
+**Final:** BREAKING: Klarna's flexible payment options are now available to AI agents via Stripe Shared Payment Tokens.
+**Diff:** no changes
+
+
+**Decision:** approved — 20260303-breaking-klarna-stripe-spt
+**Date:** 2026-03-23T11:01:52.522Z
+**Platform:** twitter
+**Original:** BREAKING: Klarna's flexible payment options are now available to AI agents via Stripe Shared Payment Tokens.
+**Final:** BREAKING: Klarna's flexible payment options are now available to AI agents via Stripe Shared Payment Tokens.
+**Diff:** no changes
+
 ## Rules
 
 1. Any category with 3+ rejections = hard rule.
