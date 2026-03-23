@@ -5,7 +5,7 @@ import { Draft } from '@/lib/github'
 
 interface Props {
   draft: Draft
-  onAction: () => void
+  onAction: (id: string) => void
 }
 
 export default function DraftCard({ draft, onAction }: Props) {
@@ -13,6 +13,7 @@ export default function DraftCard({ draft, onAction }: Props) {
   const [editText, setEditText] = useState(draft.text)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [exiting, setExiting] = useState(false)
 
   async function doAction(action: string, text?: string) {
     setLoading(true)
@@ -27,7 +28,8 @@ export default function DraftCard({ draft, onAction }: Props) {
         const data = await res.json()
         throw new Error(data.error || 'Failed')
       }
-      onAction()
+      setExiting(true)
+      setTimeout(() => onAction(draft.id), 350)
     } catch (err: unknown) {
       setError((err as Error).message)
     } finally {
@@ -54,7 +56,10 @@ export default function DraftCard({ draft, onAction }: Props) {
   }[draft.status]
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-5 space-y-4">
+    <div
+      className="bg-white border border-gray-200 rounded-xl p-5 space-y-4 transition-all duration-300 ease-in-out"
+      style={exiting ? { opacity: 0, transform: 'translateY(-8px)', pointerEvents: 'none' } : {}}
+    >
       {/* Badges */}
       <div className="flex flex-wrap gap-2">
         <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${urgencyColor}`}>
