@@ -23,7 +23,7 @@ const DRAFTS    = path.join(WORKSPACE, 'drafts.json');
 
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK_AGENTCARD || '';
 const SLACK_WEBHOOK   = process.env.SLACK_WEBHOOK_AGENTCARD   || '';
-const TELEGRAM_CHAT   = '6241290513';
+const DISCORD_CHAT    = '1485556397293703279';
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 
@@ -118,9 +118,9 @@ async function main() {
     console.log('Discord: skipped (no webhook)');
   }
 
-  // ── Telegram ──
-  const tgOk = sendTelegram(msgBody);
-  console.log(`Telegram: ${tgOk ? 'sent' : 'failed'}`);
+  // ── Discord (openclaw message) ──
+  const dcOk = sendDiscord(msgBody);
+  console.log(`Discord: ${dcOk ? 'sent' : 'failed'}`);
 
   // ── Slack ──
   if (SLACK_WEBHOOK) {
@@ -145,3 +145,4 @@ async function main() {
 
 main().catch(e => { console.error(e); process.exit(1); });
 xit(1); });
+); });
