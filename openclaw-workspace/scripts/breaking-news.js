@@ -197,7 +197,7 @@ const signal = result.signal;
 // P-6: Helper for consistent state saving
 function handleErrorAndExit(reason) {
   console.log(`\n❌ ${reason}\n`);
-  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485556473873436743', '--message', `❌ Breaking News Error\n\n${reason}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Breaking News Error\n\n${reason}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -221,7 +221,7 @@ if (exitCode === 127) {
 if (exitCode !== 0) {
   console.log(`\n⚠️ Agent exited with code ${exitCode}\n`);
   console.log('Output:', output.slice(0, 500));
-  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485556473873436743', '--message', `❌ Breaking News Error\n\nAgent exited with code ${exitCode}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Breaking News Error\n\nAgent exited with code ${exitCode}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -238,7 +238,7 @@ try {
 } catch (e) {
   console.log('\n❌ Malformed agent output — invalid JSON\n');
   console.log('Output:', output.slice(0, 500));
-  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485556473873436743', '--message', `❌ Breaking News Error\n\nMalformed agent output — invalid JSON`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Breaking News Error\n\nMalformed agent output — invalid JSON`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -246,6 +246,8 @@ try {
 // P-3: Check signal: true first, then signal: false
 if (parsed.signal === false) {
   console.log('\n✅ No breaking news in this sweep.\n');
+  // Notify Discord so we know the sweep ran clean
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `✅ No breaking news in this sweep.`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   state.lastRun = now;
   saveState(state);
   process.exit(0);
@@ -312,13 +314,13 @@ fs.writeFileSync(DRAFTS, JSON.stringify(drafts, null, 2));
 console.log(`  ✓ Draft written: ${draft.id}`);
 console.log(`  ✓ Source URL: ${sourceUrl.trim()}`);
 
-// ─── NOTIFY (DISCORD - socmed-alerts) ───────────────────────────────────────
+// ─── NOTIFY (DISCORD - agentcard-alerts) ────────────────────────────────────
 
 console.log('  🔔 Sending Discord notification...');
 const discordResult = spawnSync('openclaw', [
   'message', 'send',
   '--channel', 'discord',
-  '--target', 'channel:1485556473873436743',
+  '--target', 'channel:1485501016332828682',
   '--message', `🚨 Breaking News Draft\n\n${draftText.trim()}\n\nSource: ${sourceUrl.trim()}\n\nID: ${draft.id}`
 ], {
   encoding: 'utf8',
