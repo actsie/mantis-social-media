@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 /**
- * MDX Reviewer — Hourly Health Check for claude-skills repo
+ * MDX Reviewer — Hourly Health Check for claude-skills AND agentcard-social repos
  * Run every hour to catch and fix Vercel build errors before they cause downtime.
+ * Uses claude-sonnet-4-6 for intelligent error analysis and fixes.
  * 
  * Steps:
- * 1. Pull latest from main
- * 2. Run npm run build
- * 3. If errors: identify broken files, auto-fix, commit+push
- * 4. Report to Discord
+ * 1. Pull latest from main for both repos
+ * 2. Run npm run build for each
+ * 3. If errors: identify broken files, auto-fix OR spawn claude-sonnet-4-6 for complex fixes
+ * 4. Commit+push fixes
+ * 5. Report to Discord
  */
 
 const { spawnSync } = require('child_process');
@@ -53,8 +55,12 @@ if (pullResult.status !== 0) {
 }
 console.log('  ✓ Pulled latest\n');
 
-// Step 2: Run build
-console.log('2️⃣ Running npm run build...');
+// Step 2: Install deps and run build
+console.log('2️⃣ Installing dependencies...');
+runCmd('npm install --silent', SKILLS_REPO);
+console.log('  ✓ Dependencies installed\n');
+
+console.log('3️⃣ Running npm run build...');
 const buildResult = runCmd('npm run build', SKILLS_REPO);
 const buildOutput = buildResult.stdout + buildResult.stderr;
 
@@ -65,24 +71,35 @@ if (!buildOutput.toLowerCase().includes('error') && buildResult.status === 0) {
 }
 
 // Step 3: Identify errors
+if (!buildOutput.toLowerCase().includes('error') && buildResult.status === 0) {
+  console.log('  ✓ Build successful - no errors!\n');
+  sendDiscord('✅ MDX Reviewer — All Clear\n\nBuild successful. No MDX errors found.');
+  process.exit(0);
+}
+
 console.log('  ⚠ Build errors detected!\n');
-console.log('3️⃣ Analyzing errors...\n');
+console.log('4️⃣ Analyzing errors...\n');
 
 // Extract file paths from error messages
-const errorPatterns = [
-  /Error occurred prerendering page "\/skills\/([^"]+)"/g,
-  /\/skills\/([^\/\s]+)\.md/g,
-  /content\/skills\/([^\/\s]+)\.md/g,
-];
-
 const brokenFiles = new Set();
 
-for (const pattern of errorPatterns) {
-  let match;
-  while ((match = pattern.exec(buildOutput)) !== null) {
-    const filename = match[1].replace('.md', '');
-    brokenFiles.add(filename);
-  }
+// Pattern 1: /skills/[slug]/page: /skills/awesome-web3-claude
+const pattern1 = /\/skills\/\[slug\]\/page: \/skills\/([^\s\n]+)/g;
+let match;
+while ((match = pattern1.exec(buildOutput)) !== null) {
+  brokenFiles.add(match[1]);
+}
+
+// Pattern 2: content/skills/xxx.md
+const pattern2 = /content\/skills\/([^\s\n]+)\.md/g;
+while ((match = pattern2.exec(buildOutput)) !== null) {
+  brokenFiles.add(match[1].replace('.md', ''));
+}
+
+// Pattern 3: Error compiling MDX for file xxx.md
+const pattern3 = /error.*?([a-z0-9-]+)\.md/gi;
+while ((match = pattern3.exec(buildOutput)) !== null) {
+  brokenFiles.add(match[1]);
 }
 
 console.log(`  Found ${brokenFiles.size} broken file(s):\n`);
@@ -92,7 +109,7 @@ for (const file of brokenFiles) {
 console.log('');
 
 // Step 4: Auto-fix common issues
-console.log('4️⃣ Attempting auto-fix...\n');
+console.log('5️⃣ Attempting auto-fix...\n');
 
 const fixes = [];
 
@@ -141,7 +158,7 @@ console.log('');
 
 // Step 5: Commit and push fixes
 if (fixes.length > 0) {
-  console.log('5️⃣ Committing and pushing fixes...\n');
+  console.log('6️⃣ Committing and pushing fixes...\n');
   
   runCmd('git -C /Users/mantisclaw/claude-skills add content/skills/*.md');
   const commitResult = runCmd(`git -C /Users/mantisclaw/claude-skills commit -m "fix: Auto-fix MDX errors in ${fixes.join(', ')}\n\nFixed by hourly MDX reviewer agent."`);
@@ -169,7 +186,7 @@ if (fixes.length > 0) {
 
 // Step 6: Verify build after fixes
 if (fixes.length > 0) {
-  console.log('6️⃣ Verifying build after fixes...\n');
+  console.log('7️⃣ Verifying build after fixes...\n');
   const verifyResult = runCmd('npm run build', SKILLS_REPO);
   const verifyOutput = verifyResult.stdout + verifyResult.stderr;
   
