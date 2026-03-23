@@ -321,6 +321,11 @@ if (parsed.conversations.length === 0) {
 const conversations = parsed.conversations;
 console.log(`\n🚨 SIGNAL DETECTED: ${conversations.length} conversations found\n`);
 
+// Fetch latest drafts.json from GitHub before writing to preserve approvals
+const REPO_ROOT = path.join(WORKSPACE, '..');
+spawnSync('git', ['-C', REPO_ROOT, 'fetch', 'origin', 'main'], { encoding: 'utf8' });
+spawnSync('git', ['-C', REPO_ROOT, 'checkout', 'FETCH_HEAD', '--', 'openclaw-workspace/drafts.json'], { encoding: 'utf8' });
+
 // Initialize drafts.json if missing
 if (!fs.existsSync(DRAFTS)) {
   fs.mkdirSync(path.dirname(DRAFTS), { recursive: true });
@@ -391,7 +396,7 @@ fs.writeFileSync(DRAFTS, JSON.stringify(drafts, null, 2));
 console.log(`\n  Total: ${hotCount} HOT, ${warmCount} WARM, ${coldCount} COLD`);
 console.log(`  New drafts: ${newDrafts.length}\n`);
 
-// ─── NOTIFY (DISCORD) ────────────────────────────────────────────────────
+// ─── NOTIFY (DISCORD - socmed-alerts) ────────────────────────────────────
 
 console.log('  🔔 Sending Discord notification...');
 
@@ -412,7 +417,7 @@ if (newDrafts.length > 0) {
 const discordResult = spawnSync('openclaw', [
   'message', 'send',
   '--channel', 'discord',
-  '--target', 'channel:1485501084742062191',
+  '--target', 'channel:1485501016332828682',
   '--message', discordLines.join('\n')
 ], {
   encoding: 'utf8',

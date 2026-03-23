@@ -21,16 +21,9 @@ Webhook: not set yet. Skip silently if empty.
 4. Save it to openclaw env as `SLACK_WEBHOOK_AGENTCARD` (same way Discord was saved)
 5. Notifications will start firing automatically — no code changes needed
 
-**Telegram — session-only for now (no autonomous notifications)**
-Currently sends inline during active sessions only. Does not fire from crons.
-
-*To set up proper autonomous Telegram notifications:*
-1. Message @BotFather on Telegram → send `/newbot` → follow the prompts → copy the bot token
-2. Add the bot to whatever group or DM you want notifications in
-3. Get your chat ID: send any message to the bot, then open `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates` in a browser — the chat ID is in the response under `message.chat.id`
-4. Save both to openclaw env: `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`
-5. Update `notify-draft.js` to POST to `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage` with `chat_id` and `text` fields
-6. Crons will then notify Telegram autonomously without a session open
+**Discord Channel Routing (autonomous notifications):**
+- `#agentcard-alerts` (ID: `1485501016332828682`) — breaking news, social listening alerts, errors, check-ins
+- `#agentcard-drafts` (ID: `1485501084742062191`) — draft/approval notifications from notify-draft.js
 
 **Approval dashboard URL:** `http://localhost:8901/tweets`
 

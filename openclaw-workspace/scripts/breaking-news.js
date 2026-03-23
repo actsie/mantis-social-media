@@ -283,6 +283,11 @@ if (state.seenIds.includes(draftId)) {
 
 // ─── WRITE DRAFT ───────────────────────────────────────────────────────────
 
+// Fetch latest drafts.json from GitHub before writing to preserve approvals
+const REPO_ROOT = path.join(WORKSPACE, '..');
+spawnSync('git', ['-C', REPO_ROOT, 'fetch', 'origin', 'main'], { encoding: 'utf8' });
+spawnSync('git', ['-C', REPO_ROOT, 'checkout', 'FETCH_HEAD', '--', 'openclaw-workspace/drafts.json'], { encoding: 'utf8' });
+
 // Initialize drafts.json if missing (moved to here, after validation)
 if (!fs.existsSync(DRAFTS)) {
   fs.mkdirSync(path.dirname(DRAFTS), { recursive: true });
@@ -312,13 +317,13 @@ fs.writeFileSync(DRAFTS, JSON.stringify(drafts, null, 2));
 console.log(`  ✓ Draft written: ${draft.id}`);
 console.log(`  ✓ Source URL: ${sourceUrl.trim()}`);
 
-// ─── NOTIFY (DISCORD) ───────────────────────────────────────────────────────
+// ─── NOTIFY (DISCORD - socmed-alerts) ───────────────────────────────────────
 
 console.log('  🔔 Sending Discord notification...');
 const discordResult = spawnSync('openclaw', [
   'message', 'send',
   '--channel', 'discord',
-  '--target', 'channel:1485501084742062191',
+  '--target', 'channel:1485501016332828682',
   '--message', `🚨 Breaking News Draft\n\n${draftText.trim()}\n\nSource: ${sourceUrl.trim()}\n\nID: ${draft.id}`
 ], {
   encoding: 'utf8',
