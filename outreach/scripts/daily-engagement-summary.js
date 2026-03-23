@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * daily-engagement-summary.js
- * Checks engagement on all comments/replies from today and sends a summary via Telegram.
+ * Checks engagement on all comments/replies from today and sends a summary via Discord.
  * Run at 11:30pm PST daily via cron.
  * 
  * FIXED (Mar 17):
@@ -14,7 +14,7 @@ const fs = require('fs');
 const path = require('path');
 
 const WORKSPACE = '/Users/mantisclaw/.openclaw/workspace';
-const TELEGRAM_TARGET = '6241290513';
+const DISCORD_SUMMARIES_CHANNEL = '1485556428377948161';
 
 // ── Helper: Get today's date in PST ─────────────────────────────────────────────
 function getTodayPST() {
@@ -230,19 +230,19 @@ function calculateDelta(history, todayPST) {
   return 0;
 }
 
-// ── Send Telegram message ────────────────────────────────────────────────────
-function sendTelegram(message) {
+// ── Send Discord message ────────────────────────────────────────────────────
+function sendDiscord(message) {
   const result = spawnSync('openclaw', [
     'message', 'send',
-    '--channel', 'telegram',
-    '--target', TELEGRAM_TARGET,
+    '--channel', 'discord',
+    '--target', DISCORD_SUMMARIES_CHANNEL,
     '--message', message
   ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
   
   if (result.status === 0) {
-    console.log('✓ Telegram sent');
+    console.log('✓ Discord sent');
   } else {
-    console.error('✗ Failed to send Telegram:', result.stderr);
+    console.error('✗ Failed to send Discord:', result.stderr);
   }
 }
 
@@ -341,7 +341,7 @@ message += `├ X followers: ${xFollowers.lastCount || 'N/A'}\n`;
 message += `└ Reddit karma: ${redditKarma.lastTotalKarma || 'N/A'}\n`;
 
 console.log(message);
-sendTelegram(message);
+sendDiscord(message);
 
 // Save structured summary to file
 const phtNow = new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' });
@@ -401,3 +401,4 @@ fs.writeFileSync(summaryFile, JSON.stringify(summaryData, null, 2));
 console.log(`✓ Summary saved to: ${summaryFile}`);
 
 console.log('\n✅ Daily engagement summary done.\n');
+\n');

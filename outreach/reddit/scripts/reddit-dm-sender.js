@@ -132,9 +132,9 @@ const sessionMessage = [
   `   }`,
   `   fs.writeFileSync(summaryPath, summary);`,
   ``,
-  `📬 TELEGRAM NOTIFY:`,
+  `📬 DISCORD SESSIONS NOTIFY:`,
   ``,
-  `Send a summary to Telegram (channel="telegram", target="6241290513"):`,
+  `Send a summary to Discord (channel="discord", target="1485556397293703279"):`,
   `"DMs sent: ${toSend.length}`,
   `- ${toSend.map(l => `@${l.author} (${l.painType})`).join('\n- ')}"`,
 ].join('\n');

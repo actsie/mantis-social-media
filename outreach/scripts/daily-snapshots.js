@@ -12,7 +12,7 @@ const fs = require('fs');
 const path = require('path');
 
 const WORKSPACE = '/Users/mantisclaw/.openclaw/workspace';
-const TELEGRAM_TARGET = '6241290513';
+const DISCORD_ALERTS_CHANNEL = '1485556473873436743';
 
 // ── Helper: Get current timestamp ─────────────────────────────────────────────
 function getTimestamp() {
@@ -143,19 +143,19 @@ function captureRedditKarma() {
   }
 }
 
-// ── Send Telegram message ────────────────────────────────────────────────────
-function sendTelegram(message) {
+// ── Send Discord message ────────────────────────────────────────────────────
+function sendDiscord(message) {
   const result = spawnSync('openclaw', [
     'message', 'send',
-    '--channel', 'telegram',
-    '--target', TELEGRAM_TARGET,
+    '--channel', 'discord',
+    '--target', DISCORD_ALERTS_CHANNEL,
     '--message', message
   ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
   
   if (result.status === 0) {
-    console.log('✓ Telegram sent');
+    console.log('✓ Discord sent');
   } else {
-    console.error('✗ Failed to send Telegram:', result.stderr);
+    console.error('✗ Failed to send Discord:', result.stderr);
   }
 }
 
@@ -192,6 +192,6 @@ if (redditSnapshot) {
 message += `\n✅ All snapshots captured.`;
 
 console.log(message);
-sendTelegram(message);
+sendDiscord(message);
 
 console.log('\n✅ Daily snapshots done.\n');

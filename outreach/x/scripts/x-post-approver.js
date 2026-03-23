@@ -12,7 +12,7 @@ const path = require('path');
 const WORKSPACE = '/Users/mantisclaw/.openclaw/workspace';
 const QUEUE_PATH = path.join(WORKSPACE, 'outreach/x/approval-queue.json');
 const ENGAGEMENT_LOG = path.join(WORKSPACE, 'outreach/x/engagement-log.json');
-const TELEGRAM_TARGET = '6241290513';
+const DISCORD_SESSIONS_CHANNEL = '1485556397293703279';
 
 console.log('\n🔍 X Post Approver — checking for approved drafts\n');
 
@@ -92,7 +92,7 @@ ${content}
    });
    fs.writeFileSync(logPath, JSON.stringify(log, null, 2));
 
-8. Send Telegram to ${TELEGRAM_TARGET}:
+8. Send Discord to ${DISCORD_SESSIONS_CHANNEL}:
    ✅ X reply published
    To: ${entry.parent.author}
    Content: "${content.substring(0, 100)}..."
@@ -135,7 +135,7 @@ ${content}
    });
    fs.writeFileSync(logPath, JSON.stringify(log, null, 2));
 
-7. Send Telegram to ${TELEGRAM_TARGET}:
+7. Send Discord to ${DISCORD_SESSIONS_CHANNEL}:
    ✅ X original post published
    Mode: ${entry.mode} (${entry.modeName})
    Content: "${content.substring(0, 100)}..."
@@ -174,7 +174,7 @@ try {
   console.error('Failed to write queue:', e.message);
 }
 
-// Build and send Telegram summary
+// Build and send Discord summary
 const nowPST = new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: '2-digit', hour12: true });
 const queueEntries = queue.entries || [];
 const pendingCount = queueEntries.filter(e => e.status === 'pending').length;
@@ -219,18 +219,20 @@ if (pendingCount > 0) {
   }
 }
 
-// Send summary via Telegram
+// Send summary via Discord
 const summaryResult = spawnSync('openclaw', [
   'message', 'send',
-  '--channel', 'telegram',
-  '--target', TELEGRAM_TARGET,
+  '--channel', 'discord',
+  '--target', DISCORD_SESSIONS_CHANNEL,
   '--message', summaryMsg
 ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
 
 if (summaryResult.status === 0) {
-  console.log('✓ Telegram summary sent');
+  console.log('✓ Discord summary sent');
 } else {
-  console.error('✗ Failed to send Telegram:', summaryResult.stderr);
+  console.error('✗ Failed to send Discord:', summaryResult.stderr);
 }
 
 console.log('\n✅ X Post Approver done\n');
+one\n');
+one\n');

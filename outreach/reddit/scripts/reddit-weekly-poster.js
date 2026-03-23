@@ -144,11 +144,11 @@ STEP 9 — Append to engagement-log.json:
   fs.writeFileSync(logPath, JSON.stringify(log, null, 2));
 
 ═══════════════════════════════════════════════════════════
-STEP 10 — Send Telegram Recap:
+STEP 10 — Send Discord Recap:
 ═══════════════════════════════════════════════════════════
-  Use message tool (channel="telegram", target="6241290513"):
+  Use message tool (channel="discord", target="1485556397293703279"):
   Include: subreddit, post title, first sentence of body.
-  ALWAYS include target="6241290513" — do NOT omit it.
+  ALWAYS include target="1485556397293703279" — do NOT omit it.
 
 ═══════════════════════════════════════════════════════════
 STEP 11 — Cleanup:
@@ -158,18 +158,18 @@ STEP 11 — Cleanup:
 ═══════════════════════════════════════════════════════════
 SKIP CONDITION:
 ═══════════════════════════════════════════════════════════
-  If you cannot find a suitable topic that hasn't been done recently, or if the chosen sub already has a very similar recent post (check r/SUBREDDIT/new before posting), skip and notify via Telegram with reason.`;
+  If you cannot find a suitable topic that hasn't been done recently, or if the chosen sub already has a very similar recent post (check r/SUBREDDIT/new before posting), skip and notify via Discord with reason.`;
 
 const name = `reddit-post-${today.replace(/-/g, '')}`;
 
 // Send morning notification
 const notify = spawnSync('openclaw', [
   'message', 'send',
-  '--channel', 'telegram',
-  '--to', '6241290513',
+  '--channel', 'discord',
+  '--to', '1485556397293703279',
   '--message', `📝 Reddit post session scheduled for today (~${fireDisplay} PST). Will pick a sub + topic and post. Check tonight's summary for the URL.`
 ], { encoding: 'utf8' });
-if (notify.status !== 0) console.warn('Warning: Telegram notify failed\n' + notify.stderr);
+if (notify.status !== 0) console.warn('Warning: Discord notify failed\n' + notify.stderr);
 
 const result = spawnSync('openclaw', [
   'cron', 'add',
@@ -188,3 +188,4 @@ if (result.status === 0) {
 }
 
 console.log('\n✅ Reddit weekly poster done.\n');
+

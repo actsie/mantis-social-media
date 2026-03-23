@@ -197,7 +197,7 @@ sessions.forEach(s => {
   const name = `x-ih-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
   const at = `${today}T${s.time}:00${getLAOffset()}`;
 
-  const result = spawnSync('openclaw', ['cron', 'add', '--name', name, '--at', at, '--system-event', msg, '--delete-after-run', '--tz', 'America/Los_Angeles', '--session', 'main'], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
+  const result = spawnSync('openclaw', ['cron', 'add', '--name', name, '--at', at, '--message', msg, '--delivery-channel', 'discord', '--delivery-target', '1485556397293703279', '--delete-after-run', '--tz', 'America/Los_Angeles', '--session', 'main'], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
 
   if (result.status === 0) {
     console.log(`✓ Cron: ${name} at ${s.time}`);

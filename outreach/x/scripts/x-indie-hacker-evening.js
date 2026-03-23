@@ -236,7 +236,7 @@ sessions.forEach(s => {
     `   sched.sessions[${s.n - 1}].done = true;`,
     `   fs.writeFileSync('outreach/x/indie-hacker-evening-schedule.json', JSON.stringify(sched, null, 2));`,
     ``,
-    `9. Telegram summary to 6241290513.`,
+    `9. DISCORD SESSIONS (target="1485556397293703279"): Evening wave complete.`,
   ].join('\n');
 
   const name = `x-ih-evening-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
@@ -246,7 +246,9 @@ sessions.forEach(s => {
     'cron', 'add',
     '--name', name,
     '--at',   at,
-    '--system-event', msg,
+    '--message', msg,
+    '--delivery-channel', 'discord',
+    '--delivery-target', '1485556397293703279',
     '--delete-after-run',
     '--tz', 'America/Los_Angeles',
     '--session', 'main'

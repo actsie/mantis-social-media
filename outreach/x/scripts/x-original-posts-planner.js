@@ -321,7 +321,9 @@ const result = spawnSync('openclaw', [
   'cron', 'add',
   '--name', name,
   '--at',   at,
-  '--system-event', msg.join('\n'),
+  '--message', msg.join('\n'),
+  '--delivery-channel', 'discord',
+  '--delivery-target', '1485556397293703279',
   '--delete-after-run',
   '--tz', 'America/Los_Angeles',
   '--session', 'main'

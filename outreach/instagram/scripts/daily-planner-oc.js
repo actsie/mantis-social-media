@@ -185,7 +185,7 @@ sessions.forEach(s => {
     `   });`,
     `   fs.writeFileSync(changelogPath, JSON.stringify(changelog, null, 2));`,
     ``,
-    `10. TELEGRAM (target="6241290513"):`,
+    `10. DISCORD (channel="discord", target="1485556397293703279"):`,
     `    IG Session ${s.n}/${COMMENT_COUNT} ✅`,
     `    Account: @NAME`,
     `    Action: commented (humanized)`,
@@ -200,7 +200,16 @@ sessions.forEach(s => {
   const name = `ig-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
   const at = `${today}T${s.time}:00${getLAOffset()}`;
 
-  const result = spawnSync('openclaw', ['cron', 'add', '--name', name, '--at', at, '--message', msg, '--announce', '--delete-after-run', '--tz', 'America/Los_Angeles'], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
+  const result = spawnSync('openclaw', [
+    'cron', 'add',
+    '--name', name,
+    '--at', at,
+    '--message', msg,
+    '--delivery-channel', 'discord',
+    '--delivery-target', '1485556397293703279',
+    '--delete-after-run',
+    '--tz', 'America/Los_Angeles'
+  ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
 
   if (result.status === 0) {
     console.log(`✓ Cron: ${name} at ${s.time}`);

@@ -236,7 +236,7 @@ sessions.forEach(s => {
     `   sched.sessions[${s.n - 1}].done = true;`,
     `   fs.writeFileSync(SCHED_FILE, JSON.stringify(sched, null, 2));`,
     ``,
-    `9. Telegram summary to 6241290513.`,
+    `9. DISCORD SESSIONS (target="1485556397293703279"): Afternoon wave complete.`,
   ].join('\n');
 
   const name = `x-ih-afternoon-s${s.n}-${today.replace(/-/g,'')}-${s.time.replace(':','')}`;
@@ -260,3 +260,4 @@ sessions.forEach(s => {
 });
 
 console.log('\n✅ X indie hacker afternoon planner done.\n');
+e hacker afternoon planner done.\n');

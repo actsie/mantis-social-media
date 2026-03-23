@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * ig-daily-summary.js
- * Generates Instagram daily summary and saves to dashboard + sends to Telegram.
+ * Generates Instagram daily summary and saves to dashboard + sends to Discord.
  * Run at 11:15pm PST daily via cron.
  */
 
@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 const WORKSPACE = '/Users/mantisclaw/.openclaw/workspace';
-const TELEGRAM_TARGET = '6241290513';
+const DISCORD_SUMMARIES_CHANNEL = '1485556428377948161';
 
 // ── Helper: Get today's date in PST ─────────────────────────────────────────────
 function getTodayPST() {
@@ -134,20 +134,20 @@ function findFollowBacksNeeded() {
   }
 }
 
-// ── Send Telegram ────────────────────────────────────────────────────────────
-function sendTelegram(message) {
+// ── Send Discord ────────────────────────────────────────────────────────────
+function sendDiscord(message) {
   const result = spawnSync('openclaw', [
     'message', 'send',
-    '--channel', 'telegram',
-    '--target', TELEGRAM_TARGET,
+    '--channel', 'discord',
+    '--target', DISCORD_SUMMARIES_CHANNEL,
     '--message', message
   ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
   
   if (result.status === 0) {
-    console.log('✓ Telegram sent');
+    console.log('✓ Discord sent');
     return true;
   } else {
-    console.error('✗ Failed to send Telegram:', result.stderr);
+    console.error('✗ Failed to send Discord:', result.stderr);
     return false;
   }
 }
@@ -267,7 +267,9 @@ const summaryFile = path.join(summaryDir, `${todayPST}.json`);
 fs.writeFileSync(summaryFile, JSON.stringify(summaryData, null, 2));
 console.log(`✓ Summary saved to: ${summaryFile}`);
 
-// Send Telegram
-sendTelegram(message);
+// Send Discord
+sendDiscord(message);
 
 console.log('\n✅ Instagram daily summary done.\n');
+
+

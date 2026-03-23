@@ -34,7 +34,7 @@ const SOURCE_ACCOUNTS = [
 ];
 
 const FOLLOW_TARGET = 12; // aim for 10-15 per session
-const TELEGRAM_ID   = '6241290513';
+const DISCORD_SESSIONS_CHANNEL = '1485556397293703279';
 
 // ── Load state ────────────────────────────────────────────────────────────────
 
@@ -142,8 +142,8 @@ Append your new follows to the "follows" array. Each entry:
 \`\`\`
 Write the updated file back.
 
-## Step 6 — Send Telegram report
-Send a message to Telegram (channel=telegram, target=${TELEGRAM_ID}):
+## Step 6 — Send Discord report
+Send a message to Discord (channel=discord, target=${DISCORD_SESSIONS_CHANNEL}):
 
 Format:
 \`\`\`
