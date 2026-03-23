@@ -30,6 +30,7 @@ export default function DraftCard({ draft, onAction }: Props) {
       onAction()
     } catch (err: unknown) {
       setError((err as Error).message)
+    } finally {
       setLoading(false)
     }
   }
