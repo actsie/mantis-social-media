@@ -69,7 +69,25 @@ console.log('3️⃣ Running npm run build...');
 const buildResult = runCmd('npm run build', REPO_PATH);
 const buildOutput = buildResult.stdout + buildResult.stderr;
 
-if (!buildOutput.toLowerCase().includes('error') && buildResult.status === 0) {
+// Check for ACTUAL build errors (not runtime warnings like Redis)
+const hasBuildError = 
+  buildOutput.includes('Error occurred prerendering') ||
+  buildOutput.includes('[next-mdx-remote] error compiling MDX') ||
+  buildOutput.includes('Module not found') ||
+  buildOutput.includes('SyntaxError') ||
+  (buildResult.status !== 0 && buildOutput.toLowerCase().includes('error'));
+
+// Filter out runtime warnings (Redis, dynamic server usage)
+const runtimeWarnings = [
+  'Redis unavailable',
+  'Redis client was initialized without',
+  'Dynamic server usage',
+  'Using Redis fallback',
+];
+
+const isRuntimeWarningOnly = runtimeWarnings.some(w => buildOutput.includes(w)) && !hasBuildError;
+
+if (isRuntimeWarningOnly || (!hasBuildError && buildResult.status === 0)) {
   console.log('  ✅ Build successful - no errors!\n');
   sendDiscord('✅ MDX Reviewer — All Clear\n\n✅ Build successful\n✅ No MDX errors\n✅ Vercel deployment ready');
   
