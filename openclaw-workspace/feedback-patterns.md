@@ -75,6 +75,14 @@ the fragmentation is the problem more than the protocols themselves.
 
 ---
 
+
+**Decision:** approved — 20260320-breaking-openai-checkout-pivot
+**Date:** 2026-03-23T07:04:12.577Z
+**Platform:** twitter
+**Original:** JUST IN: OpenAI is ending Instant Checkout in ChatGPT, shifting to product discovery after real-time inventory and pricing proved unreliable.
+**Final:** JUST IN: OpenAI is ending Instant Checkout in ChatGPT, shifting to product discovery after real-time inventory and pricing proved unreliable.
+**Diff:** no changes
+
 ## Rules
 
 1. Any category with 3+ rejections = hard rule.
