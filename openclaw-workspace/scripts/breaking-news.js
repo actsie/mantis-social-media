@@ -246,6 +246,8 @@ try {
 // P-3: Check signal: true first, then signal: false
 if (parsed.signal === false) {
   console.log('\n✅ No breaking news in this sweep.\n');
+  // Notify Discord so we know the sweep ran clean
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `✅ No breaking news in this sweep.`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   state.lastRun = now;
   saveState(state);
   process.exit(0);
@@ -317,7 +319,7 @@ fs.writeFileSync(DRAFTS, JSON.stringify(drafts, null, 2));
 console.log(`  ✓ Draft written: ${draft.id}`);
 console.log(`  ✓ Source URL: ${sourceUrl.trim()}`);
 
-// ─── NOTIFY (DISCORD - socmed-alerts) ───────────────────────────────────────
+// ─── NOTIFY (DISCORD - agentcard-alerts) ────────────────────────────────────
 
 console.log('  🔔 Sending Discord notification...');
 const discordResult = spawnSync('openclaw', [
