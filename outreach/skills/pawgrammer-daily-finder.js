@@ -640,15 +640,16 @@ ${bodyContent}
     
     console.log(`  ✓ Committed and pushed\n`);
     
-    // Send Discord notification
+    // Send Discord notification using OpenClaw message tool
     console.log(`  🔔 Sending Discord notification...`);
-    const discordWebhook = 'https://discord.com/api/webhooks/1485568635572457654/vddvZ2_HrY3syCrS1wkRlWeVLSlnMTnkpq2FFVLqGch0jUxoOT8NiFbA1rxGJPqqwUfX';
-    const discordPayload = JSON.stringify({
-      content: `New skill published: ${skillName} — https://skills.pawgrammer.com/skills/${slug}`
-    });
+    const discordMsg = `New skill published: ${skillName} — https://skills.pawgrammer.com/skills/${slug}`;
+    const discordResult = runCmd(`openclaw message send --channel discord --target 1485568635572457654 --message "${discordMsg.replace(/"/g, '\\"')}"`);
     
-    runCmd(`curl -s -X POST "${discordWebhook}" -H "Content-Type: application/json" -d '${discordPayload}'`);
-    console.log(`  ✓ Discord notification sent\n`);
+    if (discordResult.status === 0) {
+      console.log(`  ✓ Discord notification sent\n`);
+    } else {
+      console.log(`  ⚠ Discord notification failed: ${discordResult.stderr?.slice(0, 100) || 'unknown error'}\n`);
+    }
     
     console.log(`  ✅ Complete: ${skill.name}\n`);
     processedCount++;
