@@ -20,7 +20,7 @@ export interface Draft {
 }
 
 async function getFile(path: string): Promise<{ content: string; sha: string }> {
-  const response = await octokit.repos.getContent({ owner, repo, path })
+  const response = await octokit.repos.getContent({ owner, repo, path, headers: { 'If-None-Match': '' } })
   const data = response.data as { content: string; sha: string }
   const content = Buffer.from(data.content, 'base64').toString('utf8')
   return { content, sha: data.sha }
