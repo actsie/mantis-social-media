@@ -22,7 +22,7 @@ Webhook: not set yet. Skip silently if empty.
 5. Notifications will start firing automatically — no code changes needed
 
 **Discord Channel Routing (autonomous notifications):**
-- `#socmed-alerts` (ID: `1485556473873436743`) — breaking news, social listening alerts, errors, check-ins
+- `#agentcard-alerts` (ID: `1485501016332828682`) — breaking news, social listening alerts, errors, check-ins
 - `#agentcard-drafts` (ID: `1485501084742062191`) — draft/approval notifications from notify-draft.js
 
 **Approval dashboard URL:** `http://localhost:8901/tweets`

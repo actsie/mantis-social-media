@@ -237,7 +237,7 @@ const signal = result.signal;
 
 function handleErrorAndExit(reason) {
   console.log(`\n❌ ${reason}\n`);
-  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485556473873436743', '--message', `❌ Social Listening Error\n\n${reason}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Social Listening Error\n\n${reason}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -262,7 +262,7 @@ if (exitCode === 127) {
 if (exitCode !== 0) {
   console.log(`\n⚠️ Agent exited with code ${exitCode}\n`);
   console.log('Output:', output.slice(0, 500));
-  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485556473873436743', '--message', `❌ Social Listening Error\n\nAgent exited with code ${exitCode}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Social Listening Error\n\nAgent exited with code ${exitCode}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -278,7 +278,7 @@ try {
 } catch (e) {
   console.log('\n❌ Malformed agent output — invalid JSON\n');
   console.log('Output:', output.slice(0, 500));
-  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485556473873436743', '--message', `❌ Social Listening Error\n\nMalformed agent output — invalid JSON`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Social Listening Error\n\nMalformed agent output — invalid JSON`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -286,7 +286,7 @@ try {
 // 6. signal === false
 if (parsed.signal === false) {
   console.log('\n✅ No signals found in this sweep.\n');
-  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485556473873436743', '--message', `🔍 Social Listening Sweep\n\nNo signals found.`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `🔍 Social Listening Sweep\n\nNo signals found.`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   state.lastRun = now;
   saveState(state);
   process.exit(0);
@@ -412,7 +412,7 @@ if (newDrafts.length > 0) {
 const discordResult = spawnSync('openclaw', [
   'message', 'send',
   '--channel', 'discord',
-  '--target', 'channel:1485556473873436743',
+  '--target', 'channel:1485501016332828682',
   '--message', discordLines.join('\n')
 ], {
   encoding: 'utf8',
