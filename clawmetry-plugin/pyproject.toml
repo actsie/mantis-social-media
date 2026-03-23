@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "clawmetry-tweet-approval"
+version = "0.1.0"
+description = "Tweet approval workflow plugin for ClawMetry — Agent Card Social"
+requires-python = ">=3.8"
+dependencies = ["flask>=2.0"]
+
+[project.entry-points."clawmetry.extensions"]
+tweet_approval = "tweet_approval:register_handlers"
+
+[tool.setuptools.packages.find]
+where = ["."]

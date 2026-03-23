@@ -1,0 +1,35 @@
+[
+  {
+    "id": "20260319-arcanexis-reply",
+    "action": "approved",
+    "original_text": "the rail question is basically solved. the harder question is which one your stack actually commits to.\n\nfour protocols, all live, all with real backing. x402, MPP, AP2, ACP. most builders can't afford to abstract all four.\n\nthe protocol war doesn't go away just because the rails exist.",
+    "final_text": "the rail question is basically solved. the harder question is which one your stack actually commits to.\n\nfour protocols, all live, all with real backing. x402, MPP, AP2, ACP. most builders can't afford to abstract all four.\n\nthe protocol war doesn't go away just because the rails exist.",
+    "was_edited": false,
+    "timestamp": "2026-03-19T23:02:40.523091"
+  },
+  {
+    "id": "20260319-llmdevs-reddit-comment",
+    "action": "approved",
+    "original_text": "good breakdown of the macro picture. a few things worth adding for builders trying to make sense of it right now:\n\nthe four protocols you're tracking (x402, MPP, AP2, ACP) are genuinely different bets:\n\n- x402 (Coinbase) is crypto-native. HTTP 402 payment required, stablecoin settlement, minimal auth overhead. good if your agent stack is already on-chain. M tx volume, 140M transactions already. real adoption.\n\n- MPP / Tempo (Stripe) is the fiat-first play. Stripe's .9T rails, card support, enterprise auth. grok's market share model has this at 60-70% by 2027 if it catches on with mainstream SaaS. makes sense if your buyers are traditional businesses.\n\n- AP2 (Google) uses cryptographically-signed Mandate contracts — Intent Mandate captures what you asked for, Cart Mandate locks the purchase before payment. 60+ launch partners including Mastercard, PayPal, Amex. heavier protocol but more auditability for enterprise compliance.\n\n- ACP (OpenAI/Stripe) powers Instant Checkout on ChatGPT. smallest footprint right now but distribution is enormous if it gets traction with consumer agents.\n\nthe honest answer for builders: nobody knows which wins yet. the risk is that if you build tightly against one protocol and it loses, you're rebuilding your payment layer. the practical move right now is to abstract the payment interface early so you can swap the underlying protocol without rewriting your agent logic.\n\nthe fragmentation is the problem more than the protocols themselves.",
+    "final_text": "good breakdown of the macro picture. a few things worth adding for builders trying to make sense of it right now:\n\nthe four protocols you're tracking (x402, MPP, AP2, ACP) are genuinely different bets:\n\n- x402 (Coinbase) is crypto-native. HTTP 402 payment required, stablecoin settlement, minimal auth overhead. good if your agent stack is already on-chain. 140M transactions already. real adoption.\n- MPP / Tempo (Stripe) is the fiat-first play. Stripe's .9T rails, card support, enterprise auth. grok's market share model has this at 60-70% by 2027 if it catches on with mainstream SaaS. makes sense if your buyers are traditional businesses.\n- AP2 (Google) uses cryptographically-signed Mandate contracts. Intent Mandate captures what you asked for, Cart Mandate locks the purchase before payment. 60+ launch partners including Mastercard, PayPal, Amex. heavier protocol but more auditability for enterprise compliance.\n- ACP (OpenAI/Stripe) powers Instant Checkout on ChatGPT. smallest footprint right now but distribution is enormous if it gets traction with consumer agents.\n\nnobody knows which wins yet. build tightly against one protocol and it loses, you're rebuilding your payment layer. abstract the payment interface early so you can swap the underlying protocol without rewriting your agent logic.\n\nthe fragmentation is the problem more than the protocols themselves.",
+    "was_edited": true,
+    "timestamp": "2026-03-19T23:17:41.112250"
+  },
+  {
+    "id": "20260319-kirilltalai-reply",
+    "action": "approved",
+    "original_text": "the redundancy piece is right but there's a compounding failure mode worth naming: when the chain comes back, the agent doesn't know what it already spent.\n\nautonomous spend + network interruption + no state reconciliation = double-charging or missed settlements at scale.\n\nthe reliability problem and the spending controls problem are actually the same problem.",
+    "final_text": "the redundancy piece is right but there's a compounding failure mode worth naming: when the chain comes back, the agent doesn't know what it already spent.\n\nautonomous spend + network interruption + no state reconciliation = double-charging or missed settlements at scale.\n\nthe reliability problem and the spending controls problem are actually the same problem.",
+    "was_edited": false,
+    "timestamp": "2026-03-19T23:18:58.299702"
+  },
+  {
+    "id": "20260320-breaking-agentpay-wlfi-long-mmyoagj4",
+    "action": "approved",
+    "original_text": "translation: a new contender just entered the agent payment space\n\nWLFI shipped AgentPay SDK this week. open source, self-custodial, built on USD1 stablecoin.\n\nthe pitch: agents hold their own keys, execute transactions without asking permission every time, stay within policy limits you set upfront.\n\nit solves the same problem everyone in this space is circling — agents that can reason but can't pay\n\nbut it's crypto-native. that's both the feature and the constraint.\n\nenterprises and regulated businesses will need something that runs on fiat rails with audit trails finance can defend. USD1 doesn't get you there.\n\nthat's still the open gap.",
+    "final_text": "translation: a new contender just entered the agent payment space\n\nWLFI shipped AgentPay SDK this week. open source, self-custodial, built on USD1 stablecoin.\n\nthe pitch: agents hold their own keys, execute transactions without asking permission every time, stay within policy limits you set upfront.\n\nit solves the same problem everyone in this space is circling. agents that can reason but can't pay.\n\nbut it's crypto-native. that's the feature and the constraint.\n\nenterprises and regulated businesses will need something that runs on fiat rails with audit trails finance can defend. USD1 doesn't get you there.\n\nthat's still the open gap.",
+    "rejection_reason": null,
+    "was_edited": true,
+    "timestamp": "2026-03-20T09:51:19.404Z"
+  }
+]

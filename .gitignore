@@ -1,0 +1,19 @@
+# Secrets
+.env
+**/*.key
+**/*.pem
+**/secrets*
+**/credentials*
+
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+
+# Claude context — not for MantisCAW
+CLAUDE.md
