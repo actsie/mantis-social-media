@@ -199,11 +199,13 @@ function postToX(draft) {
 
 console.log(`\n[agentcard-post-approved] ${new Date().toISOString()}\n`);
 
-// Step 1: Pull latest
+// Step 1: Pull latest (stash local changes first to avoid rebase conflicts)
 console.log('Pulling latest from origin...');
-const pull = spawnSync('git', ['-C', '/Users/mantisclaw/agentcard-social', 'pull', '--rebase', 'origin', 'main'], { encoding: 'utf8' });
+spawnSync('git', ['-C', '/Users/mantisclaw/agentcard-social', 'stash'], { encoding: 'utf8' });
+const pull = spawnSync('git', ['-C', '/Users/mantisclaw/agentcard-social', 'pull', 'origin', 'main'], { encoding: 'utf8' });
 if (pull.status !== 0) console.warn('  Pull failed (continuing):', pull.stderr?.trim());
 else console.log('  OK');
+spawnSync('git', ['-C', '/Users/mantisclaw/agentcard-social', 'stash', 'pop'], { encoding: 'utf8' });
 
 // Step 2: Read drafts
 const drafts = readDrafts();
