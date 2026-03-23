@@ -27,11 +27,37 @@ const GITHUB_AUTH_HEADERS = GITHUB_TOKEN
   : [];
 
 // GitHub search queries for finding Claude skills
+// Organized by category for better coverage
 const SEARCH_QUERIES = [
+  // === SKILL.md file patterns (exact matches) ===
   'filename:SKILL.md path:.claude',
+  'filename:SKILL.md path:skills',
+  'filename:SKILL.md path:claude',
+  'filename:skill.md',  // lowercase
+  'filename:skills.md', // plural
+  
+  // === Topic tags ===
   'topic:claude-skill',
   'topic:claude-code',
-  'filename:SKILL.md path:skills',
+  'topic:claude-skills',
+  'topic:anthropic',
+  'topic:ai-assistant',
+  'topic:agent-skill',
+  'topic:mcp',  // Model Context Protocol
+  
+  // === Description-based searches ===
+  'claude skill in:description',
+  'claude-code skill in:description',
+  'anthropic assistant in:description',
+  
+  // === Awesome lists (crawl these for individual skills) ===
+  'awesome-claude-skills in:name',
+  'awesome-claude-code in:name',
+  'claude-skills-list in:name',
+  
+  // === Known skill creator orgs ===
+  'org:ComposioHQ claude',
+  'org:anthropics claude',
 ];
 
 // Trusted orgs to prioritize
@@ -122,6 +148,54 @@ function validateReadmeAsSkill(org, repo) {
   return { valid: false, readmeUrl: null, reason: 'README lacks skill keywords' };
 }
 
+// Utility: Crawl awesome-lists to extract individual skill repos
+function crawlAwesomeList(org, repo) {
+  const extracted = [];
+  const readmeUrl = `${GITHUB_API}/${org}/${repo}/main/README.md`;
+  
+  console.log(`    📋 Crawling awesome-list: ${org}/${repo}`);
+  
+  const result = spawnSync('curl', [
+    '-s', '-L',
+    '-H', 'Accept: application/vnd.github+json',
+    ...GITHUB_AUTH_HEADERS,
+    readmeUrl
+  ], { encoding: 'utf8', timeout: 15000 });
+  
+  if (result.status !== 0 || result.stdout.length < 500) {
+    console.log(`    ⚠ Failed to fetch README\n`);
+    return extracted;
+  }
+  
+  const content = result.stdout;
+  
+  // Extract GitHub repo links from markdown: [name](https://github.com/org/repo)
+  const githubLinkRegex = /\[([^\]]+)\]\(https:\/\/github\.com\/([a-zA-Z0-9_-]+)\/([a-zA-Z0-9_-]+)\)/g;
+  let match;
+  
+  while ((match = githubLinkRegex.exec(content)) !== null) {
+    const [, name, org, repo] = match;
+    const slug = repo.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    
+    // Skip if it looks like the list itself or non-skill repos
+    if (repo.includes('awesome') || repo.includes('list') || repo.includes('collection')) {
+      continue;
+    }
+    
+    extracted.push({
+      name: slug,
+      repo: `${org}/${repo}`,
+      repoUrl: `https://github.com/${org}/${repo}`,
+      org: org,
+      source: 'awesome-list',
+      listRepo: `${org}/${repo}`
+    });
+  }
+  
+  console.log(`    ✓ Extracted ${extracted.length} potential skills from list\n`);
+  return extracted;
+}
+
 // Utility: Search GitHub for new skill candidates
 async function searchGitHubForSkills(installed) {
   const candidates = [];
@@ -131,6 +205,52 @@ async function searchGitHubForSkills(installed) {
   
   for (const query of SEARCH_QUERIES) {
     console.log(`  Query: ${query}`);
+    
+    // Check if this is an awesome-list query - handle differently
+    if (query.includes('awesome') || query.includes('-list')) {
+      // Search for repos (not code) for list queries
+      const searchUrl = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&per_page=5`;
+      const result = spawnSync('curl', [
+        '-s', '-L',
+        '-H', 'Accept: application/vnd.github+json',
+        ...GITHUB_AUTH_HEADERS,
+        searchUrl
+      ], { encoding: 'utf8', timeout: 15000 });
+      
+      if (result.status === 0) {
+        try {
+          const data = JSON.parse(result.stdout);
+          const items = data.items || [];
+          
+          for (const item of items) {
+            const [org, repoName] = item.full_name.split('/');
+            const extracted = crawlAwesomeList(org, repoName);
+            
+            for (const skill of extracted) {
+              if (!seen.has(skill.name) && !candidates.some(c => c.name === skill.name)) {
+                // Validate the extracted skill
+                const readmeCheck = validateReadmeAsSkill(skill.org, skill.repo.split('/')[1]);
+                if (readmeCheck.valid) {
+                  candidates.push({
+                    ...skill,
+                    trust: 'Medium',
+                    category: 'development',
+                    stars: 0,
+                    reason: `From awesome-list: ${skill.listRepo}`,
+                    skillMdUrl: readmeCheck.readmeUrl,
+                    sourceType: 'readme'
+                  });
+                  seen.add(skill.name);
+                }
+              }
+            }
+          }
+        } catch (e) {
+          console.log(`  ⚠ Parse failed for: ${query}\n`);
+        }
+      }
+      continue;
+    }
     
     // Use GitHub search via curl (authenticated for higher rate limits)
     const searchUrl = `https://api.github.com/search/code?q=${encodeURIComponent(query)}&per_page=10`;
