@@ -358,7 +358,7 @@ const telegramResult = spawnSync('openclaw', [
   'message',
   'send',
   '--channel', 'telegram',
-  '--to', '6241290513',
+  '--target', '6241290513',
   '--message', `🚨 Breaking News Draft\n\n${draftText.trim()}\n\nSource: ${sourceUrl.trim()}\n\nID: ${draft.id}`
 ], {
   encoding: 'utf8',
