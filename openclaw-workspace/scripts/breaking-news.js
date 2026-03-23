@@ -219,6 +219,7 @@ const signal = result.signal;
 // P-6: Helper for consistent state saving
 function handleErrorAndExit(reason) {
   console.log(`\n❌ ${reason}\n`);
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Breaking News Error\n\n${reason}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -242,6 +243,7 @@ if (exitCode === 127) {
 if (exitCode !== 0) {
   console.log(`\n⚠️ Agent exited with code ${exitCode}\n`);
   console.log('Output:', output.slice(0, 500));
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Breaking News Error\n\nAgent exited with code ${exitCode}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -258,6 +260,7 @@ try {
 } catch (e) {
   console.log('\n❌ Malformed agent output — invalid JSON\n');
   console.log('Output:', output.slice(0, 500));
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Breaking News Error\n\nMalformed agent output — invalid JSON`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -331,47 +334,25 @@ fs.writeFileSync(DRAFTS, JSON.stringify(drafts, null, 2));
 console.log(`  ✓ Draft written: ${draft.id}`);
 console.log(`  ✓ Source URL: ${sourceUrl.trim()}`);
 
-// ─── NOTIFY (DISCORD + TELEGRAM) ───────────────────────────────────────────
+// ─── NOTIFY (DISCORD) ───────────────────────────────────────────────────────
 
-// P-1: Discord notification
 console.log('  🔔 Sending Discord notification...');
-const notifyResult = spawnSync('node', [
-  path.join(WORKSPACE, 'scripts/notify-draft.js'),
-  draft.id
-], {
-  encoding: 'utf8',
-  env: { ...process.env },
-  timeout: 10000  // P-8: 10s timeout
-});
-
-// P-7: Check both status and error
-if (notifyResult.status === 0 && !notifyResult.error) {
-  console.log('  ✓ Discord notification sent');
-} else {
-  const errorMsg = notifyResult.error?.message || notifyResult.stderr?.slice(0, 100) || 'unknown error';
-  console.warn(`  ⚠ Discord notification failed: ${errorMsg}`);
-}
-
-// P-1: Telegram notification (FR20)
-console.log('  📱 Sending Telegram notification...');
-const telegramResult = spawnSync('openclaw', [
-  'message',
-  'send',
-  '--channel', 'telegram',
-  '--target', '6241290513',
+const discordResult = spawnSync('openclaw', [
+  'message', 'send',
+  '--channel', 'discord',
+  '--target', 'channel:1485501084742062191',
   '--message', `🚨 Breaking News Draft\n\n${draftText.trim()}\n\nSource: ${sourceUrl.trim()}\n\nID: ${draft.id}`
 ], {
   encoding: 'utf8',
   env: { ...process.env },
-  timeout: 10000  // P-8: 10s timeout
+  timeout: 10000
 });
 
-// P-7: Check both status and error for Telegram
-if (telegramResult.status === 0 && !telegramResult.error) {
-  console.log('  ✓ Telegram notification sent');
+if (discordResult.status === 0 && !discordResult.error) {
+  console.log('  ✓ Discord notification sent');
 } else {
-  const errorMsg = telegramResult.error?.message || telegramResult.stderr?.slice(0, 100) || 'unknown error';
-  console.warn(`  ⚠ Telegram notification failed: ${errorMsg}`);
+  const errorMsg = discordResult.error?.message || discordResult.stderr?.slice(0, 100) || 'unknown error';
+  console.warn(`  ⚠ Discord notification failed: ${errorMsg}`);
 }
 
 // ─── LOG TO MEMORY ────────────────────────────────────────────────────────

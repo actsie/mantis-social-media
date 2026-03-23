@@ -237,6 +237,7 @@ const signal = result.signal;
 
 function handleErrorAndExit(reason) {
   console.log(`\n❌ ${reason}\n`);
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Social Listening Error\n\n${reason}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -261,6 +262,7 @@ if (exitCode === 127) {
 if (exitCode !== 0) {
   console.log(`\n⚠️ Agent exited with code ${exitCode}\n`);
   console.log('Output:', output.slice(0, 500));
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Social Listening Error\n\nAgent exited with code ${exitCode}`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -276,6 +278,7 @@ try {
 } catch (e) {
   console.log('\n❌ Malformed agent output — invalid JSON\n');
   console.log('Output:', output.slice(0, 500));
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `❌ Social Listening Error\n\nMalformed agent output — invalid JSON`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   saveState(state);
   process.exit(1);
 }
@@ -283,6 +286,7 @@ try {
 // 6. signal === false
 if (parsed.signal === false) {
   console.log('\n✅ No signals found in this sweep.\n');
+  spawnSync('openclaw', ['message', 'send', '--channel', 'discord', '--target', 'channel:1485501016332828682', '--message', `🔍 Social Listening Sweep\n\nNo signals found.`], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   state.lastRun = now;
   saveState(state);
   process.exit(0);
@@ -387,11 +391,11 @@ fs.writeFileSync(DRAFTS, JSON.stringify(drafts, null, 2));
 console.log(`\n  Total: ${hotCount} HOT, ${warmCount} WARM, ${coldCount} COLD`);
 console.log(`  New drafts: ${newDrafts.length}\n`);
 
-// ─── NOTIFY (TELEGRAM) ───────────────────────────────────────────────────
+// ─── NOTIFY (DISCORD) ────────────────────────────────────────────────────
 
-console.log('  📱 Sending Telegram notification...');
+console.log('  🔔 Sending Discord notification...');
 
-const telegramLines = [
+const discordLines = [
   '🔍 Social Listening Sweep',
   '',
   `HOT: ${hotCount}  WARM: ${warmCount}  COLD: ${coldCount}`,
@@ -399,29 +403,28 @@ const telegramLines = [
 ];
 
 if (newDrafts.length > 0) {
-  telegramLines.push('');
+  discordLines.push('');
   newDrafts.forEach(d => {
-    telegramLines.push(`${d.tier} — ${d.platform} — ${d.pain_category}`);
+    discordLines.push(`${d.tier} — ${d.platform} — ${d.pain_category}`);
   });
 }
 
-const telegramResult = spawnSync('openclaw', [
-  'message',
-  'send',
-  '--channel', 'telegram',
-  '--target', '6241290513',
-  '--message', telegramLines.join('\n')
+const discordResult = spawnSync('openclaw', [
+  'message', 'send',
+  '--channel', 'discord',
+  '--target', 'channel:1485501084742062191',
+  '--message', discordLines.join('\n')
 ], {
   encoding: 'utf8',
   env: { ...process.env },
   timeout: 10000
 });
 
-if (telegramResult.status === 0 && !telegramResult.error) {
-  console.log('  ✓ Telegram notification sent');
+if (discordResult.status === 0 && !discordResult.error) {
+  console.log('  ✓ Discord notification sent');
 } else {
-  const errorMsg = telegramResult.error?.message || telegramResult.stderr?.slice(0, 100) || 'unknown error';
-  console.warn(`  ⚠ Telegram notification failed: ${errorMsg}`);
+  const errorMsg = discordResult.error?.message || discordResult.stderr?.slice(0, 100) || 'unknown error';
+  console.warn(`  ⚠ Discord notification failed: ${errorMsg}`);
 }
 
 // ─── LOG TO MEMORY ────────────────────────────────────────────────────────
