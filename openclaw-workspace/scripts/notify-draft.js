@@ -23,11 +23,7 @@ const DRAFTS    = path.join(WORKSPACE, 'drafts.json');
 
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK_AGENTCARD || '';
 const SLACK_WEBHOOK   = process.env.SLACK_WEBHOOK_AGENTCARD   || '';
-<<<<<<< HEAD
-const DISCORD_CHAT    = '1485501084742062191';  // agentcard-drafts
-=======
 const DISCORD_CHANNEL = '1485501084742062191'; // agentcard-drafts
->>>>>>> 8ae19e88d8eb69c566846e1f18fa7940f11ae5ce
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 
@@ -56,11 +52,7 @@ function sendDiscord(text) {
   const result = spawnSync('openclaw', [
     'message', 'send',
     '--channel', 'discord',
-<<<<<<< HEAD
-    '--to', DISCORD_CHAT,
-=======
     '--target', `channel:${DISCORD_CHANNEL}`,
->>>>>>> 8ae19e88d8eb69c566846e1f18fa7940f11ae5ce
     '--message', text,
     '--best-effort',
   ], { encoding: 'utf8' });
@@ -126,15 +118,9 @@ async function main() {
     console.log('Discord: skipped (no webhook)');
   }
 
-<<<<<<< HEAD
-  // ── Discord (openclaw message) ──
-  const dcOk = sendDiscord(msgBody);
-  console.log(`Discord: ${dcOk ? 'sent' : 'failed'}`);
-=======
   // ── Discord (openclaw) ──
   const dcOk = sendDiscord(msgBody);
   console.log(`Discord (openclaw): ${dcOk ? 'sent' : 'failed'}`);
->>>>>>> 8ae19e88d8eb69c566846e1f18fa7940f11ae5ce
 
   // ── Slack ──
   if (SLACK_WEBHOOK) {
@@ -158,5 +144,3 @@ async function main() {
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
-xit(1); });
-); });
