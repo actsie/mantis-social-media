@@ -150,7 +150,8 @@ ${content}
     '--name', sessionName,
     '--at', runAt,
     '--message', sessionMsg,
-    '--announce',
+    '--delivery-channel', 'discord',
+    '--delivery-target', '1485556397293703279',
     '--delete-after-run',
     '--tz', 'America/Los_Angeles'
   ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });

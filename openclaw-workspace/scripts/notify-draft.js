@@ -48,11 +48,11 @@ function post(urlStr, body) {
   });
 }
 
-function sendTelegram(text) {
+function sendDiscord(text) {
   const result = spawnSync('openclaw', [
     'message', 'send',
-    '--channel', 'telegram',
-    '--to', TELEGRAM_CHAT,
+    '--channel', 'discord',
+    '--to', DISCORD_CHAT,
     '--message', text,
     '--best-effort',
   ], { encoding: 'utf8' });
@@ -144,3 +144,4 @@ async function main() {
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
+xit(1); });

@@ -43,10 +43,10 @@ const msg = restart.status === 0
 
 console.log(msg);
 
-// Notify via Telegram
+// Notify via Discord (socmed-alerts)
 run('openclaw', [
   'message', 'send',
-  '--channel', 'telegram',
-  '--target', '6241290513',
+  '--channel', 'discord',
+  '--target', '1485556473873436743',
   '--message', msg
 ]);
