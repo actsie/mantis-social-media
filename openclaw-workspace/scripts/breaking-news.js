@@ -200,7 +200,6 @@ const result = spawnSync('openclaw', [
   'agent',
   '--session-id', 'main',
   '--message', prompt,
-  '--model', 'qwen3.5-plus',
   '--thinking', 'minimal',
   '--timeout', '180'
 ], {
