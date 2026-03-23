@@ -199,13 +199,16 @@ function postToX(draft) {
 
 console.log(`\n[agentcard-post-approved] ${new Date().toISOString()}\n`);
 
-// Step 1: Pull latest (stash local changes first to avoid rebase conflicts)
+// Step 1: Fetch latest drafts.json from GitHub (bypasses local merge conflicts)
 console.log('Pulling latest from origin...');
-spawnSync('git', ['-C', '/Users/mantisclaw/agentcard-social', 'stash'], { encoding: 'utf8' });
-const pull = spawnSync('git', ['-C', '/Users/mantisclaw/agentcard-social', 'pull', 'origin', 'main'], { encoding: 'utf8' });
-if (pull.status !== 0) console.warn('  Pull failed (continuing):', pull.stderr?.trim());
-else console.log('  OK');
-spawnSync('git', ['-C', '/Users/mantisclaw/agentcard-social', 'stash', 'pop'], { encoding: 'utf8' });
+const fetch = spawnSync('git', ['-C', '/Users/mantisclaw/agentcard-social', 'fetch', 'origin', 'main'], { encoding: 'utf8' });
+if (fetch.status !== 0) {
+  console.warn('  Fetch failed (continuing):', fetch.stderr?.trim());
+} else {
+  // Checkout just drafts.json from origin — always gets the approved status
+  spawnSync('git', ['-C', '/Users/mantisclaw/agentcard-social', 'checkout', 'origin/main', '--', 'openclaw-workspace/drafts.json'], { encoding: 'utf8' });
+  console.log('  OK');
+}
 
 // Step 2: Read drafts
 const drafts = readDrafts();
