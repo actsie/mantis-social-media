@@ -376,7 +376,11 @@ function runCmd(cmd, cwd = null) {
     cwd, 
     encoding: 'utf8', 
     maxBuffer: 10 * 1024 * 1024,
-    env: { ...process.env, PATH: `/Users/mantisclaw/.nvm/versions/node/v24.13.1/bin:${process.env.PATH || ''}` }
+    env: { 
+      ...process.env, 
+      PATH: `/Users/mantisclaw/.nvm/versions/node/v24.13.1/bin:/usr/bin:/bin:/usr/sbin:/sbin`,
+      HOME: process.env.HOME || '/Users/mantisclaw'
+    }
   });
   return { stdout: result.stdout, stderr: result.stderr, status: result.status };
 }
@@ -649,7 +653,7 @@ ${bodyContent}
     // Send Discord notification using OpenClaw message tool
     console.log(`  🔔 Sending Discord notification...`);
     const discordMsg = `New skill published: ${skillName} — https://skills.pawgrammer.com/skills/${slug}`;
-    const discordResult = runCmd(`openclaw message send --channel discord --target 1485568635572457654 --message "${discordMsg.replace(/"/g, '\\"')}"`);
+    const discordResult = runCmd(`/Users/mantisclaw/.nvm/versions/node/v24.13.1/bin/openclaw message send --channel discord --target 1485568635572457654 --message "${discordMsg.replace(/"/g, '\\\\"')}"`);
     
     if (discordResult.status === 0) {
       console.log(`  ✓ Discord notification sent\n`);
