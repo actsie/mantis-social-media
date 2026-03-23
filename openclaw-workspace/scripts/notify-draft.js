@@ -7,8 +7,8 @@
  *   node notify-draft.js <draft-id>
  *
  * Reads the draft from drafts.json, then sends:
- *   - Discord webhook
- *   - Telegram (via openclaw message)
+ *   - Discord webhook (agentcard-drafts channel)
+ *   - Discord via openclaw message (agentcard-drafts channel)
  *   - Slack (if SLACK_WEBHOOK_AGENTCARD is set)
  */
 
@@ -23,7 +23,7 @@ const DRAFTS    = path.join(WORKSPACE, 'drafts.json');
 
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK_AGENTCARD || '';
 const SLACK_WEBHOOK   = process.env.SLACK_WEBHOOK_AGENTCARD   || '';
-const TELEGRAM_CHAT   = '6241290513';
+const DISCORD_CHANNEL = '1485501084742062191'; // agentcard-drafts
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 
@@ -48,11 +48,11 @@ function post(urlStr, body) {
   });
 }
 
-function sendTelegram(text) {
+function sendDiscord(text) {
   const result = spawnSync('openclaw', [
     'message', 'send',
-    '--channel', 'telegram',
-    '--to', TELEGRAM_CHAT,
+    '--channel', 'discord',
+    '--target', `channel:${DISCORD_CHANNEL}`,
     '--message', text,
     '--best-effort',
   ], { encoding: 'utf8' });
@@ -118,9 +118,9 @@ async function main() {
     console.log('Discord: skipped (no webhook)');
   }
 
-  // ── Telegram ──
-  const tgOk = sendTelegram(msgBody);
-  console.log(`Telegram: ${tgOk ? 'sent' : 'failed'}`);
+  // ── Discord (openclaw) ──
+  const dcOk = sendDiscord(msgBody);
+  console.log(`Discord (openclaw): ${dcOk ? 'sent' : 'failed'}`);
 
   // ── Slack ──
   if (SLACK_WEBHOOK) {

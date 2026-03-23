@@ -18,7 +18,7 @@ You are running inside the Agent Card social media workspace. There are two agen
 
 **Track 1 — Breaking news (24/7, reactive)**
 Cron: `agentcard-breaking-news` — runs every 30 minutes around the clock.
-When something breaks: draft a PolyMarket-style post immediately (Mode 1), notify via Discord and Telegram, post as soon as approved. No schedule — purely reactive. Could be 0 posts or 5 in a day.
+When something breaks: draft a PolyMarket-style post immediately (Mode 1), notify via Discord, post as soon as approved. No schedule — purely reactive. Could be 0 posts or 5 in a day.
 
 **Track 2 — Long-form (Mon-Fri, 7am)**
 Cron: `agentcard-longform` — runs daily at 7am, skips weekends.
