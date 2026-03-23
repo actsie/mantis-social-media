@@ -23,7 +23,7 @@ const DRAFTS    = path.join(WORKSPACE, 'drafts.json');
 
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK_AGENTCARD || '';
 const SLACK_WEBHOOK   = process.env.SLACK_WEBHOOK_AGENTCARD   || '';
-const DISCORD_CHAT    = '1485556397293703279';
+const DISCORD_CHAT    = '1485501084742062191';  // agentcard-drafts
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 

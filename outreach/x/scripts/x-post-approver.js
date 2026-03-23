@@ -151,7 +151,7 @@ ${content}
     '--at', runAt,
     '--message', sessionMsg,
     '--delivery-channel', 'discord',
-    '--delivery-target', '1485556397293703279',
+    '--delivery-target', '1485501084742062191',
     '--delete-after-run',
     '--tz', 'America/Los_Angeles'
   ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
