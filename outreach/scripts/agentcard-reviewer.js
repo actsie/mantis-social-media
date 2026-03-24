@@ -29,9 +29,10 @@ function shouldPause(log) {
   const allSameLint = recentRuns.every(r => r.lintErrors === recentRuns[0].lintErrors);
   const allSameTS = recentRuns.every(r => r.tsErrors === recentRuns[0].tsErrors);
   const allSameScripts = recentRuns.every(r => r.brokenScripts === recentRuns[0].brokenScripts);
-  const allSameCron = recentRuns.every(r => r.cronErrors === recentRuns[0].cronErrors);
+  // Note: cronErrors can fluctuate (external crons), so we don't require exact match
+  const allSameCoreMetrics = allSameLint && allSameTS && allSameScripts;
   
-  return allSameLint && allSameTS && allSameScripts && allSameCron;
+  return allSameCoreMetrics;
 }
 
 // Utility: Run command
@@ -73,11 +74,13 @@ if (shouldPause(log)) {
   console.log('💡 To resume: make a code change and commit, or delete the log file.\n');
   
   // Send pause notification to Discord (only once, not every run)
-  const lastPauseNotification = log.runs[log.runs.length - PAUSE_THRESHOLD]?.pauseNotified;
-  if (!lastPauseNotification) {
+  const lastRun = log.runs[log.runs.length - 1];
+  if (!lastRun?.pauseNotified) {
     sendDiscord('⏸️ Code Reviewer Paused\n\nLast 3 runs identical with no code changes.\n\n💡 To resume: make a code change and commit.');
-    log.runs[log.runs.length - PAUSE_THRESHOLD].pauseNotified = true;
-    fs.writeFileSync(LOG_FILE, JSON.stringify(log, null, 2));
+    if (lastRun) {
+      lastRun.pauseNotified = true;
+      fs.writeFileSync(LOG_FILE, JSON.stringify(log, null, 2));
+    }
   }
   
   process.exit(0);
