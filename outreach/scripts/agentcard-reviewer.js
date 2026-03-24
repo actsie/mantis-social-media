@@ -18,6 +18,7 @@ const WORKSPACE = '/Users/mantisclaw/agentcard-social/openclaw-workspace';
 const DISCORD_CHANNEL = '1485501016332828682'; // #agentcard-alerts
 const LOG_FILE = path.join(__dirname, '../agentcard-reviewer-log.json');
 const PAUSE_THRESHOLD = 3; // Pause after N consecutive identical runs
+const NOTIFY_ON_PAUSE = false; // Set to true to get Discord notifications when pausing
 
 console.log('🔍 AgentCard Code Reviewer — QA Check\n');
 
@@ -75,7 +76,7 @@ if (shouldPause(log)) {
   
   // Send pause notification to Discord (only once, not every run)
   const lastRun = log.runs[log.runs.length - 1];
-  if (!lastRun?.pauseNotified) {
+  if (NOTIFY_ON_PAUSE && !lastRun?.pauseNotified) {
     sendDiscord('⏸️ Code Reviewer Paused\n\nLast 3 runs identical with no code changes.\n\n💡 To resume: make a code change and commit.');
     if (lastRun) {
       lastRun.pauseNotified = true;

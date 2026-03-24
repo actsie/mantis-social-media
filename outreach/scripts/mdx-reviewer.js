@@ -14,6 +14,7 @@ const REPO_PATH = '/Users/mantisclaw/claude-skills';
 const DISCORD_CHANNEL = '1485568635572457654'; // #skills-publisher-mantisclaw
 const LOG_FILE = path.join(__dirname, '../mdx-reviewer-log.json');
 const PAUSE_THRESHOLD = 3; // Pause after N consecutive identical runs
+const NOTIFY_ON_PAUSE = false; // Set to true to get Discord notifications when pausing
 
 console.log('🔍 MDX Reviewer — claude-skills QA\n');
 
@@ -69,7 +70,7 @@ if (shouldPause(log)) {
   
   // Send pause notification to Discord (only once, not every run)
   const lastRun = log.runs[log.runs.length - 1];
-  if (!lastRun?.pauseNotified) {
+  if (NOTIFY_ON_PAUSE && !lastRun?.pauseNotified) {
     sendDiscord('⏸️ MDX Reviewer Paused\n\nLast 3 runs identical with no code changes.\n\n💡 To resume: make a code change and commit.');
     if (lastRun) {
       lastRun.pauseNotified = true;
