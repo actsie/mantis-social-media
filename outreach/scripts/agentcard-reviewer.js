@@ -74,11 +74,13 @@ if (shouldPause(log)) {
   console.log('💡 To resume: make a code change and commit, or delete the log file.\n');
   
   // Send pause notification to Discord (only once, not every run)
-  const lastPauseNotification = log.runs[log.runs.length - PAUSE_THRESHOLD]?.pauseNotified;
-  if (!lastPauseNotification) {
+  const lastRun = log.runs[log.runs.length - 1];
+  if (!lastRun?.pauseNotified) {
     sendDiscord('⏸️ Code Reviewer Paused\n\nLast 3 runs identical with no code changes.\n\n💡 To resume: make a code change and commit.');
-    log.runs[log.runs.length - PAUSE_THRESHOLD].pauseNotified = true;
-    fs.writeFileSync(LOG_FILE, JSON.stringify(log, null, 2));
+    if (lastRun) {
+      lastRun.pauseNotified = true;
+      fs.writeFileSync(LOG_FILE, JSON.stringify(log, null, 2));
+    }
   }
   
   process.exit(0);
