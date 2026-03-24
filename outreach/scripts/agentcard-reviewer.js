@@ -29,9 +29,10 @@ function shouldPause(log) {
   const allSameLint = recentRuns.every(r => r.lintErrors === recentRuns[0].lintErrors);
   const allSameTS = recentRuns.every(r => r.tsErrors === recentRuns[0].tsErrors);
   const allSameScripts = recentRuns.every(r => r.brokenScripts === recentRuns[0].brokenScripts);
-  const allSameCron = recentRuns.every(r => r.cronErrors === recentRuns[0].cronErrors);
+  // Note: cronErrors can fluctuate (external crons), so we don't require exact match
+  const allSameCoreMetrics = allSameLint && allSameTS && allSameScripts;
   
-  return allSameLint && allSameTS && allSameScripts && allSameCron;
+  return allSameCoreMetrics;
 }
 
 // Utility: Run command
