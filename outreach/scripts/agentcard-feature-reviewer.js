@@ -17,8 +17,21 @@ const path = require('path');
 const WORKSPACE = '/Users/mantisclaw/agentcard-social/openclaw-workspace';
 const DISCORD_CHANNEL = '1485501016332828682'; // #agentcard-alerts
 const LOG_FILE = path.join(__dirname, '../agentcard-feature-reviewer-log.json');
+const PAUSE_THRESHOLD = 3; // Pause after N consecutive identical runs
 
 console.log('🎨 AgentCard Feature Reviewer — UX Check\n');
+
+// Check if we should pause (3+ identical runs with no code changes)
+function shouldPause(log) {
+  if (log.runs.length < PAUSE_THRESHOLD) return false;
+  
+  const recentRuns = log.runs.slice(-PAUSE_THRESHOLD);
+  const allSameBuild = recentRuns.every(r => r.buildErrors === recentRuns[0].buildErrors);
+  const allSameFeatures = recentRuns.every(r => r.missingFeatures === recentRuns[0].missingFeatures);
+  const allSameDebug = recentRuns.every(r => r.debugFiles === recentRuns[0].debugFiles);
+  
+  return allSameBuild && allSameFeatures && allSameDebug;
+}
 
 // Utility: Run command
 function runCmd(cmd, cwd = null) {
@@ -52,6 +65,22 @@ if (fs.existsSync(LOG_FILE)) {
 
 const runStart = new Date().toISOString();
 console.log(`📅 Run started: ${runStart}\n`);
+
+// Check if we should pause (3+ identical runs with no code changes)
+if (shouldPause(log)) {
+  console.log(`⏸️ PAUSED: Last ${PAUSE_THRESHOLD} runs identical with no changes.\n`);
+  console.log('💡 To resume: make a code change and commit, or delete the log file.\n');
+  
+  // Send pause notification to Discord (only once, not every run)
+  const lastPauseNotification = log.runs[log.runs.length - PAUSE_THRESHOLD]?.pauseNotified;
+  if (!lastPauseNotification) {
+    sendDiscord('⏸️ Feature Reviewer Paused\n\nLast 3 runs identical with no code changes.\n\n💡 To resume: make a code change and commit.');
+    log.runs[log.runs.length - PAUSE_THRESHOLD].pauseNotified = true;
+    fs.writeFileSync(LOG_FILE, JSON.stringify(log, null, 2));
+  }
+  
+  process.exit(0);
+}
 
 // Step 1: Pull latest
 console.log('1️⃣ Pulling latest from main...');

@@ -17,8 +17,22 @@ const path = require('path');
 const WORKSPACE = '/Users/mantisclaw/agentcard-social/openclaw-workspace';
 const DISCORD_CHANNEL = '1485501016332828682'; // #agentcard-alerts
 const LOG_FILE = path.join(__dirname, '../agentcard-reviewer-log.json');
+const PAUSE_THRESHOLD = 3; // Pause after N consecutive identical runs
 
 console.log('🔍 AgentCard Code Reviewer — QA Check\n');
+
+// Check if we should pause (3+ identical runs with no code changes)
+function shouldPause(log) {
+  if (log.runs.length < PAUSE_THRESHOLD) return false;
+  
+  const recentRuns = log.runs.slice(-PAUSE_THRESHOLD);
+  const allSameLint = recentRuns.every(r => r.lintErrors === recentRuns[0].lintErrors);
+  const allSameTS = recentRuns.every(r => r.tsErrors === recentRuns[0].tsErrors);
+  const allSameScripts = recentRuns.every(r => r.brokenScripts === recentRuns[0].brokenScripts);
+  const allSameCron = recentRuns.every(r => r.cronErrors === recentRuns[0].cronErrors);
+  
+  return allSameLint && allSameTS && allSameScripts && allSameCron;
+}
 
 // Utility: Run command
 function runCmd(cmd, cwd = null) {
@@ -52,6 +66,22 @@ if (fs.existsSync(LOG_FILE)) {
 
 const runStart = new Date().toISOString();
 console.log(`📅 Run started: ${runStart}\n`);
+
+// Check if we should pause (3+ identical runs with no code changes)
+if (shouldPause(log)) {
+  console.log(`⏸️ PAUSED: Last ${PAUSE_THRESHOLD} runs identical with no changes.\n`);
+  console.log('💡 To resume: make a code change and commit, or delete the log file.\n');
+  
+  // Send pause notification to Discord (only once, not every run)
+  const lastPauseNotification = log.runs[log.runs.length - PAUSE_THRESHOLD]?.pauseNotified;
+  if (!lastPauseNotification) {
+    sendDiscord('⏸️ Code Reviewer Paused\n\nLast 3 runs identical with no code changes.\n\n💡 To resume: make a code change and commit.');
+    log.runs[log.runs.length - PAUSE_THRESHOLD].pauseNotified = true;
+    fs.writeFileSync(LOG_FILE, JSON.stringify(log, null, 2));
+  }
+  
+  process.exit(0);
+}
 
 // Step 1: Check git status
 console.log('1️⃣ Checking git status...');

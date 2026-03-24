@@ -13,8 +13,21 @@ const path = require('path');
 const REPO_PATH = '/Users/mantisclaw/claude-skills';
 const DISCORD_CHANNEL = '1485568635572457654'; // #skills-publisher-mantisclaw
 const LOG_FILE = path.join(__dirname, '../mdx-reviewer-log.json');
+const PAUSE_THRESHOLD = 3; // Pause after N consecutive identical runs
 
 console.log('🔍 MDX Reviewer — claude-skills QA\n');
+
+// Check if we should pause (3+ identical runs with no code changes)
+function shouldPause(log) {
+  if (log.runs.length < PAUSE_THRESHOLD) return false;
+  
+  const recentRuns = log.runs.slice(-PAUSE_THRESHOLD);
+  const allSameStatus = recentRuns.every(r => r.status === recentRuns[0].status);
+  const allSameErrors = recentRuns.every(r => r.errors === recentRuns[0].errors);
+  const allSameFixes = recentRuns.every(r => r.fixes === recentRuns[0].fixes);
+  
+  return allSameStatus && allSameErrors && allSameFixes;
+}
 
 // Utility: Run command
 function runCmd(cmd, cwd = null) {
@@ -48,6 +61,22 @@ if (fs.existsSync(LOG_FILE)) {
 
 const runStart = new Date().toISOString();
 console.log(`📅 Run started: ${runStart}\n`);
+
+// Check if we should pause (3+ identical runs with no code changes)
+if (shouldPause(log)) {
+  console.log(`⏸️ PAUSED: Last ${PAUSE_THRESHOLD} runs identical with no changes.\n`);
+  console.log('💡 To resume: make a code change and commit, or delete the log file.\n');
+  
+  // Send pause notification to Discord (only once, not every run)
+  const lastPauseNotification = log.runs[log.runs.length - PAUSE_THRESHOLD]?.pauseNotified;
+  if (!lastPauseNotification) {
+    sendDiscord('⏸️ MDX Reviewer Paused\n\nLast 3 runs identical with no code changes.\n\n💡 To resume: make a code change and commit.');
+    log.runs[log.runs.length - PAUSE_THRESHOLD].pauseNotified = true;
+    fs.writeFileSync(LOG_FILE, JSON.stringify(log, null, 2));
+  }
+  
+  process.exit(0);
+}
 
 // Step 1: Pull latest
 console.log('1️⃣ Pulling latest from main...');
