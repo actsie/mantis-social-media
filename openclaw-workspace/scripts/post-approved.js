@@ -286,7 +286,7 @@ for (const draft of approved) {
     spawnSync('openclaw', [
       'message', 'send',
       '--channel', 'discord',
-      '--target', 'channel:1485501084742062191',
+      '--target', 'channel:1485501016332828682',
       '--message', `❌ Post failed\n\nID: ${draft.id}\nError: ${errMsg}`
     ], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   }
