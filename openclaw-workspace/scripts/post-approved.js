@@ -259,7 +259,15 @@ for (const draft of approved) {
     gitCommitPush(`Post ${draft.id}`);
 
     postedThisRun++;
-    console.log(`  ✅ Posted (cron: ${runId})`);
+    console.log(`  ✅ Tweet queued (cron: ${runId})`);
+
+    // Notify Discord
+    spawnSync('openclaw', [
+      'message', 'send',
+      '--channel', 'discord',
+      '--target', 'channel:1485501084742062191',
+      '--message', `✅ Tweet queued for posting\n\nID: ${draft.id}\nText: ${(draft.text || '').substring(0, 100)}...\nType: ${draft.type}\nScheduled cron: ${runId}`
+    ], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
 
     // Rate limit: max 2 per run
     if (postedThisRun >= 2) {
@@ -271,8 +279,21 @@ for (const draft of approved) {
     draft.status = 'post_failed';
     draft.error = err.message;
     saveDrafts(drafts);
-    console.error(`  ❌ Failed: ${err.message}`);
+    const errMsg = err.message.substring(0, 200);
+    console.error(`  ❌ Failed: ${errMsg}`);
+
+    // Notify Discord on failure
+    spawnSync('openclaw', [
+      'message', 'send',
+      '--channel', 'discord',
+      '--target', 'channel:1485501084742062191',
+      '--message', `❌ Post failed\n\nID: ${draft.id}\nError: ${errMsg}`
+    ], { encoding: 'utf8', env: { ...process.env }, timeout: 10000 });
   }
 }
 
-console.log(`\n[done] Posted: ${postedThisRun}`);
+if (postedThisRun === 0) {
+  console.log('\n[done] No drafts posted this run');
+} else {
+  console.log(`\n[done] Posted: ${postedThisRun}`);
+}
