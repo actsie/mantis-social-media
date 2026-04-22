@@ -69,29 +69,20 @@ function postLead(lead) {
   });
 }
 
-// ── Read leads from output file ───────────────────────────────────────────────
+// ── Output file ───────────────────────────────────────────────────────────────
 
 const today = todayPST().replace(/-/g, '');
 const OUTPUT_FILE = `/tmp/reddit-complaint-leads-${today}.json`;
 
 // ── Session message for cron subagent ───────────────────────────────────────
-
-const SEARCH_QUERIES = [
-  'exhausted OR "burned out" OR "can\'t keep up" OR "working 80 hours"',
-  '"phone won\'t stop" OR "inbox is" OR "DMs are" OR "too busy to respond"',
-  '"no show" OR cancellation OR "didn\'t show up"',
-  '"how do you handle" OR "recommend software" OR "recommend tool"',
-  '"overwhelmed with" OR "can\'t eat" OR "no work-life balance"'
-];
+// IMPORTANT: This session message is baked into the cron at creation time.
+// It MUST fetch settings at runtime (STEP 0) so changes to dashboard settings
+// take effect on the next run without recreating the cron.
 
 const sessionMessage = [
   `REDDIT COMPLAINT SEARCH — ${today} — post as u/Alive_Kick7098.`,
   ``,
   `BROWSER: Use profile="openclaw" for ALL browser tool calls. Logged into Reddit as u/Alive_Kick7098.`,
-  ``,
-  `GOAL: Search for complaint posts from the last 72 hours.`,
-  `For each HOT/WARM lead found, generate reply_draft + dm_draft and write to OUTPUT_FILE.`,
-  `HOT leads: also post the comment.`,
   ``,
   `OUTPUT FILE: ${OUTPUT_FILE}`,
   ``,
@@ -108,7 +99,7 @@ const sessionMessage = [
   `  - pain_points (array of pain descriptions — for matching)`,
   `  - focus_topic (string — for matching)`,
   ``,
-  `If the API fails, fall back to these defaults:`,
+  `If the API fails, fall back to:`,
   `  Subreddits: smallbusiness, Entrepreneur, salonowners, indiehackers`,
   `  Search terms: landing page, waiting for dev, website change, pre-launch, launch stuck, dated website`,
   ``,
@@ -127,60 +118,52 @@ const sessionMessage = [
   `2. Extract: post_url (old.reddit.com), title, text, author, age`,
   `3. Age → hours: "minutes"÷60, "hours"=X, "days"=X*24`,
   `4. Tier: HOT=<2hrs, WARM=<72hrs, COLD=>72hrs → skip`,
-  `5. Detect pain_type from title+text`,
+  `5. Detect pain_type from title+text using pain_points`,
   ``,
   `═══════════════════════════════════════════════════════════`,
   `STEP 3 — Write leads to ${OUTPUT_FILE}:`,
   `═══════════════════════════════════════════════════════════`,
   ``,
-  `Save as /tmp/write-lead.js and run with node for each lead:`,
+  `Save this as /tmp/write-lead.js and run with node for each lead:`,
   ``,
-  `const fs = require('fs');`,
-  `const output = '${OUTPUT_FILE}';`,
-  `let data = { leads: [] };`,
-  `if (fs.existsSync(output)) {`,
-  `  try { data = JSON.parse(fs.readFileSync(output, 'utf8')); } catch(e) {}`,
-  `}`,
-  `const lead = {`,
-  `  handle: "@" + author,`,
-  `  platform: "reddit",`,
-  `  post_url: "https://old.reddit.com" + permalink,`,
-  `  post_text: "...",`,
-  `  post_date: "Mar 25, 2026",`,
-  `  match_reason: "why good lead in one sentence",`,
-  `  reply_draft: "helpful 2-3 sentence comment, not a pitch",`,
-  `  dm_draft: "casual 2-3 sentence DM, specific to post, ends with question",`,
-  `  pain_type: painType,`,
-  `  tier: tier,`,
-  `  subreddit: "r/" + subreddit,`,
-  `  post_title: "title",`,
-  `  foundAt: new Date().toISOString(),`,
-  `};`,
-  `if (!data.leads.some(l => l.post_url === lead.post_url)) {`,
-  `  data.leads.push(lead);`,
-  `  fs.writeFileSync(output, JSON.stringify(data, null, 2));`,
-  `  console.log("WRITTEN: " + author);`,
-  `} else {`,
-  `  console.log("SKIP: " + author + " (duplicate)");`,
-  `}`,
+  `const fs=require("fs");const o="${OUTPUT_FILE}";let d={leads:[]};`,
+  `try{const e=JSON.parse(fs.readFileSync(o,"utf8"));d={leads:Array.isArray(e)?e:(e.leads||[])};}catch(x){}`,
+  `const l={handle:"@"+author,platform:"reddit",`,
+  `post_url:permalink.startsWith("http")?permalink:"https://old.reddit.com"+permalink,`,
+  `post_text:text||"",post_date:new Date().toLocaleString("en-US",{timeZone:"America/Los_Angeles"}),`,
+  `match_reason:query_match||"",reply_draft:reply_draft||"",dm_draft:dm_draft||"",`,
+  `tier,foundAt:new Date().toISOString(),commentedAt:null};`,
+  `if(!d.leads.some(x=>x.post_url===l.post_url)){d.leads.push(l);fs.writeFileSync(o,JSON.stringify(d,null,2));`,
+  `console.log("WRITTEN:"+author+"|"+tier);}else{console.log("SKIP:"+author);}`,
   ``,
   `═══════════════════════════════════════════════════════════`,
-  `STEP 4 — HOT leads only: Post Comment:`,
+  `STEP 4 — HOT leads only: Post Comment + Update File:`,
   `═══════════════════════════════════════════════════════════`,
+  ``,
+  `For HOT leads only:`,
   `1. Navigate to post URL (old.reddit.com)`,
   `2. HUMANIZE the reply_draft first`,
   `3. Post via textarea[name="text"] → focus → execCommand insertText → Save`,
   `4. Upvote: .arrow.up → click`,
   `5. Reload to confirm`,
-  `6. Update OUTPUT_FILE entry: commentedAt: new Date().toISOString()`,
+  `6. Update OUTPUT_FILE — set commentedAt for this author:`,
   ``,
-  `Reply with DONE — N HOT leads, M WARM leads, K comments posted`,
+  `node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('${OUTPUT_FILE}','utf8'));`,
+  `const a=d.leads.find(x=>x.handle==='@'+author);if(a){a.commentedAt=new Date().toISOString();`,
+  `fs.writeFileSync('${OUTPUT_FILE}',JSON.stringify(d,null,2));console.log('UPDATED:'+author);}"`,
+  ``,
+  `═══════════════════════════════════════════════════════════`,
+  `STEP 5 — Done:`,
+  `═══════════════════════════════════════════════════════════`,
+  ``,
+  `Reply with:`,
+  `  DONE — N HOT leads, M WARM leads, K comments posted`,
+  `  Leads written to: ${OUTPUT_FILE}`,
 ].join('\n');
 
-// ── Mode 1: Create daily cron ─────────────────────────────────────────────────
+// ── Mode 1: Create hourly cron ───────────────────────────────────────────────
 
 if (process.argv.includes('--setup')) {
-  // Hourly cron: top of every hour (0 * * * *)
   const cronName = 'reddit-complaint-hourly';
   const cronExpr = '0 * * * *';
 
@@ -192,7 +175,9 @@ if (process.argv.includes('--setup')) {
     '--name', cronName,
     '--cron', cronExpr,
     '--message', sessionMessage,
-    '--tz', 'America/Los_Angeles'
+    '--tz', 'America/Los_Angeles',
+    '--channel', 'discord',
+    '--to', '1485556397293703279'
   ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
 
   if (result.status === 0) {
@@ -206,21 +191,18 @@ if (process.argv.includes('--setup')) {
 }
 
 // ── Mode 2: Read leads from file and submit to dashboard ──────────────────────
-// Cron fires hourly (:00), subagent writes leads to OUTPUT_FILE.
-// This script polls for the file, submits leads to dashboard API, sends Discord summary.
-//
-// Polling: up to 30 min (360 attempts × 5s = 30min)
-// Uses https.request (not http) for Cloudflare Workers SSL
 
 if (!fs.existsSync(OUTPUT_FILE)) {
   console.log(`No leads file found at ${OUTPUT_FILE}`);
-  console.log(`Run after the cron fires (leads written at ${OUTPUT_FILE})`);
+  console.log(`Run after the cron fires.`);
   process.exit(0);
 }
 
 let outputData;
 try {
-  outputData = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'));
+  const raw = fs.readFileSync(OUTPUT_FILE, 'utf8');
+  const parsed = JSON.parse(raw);
+  outputData = { leads: Array.isArray(parsed) ? parsed : (parsed.leads || []) };
 } catch (e) {
   console.error(`Failed to read leads file: ${e.message}`);
   process.exit(1);
@@ -234,8 +216,6 @@ if (!leads || leads.length === 0) {
 
 // Wrap in async IIFE to support top-level await
 (async () => {
-  // ── Submit leads to dashboard API ─────────────────────────────────────────────
-
   console.log(`\n📤 Submitting ${leads.length} leads to dashboard API...\n`);
 
   let submitted = 0;
@@ -243,24 +223,37 @@ if (!leads || leads.length === 0) {
 
   for (const lead of leads) {
     if (lead.commentedAt) {
-      console.log(`  ⏭ Skipping (already commented): ${lead.handle}`);
+      console.log(`  ⏭ Skipping (already commented): ${lead.handle || lead.author}`);
       continue;
     }
-    const result = await postLead(lead);
+    // Normalize fields from subagent's direct-write format
+    const normalized = {
+      handle: lead.handle || ('@' + lead.author),
+      platform: 'reddit',
+      post_url: lead.post_url || (lead.permalink && (lead.permalink.startsWith('http') ? lead.permalink : 'https://old.reddit.com' + lead.permalink)),
+      post_text: lead.post_text || lead.text || '',
+      post_date: lead.post_date || '',
+      match_reason: lead.match_reason || lead.query_match || '',
+      reply_draft: lead.reply_draft || '',
+      dm_draft: lead.dm_draft || ''
+    };
+    if (!normalized.handle || !normalized.post_url) {
+      console.log(`  ⏭ Skipping malformed lead: ${JSON.stringify(lead).slice(0, 80)}`);
+      continue;
+    }
+    const result = await postLead(normalized);
     if (result.success) {
       submitted++;
-      console.log(`  ✓ Submitted: ${lead.handle}`);
+      console.log(`  ✓ Submitted: ${normalized.handle}`);
     } else {
       failed++;
-      console.log(`  ✗ Failed: ${lead.handle} — ${result.error}`);
+      console.log(`  ✗ Failed: ${normalized.handle} — ${result.error}`);
     }
     await sleep(200);
   }
 
   const hotCount = leads.filter(l => l.tier === 'HOT').length;
   const warmCount = leads.filter(l => l.tier === 'WARM').length;
-
-  // ── Discord summary ───────────────────────────────────────────────────────────
 
   const summaryMsg = [
     `🔍 **Reddit Complaint Submitter — ${today}**`,
@@ -281,7 +274,7 @@ if (!leads || leads.length === 0) {
     execSync('openclaw', [
       'message', 'send',
       '--channel', 'discord',
-      '--target', '1485556454030315530',
+      '--target', '1485556397293703279',
       '--message', summaryMsg
     ], { encoding: 'utf8' });
     console.log(`\n📬 Discord summary sent`);
