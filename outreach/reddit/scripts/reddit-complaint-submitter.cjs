@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 /**
  * reddit-complaint-submitter.js
- * Daily cron: searches Reddit for complaints, submits leads to dashboard API.
- * Pattern: openclaw cron add with --cron (daily at 2pm PST).
- * No polling — cron fires at scheduled time, subagent writes leads, this script reads and submits.
+ * Hourly cron: searches Reddit for complaints, submits leads to dashboard API.
+ * Pattern: openclaw cron add with --cron (hourly at :00 every hour).
+ * Cron subagent writes leads to file, this script reads and submits.
  *
- * To set up: run once to create the daily cron.
- * Usage: node reddit-complaint-submitter.js
+ * To set up: node reddit-complaint-submitter.cjs --setup
+ * To submit: node reddit-complaint-submitter.cjs
  */
 
 const { execSync, spawnSync } = require('child_process');
 const fs = require('fs');
-const http = require('http');
+const https = require('https');
 
 const DASHBOARD_API = 'https://mantisclaw-dashboard.royaldependent9022.workers.dev';
 
@@ -55,7 +55,7 @@ function postLead(lead) {
       }
     };
 
-    const req = http.request(options, (res) => {
+    const req = https.request(options, (res) => {
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => {
@@ -167,12 +167,12 @@ const sessionMessage = [
 // ── Mode 1: Create daily cron ─────────────────────────────────────────────────
 
 if (process.argv.includes('--setup')) {
-  const cronName = 'reddit-complaint-daily';
-  // Daily at 2pm PST = 21:00 UTC
-  const cronExpr = '0 21 * * *';
+  // Hourly cron: top of every hour (0 * * * *)
+  const cronName = 'reddit-complaint-hourly';
+  const cronExpr = '0 * * * *';
 
-  console.log(`\n📅 Reddit Complaint Submitter — Setting up daily cron\n`);
-  console.log(`Schedule: ${cronExpr} America/Los_Angeles (2pm PST)\n`);
+  console.log(`\n📅 Reddit Complaint Submitter — Setting up hourly cron\n`);
+  console.log(`Schedule: ${cronExpr} America/Los_Angeles (top of every hour)\n`);
 
   const result = spawnSync('openclaw', [
     'cron', 'add',
@@ -183,8 +183,8 @@ if (process.argv.includes('--setup')) {
   ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
 
   if (result.status === 0) {
-    console.log(`✓ Daily cron created: ${cronName}`);
-    console.log(`  Fires at 2pm PST daily`);
+    console.log(`✓ Hourly cron created: ${cronName}`);
+    console.log(`  Fires at :00 every hour (PST)`);
   } else {
     console.error(`✗ Failed: ${result.stderr}`);
     process.exit(1);
@@ -193,7 +193,11 @@ if (process.argv.includes('--setup')) {
 }
 
 // ── Mode 2: Read leads from file and submit to dashboard ──────────────────────
-// Run this after the cron fires (cron writes leads to file, then this script reads + submits)
+// Cron fires hourly (:00), subagent writes leads to OUTPUT_FILE.
+// This script polls for the file, submits leads to dashboard API, sends Discord summary.
+//
+// Polling: up to 30 min (360 attempts × 5s = 30min)
+// Uses https.request (not http) for Cloudflare Workers SSL
 
 if (!fs.existsSync(OUTPUT_FILE)) {
   console.log(`No leads file found at ${OUTPUT_FILE}`);
