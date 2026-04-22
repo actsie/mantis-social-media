@@ -78,9 +78,10 @@ async function main() {
     return;
   }
 
-  const { leads = [] } = leadsRes.data;
+  const rawLeads = leadsRes.data.leads || leadsRes.data || [];
+  const leads = Array.isArray(rawLeads) ? rawLeads : [];
   const oneHourAgo = Date.now() - 60 * 60 * 1000;
-  const recentLeads = leads.filter(l => new Date(l.createdAt).getTime() > oneHourAgo);
+  const recentLeads = leads.filter(l => l.createdAt && new Date(l.createdAt).getTime() > oneHourAgo);
 
   console.log(`Dashboard leads total: ${leads.length}`);
   console.log(`New leads in last hour: ${recentLeads.length}`);
@@ -106,7 +107,7 @@ async function main() {
       const fileAgeMs = Date.now() - stat.mtimeMs;
       const fileAgeMin = Math.round(fileAgeMs / 60000);
       const data = JSON.parse(fs.readFileSync(leadsFile, 'utf8'));
-      const fileLeads = data.leads ? data.leads.length : 0;
+      const fileLeads = Array.isArray(data) ? data.length : (data.leads ? data.leads.length : 0);
 
       if (fileAgeMs > 2 * 60 * 60 * 1000) {
         // File older than 2 hours
